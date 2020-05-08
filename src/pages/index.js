@@ -1,13 +1,17 @@
 import React from "react"
 import { graphql, StaticQuery } from "gatsby"
+import { RichText } from "prismic-reactjs"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PostCard from "../components/postCard"
+import ArticleCard from "../components/articleCard"
 
 const BlogIndex = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
+  const articles = data.prismic.allBlog_posts.edges
+  let articleCounter = 0
   let postCounter = 0
 
   return (
@@ -20,6 +24,21 @@ const BlogIndex = ({ data }) => {
           </h1>
         </header>
       )}
+
+      <div className="post-feed">
+        {articles.map(({ node }) => {
+          articleCounter++
+          return (
+            <ArticleCard
+              key={node._meta.id}
+              counter={articleCounter}
+              node={node}
+              postClass={`post`}
+            />
+          )
+        })}
+      </div>
+
       <div className="post-feed">
         {posts.map(({ node }) => {
           postCounter++
@@ -43,6 +62,21 @@ const indexQuery = graphql`
       siteMetadata {
         title
         description
+      }
+    }
+    prismic {
+      allBlog_posts {
+        edges {
+          node {
+            image
+            title
+            _meta {
+              id
+              uid
+            }
+          }
+        }
+        totalCount
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {

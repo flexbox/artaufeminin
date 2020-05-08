@@ -8,10 +8,9 @@
     "url": "https://github.com/ImedAdel/gatsby-london/issues"
   },
   "dependencies": {
-    "gatsby": "^2.4.2",
+    "gatsby": "^2.21.21",
     "gatsby-image": "^2.0.41",
     "gatsby-plugin-feed": "^2.2.0",
-    "gatsby-plugin-google-analytics": "^2.0.19",
     "gatsby-plugin-manifest": "^2.1.1",
     "gatsby-plugin-netlify": "^2.0.17",
     "gatsby-plugin-offline": "^2.1.0",
@@ -26,8 +25,10 @@
     "gatsby-remark-smartypants": "^2.0.9",
     "gatsby-source-anchor": "^0.5.1",
     "gatsby-source-filesystem": "^2.0.33",
+    "gatsby-source-prismic-graphql": "^3.6.2",
     "gatsby-transformer-remark": "^2.3.12",
     "gatsby-transformer-sharp": "^2.1.19",
+    "prismic-reactjs": "^1.3.1",
     "prismjs": "^1.16.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
