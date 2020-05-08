@@ -6,8 +6,8 @@ import "../utils/css/screen.css"
 
 const Layout = props => {
   const { title, children } = props
-  console.log("props", props)
   const [toggleNav, setToggleNav] = React.useState(false)
+
   return (
     <div className={`site-wrapper ${toggleNav ? `site-head-open` : ``}`}>
       <header className="site-head">
@@ -31,18 +31,13 @@ const Layout = props => {
           <nav id="swup" className="site-head-left">
             <ul className="nav" role="menu">
               <li className="nav-home" role="menuitem">
-                <Link to={`/episodes`} activeClassName="nav-current">
-                  Episodes
+                <Link to={`/podcast`} activeClassName="nav-current">
+                  Podcast
                 </Link>
               </li>
               <li className="nav-about" role="menuitem">
                 <Link to={`/about`} activeClassName="nav-current">
-                  About
-                </Link>
-              </li>
-              <li className="nav-elements" role="menuitem">
-                <Link to={`/elements`} activeClassName="nav-current">
-                  Elements
+                  À propos
                 </Link>
               </li>
             </ul>
@@ -55,7 +50,7 @@ const Layout = props => {
           <div className="site-head-right">
             <div className="social-links">
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/artaufeminin"
                 title="Instagram"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -74,11 +69,13 @@ const Layout = props => {
           </div>
         </div>
       </header>
+
       <main id="site-main" className="site-main">
         <div id="swup" className="transition-fade">
           {children}
         </div>
       </main>
+
       <footer className="site-foot">
         &copy; {new Date().getFullYear()} <Link to={`/`}>{title}</Link>
       </footer>

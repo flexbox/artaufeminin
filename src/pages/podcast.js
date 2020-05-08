@@ -1,0 +1,87 @@
+import React from "react"
+import { graphql, StaticQuery } from "gatsby"
+import Img from "gatsby-image"
+
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+
+const PodcastPage = ({ data }) => {
+  const siteTitle = data.site.siteMetadata.title
+  const allEpisodes = data.allAnchorEpisode.nodes
+  console.log("Episodes -> allEpisodes", allEpisodes)
+
+  return (
+    <Layout title={siteTitle}>
+      <SEO
+        title="🎙 Episodes • ART au feminin"
+        keywords={[`episode`, `podcast`, `art`, `histoire`, `femmes`]}
+      />
+
+      <article className="post-content page-template no-image">
+        <div className="post-content-body">
+          <h2 id="clean-minimal-and-deeply-customisable-london-is-a-theme-made-for-people-who-appreciate-simple-lines-">
+            Podcast
+          </h2>
+          <figure className="kg-card kg-image-card kg-width-full">
+            <Img
+              fluid={data.benchAccounting.childImageSharp.fluid}
+              className="kg-image"
+            />
+            <figcaption>Photo by Matt Botsford on Unsplash</figcaption>
+          </figure>
+
+          {allEpisodes.map(episode => {
+            return (
+              <div key={episode.id}>
+                <h2>{episode.title}</h2>
+                <div
+                  dangerouslySetInnerHTML={{ __html: episode.itunes.summary }}
+                />
+              </div>
+            )
+          })}
+        </div>
+      </article>
+    </Layout>
+  )
+}
+
+const episodesQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+        description
+      }
+    }
+    benchAccounting: file(relativePath: { eq: "art-au-feminin-podcast.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1360) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    allAnchorEpisode {
+      nodes {
+        id
+        title
+        pubDate
+        itunes {
+          summary
+          duration
+          episode
+          season
+        }
+      }
+    }
+  }
+`
+
+export default props => (
+  <StaticQuery
+    query={episodesQuery}
+    render={data => (
+      <PodcastPage location={props.location} props data={data} {...props} />
+    )}
+  />
+)

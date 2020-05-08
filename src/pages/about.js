@@ -5,18 +5,18 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const AboutPage = ({ data }, location) => {
+const AboutPage = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
 
   return (
     <Layout title={siteTitle}>
-      <SEO title="ABout" keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
+      <SEO title="À propos" />
 
       <article className="post-content page-template no-image">
         <div className="post-content-body">
           <h2 id="clean-minimal-and-deeply-customisable-london-is-a-theme-made-for-people-who-appreciate-simple-lines-">
-            Clean, minimal, and deeply customisable. London is a theme made for
-            people who appreciate simple lines.
+            Moins de 4% des artistes dans la section art moderne sont des
+            femmes, mais 76% des nus sont des femmes.
           </h2>
           <figure className="kg-card kg-image-card kg-width-full">
             <Img
@@ -25,26 +25,35 @@ const AboutPage = ({ data }, location) => {
             />
             <figcaption>Large imagery is at the heart of this theme</figcaption>
           </figure>
-          <h3 id="dynamic-styles">Dynamic styles</h3>
+          <h3>Mon histoire</h3>
           <p>
-            London comes with photo-centric main layout best suited to
-            photography, graphics portfolios and other image-heavy uses.
+            J'ai pour prénom <strong>Aldjia</strong> et je{" "}
+            <strong>suis fan d'art</strong>.
           </p>
           <p>
-            Both post and page templates are light and minimal, with all the
-            focus on the content while the design of the theme gets out of the
-            way. Beneath the hood, London enjoys the full power of the{" "}
-            <a href="https://docs.ghost.org/api/handlebars-themes/">
-              Ghost Handlebars Theme API
-            </a>{" "}
-            to provide limitless customisation options and dynamic styles.
+            À travers cette passion, j'ai souvent entendu parler d'hommes
+            artistes…
+            <br />
+            …moins souvent des <strong>femmes artistes</strong>.
+          </p>
+          <hr />
+          <blockquote>
+            Pourtant, le monde de l'art regorge de talentuseuses artistes.
+          </blockquote>
+          <hr />
+          <p>
+            J'enregistre des podcats pour vous{" "}
+            <strong>faire découvrir les femmes artistes</strong> qui ont marqué{" "}
+            <strong>l'histoire de l'art</strong>. Ce projet me tient à coeur.
           </p>
           <p>
-            Don't forget to check out the{" "}
-            <a href="https://docs.ghost.org/integrations/">
-              Ghost Integrations Directory
-            </a>{" "}
-            for more ways to integrate Ghost with your favourite services.
+            <em>
+              Car on en parle jamais trop, car ça va nous permettre de de nous
+              enrichir culturellement.
+            </em>
+          </p>
+          <p>
+            <em>Bonjour, et bienvenue dans ART au feminin</em>
           </p>
         </div>
       </article>

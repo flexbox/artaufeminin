@@ -5,15 +5,12 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const ElementsPage = ({ data }, location) => {
+const DesignPage = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
 
   return (
     <Layout title={siteTitle}>
-      <SEO
-        title="All posts"
-        keywords={[`blog`, `gatsby`, `javascript`, `react`]}
-      />
+      <SEO title="Design System" />
 
       <article className="post-content page-template no-image">
         <div className="post-content-body">
@@ -562,7 +559,7 @@ export default props => (
   <StaticQuery
     query={indexQuery}
     render={data => (
-      <ElementsPage location={props.location} data={data} {...props} />
+      <DesignPage location={props.location} data={data} {...props} />
     )}
   />
 )
