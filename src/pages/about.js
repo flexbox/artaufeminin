@@ -10,7 +10,7 @@ const AboutPage = ({ data }) => {
 
   return (
     <Layout title={siteTitle}>
-      <SEO title="À propos" />
+      <SEO title="👩‍🎨 À propos • ART au feminin" />
 
       <article className="post-content page-template no-image">
         <div className="post-content-body">
