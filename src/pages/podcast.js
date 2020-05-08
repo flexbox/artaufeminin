@@ -50,6 +50,7 @@ const PodcastPage = ({ data }) => {
                 >
                   Écouter l'épisode
                 </a>
+                <hr />
               </div>
             )
           })}

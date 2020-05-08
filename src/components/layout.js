@@ -77,7 +77,10 @@ const Layout = props => {
       </main>
 
       <footer className="site-foot">
-        &copy; {new Date().getFullYear()} <Link to={`/`}>{title}</Link>
+        &copy; {new Date().getFullYear()} <Link to={`/`}>{title}</Link> • Design{" "}
+        <a href="https://davidl.fr" target="_blank" rel="noopener noreferrer">
+          David Leuliette
+        </a>
       </footer>
     </div>
   )
