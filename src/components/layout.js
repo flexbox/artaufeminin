@@ -1,8 +1,12 @@
 import React from "react"
 import { Link } from "gatsby"
 
+import "../utils/normalize.css"
+import "../utils/css/screen.css"
+
 const Layout = props => {
   const { title, children } = props
+  console.log("props", props)
   const [toggleNav, setToggleNav] = React.useState(false)
   return (
     <div className={`site-wrapper ${toggleNav ? `site-head-open` : ``}`}>
@@ -26,14 +30,20 @@ const Layout = props => {
           </a>
           <nav id="swup" class="site-head-left">
             <ul className="nav" role="menu">
-              <li className="nav-home nav-current" role="menuitem">
-                <Link to={`/episodes`}>Episodes</Link>
+              <li className="nav-home" role="menuitem">
+                <Link to={`/episodes`} activeClassName="nav-current">
+                  Episodes
+                </Link>
               </li>
               <li className="nav-about" role="menuitem">
-                <Link to={`/about`}>About</Link>
+                <Link to={`/about`} activeClassName="nav-current">
+                  About
+                </Link>
               </li>
               <li className="nav-elements" role="menuitem">
-                <Link to={`/elements`}>Elements</Link>
+                <Link to={`/elements`} activeClassName="nav-current">
+                  Elements
+                </Link>
               </li>
             </ul>
           </nav>
@@ -44,14 +54,6 @@ const Layout = props => {
           </div>
           <div className="site-head-right">
             <div className="social-links">
-              <a
-                href="https://www.facebook.com"
-                title="Facebook"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Facebook
-              </a>
               <a
                 href="https://instagram.com"
                 title="Instagram"
