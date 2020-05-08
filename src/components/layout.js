@@ -28,7 +28,7 @@ const Layout = props => {
               </div>
             </div>
           </a>
-          <nav id="swup" class="site-head-left">
+          <nav id="swup" className="site-head-left">
             <ul className="nav" role="menu">
               <li className="nav-home" role="menuitem">
                 <Link to={`/episodes`} activeClassName="nav-current">
@@ -62,14 +62,14 @@ const Layout = props => {
               >
                 Instagram
               </a>
-              <Link
-                to={`/rss.xml`}
-                title="RSS"
+              <a
+                href="https://anchor.fm/artaufeminin/message"
+                title="Envoyer un message audio"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                RSS
-              </Link>
+                Contact
+              </a>
             </div>
           </div>
         </div>

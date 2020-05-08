@@ -15,9 +15,9 @@ const BlogIndex = ({ data }) => {
       <SEO title="🎙 ART au feminin : Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia" />
       {data.site.siteMetadata.description && (
         <header className="page-head">
-          <h2 className="page-head-title">
+          <h1 className="page-head-title">
             {data.site.siteMetadata.description}
-          </h2>
+          </h1>
         </header>
       )}
       <div className="post-feed">
