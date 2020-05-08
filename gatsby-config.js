@@ -8,7 +8,7 @@ module.exports = {
     description: siteConfig.description,
     siteUrl: urljoin(siteConfig.url, siteConfig.prefix),
     social: {
-      twitter: siteConfig.twitter,
+      instagram: siteConfig.instagram,
     },
   },
   plugins: [
@@ -98,5 +98,11 @@ module.exports = {
     `gatsby-plugin-netlify`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: "gatsby-source-anchor",
+      options: {
+        rss: siteConfig.anchorRssUrl,
+      },
+    },
   ],
 }

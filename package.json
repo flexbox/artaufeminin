@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-london",
+  "name": "artaufeminin",
   "private": true,
   "description": "A custom, image-centric theme for Gatsby",
   "version": "1.0.0",
@@ -24,6 +24,7 @@
     "gatsby-remark-prismjs": "^3.2.9",
     "gatsby-remark-responsive-iframe": "^2.1.1",
     "gatsby-remark-smartypants": "^2.0.9",
+    "gatsby-source-anchor": "^0.5.1",
     "gatsby-source-filesystem": "^2.0.33",
     "gatsby-transformer-remark": "^2.3.12",
     "gatsby-transformer-sharp": "^2.1.19",
