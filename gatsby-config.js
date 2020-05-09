@@ -61,7 +61,6 @@ module.exports = {
           require("postcss-easy-import")(),
           require("postcss-custom-properties")({ preserve: false }),
           require("postcss-color-function")(),
-          require("autoprefixer")({ browsers: ["last 2 versions"] }),
         ],
       },
     },
@@ -112,7 +111,7 @@ module.exports = {
             match: "/article/:uid", // pages will be generated under this pattern
             previewPath: "/article", // optional path for unpublished documents
             component: require.resolve("./src/templates/article.js"),
-            sortBy: "date_ASC", // optional, default: meta_lastPublicationDate_ASC; useful for pagination
+            // sortBy: "date_ASC", // optional, default: meta_lastPublicationDate_ASC; useful for pagination
           },
         ],
         extraPageFields: "article_type", // optional, extends pages query to pass extra fields

@@ -12,35 +12,33 @@ const Layout = props => {
     <div className={`site-wrapper ${toggleNav ? `site-head-open` : ``}`}>
       <header className="site-head">
         <div className="site-head-container">
-          <a
+          <button
             className="nav-burger"
-            href={`#`}
             onClick={() => setToggleNav(!toggleNav)}
           >
             <div
               className="hamburger hamburger--collapse"
               aria-label="Menu"
-              role="button"
               aria-controls="navigation"
             >
               <div className="hamburger-box">
                 <div className="hamburger-inner" />
               </div>
             </div>
-          </a>
+          </button>
           <nav id="swup" className="site-head-left">
-            <ul className="nav" role="menu">
-              <li className="nav-home" role="menuitem">
+            <ul className="nav">
+              <li className="nav-home">
                 <Link to={`/`} activeClassName="nav-current">
                   Articles
                 </Link>
               </li>
-              <li className="nav-home" role="menuitem">
+              <li className="nav-home">
                 <Link to={`/podcast`} activeClassName="nav-current">
                   Podcast
                 </Link>
               </li>
-              <li className="nav-about" role="menuitem">
+              <li className="nav-about">
                 <Link to={`/about`} activeClassName="nav-current">
                   À propos
                 </Link>

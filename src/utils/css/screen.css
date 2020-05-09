@@ -266,6 +266,13 @@ a.nav-current,
   padding: 12px 12px 12px 0;
 }
 
+.nav-burger,
+.nav-burger:hover,
+.nav-burger:focus {
+  box-shadow: none;
+  outline-color: transparent;
+}
+
 @media (max-width: 850px) {
   .site-head {
     padding: 0;
