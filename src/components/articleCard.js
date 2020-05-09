@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import { RichText } from "prismic-reactjs"
 
 export default function articleCard(props) {
-  console.log("articleCard -> props", props)
   const { counter, postClass } = props
   const slug = props.node._meta.uid
   const thumbnail = props.node.image.url
@@ -21,7 +20,7 @@ export default function articleCard(props) {
         }
       }
     >
-      <Link to={slug} className="post-card-link">
+      <Link to={`article/${slug}`} className="post-card-link">
         <div className="post-card-content">
           <h2 className="post-card-title">{RichText.render(title)}</h2>
         </div>
