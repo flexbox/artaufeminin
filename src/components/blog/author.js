@@ -21,7 +21,7 @@ function Author() {
             </div>
             <div className="col-10">
               <p>
-                J’ai pour prénom <strong>Aldjia</strong> et
+                J’ai pour prénom <strong>Aldjia</strong> et{" "}
                 <strong>je suis passionée d’art</strong>.<br />
                 J’enregistre des podcats pour vous faire découvrir les femmes
                 artistes qui ont marqué l’histoire.

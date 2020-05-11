@@ -9,7 +9,6 @@ import Author from "../components/blog/author"
 export default function Article(props) {
   const siteTitle = props.data.site.siteMetadata.title
   const doc = props.data.prismic.allBlog_posts.edges.slice(0, 1).pop()
-  console.log("Article -> doc", doc)
 
   if (!doc) return null
 
