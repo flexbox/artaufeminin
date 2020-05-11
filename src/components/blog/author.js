@@ -9,22 +9,27 @@ function Author() {
       render={data => {
         const { author, social } = data.site.siteMetadata
         return (
-          <section>
-            <Image
-              fixed={data.avatar.childImageSharp.fixed}
-              alt={author}
-              imgStyle={{
-                borderRadius: `50%`,
-              }}
-            />
-            <p>
-              Written by <strong>{author}</strong> who lives and works in San
-              Francisco building useful things.
-              {` `}
+          <section className="row">
+            <div className="col-2">
+              <Image
+                fixed={data.avatar.childImageSharp.fixed}
+                alt={author}
+                imgStyle={{
+                  borderRadius: `50%`,
+                }}
+              />
+            </div>
+            <div className="col-10">
+              <p>
+                J’ai pour prénom <strong>Aldjia</strong> et
+                <strong>je suis passionée d’art</strong>.<br />
+                J’enregistre des podcats pour vous faire découvrir les femmes
+                artistes qui ont marqué l’histoire.
+              </p>
               <a href={`https://instagram.com/${social.instagram}`}>
-                You should follow him on Twitter
+                Suivre sur instagram
               </a>
-            </p>
+            </div>
           </section>
         )
       }}
@@ -36,7 +41,7 @@ const authorQuery = graphql`
   query AuthorQuery {
     avatar: file(absolutePath: { regex: "/profile-picture.jpg/" }) {
       childImageSharp {
-        fixed(width: 50, height: 50) {
+        fixed(width: 100, height: 100) {
           ...GatsbyImageSharpFixed
         }
       }

@@ -35,7 +35,7 @@ const Layout = props => {
               </li>
               <li className="nav-home">
                 <Link to={`/podcast`} activeClassName="nav-current">
-                  Podcast
+                  Podcasts
                 </Link>
               </li>
               <li className="nav-about">

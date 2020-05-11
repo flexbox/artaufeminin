@@ -102,20 +102,14 @@ module.exports = {
       options: {
         repositoryName: "artaufeminin", // required
         defaultLang: "fr-fr", // optional, but recommended
-        path: "/preview", // optional, default: /preview
-        previews: true, // optional, default: false
         pages: [
           {
             // optional
             type: "Blog_post", // TypeName from prismic
             match: "/article/:uid", // pages will be generated under this pattern
-            path: "/article", // optional path for unpublished documents
-            previewPath: "/article", // optional path for unpublished documents
             component: require.resolve("./src/templates/article.js"),
-            // sortBy: "date_ASC", // optional, default: meta_lastPublicationDate_ASC; useful for pagination
           },
         ],
-        extraPageFields: "article_type", // optional, extends pages query to pass extra fields
         sharpKeys: [
           /image|photo|picture/, // (default)
           "profilepic",
