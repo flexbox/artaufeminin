@@ -3,16 +3,17 @@ import { graphql, StaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import PostCard from "../components/postCard"
+import ArticleCard from "../components/articleCard"
 
 const BlogIndex = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
-  let postCounter = 0
+  const articles = data.prismic.allBlog_posts.edges
+  let articleCounter = 0
 
   return (
     <Layout title={siteTitle}>
       <SEO title="🎙 ART au feminin : Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia" />
+
       {data.site.siteMetadata.description && (
         <header className="page-head">
           <h1 className="page-head-title">
@@ -20,13 +21,14 @@ const BlogIndex = ({ data }) => {
           </h1>
         </header>
       )}
+
       <div className="post-feed">
-        {posts.map(({ node }) => {
-          postCounter++
+        {articles.map(({ node }) => {
+          articleCounter++
           return (
-            <PostCard
-              key={node.fields.slug}
-              count={postCounter}
+            <ArticleCard
+              key={node._meta.id}
+              counter={articleCounter}
               node={node}
               postClass={`post`}
             />
@@ -45,26 +47,19 @@ const indexQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "DD MMMM YYYY")
+    prismic {
+      allBlog_posts {
+        edges {
+          node {
+            image
             title
-            description
-            thumbnail {
-              childImageSharp {
-                fluid(maxWidth: 1360) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
+            _meta {
+              id
+              uid
             }
           }
         }
+        totalCount
       }
     }
   }

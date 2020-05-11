@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, StaticQuery } from "gatsby"
 import Img from "gatsby-image"
+import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -37,7 +38,7 @@ const DesignPage = ({ data }) => {
             <code>
               for (;;) {"{"} ... {"}"}
             </code>
-            . Finally, this is a <a href="#">link</a>.
+            . Finally, this is a <Link to={`/`}>link</Link>.
           </p>
           <h2 id="heading-level-2">Heading Level 2</h2>
           <h3 id="heading-level-3">Heading Level 3</h3>
@@ -199,55 +200,37 @@ const DesignPage = ({ data }) => {
           <h2 id="buttons">Buttons</h2>
           <ul className="actions">
             <li>
-              <a href="#" className="button primary">
-                Primary
-              </a>
+              <button className="button primary">Primary</button>
             </li>
             <li>
-              <a href="#" className="button">
-                Default
-              </a>
+              <button className="button">Default</button>
             </li>
           </ul>
           <ul className="actions">
             <li>
-              <a href="#" className="button primary large">
-                Large
-              </a>
+              <button className="button primary large">Large</button>
             </li>
             <li>
-              <a href="#" className="button">
-                Default
-              </a>
+              <button className="button">Default</button>
             </li>
             <li>
-              <a href="#" className="button small">
-                Small
-              </a>
+              <button className="button small">Small</button>
             </li>
           </ul>
           <ul className="actions fit">
             <li>
-              <a href="#" className="button primary fit">
-                Fit
-              </a>
+              <button className="button primary fit">Fit</button>
             </li>
             <li>
-              <a href="#" className="button fit">
-                Fit
-              </a>
+              <button className="button fit">Fit</button>
             </li>
           </ul>
           <ul className="actions fit small">
             <li>
-              <a href="#" className="button primary fit small">
-                Fit + Small
-              </a>
+              <button className="button primary fit small">Fit + Small</button>
             </li>
             <li>
-              <a href="#" className="button fit small">
-                Fit + Small
-              </a>
+              <button className="button fit small">Fit + Small</button>
             </li>
           </ul>
           <ul className="actions">

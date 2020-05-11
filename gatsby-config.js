@@ -15,13 +15,6 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
         path: `${__dirname}/content/assets`,
         name: `assets`,
       },
@@ -61,7 +54,6 @@ module.exports = {
           require("postcss-easy-import")(),
           require("postcss-custom-properties")({ preserve: false }),
           require("postcss-color-function")(),
-          require("autoprefixer")({ browsers: ["last 2 versions"] }),
         ],
       },
     },
@@ -76,13 +68,6 @@ module.exports = {
         // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
       },
     },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
-      },
-    },
-    `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -102,6 +87,25 @@ module.exports = {
       resolve: "gatsby-source-anchor",
       options: {
         rss: siteConfig.anchorRssUrl,
+      },
+    },
+    {
+      resolve: "gatsby-source-prismic-graphql",
+      options: {
+        repositoryName: "artaufeminin", // required
+        defaultLang: "fr-fr", // optional, but recommended
+        pages: [
+          {
+            // optional
+            type: "Blog_post", // TypeName from prismic
+            match: "/article/:uid", // pages will be generated under this pattern
+            component: require.resolve("./src/templates/article.js"),
+          },
+        ],
+        sharpKeys: [
+          /image|photo|picture/, // (default)
+          "profilepic",
+        ],
       },
     },
   ],
