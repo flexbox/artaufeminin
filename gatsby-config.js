@@ -107,8 +107,9 @@ module.exports = {
         pages: [
           {
             // optional
-            type: "blog_post", // TypeName from prismic
+            type: "Blog_post", // TypeName from prismic
             match: "/article/:uid", // pages will be generated under this pattern
+            path: "/article", // optional path for unpublished documents
             previewPath: "/article", // optional path for unpublished documents
             component: require.resolve("./src/templates/article.js"),
             // sortBy: "date_ASC", // optional, default: meta_lastPublicationDate_ASC; useful for pagination

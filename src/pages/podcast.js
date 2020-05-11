@@ -8,7 +8,6 @@ import SEO from "../components/seo"
 const PodcastPage = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
   const allEpisodes = data.allAnchorEpisode.nodes
-  console.log("Episodes -> allEpisodes", allEpisodes)
 
   return (
     <Layout title={siteTitle}>
