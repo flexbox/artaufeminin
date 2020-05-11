@@ -23,28 +23,28 @@ const AboutPage = ({ data }) => {
               fluid={data.benchAccounting.childImageSharp.fluid}
               className="kg-image"
             />
-            <figcaption>Large imagery is at the heart of this theme</figcaption>
+            <figcaption>Photo by Flipboard on Unsplash</figcaption>
           </figure>
           <h3>Mon histoire</h3>
           <p>
-            J'ai pour prénom <strong>Aldjia</strong> et je{" "}
-            <strong>suis fan d'art</strong>.
+            J’ai pour prénom <strong>Aldjia</strong> et je{" "}
+            <strong>suis fan d’art</strong>.
           </p>
           <p>
-            À travers cette passion, j'ai souvent entendu parler d'hommes
+            À travers cette passion, j’ai souvent entendu parler d’hommes
             artistes…
             <br />
             …moins souvent des <strong>femmes artistes</strong>.
           </p>
           <hr />
           <blockquote>
-            Pourtant, le monde de l'art regorge de talentuseuses artistes.
+            Pourtant, le monde de l’art regorge de talentuseuses artistes.
           </blockquote>
           <hr />
           <p>
-            J'enregistre des podcats pour vous{" "}
+            J’enregistre des podcats pour vous{" "}
             <strong>faire découvrir les femmes artistes</strong> qui ont marqué{" "}
-            <strong>l'histoire de l'art</strong>. Ce projet me tient à coeur.
+            <strong>l’histoire de l’art</strong>. Ce projet me tient à coeur.
           </p>
           <p>
             <em>
@@ -69,7 +69,7 @@ const indexQuery = graphql`
       }
     }
     benchAccounting: file(
-      relativePath: { eq: "bench-accounting-49909-unsplash.jpg" }
+      relativePath: { eq: "flipboard-Ylus81fS7q4-unsplash.jpg" }
     ) {
       childImageSharp {
         fluid(maxWidth: 1360) {
