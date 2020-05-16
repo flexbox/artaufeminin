@@ -43,6 +43,10 @@ function SEO({ description, lang, meta, keywords, title }) {
           property: `og:type`,
           content: `website`,
         },
+        {
+          property: `google-site-verification`,
+          content: `_I5e7rtsxD_MXi3RnD2AsbiQopSHnXHQ_eEAKQYuLPk`,
+        },
       ]
         .concat(
           keywords.length > 0
