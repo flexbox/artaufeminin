@@ -18,6 +18,7 @@ production stylesheet in assets/built/screen.css using gulp dev
 @import "components/actions.css";
 @import "components/hamburger.css";
 @import "components/animations.css";
+@import "components/footer.css";
 
 /* Main - Theme styles
 /* ---------------------------------------------------------- */
@@ -114,17 +115,6 @@ body {
   .page-head-description {
     font-size: 1.6rem;
   }
-}
-
-.site-foot {
-  margin: 3vw 0 1vw;
-  text-align: center;
-  color: color(var(--color-border) l(-20%));
-  font-size: 1.4rem;
-}
-
-.site-foot a {
-  color: var(--color-base);
 }
 
 /* Site Navigation
@@ -376,7 +366,7 @@ a.nav-current,
   .site-head-open .site-head-right a {
     opacity: 0.5;
   }
-  .site-head-open .site-foot {
+  .site-head-open .footer {
     display: block;
     position: fixed;
     z-index: 9999;

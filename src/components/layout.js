@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import Footer from "./footer"
 
 import "../utils/normalize.css"
 import "../utils/css/screen.css"
@@ -79,12 +80,7 @@ const Layout = props => {
         </div>
       </main>
 
-      <footer className="site-foot">
-        &copy; {new Date().getFullYear()} <Link to={`/`}>{title}</Link> • Design{" "}
-        <a href="https://davidl.fr" target="_blank" rel="noopener noreferrer">
-          David Leuliette
-        </a>
-      </footer>
+      <Footer title={title} />
     </div>
   )
 }
