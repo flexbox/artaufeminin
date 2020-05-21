@@ -40,15 +40,31 @@ const PodcastPage = ({ data }) => {
                 <div
                   dangerouslySetInnerHTML={{ __html: episode.itunes.summary }}
                 />
-                <a
-                  href={episode.link}
-                  title="Instagram"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="button primary large"
-                >
-                  Écouter l'épisode
-                </a>
+                <div className="row">
+                  <div className="col">
+                    <a
+                      href={episode.link}
+                      title="Écouter sur anchor.fm"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="button primary large fit"
+                    >
+                      Écouter l'épisode
+                    </a>
+                  </div>
+                  <div className="col">
+                    <a
+                      href="https://instagram.com/artaufeminin"
+                      title="Contacter sur instagram"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="button large fit"
+                    >
+                      Envie de réagir à l'épisode ?
+                    </a>
+                  </div>
+                </div>
+
                 <hr />
               </div>
             )

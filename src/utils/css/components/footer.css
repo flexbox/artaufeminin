@@ -1,0 +1,21 @@
+.footer {
+  margin: 3vw 0 1vw;
+  color: color(var(--color-border) l(-20%));
+  font-size: 1.8rem;
+}
+
+.footer a {
+  color: var(--color-base);
+}
+
+.footer .footer-follow {
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  .footer,
+  .footer .footer-follow {
+    text-align: center;
+    align-items: center;
+  }
+}

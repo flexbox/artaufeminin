@@ -1,6 +1,3 @@
-/* Reset
-/* ---------------------------------------------------------- */
-
 html,
 body,
 div,
@@ -247,6 +244,12 @@ th {
   padding: 0;
 }
 
+.section-author {
+  background-color: var(--color-gray-200);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
@@ -407,4 +410,8 @@ h6 {
 
 .text-center {
   text-align: center;
+}
+
+.text-right {
+  text-align: right;
 }
