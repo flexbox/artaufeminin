@@ -15,7 +15,7 @@ function Author() {
                 fixed={data.avatar.childImageSharp.fixed}
                 alt={author}
                 imgStyle={{
-                  borderRadius: `50%`,
+                  borderRadius: `100%`,
                 }}
               />
             </div>

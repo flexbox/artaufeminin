@@ -1,31 +1,38 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { RichText } from "prismic-reactjs"
+import { formatDistanceToNow } from "date-fns"
+import { fr } from "date-fns/locale"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Author from "../components/blog/author"
 
 export default function Article(props) {
-  const siteTitle = props.data.site.siteMetadata.title
   const doc = props.data.prismic.allBlog_posts.edges.slice(0, 1).pop()
-
   if (!doc) return null
+
+  const siteTitle = props.data.site.siteMetadata.title
+  const title = RichText.asText(doc.node.title)
+  const description = RichText.asText(doc.node.description)
+
+  const datePublished = formatDistanceToNow(new Date(doc.node.date), {
+    addSuffix: true,
+    locale: fr,
+  })
 
   return (
     <Layout title={siteTitle}>
-      <SEO title="Article" />
+      <SEO title={title} description={description} />
 
       <article className={`post-content`}>
         <header className="post-content-header">
-          <h1 className="post-content-title">
-            {RichText.asText(doc.node.title)}
-          </h1>
+          <h1 className="post-content-title">{title}</h1>
         </header>
 
-        <p class="post-content-excerpt">
+        <div className="post-content-excerpt">
           {RichText.render(doc.node.description)}
-        </p>
+        </div>
 
         {doc.node.image && (
           <div className="post-content-image">
@@ -39,7 +46,7 @@ export default function Article(props) {
 
         <div className="post-content-body">
           {RichText.render(doc.node.content)}
-          <p>{doc.node.date}</p>
+          <p>Article publié {datePublished}</p>
         </div>
 
         <footer className="post-content-footer">

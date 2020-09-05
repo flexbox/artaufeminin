@@ -10,7 +10,6 @@
   --font-sans-serif: "Merriweather", serif;
   --font-serif: Georgia, Times, serif;
   --font-mono: Menlo, Courier, monospace;
-  --font-light: 100;
   --font-normal: 400;
   --font-bold: 700;
   --font-heavy: 800;
@@ -26,4 +25,13 @@
   --height: 4rem;
   --margin: 2rem;
   --radius: 0.5rem;
+
+  /* spacing */
+  --space-1: 2px;
+  --space-2: 4px;
+  --space-3: 8px;
+  --space-4: 16px;
+  --space-5: 32px;
+  --space-6: 64px;
+  --space-7: 128px;
 }
