@@ -1,11 +1,16 @@
-import React from "react"
+import React, { ReactNode } from "react"
 import { Link } from "gatsby"
 import Footer from "./footer"
 
 import "../utils/normalize.css"
-import "../utils/css/screen.css"
+import "../utils/css/styles.css"
 
-const Layout = props => {
+interface LayoutProps {
+  title: string
+  children: ReactNode
+}
+
+function Layout(props: LayoutProps) {
   const { title, children } = props
   const [toggleNav, setToggleNav] = React.useState(false)
 

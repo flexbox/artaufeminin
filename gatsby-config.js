@@ -52,7 +52,9 @@ module.exports = {
       options: {
         postCssPlugins: [
           require("postcss-easy-import")(),
-          require("postcss-custom-properties")({ preserve: false }),
+          require("postcss-custom-properties")({
+            preserve: false,
+          }),
           require("postcss-color-function")(),
         ],
       },
@@ -97,10 +99,9 @@ module.exports = {
         defaultLang: "fr-fr", // optional, but recommended
         pages: [
           {
-            // optional
-            type: "Blog_post", // TypeName from prismic
-            match: "/article/:uid", // pages will be generated under this pattern
-            component: require.resolve("./src/templates/article.js"),
+            type: "Blog_post", // optional
+            match: "/article/:uid", // TypeName from prismic
+            component: require.resolve("./src/templates/article.tsx"), // pages will be generated under this pattern
           },
         ],
         sharpKeys: [
@@ -109,5 +110,6 @@ module.exports = {
         ],
       },
     },
+    "gatsby-plugin-typescript",
   ],
 }

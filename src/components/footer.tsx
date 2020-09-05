@@ -48,9 +48,9 @@ export default function footer(props) {
               paddingRight: 0,
             }}
           >
-            {platforms.map(platform => {
+            {platforms.map((platform, index) => {
               return (
-                <li>
+                <li key={index}>
                   <a href={platform.url}>{platform.name}</a>
                 </li>
               )
