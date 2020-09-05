@@ -1,5 +1,4 @@
 const urljoin = require("url-join")
-
 const siteConfig = require("./siteConfig")
 
 module.exports = {
@@ -96,18 +95,13 @@ module.exports = {
     {
       resolve: "gatsby-source-prismic-graphql",
       options: {
-        repositoryName: "artaufeminin",
-        // required
-        defaultLang: "fr-fr",
-        // optional, but recommended
+        repositoryName: "artaufeminin", // required
+        defaultLang: "fr-fr", // optional, but recommended
         pages: [
           {
-            // optional
-            type: "Blog_post",
-            // TypeName from prismic
-            match: "/article/:uid",
-            // pages will be generated under this pattern
-            component: require.resolve("./src/templates/article.tsx"),
+            type: "Blog_post", // optional
+            match: "/article/:uid", // TypeName from prismic
+            component: require.resolve("./src/templates/article.tsx"), // pages will be generated under this pattern
           },
         ],
         sharpKeys: [
