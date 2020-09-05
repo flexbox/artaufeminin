@@ -10,12 +10,11 @@ import Author from "../components/blog/author"
 
 export default function Article(props) {
   const doc = props.data.prismic.allBlog_posts.edges.slice(0, 1).pop()
+  if (!doc) return null
+
   const siteTitle = props.data.site.siteMetadata.title
   const title = RichText.asText(doc.node.title)
-  console.log("Article -> title", title)
   const description = RichText.asText(doc.node.description)
-
-  if (!doc) return null
 
   const datePublished = formatDistanceToNow(new Date(doc.node.date), {
     addSuffix: true,
