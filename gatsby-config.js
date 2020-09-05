@@ -1,4 +1,5 @@
 const urljoin = require("url-join")
+
 const siteConfig = require("./siteConfig")
 
 module.exports = {
@@ -52,7 +53,9 @@ module.exports = {
       options: {
         postCssPlugins: [
           require("postcss-easy-import")(),
-          require("postcss-custom-properties")({ preserve: false }),
+          require("postcss-custom-properties")({
+            preserve: false,
+          }),
           require("postcss-color-function")(),
         ],
       },
@@ -93,14 +96,18 @@ module.exports = {
     {
       resolve: "gatsby-source-prismic-graphql",
       options: {
-        repositoryName: "artaufeminin", // required
-        defaultLang: "fr-fr", // optional, but recommended
+        repositoryName: "artaufeminin",
+        // required
+        defaultLang: "fr-fr",
+        // optional, but recommended
         pages: [
           {
             // optional
-            type: "Blog_post", // TypeName from prismic
-            match: "/article/:uid", // pages will be generated under this pattern
-            component: require.resolve("./src/templates/article.js"),
+            type: "Blog_post",
+            // TypeName from prismic
+            match: "/article/:uid",
+            // pages will be generated under this pattern
+            component: require.resolve("./src/templates/article.tsx"),
           },
         ],
         sharpKeys: [
@@ -109,5 +116,6 @@ module.exports = {
         ],
       },
     },
+    "gatsby-plugin-typescript",
   ],
 }
