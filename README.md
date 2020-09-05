@@ -2,6 +2,12 @@
 
 > Podast and articles about womens artists
 
+## Tooling
+
+- Pages generated with [Gatsby](https://www.gatsbyjs.com/).
+- [Prismic](https://prismic.io/) for the content.
+- Hosted on Netlify, you [can check the website](https://artaufeminin.fr).
+
 ## Getting started
 
 ```
