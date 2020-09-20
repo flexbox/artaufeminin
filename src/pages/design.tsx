@@ -13,7 +13,7 @@ const DesignPage = ({ data }) => {
     <Layout title={siteTitle}>
       <SEO title="Design System" />
 
-      <article className="post-content page-template no-image">
+      <article className="post-content no-image">
         <div className="post-content-body">
           <p>
             This is{" "}

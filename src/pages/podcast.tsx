@@ -12,15 +12,15 @@ const PodcastPage = ({ data }) => {
   return (
     <Layout title={siteTitle}>
       <SEO
-        title="🎙 Episodes • ART au feminin"
-        keywords={[`episode`, `podcast`, `art`, `histoire`, `femmes`]}
+        title="🎙 Tous les épisodes du podcast sur les femmes artistes"
+        description=""
       />
 
-      <article className="post-content page-template no-image">
+      <article className="post-content no-image">
+        <div className="post-content-header">
+          <h1 className="post-content-title">Liste des épisodes du podcast</h1>
+        </div>
         <div className="post-content-body">
-          <h2 id="clean-minimal-and-deeply-customisable-london-is-a-theme-made-for-people-who-appreciate-simple-lines-">
-            Podcast
-          </h2>
           <figure className="kg-card kg-image-card kg-width-full">
             <Img
               fluid={data.benchAccounting.childImageSharp.fluid}
