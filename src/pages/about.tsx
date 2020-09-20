@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, StaticQuery } from "gatsby"
+import { graphql, Link, StaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
@@ -10,22 +10,24 @@ const AboutPage = ({ data }) => {
 
   return (
     <Layout title={siteTitle}>
-      <SEO title="👩‍🎨 À propos • ART au feminin" />
+      <SEO title="👩‍🎨 À propos" />
 
-      <article className="post-content page-template no-image">
-        <div className="post-content-body">
-          <h2 id="clean-minimal-and-deeply-customisable-london-is-a-theme-made-for-people-who-appreciate-simple-lines-">
+      <article className="post-content no-image">
+        <div className="post-content-header">
+          <h1 className="post-content-title">
             Moins de 4% des artistes dans la section art moderne sont des
             femmes, mais 76% des nus sont des femmes.
-          </h2>
+          </h1>
+        </div>
+        <div className="post-content-body">
           <figure className="kg-card kg-image-card kg-width-full">
             <Img
               fluid={data.benchAccounting.childImageSharp.fluid}
               className="kg-image"
             />
-            <figcaption>Photo by Flipboard on Unsplash</figcaption>
+            <figcaption>Photo de Flipboard sur Unsplash</figcaption>
           </figure>
-          <h3>Mon histoire</h3>
+          <h2>Mon histoire</h2>
           <p>
             J’ai pour prénom <strong>Aldjia</strong> et je{" "}
             <strong>suis fan d’art</strong>.
@@ -55,6 +57,18 @@ const AboutPage = ({ data }) => {
           <p>
             <em>Bonjour, et bienvenue dans ART au feminin</em>
           </p>
+        </div>
+        <div className="post-content-body">
+          <hr />
+          <p>
+            P.S. Voici quelques pages de ce site qui ne sont pas incluses dans
+            la navigation principale, mais qui pourraient vous intéresser :
+          </p>
+          <ul>
+            <li>
+              <Link to="/faq">Questions fréquentes</Link>
+            </li>
+          </ul>
         </div>
       </article>
     </Layout>

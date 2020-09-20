@@ -5,14 +5,14 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ArticleCard from "../components/articleCard"
 
-const BlogIndex = ({ data }) => {
+const IndexPage = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
   const articles = data.prismic.allBlog_posts.edges
   let articleCounter = 0
 
   return (
     <Layout title={siteTitle}>
-      <SEO title="🎙 ART au feminin : Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia" />
+      <SEO title="🎙 Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia" />
 
       {data.site.siteMetadata.description && (
         <header className="page-head">
@@ -30,7 +30,7 @@ const BlogIndex = ({ data }) => {
               key={node._meta.id}
               counter={articleCounter}
               node={node}
-              postClass={`post`}
+              postClass="post"
             />
           )
         })}
@@ -69,7 +69,7 @@ export default props => (
   <StaticQuery
     query={indexQuery}
     render={data => (
-      <BlogIndex location={props.location} props data={data} {...props} />
+      <IndexPage location={props.location} props data={data} {...props} />
     )}
   />
 )

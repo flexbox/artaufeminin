@@ -1,12 +1,8 @@
 {
   "name": "artaufeminin",
-  "private": true,
+  "private": false,
   "description": "A podcast landing page",
-  "version": "1.0.0",
   "author": "David Leuliette <dleuliette@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/ImedAdel/gatsby-london/issues"
-  },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.0.1",
@@ -50,25 +46,16 @@
     "prettier": "^1.17.0",
     "pretty-quick": "^1.10.0"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
-  "keywords": [
-    "gatsby",
-    "ghost",
-    "gallery",
-    "blog",
-    "starter"
-  ],
   "license": "MIT",
-  "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ImedAdel/gatsby-london.git"
+    "url": "git+https://github.com/flexbox/artaufeminin.git"
   },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
+    "start": "gatsby develop",
     "serve": "gatsby serve",
     "cache:clear": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
