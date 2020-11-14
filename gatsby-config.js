@@ -39,7 +39,6 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],
@@ -93,7 +92,7 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-prismic-graphql",
+      resolve: "@prismicio/gatsby-source-prismic-graphql",
       options: {
         repositoryName: "artaufeminin", // required
         defaultLang: "fr-fr", // optional, but recommended
