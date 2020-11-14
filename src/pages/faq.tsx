@@ -8,7 +8,6 @@ import SEO from "../components/seo"
 export default function FaqPage({ data }): ReactElement {
   const siteTitle = data.site.siteMetadata.title
   const questions = data.prismic.allFaqs.edges
-  console.log("defaultfunctionFaqPage -> questions", questions)
 
   return (
     <Layout title={siteTitle}>
@@ -22,7 +21,6 @@ export default function FaqPage({ data }): ReactElement {
         </div>
         <div className="post-content-body">
           {questions.map(question => {
-            console.log("defaultfunctionFaqPage -> question", question)
             return (
               <>
                 <h2>{RichText.asText(question.node.question)}</h2>
