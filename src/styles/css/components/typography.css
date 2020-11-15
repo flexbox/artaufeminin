@@ -1,0 +1,24 @@
+hr {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 2.5em 0 3.5em;
+  padding: 0;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid color(var(--color-border) l(+10%));
+}
+
+hr:after {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  display: block;
+  margin-left: -10px;
+  width: 1px;
+  height: 30px;
+  background: color(var(--color-border) l(+10%));
+  box-shadow: var(--color-bg) 0 0 0 5px;
+  transform: rotate(45deg);
+}

@@ -20,7 +20,7 @@ export default function articleCard(props) {
         }
       }
     >
-      <Link to={`article/${slug}`} className="post-card-link">
+      <Link to={`/article/${slug}`} className="post-card-link">
         <div className="post-card-content">
           <h2 className="post-card-title">{RichText.asText(title)}</h2>
         </div>

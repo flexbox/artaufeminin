@@ -1,4 +1,5 @@
 const urljoin = require("url-join")
+
 const siteConfig = require("./siteConfig")
 
 module.exports = {
@@ -39,7 +40,6 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],
@@ -93,14 +93,14 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-prismic-graphql",
+      resolve: "@prismicio/gatsby-source-prismic-graphql",
       options: {
-        repositoryName: "artaufeminin", // required
-        defaultLang: "fr-fr", // optional, but recommended
+        repositoryName: "artaufeminin",
+        defaultLang: "fr-fr",
         pages: [
           {
-            type: "Blog_post", // optional
-            match: "/article/:uid", // TypeName from prismic
+            type: "Blog_post",
+            match: "/article/:uid",
             component: require.resolve("./src/templates/article.tsx"), // pages will be generated under this pattern
           },
         ],

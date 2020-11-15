@@ -1,13 +1,14 @@
 import React from "react"
 import { graphql, StaticQuery } from "gatsby"
-import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Hero from "../components/hero"
 
 const PodcastPage = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
   const allEpisodes = data.allAnchorEpisode.nodes
+  const imageUrlFixed = data.benchAccounting.childImageSharp.fixed
 
   return (
     <Layout title={siteTitle}>
@@ -16,32 +17,28 @@ const PodcastPage = ({ data }) => {
         description=""
       />
 
-      <article className="post-content no-image">
-        <div className="post-content-header">
-          <h1 className="post-content-title">Liste des épisodes du podcast</h1>
-        </div>
-        <div className="post-content-body">
-          <figure className="kg-card kg-image-card kg-width-full">
-            <Img
-              fluid={data.benchAccounting.childImageSharp.fluid}
-              className="kg-image"
-            />
-            <figcaption>Photo by Matt Botsford on Unsplash</figcaption>
-          </figure>
+      <Hero
+        heroTitle={"Tous les épisodes du podcast ART au féminin"}
+        imageUrlFixed={imageUrlFixed}
+        imageAlt={"Photo by Matt Botsford on Unsplash"}
+      />
 
+      <article className="post-content">
+        <div className="post-content-body">
           {allEpisodes.map(episode => {
             return (
               <div key={episode.id}>
                 <h2>{episode.title}</h2>
-                <p className="text-center">
-                  <em>Saison {episode.itunes.season}</em> •{" "}
+                <p className="text-gray-500">
+                  <em>Saison {episode.itunes.season}</em>
+                  <span className="mx-3">•</span>
                   <em>Épisode {episode.itunes.episode}</em>
                 </p>
                 <div
                   dangerouslySetInnerHTML={{ __html: episode.itunes.summary }}
                 />
-                <div className="row">
-                  <div className="col">
+                <div className="flex">
+                  <div className="flex-1 px-4 pl-0">
                     <a
                       href={episode.link}
                       title="Écouter sur anchor.fm"
@@ -52,7 +49,7 @@ const PodcastPage = ({ data }) => {
                       Écouter l'épisode
                     </a>
                   </div>
-                  <div className="col">
+                  <div className="flex-1 px-4 pr-0">
                     <a
                       href="https://instagram.com/artaufeminin"
                       title="Contacter sur instagram"
@@ -60,7 +57,7 @@ const PodcastPage = ({ data }) => {
                       rel="noopener noreferrer"
                       className="button large fit"
                     >
-                      Envie de réagir à l'épisode ?
+                      Réagir à l’épisode sur Instagram
                     </a>
                   </div>
                 </div>
@@ -85,21 +82,14 @@ const episodesQuery = graphql`
     }
     benchAccounting: file(relativePath: { eq: "art-au-feminin-podcast.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1360) {
-          ...GatsbyImageSharpFluid
+        fixed(width: 500, height: 500) {
+          ...GatsbyImageSharpFixed
         }
       }
     }
     allAnchorEpisode {
       nodes {
-        id
-        title
-        link
-        itunes {
-          summary
-          episode
-          season
-        }
+        ...AnchorEpisodeFragment
       }
     }
   }

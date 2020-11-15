@@ -4,29 +4,29 @@ import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Hero from "../components/hero"
 
 const AboutPage = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
+  const imageUrlFixed = data.benchAccounting.childImageSharp.fixed
 
   return (
     <Layout title={siteTitle}>
-      <SEO title="👩‍🎨 À propos" />
+      <SEO
+        title="👩‍🎨 À propos"
+        description="à l’origine du projet, une question simple : combien existe-t-il de femme artistes dans les musées. La réponse est difficile à trouver voire impossible sans recherches approfondies que vous pourrez découvrir en écoutant le podcast."
+      />
 
-      <article className="post-content no-image">
-        <div className="post-content-header">
-          <h1 className="post-content-title">
-            Moins de 4% des artistes dans la section art moderne sont des
-            femmes, mais 76% des nus sont des femmes.
-          </h1>
-        </div>
+      <Hero
+        heroTitle={
+          "Moins de 4% des artistes dans la section art moderne sont des femmes, mais 76% des nus sont des femmes."
+        }
+        imageUrlFixed={imageUrlFixed}
+        imageAlt={"Logo podcast ART au feminin"}
+      />
+
+      <article className="post-content">
         <div className="post-content-body">
-          <figure className="kg-card kg-image-card kg-width-full">
-            <Img
-              fluid={data.benchAccounting.childImageSharp.fluid}
-              className="kg-image"
-            />
-            <figcaption>Photo de Flipboard sur Unsplash</figcaption>
-          </figure>
           <h2>Mon histoire</h2>
           <p>
             J’ai pour prénom <strong>Aldjia</strong> et je{" "}
@@ -44,7 +44,7 @@ const AboutPage = ({ data }) => {
           </blockquote>
           <hr />
           <p>
-            J’enregistre des podcats pour vous{" "}
+            J’enregistre des émissions de radio en ligne pour vous{" "}
             <strong>faire découvrir les femmes artistes</strong> qui ont marqué{" "}
             <strong>l’histoire de l’art</strong>. Ce projet me tient à coeur.
           </p>
@@ -55,7 +55,7 @@ const AboutPage = ({ data }) => {
             </em>
           </p>
           <p>
-            <em>Bonjour, et bienvenue dans ART au feminin</em>
+            <em>Bonjour, et bienvenue dans ART au féminin</em>
           </p>
         </div>
         <div className="post-content-body">
@@ -66,7 +66,10 @@ const AboutPage = ({ data }) => {
           </p>
           <ul>
             <li>
-              <Link to="/faq">Questions fréquentes</Link>
+              <Link to={"/faq"}>Questions fréquentes</Link>
+            </li>
+            <li>
+              <Link to={"/start"}>Participer à un épisode</Link>
             </li>
           </ul>
         </div>
@@ -86,8 +89,8 @@ const indexQuery = graphql`
       relativePath: { eq: "flipboard-Ylus81fS7q4-unsplash.jpg" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 1360) {
-          ...GatsbyImageSharpFluid
+        fixed(width: 500, height: 500) {
+          ...GatsbyImageSharpFixed
         }
       }
     }

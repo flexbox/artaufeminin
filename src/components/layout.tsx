@@ -2,8 +2,9 @@ import React, { ReactNode } from "react"
 import { Link } from "gatsby"
 import Footer from "./footer"
 
-import "../utils/normalize.css"
-import "../utils/css/styles.css"
+import "../styles/tailwind.css"
+// import "../styles/normalize.css"
+import "../styles/css/styles.css"
 
 interface LayoutProps {
   title: string
@@ -36,12 +37,17 @@ function Layout(props: LayoutProps) {
             <ul className="nav">
               <li className="nav-home">
                 <Link to={`/`} activeClassName="nav-current">
+                  Accueil
+                </Link>
+              </li>
+              <li className="nav-home">
+                <Link to={`/articles`} activeClassName="nav-current">
                   Articles
                 </Link>
               </li>
               <li className="nav-home">
                 <Link to={`/podcast`} activeClassName="nav-current">
-                  Podcasts
+                  Épisodes
                 </Link>
               </li>
               <li className="nav-about">
