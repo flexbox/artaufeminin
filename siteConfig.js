@@ -1,7 +1,7 @@
 module.exports = {
   name: "ART au feminin",
   shortName: "ART",
-  description: "L’histoire des femmes artistes, tu connais ?",
+  description: "Explorons ensemble l’histoire des femmes artistes",
   url: "https://artaufeminin.fr", // Domain of your site without prefix!
   prefix: "/",
   author: "Aldjia",

@@ -29,17 +29,13 @@ export default function footer(props) {
           </p>
           <p>
             Design •{" "}
-            <a
-              href="https://davidl.fr"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://davidl.fr" target="_blank" rel="nofollow">
               David Leuliette
             </a>
           </p>
         </div>
         <div className="col footer-follow">
-          <p>Retrouvez tous nos épisodes</p>
+          <p>Écoutez tous les épisodes</p>
           <ul
             className="actions footer-follow"
             style={{

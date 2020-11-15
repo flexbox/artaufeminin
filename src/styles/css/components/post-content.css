@@ -77,18 +77,21 @@
   margin: 0 auto !important;
 }
 
-.post-content-body blockquote {
+.post-content-body blockquote,
+.blockquote {
   margin: 0 0 1.5em;
   padding: 0 1.5em;
   border-left: var(--color-primary) 3px solid;
 }
 
-.post-content-body blockquote p {
-  margin: 0 0 1em 0;
+.post-content-body blockquote p,
+.blockquote {
+  margin: 3em 0 4em 0;
   color: inherit;
-  font-size: inherit;
-  line-height: inherit;
+  font-size: 24px;
+  line-height: 1.5;
   font-style: italic;
+  display: block;
 }
 
 .post-content-body blockquote p:last-child {
@@ -134,22 +137,4 @@
 
 .post-content-body .fluid-width-video-wrapper {
   margin: 1.5em 0 3em;
-}
-
-.post-content-body hr {
-  margin: 4vw 0;
-}
-
-.post-content-body hr:after {
-  content: "";
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  display: block;
-  margin-left: -10px;
-  width: 1px;
-  height: 30px;
-  background: color(var(--color-border) l(+10%));
-  box-shadow: var(--color-bg) 0 0 0 5px;
-  transform: rotate(45deg);
 }

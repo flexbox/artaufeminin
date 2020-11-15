@@ -12,6 +12,7 @@
 @import "components/footer.css";
 @import "components/post-content.css";
 @import "components/post-card.css";
+@import "components/typography.css";
 
 /* Main - Theme styles
 /* ---------------------------------------------------------- */
@@ -33,40 +34,6 @@ body {
 @media (max-width: 850px) {
   .site-wrapper {
     padding: 6vw;
-  }
-}
-
-.page-head {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 13vw 0;
-  max-width: 70%;
-  margin: auto;
-  text-align: center;
-}
-
-.page-head-title {
-  margin: 0;
-  font-size: 4.2rem;
-  color: var(--color-base);
-}
-@media (max-width: 500px) {
-  .page-head-title {
-    font-size: 2rem;
-  }
-}
-
-.page-head-description {
-  margin: 0 0 1.6vw;
-  color: color(var(--color-border) l(-20%));
-  font-size: 2.2rem;
-  line-height: 1.35em;
-}
-@media (max-width: 500px) {
-  .page-head-description {
-    font-size: 1.6rem;
   }
 }
 
