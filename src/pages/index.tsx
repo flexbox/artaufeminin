@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql, Link, StaticQuery } from "gatsby"
-import Image from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -21,7 +20,7 @@ const IndexPage = ({ data }) => {
 
       <Hero
         heroTitle={siteDescription}
-        imageUrl={logoUrl}
+        imageUrlFixed={logoUrl}
         imageAlt={"Logo podcast ART au feminin"}
       >
         <div className="flex">
