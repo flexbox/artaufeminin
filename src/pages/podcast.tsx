@@ -1,13 +1,14 @@
 import React from "react"
 import { graphql, StaticQuery } from "gatsby"
-import Image from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Hero from "../components/hero"
 
 const PodcastPage = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
   const allEpisodes = data.allAnchorEpisode.nodes
+  const imageUrlFixed = data.benchAccounting.childImageSharp.fixed
 
   return (
     <Layout title={siteTitle}>
@@ -16,19 +17,14 @@ const PodcastPage = ({ data }) => {
         description=""
       />
 
-      <article className="post-content no-image">
-        <div className="post-content-header">
-          <h1 className="post-content-title">Liste des épisodes du podcast</h1>
-        </div>
-        <div className="post-content-body">
-          <figure className="kg-card kg-image-card kg-width-full">
-            <Image
-              fluid={data.benchAccounting.childImageSharp.fluid}
-              className="kg-image"
-            />
-            <figcaption>Photo by Matt Botsford on Unsplash</figcaption>
-          </figure>
+      <Hero
+        heroTitle={"Tous les épisodes du podcast ART au féminin"}
+        imageUrlFixed={imageUrlFixed}
+        imageAlt={"Photo by Matt Botsford on Unsplash"}
+      />
 
+      <article className="post-content">
+        <div className="post-content-body">
           {allEpisodes.map(episode => {
             return (
               <div key={episode.id}>
@@ -86,8 +82,8 @@ const episodesQuery = graphql`
     }
     benchAccounting: file(relativePath: { eq: "art-au-feminin-podcast.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1360) {
-          ...GatsbyImageSharpFluid
+        fixed(width: 500, height: 500) {
+          ...GatsbyImageSharpFixed
         }
       }
     }
