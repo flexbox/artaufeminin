@@ -9,25 +9,23 @@ function Author() {
       render={data => {
         const { author, social } = data.site.siteMetadata
         return (
-          <section className="row section-author">
-            <div className="col-2">
+          <section className="flex bg-gray-300 p-8 rounded-2xl">
+            <div className="flex-2 pr-8">
               <Image
                 fixed={data.avatar.childImageSharp.fixed}
                 alt={author}
-                imgStyle={{
-                  borderRadius: `100%`,
-                }}
+                className="rounded-full"
               />
             </div>
-            <div className="col-10">
+            <div className="flex-10">
               <p>
                 J’ai pour prénom <strong>Aldjia</strong> et{" "}
                 <strong>je suis passionée d’art</strong>.<br />
                 J’enregistre des podcats pour vous faire découvrir les femmes
-                artistes qui ont marqué l’histoire.
+                artistes qui ont marqué l’Histoire.
               </p>
               <a href={`https://instagram.com/${social.instagram}`}>
-                Suivre sur instagram
+                Suivre sur Instagram
               </a>
             </div>
           </section>

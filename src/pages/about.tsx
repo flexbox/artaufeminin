@@ -66,7 +66,10 @@ const AboutPage = ({ data }) => {
           </p>
           <ul>
             <li>
-              <Link to="/faq">Questions fréquentes</Link>
+              <Link to={"/faq"}>Questions fréquentes</Link>
+            </li>
+            <li>
+              <Link to={"/start"}>Participer à un épisode</Link>
             </li>
           </ul>
         </div>

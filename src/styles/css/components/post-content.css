@@ -138,21 +138,3 @@
 .post-content-body .fluid-width-video-wrapper {
   margin: 1.5em 0 3em;
 }
-
-.post-content-body hr {
-  margin: 4vw 0;
-}
-
-.post-content-body hr:after {
-  content: "";
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  display: block;
-  margin-left: -10px;
-  width: 1px;
-  height: 30px;
-  background: color(var(--color-border) l(+10%));
-  box-shadow: var(--color-bg) 0 0 0 5px;
-  transform: rotate(45deg);
-}

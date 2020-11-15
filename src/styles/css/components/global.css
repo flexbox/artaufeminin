@@ -244,12 +244,6 @@ th {
   padding: 0;
 }
 
-.section-author {
-  background-color: var(--color-gray-200);
-  padding: 10px 20px;
-  border-radius: 10px;
-}
-
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
@@ -282,17 +276,6 @@ body {
 ::selection {
   text-shadow: none;
   background: #cbeafb;
-}
-
-hr {
-  position: relative;
-  display: block;
-  width: 100%;
-  margin: 2.5em 0 3.5em;
-  padding: 0;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid color(var(--color-border) l(+10%));
 }
 
 audio,
@@ -406,12 +389,4 @@ h5 {
 h6 {
   margin: 1.5em 0 1em 0;
   font-size: 2.2rem;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-right {
-  text-align: right;
 }
