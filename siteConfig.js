@@ -1,5 +1,5 @@
 module.exports = {
-  name: "ART au feminin",
+  name: "ART au féminin",
   shortName: "ART",
   description: "Explorons ensemble l’histoire des femmes artistes",
   url: "https://artaufeminin.fr", // Domain of your site without prefix!

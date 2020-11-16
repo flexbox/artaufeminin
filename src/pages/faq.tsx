@@ -6,11 +6,10 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 export default function FaqPage({ data }): ReactElement {
-  const siteTitle = data.site.siteMetadata.title
   const questions = data.prismic.allFaqs.edges
 
   return (
-    <Layout title={siteTitle}>
+    <Layout>
       <SEO
         title="Questions fréquentes"
         description="Conseils et réponses sur le podcast."
@@ -37,11 +36,6 @@ export default function FaqPage({ data }): ReactElement {
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     prismic {
       allFaqs {
         edges {

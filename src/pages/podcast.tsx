@@ -6,12 +6,11 @@ import SEO from "../components/seo"
 import Hero from "../components/hero"
 
 const PodcastPage = ({ data }) => {
-  const siteTitle = data.site.siteMetadata.title
   const allEpisodes = data.allAnchorEpisode.nodes
   const imageUrlFixed = data.benchAccounting.childImageSharp.fixed
 
   return (
-    <Layout title={siteTitle}>
+    <Layout>
       <SEO
         title="🎙 Tous les épisodes du podcast sur les femmes artistes"
         description=""
@@ -74,12 +73,6 @@ const PodcastPage = ({ data }) => {
 
 const episodesQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
     benchAccounting: file(relativePath: { eq: "art-au-feminin-podcast.jpg" }) {
       childImageSharp {
         fixed(width: 500, height: 500) {

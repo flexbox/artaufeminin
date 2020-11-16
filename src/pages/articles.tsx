@@ -1,20 +1,16 @@
 import React from "react"
-import { graphql, Link, StaticQuery } from "gatsby"
-import Image from "gatsby-image"
+import { graphql, StaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ArticleCard from "../components/articleCard"
-import ApplePodcastIcon from "../components/applePodacstIcon"
 
 const ArticlesPage = ({ data }) => {
-  const siteTitle = data.site.siteMetadata.title
-  const siteDescription = data.site.siteMetadata.description
   const articles = data.prismic.allBlog_posts.edges
   const articleCounter = data.prismic.allBlog_posts.totalCount
 
   return (
-    <Layout title={siteTitle}>
+    <Layout>
       <SEO title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia" />
 
       <div className="post-feed">
@@ -35,12 +31,6 @@ const ArticlesPage = ({ data }) => {
 
 const indexQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
     prismic {
       allBlog_posts {
         edges {
