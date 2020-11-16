@@ -25,7 +25,7 @@ function Layout({ children }: LayoutProps) {
 
   return (
     <div className={`site-wrapper ${toggleNav ? `site-head-open` : ``}`}>
-      <header className="site-head">
+      <header className="site-head mb-8">
         <div className="site-head-container">
           <button
             className="nav-burger"

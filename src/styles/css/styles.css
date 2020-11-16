@@ -287,7 +287,7 @@ a.nav-current,
     opacity: 0.5;
   }
   .site-head-open .footer {
-    display: block;
+    display: none;
     position: fixed;
     z-index: 9999;
     bottom: 0;
