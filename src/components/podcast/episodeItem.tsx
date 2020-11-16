@@ -3,8 +3,8 @@ import React from "react"
 import { dutationToString } from "../../utils/dutationToString"
 
 interface EpisodeItemProps {
+  isSummaryTruncate?: boolean
   episode: {
-    id: string
     link: string
     title: string
     itunes: {
@@ -20,20 +20,29 @@ interface EpisodeItemProps {
   }
 }
 
-export default function EpisodeItem({ episode }: EpisodeItemProps) {
+export default function EpisodeItem({
+  episode,
+  isSummaryTruncate,
+}: EpisodeItemProps) {
+  console.log("episode", episode)
   const duration = dutationToString(episode.itunes.duration)
-  const summary = episode.itunes.summary.substring(0, 250)
   const audioSrc = episode.enclosure.url
 
+  let summary = episode.itunes.summary
+  if (isSummaryTruncate === true) {
+    summary = `${episode.itunes.summary.substring(0, 250)}…`
+  }
+
   return (
-    <div key={episode.id}>
+    <>
       <div className="flex">
         <div className="flex-1 px-6">
           <h3 className="text-3xl text-gray-700 font-bold mt-0">
             {episode.title}
           </h3>
           <audio controls src={audioSrc} className="mb-8"></audio>
-          <div dangerouslySetInnerHTML={{ __html: `${summary}…` }} />
+          <div dangerouslySetInnerHTML={{ __html: summary }} />
+
           <p className="text-gray-500">
             <em>Saison {episode.itunes.season}</em>
             <span className="mx-4">•</span>
@@ -51,6 +60,6 @@ export default function EpisodeItem({ episode }: EpisodeItemProps) {
         </div>
       </div>
       <hr />
-    </div>
+    </>
   )
 }

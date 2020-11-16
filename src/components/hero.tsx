@@ -17,12 +17,12 @@ export default function Hero({
   children,
 }: Props): ReactElement {
   return (
-    <div className="grid grid-flow-col grid-col-2 gap-8 justify-items-auto">
+    <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-flow-col gap-8 justify-items-auto">
       <div className="justify-center flex flex-col pr-16">
         <h1>{heroTitle}</h1>
         {children}
       </div>
-      <div className="justify-center items-center">
+      <div className="flex justify-end">
         {imageUrlFixed && <Image fixed={imageUrlFixed} alt={imageAlt} />}
         {imageUrlFluid && <Image fluid={imageUrlFluid} alt={imageAlt} />}
       </div>
