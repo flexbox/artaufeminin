@@ -31,12 +31,8 @@ const DesignPage = ({ data }) => {
               <em>emphasized</em>
             </em>
             . This is <sup>superscript</sup>text and this is{" "}
-            <sub>subscript</sub> text. This is <u>underlined</u> and this is
-            code:{" "}
-            <code>
-              for (;;) {"{"} ... {"}"}
-            </code>
-            . Finally, this is a <Link to={`/`}>link</Link>.
+            <sub>subscript</sub> text. This is <u>underlined</u>. Finally, this
+            is a <Link to={`/`}>link</Link>.
           </p>
           <h2 id="heading-level-2">Heading Level 2</h2>
           <h3 id="heading-level-3">Heading Level 3</h3>
@@ -338,20 +334,6 @@ const DesignPage = ({ data }) => {
               </div>
             </div>
           </form>
-          <h2 id="code">Code</h2>
-          <pre>
-            <code>
-              i = 0;{"\n"}
-              {"\n"}while (!deck.isInOrder()) {"{"}
-              {"\n"}
-              {"    "}print 'Iteration ' + i;{"\n"}
-              {"    "}deck.shuffle();{"\n"}
-              {"    "}i++;{"\n"}
-              {"}"}
-              {"\n"}
-              {"\n"}print 'It took ' + i + ' iterations to sort the deck.';
-            </code>
-          </pre>
           <h2 id="grid-system">Grid system</h2>
           <div className="row">
             <div className="col-12">
