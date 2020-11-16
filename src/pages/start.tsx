@@ -1,16 +1,13 @@
 import React, { ReactElement } from "react"
-import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 interface Props {}
 
-export default function StartPage({ data }: Props): ReactElement {
-  const siteTitle = data.site.siteMetadata.title
-
+export default function StartPage({}: Props): ReactElement {
   return (
-    <Layout title={siteTitle}>
+    <Layout>
       <SEO title="Présentez vous" />
       <div className="post-content">
         <div className="post-content-body">
@@ -25,13 +22,3 @@ export default function StartPage({ data }: Props): ReactElement {
     </Layout>
   )
 }
-
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`

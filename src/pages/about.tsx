@@ -1,17 +1,15 @@
 import React from "react"
 import { graphql, Link, StaticQuery } from "gatsby"
-import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Hero from "../components/hero"
 
 const AboutPage = ({ data }) => {
-  const siteTitle = data.site.siteMetadata.title
   const imageUrlFixed = data.benchAccounting.childImageSharp.fixed
 
   return (
-    <Layout title={siteTitle}>
+    <Layout>
       <SEO
         title="👩‍🎨 À propos"
         description="à l’origine du projet, une question simple : combien existe-t-il de femme artistes dans les musées. La réponse est difficile à trouver voire impossible sans recherches approfondies que vous pourrez découvrir en écoutant le podcast."
@@ -80,11 +78,6 @@ const AboutPage = ({ data }) => {
 
 const indexQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     benchAccounting: file(
       relativePath: { eq: "flipboard-Ylus81fS7q4-unsplash.jpg" }
     ) {
