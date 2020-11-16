@@ -4,9 +4,8 @@ import { graphql, Link, StaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ApplePodcastIcon from "../components/applePodacstIcon"
-import PlayIcon from "../components/playIcon"
-import { dutationToString } from "../utils/dutationToString"
 import Hero from "../components/hero"
+import EpisodeItem from "../components/podcast/episodeItem"
 
 const IndexPage = ({ data }) => {
   const siteDescription = data.site.siteMetadata.description
@@ -46,40 +45,7 @@ const IndexPage = ({ data }) => {
         <h2 className="text-4xl">Épisodes récents</h2>
         <hr className="mt-16" />
         {allEpisodes.map(episode => {
-          const duration = dutationToString(episode.itunes.duration)
-          const summary = episode.itunes.summary.substring(0, 250)
-
-          return (
-            <div key={episode.id}>
-              <div className="flex">
-                <div className="flex-none">
-                  <PlayIcon className="fill-current text-gray-500 inline-block w-24 h-24" />
-                </div>
-
-                <div className="flex-1 px-6">
-                  <h3 className="text-3xl text-gray-700 font-bold mt-0">
-                    {episode.title}
-                  </h3>
-                  <div dangerouslySetInnerHTML={{ __html: summary }} />
-                  <p className="text-gray-500">
-                    <em>Saison {episode.itunes.season}</em>
-                    <span className="mx-4">•</span>
-                    <em>Épisode {episode.itunes.episode}</em>
-                    <span className="mx-4">•</span>
-                    <em>{duration}</em>
-                  </p>
-                </div>
-                <div className="flex-none">
-                  <img
-                    className="w-48 h-48"
-                    src={episode.itunes.image}
-                    alt={`ART au feminin S${episode.itunes.season} E${episode.itunes.episode}`}
-                  />
-                </div>
-              </div>
-              <hr />
-            </div>
-          )
+          return <EpisodeItem episode={episode} />
         })}
         <Link to={"/podcast"} className="button">
           Voir tous les épisodes
@@ -120,6 +86,9 @@ const indexQuery = graphql`
       episode
       season
       duration
+    }
+    enclosure {
+      url
     }
   }
 `
