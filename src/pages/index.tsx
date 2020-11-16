@@ -45,7 +45,13 @@ const IndexPage = ({ data }) => {
         <h2 className="text-4xl">Épisodes récents</h2>
         <hr className="mt-16" />
         {allEpisodes.map(episode => {
-          return <EpisodeItem episode={episode} />
+          return (
+            <EpisodeItem
+              key={episode.id}
+              episode={episode}
+              isSummaryTruncate={true}
+            />
+          )
         })}
         <Link to={"/podcast"} className="button">
           Voir tous les épisodes
