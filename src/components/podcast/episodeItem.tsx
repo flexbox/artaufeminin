@@ -24,7 +24,6 @@ export default function EpisodeItem({
   episode,
   isSummaryTruncate,
 }: EpisodeItemProps) {
-  console.log("episode", episode)
   const duration = dutationToString(episode.itunes.duration)
   const audioSrc = episode.enclosure.url
 
