@@ -9,13 +9,12 @@ import { dutationToString } from "../utils/dutationToString"
 import Hero from "../components/hero"
 
 const IndexPage = ({ data }) => {
-  const siteTitle = data.site.siteMetadata.title
   const siteDescription = data.site.siteMetadata.description
   const logoUrl = data.logo.childImageSharp.fixed
   const allEpisodes = data.allAnchorEpisode.nodes
 
   return (
-    <Layout title={siteTitle}>
+    <Layout>
       <SEO title="🎙 Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia" />
 
       <Hero
@@ -94,7 +93,6 @@ const indexQuery = graphql`
   query {
     site {
       siteMetadata {
-        title
         description
       }
     }

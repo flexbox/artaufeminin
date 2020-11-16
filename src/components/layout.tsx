@@ -1,18 +1,26 @@
 import React, { ReactNode } from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import Footer from "./footer"
 
 import "../styles/tailwind.css"
-// import "../styles/normalize.css"
 import "../styles/css/styles.css"
 
 interface LayoutProps {
-  title: string
   children: ReactNode
 }
 
-function Layout(props: LayoutProps) {
-  const { title, children } = props
+function Layout({ children }: LayoutProps) {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+  const siteTitle = data.site.siteMetadata.title
+
   const [toggleNav, setToggleNav] = React.useState(false)
 
   return (
@@ -59,7 +67,7 @@ function Layout(props: LayoutProps) {
           </nav>
           <div className="site-head-center">
             <Link className="site-head-logo" to={`/`}>
-              {title}
+              {siteTitle}
             </Link>
           </div>
           <div className="site-head-right">
@@ -91,7 +99,7 @@ function Layout(props: LayoutProps) {
         </div>
       </main>
 
-      <Footer title={title} />
+      <Footer title={siteTitle} />
     </div>
   )
 }

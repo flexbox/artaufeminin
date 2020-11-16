@@ -7,10 +7,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const DesignPage = ({ data }) => {
-  const siteTitle = data.site.siteMetadata.title
-
   return (
-    <Layout title={siteTitle}>
+    <Layout>
       <SEO title="Design System" />
 
       <article className="post-content no-image">
@@ -505,11 +503,6 @@ const DesignPage = ({ data }) => {
 
 const indexQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     smallPic: file(
       relativePath: { eq: "fabio-comparelli-696506-unsplash.jpg" }
     ) {
