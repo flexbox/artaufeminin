@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react"
 import { graphql } from "gatsby"
-import Image, { FixedObject, FluidObject } from "gatsby-image"
+import Image from "gatsby-image"
 
 interface Props {}
 
