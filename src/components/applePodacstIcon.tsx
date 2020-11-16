@@ -2,7 +2,7 @@ import * as React from "react"
 
 function ApplePodcastIcon(props) {
   return (
-    <svg viewBox="0 0 165 40" {...props}>
+    <svg width="165" height="40" viewBox="0 0 165 40" {...props}>
       <defs>
         <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="prefix__a">
           <stop stopColor="#F452FF" offset="0%" />
