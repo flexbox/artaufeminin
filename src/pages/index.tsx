@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link, StaticQuery } from "gatsby"
+import Image from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -10,6 +11,7 @@ import EpisodeItem from "../components/podcast/episodeItem"
 const IndexPage = ({ data }) => {
   const siteDescription = data.site.siteMetadata.description
   const logoUrl = data.logo.childImageSharp.fixed
+  const reviewsUrl = data.reviews.childImageSharp.fixed
   const allEpisodes = data.allAnchorEpisode.nodes
 
   return (
@@ -29,7 +31,7 @@ const IndexPage = ({ data }) => {
           </div>
           <div className="flex-initial sm:px-4">
             <a
-              href="https://podcasts.apple.com/us/podcast/art-au-feminin/id1493131152"
+              href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152"
               target="_blank"
               rel="noopener noreferrer"
               className="flex button large"
@@ -40,7 +42,7 @@ const IndexPage = ({ data }) => {
         </div>
       </Hero>
 
-      <div className="max-w-6xl">
+      <div className="max-w-6xl mb-64">
         <h2 className="text-4xl">Épisodes récents</h2>
         <hr className="mt-16" />
         {allEpisodes.map(episode => {
@@ -56,6 +58,36 @@ const IndexPage = ({ data }) => {
           Voir tous les épisodes
         </Link>
       </div>
+
+      <div className="max-w-6xl">
+        <h2 className="text-4xl">Ce que les auditeurs en disent</h2>
+        <p>
+          ⭐ Moyenne de 5/5 étoiles sur{" "}
+          <a
+            href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152#see-all/reviews"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Apple Podcast
+          </a>
+          .
+        </p>
+        <Image
+          fixed={reviewsUrl}
+          alt={"5 étoiles pour ART au feminin sur Apple podcast"}
+        />
+        <h2 className="text-4xl">Laissez moi une évaluation</h2>
+        <p>
+          Si vous aimez l’émission, la meilleure façon de la soutenir est de me
+          laisser une évaluation sur Apple Podcast.
+        </p>
+        <a
+          href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152"
+          className="button"
+        >
+          Cliquez ici pour 5 ⭐ sur Apple Podcast
+        </a>
+      </div>
     </Layout>
   )
 }
@@ -70,6 +102,13 @@ const indexQuery = graphql`
     logo: file(absolutePath: { regex: "/logo-podcast-art-au-feminin.png/" }) {
       childImageSharp {
         fixed(width: 500, height: 500) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    reviews: file(absolutePath: { regex: "/reviews.png/" }) {
+      childImageSharp {
+        fixed(width: 990, height: 600) {
           ...GatsbyImageSharpFixed
         }
       }
