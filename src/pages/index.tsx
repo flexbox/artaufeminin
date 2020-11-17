@@ -23,20 +23,19 @@ const IndexPage = ({ data }) => {
       >
         <div className="flex flex-col sm:flex-row">
           <div className="flex-initial px-4 pl-0 mb-6">
+            <Link to={"/links"} className="button primary large">
+              Écouter et s’abonner
+            </Link>
+          </div>
+          <div className="flex-initial sm:px-4">
             <a
               href="https://podcasts.apple.com/us/podcast/art-au-feminin/id1493131152"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex"
-              style={{ width: 164, height: 40 }}
+              className="flex button large"
             >
-              <ApplePodcastIcon />
+              <ApplePodcastIcon style={{ height: 46 }} />
             </a>
-          </div>
-          <div className="flex-initial sm:px-4">
-            <Link to={"/links"} className="button primary">
-              Écouter et s’abonner
-            </Link>
           </div>
         </div>
       </Hero>
