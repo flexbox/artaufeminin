@@ -9,7 +9,7 @@ function Author() {
       render={data => {
         const { author, social } = data.site.siteMetadata
         return (
-          <section className="flex bg-gray-300 p-8 rounded-2xl">
+          <section className="flex p-8 rounded-2xl bg-white shadow-lg">
             <div className="flex-2 pr-8">
               <Image
                 fixed={data.avatar.childImageSharp.fixed}
