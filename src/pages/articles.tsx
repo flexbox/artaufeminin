@@ -32,7 +32,7 @@ const ArticlesPage = ({ data }) => {
 const indexQuery = graphql`
   query {
     prismic {
-      allBlog_posts {
+      allBlog_posts(sortBy: meta_firstPublicationDate_DESC) {
         edges {
           node {
             image

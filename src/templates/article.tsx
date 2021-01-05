@@ -12,7 +12,6 @@ export default function Article(props) {
   const doc = props.data.prismic.allBlog_posts.edges.slice(0, 1).pop()
   if (!doc) return null
 
-  const siteTitle = props.data.site.siteMetadata.title
   const title = RichText.asText(doc.node.title)
   const description = RichText.asText(doc.node.description)
 
@@ -22,7 +21,7 @@ export default function Article(props) {
   })
 
   return (
-    <Layout title={siteTitle}>
+    <Layout>
       <SEO title={title} description={description} />
 
       <article className={`post-content`}>
@@ -46,7 +45,9 @@ export default function Article(props) {
 
         <div className="post-content-body">
           {RichText.render(doc.node.content)}
-          <p>Article publié {datePublished}</p>
+          <p className="text-gray-500">
+            <em>Article publié {datePublished}</em>
+          </p>
         </div>
 
         <footer className="post-content-footer">
