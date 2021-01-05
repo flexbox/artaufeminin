@@ -53,11 +53,10 @@ export default function LinksPage({ data }: Props): ReactElement {
         "https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/google_podcasts.svg",
     },
     {
-      name: "Youtube",
-      url:
-        "https://www.youtube.com/channel/UC8iyXykLR3Am5Ziry8_8PdQ?sub_confirmation=1",
+      name: "Anchor",
+      url: "https://anchor.fm/artaufeminin/",
       imageUrl:
-        "https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/youtube.svg",
+        "https://raw.githubusercontent.com/flexbox/artaufeminin/master/content/assets/logo-links.svg",
     },
   ]
 
@@ -69,10 +68,22 @@ export default function LinksPage({ data }: Props): ReactElement {
         "https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/instagram.svg",
     },
     {
+      name: "Facebook",
+      url: "https://www.facebook.com/podcastart",
+      imageUrl:
+        "https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/facebook.svg",
+    },
+    {
       name: "Site internet",
       url: "https://artaufeminin.fr",
       imageUrl:
-        "https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/angellist.svg",
+        "https://raw.githubusercontent.com/flexbox/artaufeminin/master/content/assets/logo-links.svg",
+    },
+    {
+      name: "Articles",
+      url: "https://artaufeminin.fr/articles",
+      imageUrl:
+        "https://raw.githubusercontent.com/flexbox/artaufeminin/master/content/assets/logo-links.svg",
     },
   ]
 
