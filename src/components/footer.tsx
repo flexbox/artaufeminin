@@ -10,20 +10,24 @@ export default function footer(props) {
       url: "https://podcasts.apple.com/us/podcast/art-au-feminin/id1493131152",
     },
     {
-      name: "Spotify",
-      url: "https://open.spotify.com/show/18f84r0ic2PUenYvBRr2Ps",
-    },
-    {
       name: "Google podcasts",
       url:
         "https://podcasts.google.com/?feed=aHR0cHM6Ly9hbmNob3IuZm0vcy85NDgzZGY4L3BvZGNhc3QvcnNz",
+    },
+    {
+      name: "Deezer",
+      url: "https://www.deezer.com/us/show/2157592",
+    },
+    {
+      name: "Spotify",
+      url: "https://open.spotify.com/show/18f84r0ic2PUenYvBRr2Ps",
     },
   ]
 
   return (
     <footer className="footer">
-      <div className="row">
-        <div className="col">
+      <div className="flex flex-col md:flex-row">
+        <div className="flex-none sm:flex-1">
           <p>
             &copy; {new Date().getFullYear()} • <Link to={`/`}>{title}</Link>{" "}
           </p>
@@ -34,24 +38,17 @@ export default function footer(props) {
             </a>
           </p>
         </div>
-        <div className="col footer-follow">
-          <p>Écoutez tous les épisodes</p>
-          <ul
-            className="actions footer-follow"
-            style={{
-              flexDirection: "row-reverse",
-              marginLeft: 0,
-              paddingRight: 0,
-            }}
-          >
+        <div className="flex-none sm:flex-1">
+          <p className="pl-8">Écoutez tous les épisodes</p>
+          <div className="grid grid-flow-col md:grid-flow-col grid-cols-3 text-center">
             {platforms.map((platform, index) => {
               return (
-                <li key={index}>
+                <div key={index}>
                   <a href={platform.url}>{platform.name}</a>
-                </li>
+                </div>
               )
             })}
-          </ul>
+          </div>
         </div>
       </div>
     </footer>
