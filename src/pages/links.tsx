@@ -95,11 +95,11 @@ export default function LinksPage({ data }: Props): ReactElement {
         </div>
         <p className="text-center">@artaufeminin</p>
         <h2 className="mt-0">Écouter le podcast</h2>
-        {allPodcastPlatforms.map(platform => {
+        {allPodcastPlatforms.map((platform) => {
           return <LinkButton platform={platform} />
         })}
         <h2>Les coulisses de l’émission</h2>
-        {allSocialLinks.map(platform => {
+        {allSocialLinks.map((platform) => {
           return <LinkButton platform={platform} />
         })}
       </div>

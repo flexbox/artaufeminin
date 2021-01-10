@@ -10,10 +10,9 @@ export default function articleCard(props) {
 
   return (
     <article
-      className={`post-card ${counter % 3 === 0 &&
-        `post-card-large`} ${postClass} ${
-        thumbnail ? `with-image` : `no-image`
-      }`}
+      className={`post-card ${
+        counter % 3 === 0 && `post-card-large`
+      } ${postClass} ${thumbnail ? `with-image` : `no-image`}`}
       style={
         thumbnail && {
           backgroundImage: `url(${thumbnail})`,
