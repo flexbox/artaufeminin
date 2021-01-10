@@ -39,12 +39,12 @@
     "url-join": "^4.0.0"
   },
   "devDependencies": {
-    "husky": "^2.2.0",
+    "husky": "^4.3.7",
     "postcss-color-function": "^4.1.0",
     "postcss-custom-properties": "^8.0.10",
     "postcss-easy-import": "^3.0.0",
     "prettier": "^1.17.0",
-    "pretty-quick": "^1.10.0"
+    "pretty-quick": "^3.1.0"
   },
   "license": "MIT",
   "repository": {
