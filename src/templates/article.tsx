@@ -36,7 +36,7 @@ export default function Article(props) {
         {doc.node.image && (
           <div className="post-content-image">
             <img
-              className="kg-image"
+              className="w-full"
               src={doc.node.image.url}
               alt={doc.node.image.alt}
             />
