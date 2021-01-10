@@ -24,7 +24,7 @@ const PodcastPage = ({ data }) => {
       />
 
       <div className="max-w-6xl">
-        {allEpisodes.map(episode => {
+        {allEpisodes.map((episode) => {
           return <EpisodeItem key={episode.id} episode={episode} />
         })}
       </div>
@@ -49,10 +49,10 @@ const episodesQuery = graphql`
   }
 `
 
-export default props => (
+export default (props) => (
   <StaticQuery
     query={episodesQuery}
-    render={data => (
+    render={(data) => (
       <PodcastPage location={props.location} props data={data} {...props} />
     )}
   />

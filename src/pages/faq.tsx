@@ -19,7 +19,7 @@ export default function FaqPage({ data }): ReactElement {
           <h1 className="post-content-title">Questions fréquentes</h1>
         </div>
         <div className="post-content-body">
-          {questions.map(question => {
+          {questions.map((question) => {
             return (
               <>
                 <h2>{RichText.asText(question.node.question)}</h2>

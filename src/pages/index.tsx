@@ -45,7 +45,7 @@ const IndexPage = ({ data }) => {
       <div className="max-w-6xl mb-64">
         <h2 className="text-4xl">Épisodes récents</h2>
         <hr className="mt-16" />
-        {allEpisodes.map(episode => {
+        {allEpisodes.map((episode) => {
           return (
             <EpisodeItem
               key={episode.id}
@@ -137,10 +137,10 @@ const indexQuery = graphql`
   }
 `
 
-export default props => (
+export default (props) => (
   <StaticQuery
     query={indexQuery}
-    render={data => (
+    render={(data) => (
       <IndexPage location={props.location} props data={data} {...props} />
     )}
   />
