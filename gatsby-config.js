@@ -16,7 +16,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/assets`,
+        path: `${__dirname}/src/assets`,
         name: `assets`,
       },
     },
@@ -80,7 +80,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#8ba28e`,
         display: `minimal-ui`,
-        icon: `content/assets/favicon.png`,
+        icon: `src/assets/favicon.png`,
       },
     },
     `gatsby-plugin-netlify`,

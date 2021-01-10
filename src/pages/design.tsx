@@ -147,52 +147,8 @@ const DesignPage = ({ data }) => {
             <figcaption>Full bleed image</figcaption>
           </figure>
           <hr />
-          <h2 id="table">Table</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Item 1</td>
-                <td>Ante turpis integer aliquet porttitor.</td>
-                <td>29.99</td>
-              </tr>
-              <tr>
-                <td>Item 2</td>
-                <td>Vis ac commodo adipiscing arcu aliquet.</td>
-                <td>19.99</td>
-              </tr>
-              <tr>
-                <td>Item 3</td>
-                <td> Morbi faucibus arcu accumsan lorem.</td>
-                <td>29.99</td>
-              </tr>
-              <tr>
-                <td>Item 4</td>
-                <td>Vitae integer tempus condimentum.</td>
-                <td>19.99</td>
-              </tr>
-              <tr>
-                <td>Item 5</td>
-                <td>Ante turpis integer aliquet porttitor.</td>
-                <td>29.99</td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colSpan={2} />
-                <td>100.00</td>
-              </tr>
-            </tfoot>
-          </table>
-          <hr />
           <h2 id="buttons">Buttons</h2>
-          <ul className="actions">
+          <ul className="flex">
             <li>
               <button className="button primary">Primary</button>
             </li>
@@ -236,104 +192,7 @@ const DesignPage = ({ data }) => {
             </li>
           </ul>
           <hr />
-          <h2 id="forms">Forms</h2>
-          <form method="post" action="#">
-            <div className="row gtr-uniform">
-              <div className="col-6 col-12-xsmall">
-                <input
-                  type="text"
-                  name="demo-name"
-                  id="demo-name"
-                  defaultValue
-                  placeholder="Name"
-                />
-              </div>
-              <div className="col-6 col-12-xsmall">
-                <input
-                  type="email"
-                  name="demo-email"
-                  id="demo-email"
-                  defaultValue
-                  placeholder="Email"
-                />
-              </div>
-              {/* Break */}
-              <div className="col-12">
-                <select name="demo-category" id="demo-category">
-                  <option value>- Category -</option>
-                  <option value={1}>Manufacturing</option>
-                  <option value={1}>Shipping</option>
-                  <option value={1}>Administration</option>
-                  <option value={1}>Human Resources</option>
-                </select>
-              </div>
-              {/* Break */}
-              <div className="col-4 col-12-small">
-                <input
-                  type="radio"
-                  id="demo-priority-low"
-                  name="demo-priority"
-                  defaultChecked
-                />
-                <label htmlFor="demo-priority-low">Low</label>
-              </div>
-              <div className="col-4 col-12-small">
-                <input
-                  type="radio"
-                  id="demo-priority-normal"
-                  name="demo-priority"
-                />
-                <label htmlFor="demo-priority-normal">Normal</label>
-              </div>
-              <div className="col-4 col-12-small">
-                <input
-                  type="radio"
-                  id="demo-priority-high"
-                  name="demo-priority"
-                />
-                <label htmlFor="demo-priority-high">High</label>
-              </div>
-              {/* Break */}
-              <div className="col-6 col-12-small">
-                <input type="checkbox" id="demo-copy" name="demo-copy" />
-                <label htmlFor="demo-copy">Email me a copy</label>
-              </div>
-              <div className="col-6 col-12-small">
-                <input
-                  type="checkbox"
-                  id="demo-human"
-                  name="demo-human"
-                  defaultChecked
-                />
-                <label htmlFor="demo-human">I am a human</label>
-              </div>
-              {/* Break */}
-              <div className="col-12">
-                <textarea
-                  name="demo-message"
-                  id="demo-message"
-                  placeholder="Enter your message"
-                  rows={6}
-                  defaultValue={""}
-                />
-              </div>
-              {/* Break */}
-              <div className="col-12">
-                <ul className="actions">
-                  <li>
-                    <input
-                      type="submit"
-                      defaultValue="Send Message"
-                      className="primary"
-                    />
-                  </li>
-                  <li>
-                    <input type="reset" defaultValue="Reset" />
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </form>
+
           <h2 id="grid-system">Grid system</h2>
           <div className="row">
             <div className="col-12">
@@ -513,10 +372,10 @@ const indexQuery = graphql`
   }
 `
 
-export default props => (
+export default (props) => (
   <StaticQuery
     query={indexQuery}
-    render={data => (
+    render={(data) => (
       <DesignPage location={props.location} data={data} {...props} />
     )}
   />
