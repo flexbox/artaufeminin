@@ -56,7 +56,7 @@ export default function LinksPage({ data }: Props): ReactElement {
       name: "Anchor",
       url: "https://anchor.fm/artaufeminin/",
       imageUrl:
-        "https://raw.githubusercontent.com/flexbox/artaufeminin/master/content/assets/logo-links.svg",
+        "https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/assets/logo-links.svg",
     },
   ]
 
@@ -77,13 +77,13 @@ export default function LinksPage({ data }: Props): ReactElement {
       name: "Site internet",
       url: "https://artaufeminin.fr",
       imageUrl:
-        "https://raw.githubusercontent.com/flexbox/artaufeminin/master/content/assets/logo-links.svg",
+        "https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/assets/logo-links.svg",
     },
     {
       name: "Articles",
       url: "https://artaufeminin.fr/articles",
       imageUrl:
-        "https://raw.githubusercontent.com/flexbox/artaufeminin/master/content/assets/logo-links.svg",
+        "https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/assets/logo-links.svg",
     },
   ]
 
