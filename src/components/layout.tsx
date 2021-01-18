@@ -41,13 +41,8 @@ function Layout({ children }: LayoutProps) {
               </div>
             </div>
           </button>
-          <nav id="swup" className="site-head-left">
+          <nav className="site-head-left">
             <ul className="nav">
-              <li className="nav-home">
-                <Link to={`/`} activeClassName="nav-current">
-                  Accueil
-                </Link>
-              </li>
               <li className="nav-home">
                 <Link to={`/articles`} activeClassName="nav-current">
                   Articles
@@ -94,9 +89,7 @@ function Layout({ children }: LayoutProps) {
       </header>
 
       <main id="site-main" className="site-main">
-        <div id="swup" className="transition-fade">
-          {children}
-        </div>
+        <div className="transition-fade">{children}</div>
       </main>
 
       <Footer title={siteTitle} />

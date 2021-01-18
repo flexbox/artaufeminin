@@ -1,3 +1,4 @@
+import { Link } from "gatsby"
 import React from "react"
 
 import { dutationToString } from "../../utils/dutationToString"
@@ -5,6 +6,7 @@ import { dutationToString } from "../../utils/dutationToString"
 interface EpisodeItemProps {
   isSummaryTruncate?: boolean
   episode: {
+    guid: string
     link: string
     title: string
     itunes: {
@@ -37,7 +39,7 @@ export default function EpisodeItem({
       <div className="flex">
         <div className="flex-1 px-6">
           <h3 className="text-3xl text-gray-700 font-bold mt-0">
-            {episode.title}
+            <Link to={`/episodes/${episode.guid}`}>{episode.title}</Link>
           </h3>
           <audio controls src={audioSrc} className="mb-8"></audio>
           <div dangerouslySetInnerHTML={{ __html: summary }} />
