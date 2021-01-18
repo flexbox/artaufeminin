@@ -122,6 +122,7 @@ const indexQuery = graphql`
 
   fragment AnchorEpisodeFragment on AnchorEpisode {
     id
+    guid
     link
     title
     itunes {

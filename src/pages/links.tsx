@@ -34,6 +34,12 @@ export default function LinksPage({ data }: Props): ReactElement {
 
   const allPodcastPlatforms = [
     {
+      name: "Anchor",
+      url: "https://anchor.fm/artaufeminin/",
+      imageUrl:
+        "https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/images/logo-links.svg",
+    },
+    {
       name: "Apple podcasts",
       url: "https://podcasts.apple.com/us/podcast/art-au-feminin/id1493131152",
       imageUrl:
@@ -73,17 +79,20 @@ export default function LinksPage({ data }: Props): ReactElement {
       imageUrl:
         "https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/facebook.svg",
     },
+  ]
+
+  const allMoreLinks = [
     {
       name: "Site internet",
       url: "https://artaufeminin.fr",
       imageUrl:
-        "https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/assets/logo-links.svg",
+        "https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/images/logo-links.svg",
     },
     {
       name: "Articles",
       url: "https://artaufeminin.fr/articles",
       imageUrl:
-        "https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/assets/logo-links.svg",
+        "https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/images/logo-links.svg",
     },
   ]
 
@@ -100,6 +109,10 @@ export default function LinksPage({ data }: Props): ReactElement {
         })}
         <h2>Les coulisses de l’émission</h2>
         {allSocialLinks.map((platform) => {
+          return <LinkButton platform={platform} />
+        })}
+        <h2>ART au féminin le site</h2>
+        {allMoreLinks.map((platform) => {
           return <LinkButton platform={platform} />
         })}
       </div>
