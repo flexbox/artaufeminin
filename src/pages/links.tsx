@@ -40,10 +40,10 @@ export default function LinksPage({ data }: Props): ReactElement {
         "https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/itunes_podcasts.svg",
     },
     {
-      name: "Spotify",
-      url: "https://open.spotify.com/show/18f84r0ic2PUenYvBRr2Ps",
+      name: "Deezer",
+      url: "https://www.deezer.com/us/show/2157592",
       imageUrl:
-        "https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/spotify.svg",
+        "https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/deezer.svg",
     },
     {
       name: "Google podcasts",
@@ -53,10 +53,10 @@ export default function LinksPage({ data }: Props): ReactElement {
         "https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/google_podcasts.svg",
     },
     {
-      name: "Anchor",
-      url: "https://anchor.fm/artaufeminin/",
+      name: "Spotify",
+      url: "https://open.spotify.com/show/18f84r0ic2PUenYvBRr2Ps",
       imageUrl:
-        "https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/assets/logo-links.svg",
+        "https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/spotify.svg",
     },
   ]
 
