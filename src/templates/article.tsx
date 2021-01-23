@@ -50,9 +50,7 @@ export default function Article(props) {
           </p>
         </div>
 
-        <footer className="post-content-footer">
-          <Author />
-        </footer>
+        <Author />
       </article>
     </Layout>
   )

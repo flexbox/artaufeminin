@@ -84,7 +84,7 @@
   border-left: var(--color-primary) 3px solid;
 }
 
-.post-content-body blockquote p,
+.post-content-body blockquote,
 .blockquote {
   margin: 3em 0 4em 0;
   color: inherit;
@@ -94,7 +94,8 @@
   display: block;
 }
 
-.post-content-body blockquote p:last-child {
+.post-content-body blockquote p:last-child,
+blockquote p:last-child {
   margin-bottom: 0;
 }
 
