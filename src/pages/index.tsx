@@ -23,7 +23,7 @@ const IndexPage = ({ data }) => {
         imageUrlFixed={logoUrl}
         imageAlt={"Logo podcast ART au feminin"}
       >
-        <div className="flex flex-col sm:flex-row">
+        <div className="flex flex-col sm:flex-row mt-12">
           <div className="flex-initial px-4 pl-0 mb-6">
             <Link to={"/links"} className="button primary large">
               Écouter et s’abonner

@@ -39,8 +39,8 @@ export default function footer(props) {
           </p>
         </div>
         <div className="flex-none sm:flex-1">
-          <p className="pl-8">Écoutez tous les épisodes</p>
-          <div className="grid grid-flow-col md:grid-flow-col grid-cols-3 text-center">
+          <p className="pl-12">Écoutez tous les épisodes</p>
+          <div className="grid grid-flow-col md:grid-flow-col grid-cols-4 text-center items-center">
             {platforms.map((platform, index) => {
               return (
                 <div key={index}>
