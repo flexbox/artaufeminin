@@ -39,7 +39,9 @@ export default function EpisodeItem({
       <div className="flex">
         <div className="flex-1 px-6">
           <h3 className="text-3xl text-gray-700 font-bold mt-0">
-            <Link to={`/episodes/${episode.guid}`}>{episode.title}</Link>
+            <Link className="flex" to={`/episodes/${episode.guid}`}>
+              {episode.title}
+            </Link>
           </h3>
           <audio controls src={audioSrc} className="mb-8"></audio>
           <div dangerouslySetInnerHTML={{ __html: summary }} />

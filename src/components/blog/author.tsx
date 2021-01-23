@@ -6,10 +6,10 @@ function Author() {
   return (
     <StaticQuery
       query={authorQuery}
-      render={data => {
+      render={(data) => {
         const { author, social } = data.site.siteMetadata
         return (
-          <section className="flex p-8 rounded-2xl bg-white shadow-lg">
+          <section className="flex p-8 rounded-2xl bg-white shadow-lg items-center">
             <div className="flex-2 pr-8">
               <Image
                 fixed={data.avatar.childImageSharp.fixed}
@@ -18,15 +18,16 @@ function Author() {
               />
             </div>
             <div className="flex-10">
-              <p>
-                J’ai pour prénom <strong>Aldjia</strong> et{" "}
-                <strong>je suis passionée d’art</strong>.<br />
-                J’enregistre des podcasts pour vous faire découvrir les femmes
-                artistes qui ont marqué l’Histoire.
+              <p className="text-3xl font-extrabold tracking-tight sm:text-4xl mb-3">
+                Aldjia
               </p>
-              <a href={`https://instagram.com/${social.instagram}`}>
-                Suivre sur Instagram
-              </a>
+              <p className="text-2xl sm:text-3xl mb-3">
+                Créatrice et animatrice de podcasts
+              </p>
+              <p className="mb-0">
+                À tout de suite sur <a href={social.instagramUrl}>Instagram</a>{" "}
+                ou <a href={social.facebookUrl}>Facebook</a> !
+              </p>
             </div>
           </section>
         )
@@ -48,7 +49,8 @@ const authorQuery = graphql`
       siteMetadata {
         author
         social {
-          instagram
+          instagramUrl
+          facebookUrl
         }
       }
     }
