@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { RichText } from "prismic-reactjs"
-import { formatDistanceToNow } from "date-fns"
+import { format } from "date-fns"
 import { fr } from "date-fns/locale"
 
 import Layout from "../components/layout"
@@ -10,21 +10,20 @@ import Author from "../components/blog/author"
 
 export default function Article(props) {
   const doc = props.data.prismic.allBlog_posts.edges.slice(0, 1).pop()
+
   if (!doc) return null
 
   const title = RichText.asText(doc.node.title)
   const description = RichText.asText(doc.node.description)
+  const datePublished = format(new Date(doc.node.date), "PPPP", { locale: fr })
 
-  const datePublished = formatDistanceToNow(new Date(doc.node.date), {
-    addSuffix: true,
-    locale: fr,
-  })
+  const { image } = doc.node
 
   return (
     <Layout>
       <SEO title={title} description={description} />
 
-      <article className={`post-content`}>
+      <article className="post-content">
         <header className="post-content-header">
           <h1 className="post-content-title">{title}</h1>
         </header>
@@ -33,13 +32,14 @@ export default function Article(props) {
           {RichText.render(doc.node.description)}
         </div>
 
-        {doc.node.image && (
-          <div className="post-content-image">
-            <img
-              className="w-full"
-              src={doc.node.image.url}
-              alt={doc.node.image.alt}
-            />
+        {image && (
+          <div className="text-center mb-10">
+            <figure className="post-content-figure">
+              <img className="mx-auto" src={image.url} alt={image.alt} />
+              <figcaption className="mt-8">
+                {image.alt} {image.copyright && `© ${image.copyright}`}
+              </figcaption>
+            </figure>
           </div>
         )}
 
