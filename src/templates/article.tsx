@@ -7,6 +7,7 @@ import { fr } from "date-fns/locale"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Author from "../components/blog/author"
+import CustomRichText from "../components/blog/customRichText"
 
 export default function Article(props) {
   const doc = props.data.prismic.allBlog_posts.edges.slice(0, 1).pop()
@@ -44,7 +45,8 @@ export default function Article(props) {
         )}
 
         <div className="post-content-body">
-          {RichText.render(doc.node.content)}
+          <CustomRichText render={doc.node.content} />
+
           <p className="text-gray-500">
             <em>Article publié {datePublished}</em>
           </p>
