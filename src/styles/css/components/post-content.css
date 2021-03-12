@@ -24,9 +24,9 @@
 .post-content-excerpt {
   margin: -2vw 0 3vw;
   font-size: 2.2rem;
-  line-height: 1.6em;
+  line-height: 1.6;
   color: var(--color-base);
-  text-align: center;
+  /* text-align: center; */
   opacity: 0.5;
 }
 
@@ -36,11 +36,9 @@
   }
 }
 
-.post-content-image {
+.post-content-figure {
   margin: 4vw 0;
   position: relative;
-  width: 75vw;
-  min-width: 100%;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   transform: translateX(calc(50vw - 50%));
