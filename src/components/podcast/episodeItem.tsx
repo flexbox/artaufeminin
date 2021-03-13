@@ -62,7 +62,7 @@ export default function EpisodeItem({
           />
         </div>
       </div>
-      <hr />
+      <hr className="separator" />
     </>
   )
 }

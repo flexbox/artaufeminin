@@ -44,7 +44,7 @@ const IndexPage = ({ data }) => {
 
       <div className="max-w-6xl mb-64">
         <h2 className="text-4xl">Épisodes récents</h2>
-        <hr className="mt-16" />
+        <hr className="separator mt-16" />
         {allEpisodes.map((episode) => {
           return (
             <EpisodeItem
