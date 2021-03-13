@@ -1,0 +1,17 @@
+body {
+  font-family: var(--font-sans-serif);
+  background: var(--color-bg);
+  transition: background 300ms ease-out;
+  transition-delay: 300ms;
+}
+
+.site-wrapper {
+  padding: 3vw;
+  min-height: 100vh;
+}
+
+@media (max-width: 850px) {
+  .site-wrapper {
+    padding: 6vw;
+  }
+}

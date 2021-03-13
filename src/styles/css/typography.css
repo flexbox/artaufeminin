@@ -1,4 +1,4 @@
-hr {
+hr.separator {
   position: relative;
   display: block;
   width: 100%;
@@ -9,7 +9,7 @@ hr {
   border-top: 1px solid color(var(--color-border) l(+10%));
 }
 
-hr:after {
+hr.separator:after {
   content: "";
   position: absolute;
   top: -15px;
