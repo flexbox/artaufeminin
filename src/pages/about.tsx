@@ -43,7 +43,7 @@ const AboutPage = ({ data }) => {
             <cite>—Simone de Beauvoir</cite>
           </blockquote>
 
-          <hr />
+          <hr className="separator" />
           <p>
             Pour ma part, je vous propose de revenir sur certaines périodes de
             l’histoire de l’art, plus particulièrement sur{" "}

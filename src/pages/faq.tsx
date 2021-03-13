@@ -24,7 +24,7 @@ export default function FaqPage({ data }): ReactElement {
               <>
                 <h2>{RichText.asText(question.node.question)}</h2>
                 <div>{RichText.render(question.node.answer)}</div>
-                <hr />
+                <hr className="separator" />
               </>
             )
           })}
