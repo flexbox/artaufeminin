@@ -1,12 +1,9 @@
 import React from "react"
-import Hero from "../components/hero"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { dutationToString } from "../utils/dutationToString"
 
 export default function Episode({ pageContext }) {
-  console.log("file: episode.tsx ~ line 6 ~ Episode ~ props", pageContext)
-
   const title = pageContext.title
   const description = pageContext.contentSnippet.substring(0, 155)
 
