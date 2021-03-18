@@ -95,14 +95,30 @@ export default function LinksPage({ data }: Props): ReactElement {
         "https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/images/logo-links.svg",
     },
   ]
+  const allSponsorPlatforms = [
+    {
+      name: "Tipeee",
+      url: "https://fr.tipeee.com/art-au-feminin",
+      imageUrl:
+        "https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/images/logo-tipeee.svg",
+    },
+  ]
 
   return (
     <div className="p-8">
       <div className="max-w-5xl m-auto">
         <div className="flex justify-center mb-8">
-          <Image className="rounded-full" fixed={logoUrl} alt={"imageAlt"} />
+          <Image
+            className="rounded-full"
+            fixed={logoUrl}
+            alt={"Logo femmes artistes"}
+          />
         </div>
         <p className="text-center">@artaufeminin</p>
+        <h2 className="mt-0">Soutenir ART au féminin</h2>
+        {allSponsorPlatforms.map((platform) => {
+          return <LinkButton platform={platform} />
+        })}
         <h2 className="mt-0">Écouter le podcast</h2>
         {allPodcastPlatforms.map((platform) => {
           return <LinkButton platform={platform} />
