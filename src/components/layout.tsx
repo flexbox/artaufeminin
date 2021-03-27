@@ -9,6 +9,31 @@ interface LayoutProps {
   children: ReactNode
 }
 
+function HeaderRight() {
+  return (
+    <div className="site-head-right">
+      <div className="social-links">
+        <a
+          href="https://instagram.com/artaufeminin"
+          title="Instagram"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Instagram
+        </a>
+        <a
+          href="mailto:artaufemininlepodcast@gmail.com"
+          title="Envoyer un email"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Contact
+        </a>
+      </div>
+    </div>
+  )
+}
+
 function Layout({ children }: LayoutProps) {
   const data = useStaticQuery(graphql`
     query {
@@ -65,26 +90,7 @@ function Layout({ children }: LayoutProps) {
               {siteTitle}
             </Link>
           </div>
-          <div className="site-head-right">
-            <div className="social-links">
-              <a
-                href="https://instagram.com/artaufeminin"
-                title="Instagram"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Instagram
-              </a>
-              <a
-                href="https://anchor.fm/artaufeminin/message"
-                title="Envoyer un message audio"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Contact
-              </a>
-            </div>
-          </div>
+          <HeaderRight />
         </div>
       </header>
 
