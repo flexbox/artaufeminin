@@ -14,6 +14,14 @@ function HeaderRight() {
     <div className="site-head-right">
       <div className="social-links">
         <a
+          href="https://fr.tipeee.com/art-au-feminin"
+          title="Sponsoriser les épisodes"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Tipeee
+        </a>
+        <a
           href="https://instagram.com/artaufeminin"
           title="Instagram"
           target="_blank"
@@ -94,7 +102,7 @@ function Layout({ children }: LayoutProps) {
         </div>
       </header>
 
-      <main id="site-main" className="site-main">
+      <main role="main">
         <div className="transition-fade">{children}</div>
       </main>
 
