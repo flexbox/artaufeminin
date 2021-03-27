@@ -1,9 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
-export default function footer(props) {
-  const { title } = props
-
+export default function footer({ title }) {
   const platforms = [
     {
       name: "Apple podcasts",

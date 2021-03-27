@@ -1,11 +1,4 @@
 :root {
-  /* Colours */
-  --color-primary: #2f80ed;
-  --color-base: #383737;
-  --color-border: #ccc6c1;
-  --color-gray-200: #e5e6eb;
-  --color-bg: #f8f8f8;
-
   /* Fonts */
   --font-sans-serif: "Merriweather", serif;
   --font-serif: Georgia, Times, serif;
