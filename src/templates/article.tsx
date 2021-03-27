@@ -47,8 +47,18 @@ export default function Article(props) {
         <div className="post-content-body">
           <CustomRichText render={doc.node.content} />
 
-          <p className="text-gray-500">
-            <em>Article publié {datePublished}</em>
+          <p className="text-gray-500 mb-20">
+            <em>Publié {datePublished}</em>
+            <br />
+            Vous avez aimé cet article ?{" "}
+            <a
+              href="https://fr.tipeee.com/art-au-feminin"
+              title="Sponsoriser les épisodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Laisser un pourboire sur tipeee m'aide beaucoup.
+            </a>
           </p>
         </div>
 
