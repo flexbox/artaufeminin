@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 import ApplePodcastIcon from "../components/applePodacstIcon"
 import Hero from "../components/hero"
 import EpisodeItem from "../components/podcast/episodeItem"
-import LastArticles from "../components/blog/lastArticles"
+import ArticleList from "../components/blog/ArticleList"
 
 const IndexPage = ({ data }) => {
   const siteDescription = data.site.siteMetadata.description
@@ -61,7 +61,7 @@ const IndexPage = ({ data }) => {
         </Link>
       </div>
 
-      <LastArticles allArticles={allArticles} />
+      <ArticleList allArticles={allArticles} />
 
       <div className="max-w-6xl">
         <h2 className="text-4xl">Ce que les auditeurs en disent</h2>
