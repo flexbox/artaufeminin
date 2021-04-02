@@ -4,20 +4,26 @@ import React, { ReactElement } from "react"
 import truncate from "lodash/truncate"
 import { formatHumanDate } from "../../utils/date"
 
-interface Props {}
+interface ArticleProps {
+  title: string
+  description: string
+  date: string
+  image: string
+  _meta: {
+    uid: string
+  }
+}
+
+interface Props {
+  allArticles: ArticleProps[]
+}
 
 function ArticleItem({ article }) {
   const slug = article.node._meta.uid
   const thumbnail = article.node.image.url
-  console.log(
-    "file: lastArticles.tsx ~ line 11 ~ ArticleItem ~ article.node.image",
-    article.node.image
-  )
-
   const date = formatHumanDate(article.node.date)
   const title = RichText.asText(article.node.title)
   const description = RichText.asText(article.node.description)
-
   const descriptionTruncated = truncate(description, {
     length: 190,
   })
@@ -49,7 +55,7 @@ function ArticleItem({ article }) {
   )
 }
 
-export default function LastArticles({ allArticles }: Props): ReactElement {
+export default function ArticleList({ allArticles }: Props): ReactElement {
   return (
     <>
       <div className="max-w-6xl mb-64">
