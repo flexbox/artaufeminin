@@ -7,12 +7,14 @@ import SEO from "../components/seo"
 import ApplePodcastIcon from "../components/applePodacstIcon"
 import Hero from "../components/hero"
 import EpisodeItem from "../components/podcast/episodeItem"
+import LastArticles from "../components/blog/lastArticles"
 
 const IndexPage = ({ data }) => {
   const siteDescription = data.site.siteMetadata.description
   const logoUrl = data.logo.childImageSharp.fixed
   const reviewsUrl = data.reviews.childImageSharp.fixed
   const allEpisodes = data.allAnchorEpisode.nodes
+  const allArticles = data.prismic.allBlog_posts.edges
 
   return (
     <Layout>
@@ -58,6 +60,8 @@ const IndexPage = ({ data }) => {
           Voir tous les épisodes
         </Link>
       </div>
+
+      <LastArticles allArticles={allArticles} />
 
       <div className="max-w-6xl">
         <h2 className="text-4xl">Ce que les auditeurs en disent</h2>
@@ -116,6 +120,22 @@ const indexQuery = graphql`
     allAnchorEpisode(limit: 3) {
       nodes {
         ...AnchorEpisodeFragment
+      }
+    }
+
+    prismic {
+      allBlog_posts(last: 3) {
+        edges {
+          node {
+            _meta {
+              uid
+            }
+            title
+            description
+            date
+            image
+          }
+        }
       }
     }
   }
