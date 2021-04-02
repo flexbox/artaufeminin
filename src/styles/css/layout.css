@@ -1,4 +1,5 @@
 body {
+  color: var(--gray-600);
   font-family: var(--font-sans-serif);
   background: var(--color-bg);
   transition: background 300ms ease-out;

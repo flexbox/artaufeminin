@@ -3,18 +3,10 @@
   color: var(--gray-500);
 }
 
-/* .footer a {
-  color: var(--color-base);
-}
-
-.footer .footer-follow {
-  text-align: right;
-}
-
 @media (max-width: 600px) {
   .footer,
   .footer .footer-follow {
     text-align: center;
     align-items: center;
   }
-} */
+}
