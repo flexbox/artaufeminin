@@ -1,10 +1,9 @@
 .footer {
   margin: 3vw 0 1vw;
-  color: color(var(--color-border) l(-20%));
-  font-size: 1.8rem;
+  color: var(--gray-500);
 }
 
-.footer a {
+/* .footer a {
   color: var(--color-base);
 }
 
@@ -18,4 +17,4 @@
     text-align: center;
     align-items: center;
   }
-}
+} */

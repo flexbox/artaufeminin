@@ -1,13 +1,12 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { RichText } from "prismic-reactjs"
-import { format } from "date-fns"
-import { fr } from "date-fns/locale"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Author from "../components/blog/author"
 import CustomRichText from "../components/blog/customRichText"
+import { formatHumanDate } from "../utils/date"
 
 export default function Article(props) {
   const doc = props.data.prismic.allBlog_posts.edges.slice(0, 1).pop()
@@ -16,7 +15,7 @@ export default function Article(props) {
 
   const title = RichText.asText(doc.node.title)
   const description = RichText.asText(doc.node.description)
-  const datePublished = format(new Date(doc.node.date), "PPPP", { locale: fr })
+  const datePublished = formatHumanDate(doc.node.date)
 
   const { image } = doc.node
 
@@ -29,9 +28,7 @@ export default function Article(props) {
           <h1 className="post-content-title">{title}</h1>
         </header>
 
-        <div className="post-content-excerpt">
-          {RichText.render(doc.node.description)}
-        </div>
+        <div className="post-content-excerpt">{description}</div>
 
         {image && (
           <div className="text-center mb-10">
@@ -48,8 +45,6 @@ export default function Article(props) {
           <CustomRichText render={doc.node.content} />
 
           <p className="text-gray-500 mb-20">
-            <em>Publié {datePublished}</em>
-            <br />
             Vous avez aimé cet article ?{" "}
             <a
               href="https://fr.tipeee.com/art-au-feminin"
@@ -59,6 +54,8 @@ export default function Article(props) {
             >
               Laisser un pourboire sur tipeee m'aide beaucoup.
             </a>
+            <br />
+            <em>Publié {datePublished}</em>
           </p>
         </div>
 
