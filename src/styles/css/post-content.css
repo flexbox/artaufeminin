@@ -74,13 +74,6 @@
   margin: 0 auto !important;
 }
 
-/* .post-content-body blockquote,
-.post-content-body .blockquote {
-  margin: 0 0 1.5em;
-  padding: 0 1.5em;
-  border-left: var(--color-primary) 3px solid;
-} */
-
 .post-content-body blockquote,
 .post-content-body .blockquote {
   display: block;
@@ -91,11 +84,10 @@
   margin-right: calc(50% - 50vw);
   transform: translateX(calc(50vw - 50%));
 
-  font-size: 80px;
-  line-height: 100px;
-  letter-spacing: -3px;
+  font-size: 150%;
+  line-height: 1.6;
   max-width: 200%;
-  padding: 52px;
+  padding: 3rem;
   color: var(--color-base);
   text-align: center;
 }
