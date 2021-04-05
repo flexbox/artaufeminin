@@ -30,7 +30,7 @@ function ArticleItem({ article }) {
 
   return (
     <>
-      <div className="flex">
+      <div className="flex flex-col md:flex-row">
         <div className="flex-1 px-6">
           <Link
             to={`/article/${slug}`}
@@ -43,7 +43,7 @@ function ArticleItem({ article }) {
             <em>Publié {date}</em>
           </p>
         </div>
-        <div className="flex-none">
+        <div className="flex-shrink-0 px-3">
           <div
             className="bg-cover bg-center w-48 h-48"
             style={{ backgroundImage: `url(${thumbnail})` }}
