@@ -7,12 +7,13 @@ body {
 }
 
 .site-wrapper {
-  padding: 3vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
   min-height: 100vh;
 }
 
 @media (max-width: 850px) {
   .site-wrapper {
-    padding: 6vw;
+    padding: 4vw;
   }
 }
