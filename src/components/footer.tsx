@@ -27,22 +27,18 @@ export default function footer({ title }) {
       <div className="flex flex-col md:flex-row">
         <div className="flex-none sm:flex-1">
           <p>
-            &copy; {new Date().getFullYear()} • <Link to={`/`}>{title}</Link>{" "}
-          </p>
-          <p>
-            Design •{" "}
-            <a href="https://davidl.fr" target="_blank" rel="nofollow">
-              David Leuliette
-            </a>
+            &copy; {new Date().getFullYear()} • <Link to={`/`}>{title}</Link>
           </p>
         </div>
-        <div className="flex-none sm:flex-1">
-          <p className="pl-12">Écoutez tous les épisodes</p>
+        <div className="flex-none sm:flex-1 sm:text-align-center">
+          <p className="pl-12">Écoutez le podcast</p>
           <div className="grid grid-flow-col md:grid-flow-col grid-cols-4 text-center items-center">
             {platforms.map((platform, index) => {
               return (
                 <div key={index}>
-                  <a href={platform.url}>{platform.name}</a>
+                  <a href={platform.url} className="p-5">
+                    {platform.name}
+                  </a>
                 </div>
               )
             })}

@@ -19,7 +19,7 @@ export default function Hero({
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-flow-col gap-8 justify-items-auto">
       <div className="justify-center flex flex-col pr-16">
-        <h1 className="mb-0">{heroTitle}</h1>
+        <h1 className="mb-0 text-gray-700">{heroTitle}</h1>
         {children}
       </div>
       <div className="flex justify-end">
