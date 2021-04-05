@@ -1,4 +1,5 @@
 body {
+  color: var(--gray-500);
   font-family: var(--font-sans-serif);
   background: var(--color-bg);
   transition: background 300ms ease-out;
@@ -6,12 +7,12 @@ body {
 }
 
 .site-wrapper {
-  padding: 3vw;
+  padding: 2vw;
   min-height: 100vh;
 }
 
 @media (max-width: 850px) {
   .site-wrapper {
-    padding: 6vw;
+    padding: 4vw;
   }
 }

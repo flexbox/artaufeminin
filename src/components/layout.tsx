@@ -59,7 +59,7 @@ function Layout({ children }: LayoutProps) {
   return (
     <div className={`site-wrapper ${toggleNav ? `site-head-open` : ``}`}>
       <header className="site-head mb-8">
-        <div className="site-head-container">
+        <div className="site-head-container py-6">
           <button
             className="nav-burger"
             onClick={() => setToggleNav(!toggleNav)}

@@ -27,23 +27,6 @@ const AboutPage = ({ data }) => {
       <article className="post-content">
         <div className="post-content-body">
           <h2>Mon histoire</h2>
-          <blockquote>
-            <p className="mb-4">
-              Nous commencerons par discuter les points de vue pris sur la femme
-              par la biologie, la psychanalyse, le matérialisme historique. Nous
-              essaierons de monter ensuite positivement comment la réalité
-              féminine s’est constituée, pourquoi la femme a été définie comme
-              l’Autre et quelles en ont été les conséquences du point de vue des
-              hommes. Alors nous décrirons du point de vue des femmes le monde
-              tel qu’il leur est proposé, et nous pourrons comprendre a quelles
-              difficultés elles se heurtent au moment où, essayant de s’évader
-              de la sphère qui leur a été jusqu’a présent assignée, elles
-              prétendent participer au mitsein humain
-            </p>
-            <cite>—Simone de Beauvoir</cite>
-          </blockquote>
-
-          <hr className="separator" />
           <p>
             Pour ma part, je vous propose de revenir sur certaines périodes de
             l’histoire de l’art, plus particulièrement sur{" "}
@@ -69,6 +52,24 @@ const AboutPage = ({ data }) => {
             à témoigner sur leur parcours, leur travail, et donner leur point de
             vue sur la place des femmes artistes dans le monde de l’art.
           </p>
+
+          <blockquote>
+            <p className="mb-4">
+              Nous commencerons par discuter les points de vue pris sur la femme
+              par la biologie, la psychanalyse, le matérialisme historique. Nous
+              essaierons de monter ensuite positivement comment la réalité
+              féminine s’est constituée, pourquoi la femme a été définie comme
+              l’Autre et quelles en ont été les conséquences du point de vue des
+              hommes. Alors nous décrirons du point de vue des femmes le monde
+              tel qu’il leur est proposé, et nous pourrons comprendre a quelles
+              difficultés elles se heurtent au moment où, essayant de s’évader
+              de la sphère qui leur a été jusqu’a présent assignée, elles
+              prétendent participer au mitsein humain
+            </p>
+            <cite>—Simone de Beauvoir</cite>
+          </blockquote>
+
+          <hr className="separator" />
 
           <p>
             ART au féminin, c’est des podcasts, mais pas que. Vous y trouverez
