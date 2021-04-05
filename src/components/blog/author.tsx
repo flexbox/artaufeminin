@@ -9,20 +9,18 @@ function Author() {
       render={(data) => {
         const { author, social } = data.site.siteMetadata
         return (
-          <section className="flex p-8 sm:rounded-lg bg-white shadow-md items-center">
-            <div className="flex-2 pr-8">
-              <Image
-                fixed={data.avatar.childImageSharp.fixed}
-                alt={author}
-                className="rounded-full"
-              />
+          <section className="flex p-8 sm:rounded-m bg-white shadow-md items-center">
+            <div className="flex-2 pr-12">
+              <Image fixed={data.avatar.childImageSharp.fixed} alt={author} />
             </div>
             <div className="flex-10">
               <p className="text-3xl font-extrabold tracking-tight sm:text-4xl mb-3">
                 Aldjia
-              </p>
-              <p className="text-2xl sm:text-3xl mb-3">
-                Créatrice et animatrice de podcasts
+                <span className="text-2xl sm:text-3xl mb-3">
+                  {" "}
+                  <span className="text-gray-400">•</span> Créatrice et
+                  animatrice de podcasts
+                </span>
               </p>
               <p className="mb-0">
                 À tout de suite sur <a href={social.instagramUrl}>Instagram</a>{" "}

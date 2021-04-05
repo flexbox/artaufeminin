@@ -272,7 +272,8 @@ body {
 
 ::selection {
   text-shadow: none;
-  background: #cbeafb;
+  background: #fef9c3;
+  color: #713f12;
 }
 
 audio,
@@ -282,33 +283,4 @@ img,
 svg,
 video {
   vertical-align: middle;
-}
-
-p,
-blockquote {
-  margin: 0 0 1.5em 0;
-}
-
-blockquote {
-  margin: 1.5em 0;
-  padding: 0 1.6em 0 1.6em;
-  border-left: var(--color-bg) 0.5em solid;
-}
-
-blockquote p {
-  margin: 0.8em 0;
-  font-size: 1.2em;
-  font-weight: 300;
-}
-
-blockquote small {
-  display: inline-block;
-  margin: 0.8em 0 0.8em 1.5em;
-  font-size: 0.9em;
-  opacity: 0.8;
-}
-
-/* Quotation marks */
-blockquote small:before {
-  content: "\2014 \00A0";
 }

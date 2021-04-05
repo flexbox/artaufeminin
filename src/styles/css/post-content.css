@@ -88,8 +88,10 @@
   line-height: 1.6;
   max-width: 200%;
   padding: 3rem;
-  color: var(--color-base);
+
   text-align: center;
+  color: var(--color-base);
+  font-weight: 700;
 }
 
 .post-content-body blockquote p:last-child,
