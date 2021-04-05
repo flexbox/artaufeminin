@@ -42,7 +42,9 @@ export default function Article(props) {
         )}
 
         <div className="post-content-body">
-          <CustomRichText render={doc.node.content} />
+          <div className="mb-20">
+            <CustomRichText render={doc.node.content} />
+          </div>
 
           <p className="text-gray-500 mb-20">
             Vous avez aimé cet article ?{" "}

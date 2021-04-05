@@ -1,5 +1,5 @@
 body {
-  color: var(--gray-600);
+  color: var(--gray-500);
   font-family: var(--font-sans-serif);
   background: var(--color-bg);
   transition: background 300ms ease-out;
@@ -7,8 +7,7 @@ body {
 }
 
 .site-wrapper {
-  padding-left: 2vw;
-  padding-right: 2vw;
+  padding: 2vw;
   min-height: 100vh;
 }
 
