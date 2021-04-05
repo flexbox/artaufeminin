@@ -36,7 +36,7 @@ export default function EpisodeItem({
 
   return (
     <>
-      <div className="flex">
+      <div className="flex flex-col md:flex-row">
         <div className="flex-1 px-6">
           <h3 className="text-3xl text-gray-700 font-bold mt-0">
             <Link className="flex" to={`/episodes/${episode.guid}`}>
@@ -54,7 +54,7 @@ export default function EpisodeItem({
             <em>{duration}</em>
           </p>
         </div>
-        <div className="flex-none">
+        <div className="flex-shrink-0 px-3">
           <img
             className="w-48 h-48"
             src={episode.itunes.image}

@@ -124,7 +124,7 @@ const indexQuery = graphql`
     }
 
     prismic {
-      allBlog_posts(last: 3) {
+      allBlog_posts(sortBy: date_DESC, first: 3) {
         edges {
           node {
             _meta {
