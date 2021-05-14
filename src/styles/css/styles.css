@@ -2,13 +2,11 @@
 @import "variables.css";
 
 @import "global.css";
-@import "lists.css";
 @import "layout.css";
 @import "buttons.css";
 @import "hamburger.css";
 @import "animations.css";
 @import "navigation.css";
-@import "footer.css";
 @import "post-content.css";
 @import "post-card.css";
 @import "typography.css";
