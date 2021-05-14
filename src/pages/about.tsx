@@ -3,25 +3,14 @@ import { graphql, Link, StaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Hero from "../components/hero"
 import Author from "../components/blog/author"
 
 const AboutPage = ({ data }) => {
-  const imageUrlFixed = data.benchAccounting.childImageSharp.fixed
-
   return (
     <Layout>
       <SEO
         title="👩‍🎨 À propos"
         description="à l’origine du projet, une question simple : combien existe-t-il de femme artistes dans les musées. La réponse est difficile à trouver voire impossible sans recherches approfondies que vous pourrez découvrir en écoutant le podcast."
-      />
-
-      <Hero
-        heroTitle={
-          "Moins de 4% des artistes dans la section art moderne sont des femmes, mais 76% des nus sont des femmes. —Guerrilla Girls"
-        }
-        imageUrlFixed={imageUrlFixed}
-        imageAlt={"Logo podcast ART au feminin"}
       />
 
       <article className="post-content">

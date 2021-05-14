@@ -3,7 +3,7 @@ body {
   font-family: var(--font-sans-serif);
   background: var(--color-bg);
   transition: background 300ms ease-out;
-  transition-delay: 300ms;
+  transition-delay: 250ms;
 }
 
 .site-wrapper {

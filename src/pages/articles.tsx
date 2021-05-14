@@ -3,28 +3,19 @@ import { graphql, StaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ArticleCard from "../components/articleCard"
+import ArticleList from "../components/blog/ArticleList"
+import LayoutSidebar from "../components/layoutSidebar"
 
 const ArticlesPage = ({ data }) => {
   const articles = data.prismic.allBlog_posts.edges
-  const articleCounter = data.prismic.allBlog_posts.totalCount
 
   return (
     <Layout>
       <SEO title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia" />
 
-      <div className="post-feed">
-        {articles.map(({ node }) => {
-          return (
-            <ArticleCard
-              key={node._meta.id}
-              counter={articleCounter}
-              node={node}
-              postClass="post"
-            />
-          )
-        })}
-      </div>
+      <LayoutSidebar withPodcast={false}>
+        <ArticleList allArticles={articles} />
+      </LayoutSidebar>
     </Layout>
   )
 }
@@ -37,13 +28,13 @@ const indexQuery = graphql`
           node {
             image
             title
+            date
+            description
             _meta {
-              id
               uid
             }
           }
         }
-        totalCount
       }
     }
   }
@@ -52,8 +43,6 @@ const indexQuery = graphql`
 export default (props) => (
   <StaticQuery
     query={indexQuery}
-    render={(data) => (
-      <ArticlesPage location={props.location} props data={data} {...props} />
-    )}
+    render={(data) => <ArticlesPage data={data} />}
   />
 )
