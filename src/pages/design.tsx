@@ -184,14 +184,6 @@ const DesignPage = ({ data }) => {
               <button className="button fit small">Fit + Small</button>
             </li>
           </ul>
-          <ul className="actions">
-            <li>
-              <span className="button primary disabled">Primary</span>
-            </li>
-            <li>
-              <span className="button disabled">Default</span>
-            </li>
-          </ul>
           <hr />
         </div>
       </article>

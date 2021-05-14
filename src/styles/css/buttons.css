@@ -34,12 +34,6 @@
   font-size: 1.6rem;
 }
 
-.button.disabled,
-.button:disabled {
-  pointer-events: none;
-  opacity: 0.4;
-}
-
 .button {
   color: var(--color-primary) !important;
   background-color: transparent;
