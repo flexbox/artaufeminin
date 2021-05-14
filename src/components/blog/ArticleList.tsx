@@ -37,7 +37,7 @@ function ArticleItem({ article }) {
             className="post-preview hover:no-underline"
           >
             <h3 className="text-3xl text-blue-500 font-bold mt-0">{title}</h3>
-            <p className="text-gray-500 ">{descriptionTruncated}</p>
+            <p className="text-gray-500">{descriptionTruncated}</p>
           </Link>
           <p className="text-gray-500">
             <em>Publié {date}</em>

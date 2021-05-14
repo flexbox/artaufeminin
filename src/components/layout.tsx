@@ -14,28 +14,12 @@ function HeaderRight() {
     <div className="site-head-right">
       <div className="social-links">
         <a
-          href="https://fr.tipeee.com/art-au-feminin"
-          title="Sponsoriser les épisodes"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Tipeee
-        </a>
-        <a
-          href="https://instagram.com/artaufeminin"
-          title="Instagram"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Instagram
-        </a>
-        <a
           href="mailto:artaufemininlepodcast@gmail.com"
           title="Envoyer un email"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Contact
+          Contacter par email
         </a>
       </div>
     </div>

@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Subscribe from "../components/subscribe"
 import SubscribeInstagram from "../components/subscribeInstagram"
+import SubscribeTipeee from "../components/subscribeTipeee"
 import { dutationToString } from "../utils/dutationToString"
 
 export default function Episode({ pageContext }) {
@@ -23,17 +24,15 @@ export default function Episode({ pageContext }) {
             <div className="hidden md:flex">
               <SubscribeInstagram />
             </div>
+            <div className="hidden md:flex">
+              <SubscribeTipeee />
+            </div>
           </div>
 
           <div className="md:col-span-8">
             <audio controls src={audioSrc} className="mb-8" />
 
             <h1 className="text-5xl text-gray-700 font-bold mt-0">{title}</h1>
-
-            <div
-              className="my-12"
-              dangerouslySetInnerHTML={{ __html: pageContext.itunes.summary }}
-            />
 
             <p className="text-gray-500">
               <em>Saison {pageContext.itunes.season}</em>
@@ -42,6 +41,13 @@ export default function Episode({ pageContext }) {
               <span className="mx-4">•</span>
               <em>{duration}</em>
             </p>
+
+            <div
+              className="my-12"
+              dangerouslySetInnerHTML={{ __html: pageContext.itunes.summary }}
+            />
+
+            <hr className="separator" />
           </div>
         </div>
       </div>

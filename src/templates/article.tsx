@@ -54,7 +54,7 @@ export default function Article(props) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Laisser un pourboire sur tipeee m’aide beaucoup.
+              Devenez mécène sur tipeee m’aide beaucoup.
             </a>
             <br />
             <em>Publié {datePublished}</em>

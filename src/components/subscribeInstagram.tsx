@@ -9,7 +9,7 @@ export default function SubscribeInstagram({}: Props): ReactElement {
       <div className="px-8">
         <p>
           Je partage de nouveaux épisodes, sondages, questions et mises à jour
-          sur les émissions. Suivez-nous et dites bonjour!
+          sur les émissions. Suivez-moi et dites bonjour!
         </p>
         <div className="py-8">
           <a href="https://www.instagram.com/artaufeminin/" className="button">
