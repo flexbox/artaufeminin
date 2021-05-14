@@ -17,14 +17,17 @@ export default function Episode({ pageContext }) {
       <SEO title={title} description={description} />
 
       <div style={{ maxWidth: "80em", margin: "0 auto" }}>
-        <div className="grid grid-cols-12 gap-12">
-          <div className="col-span-4">
+        <div className="grid md:grid-cols-12 gap-12">
+          <div className="md:col-span-4">
             <Subscribe />
-            <SubscribeInstagram />
+            <div className="hidden md:flex">
+              <SubscribeInstagram />
+            </div>
           </div>
 
-          <div className="col-span-8">
-            <audio controls src={audioSrc} className="mb-8"></audio>
+          <div className="md:col-span-8">
+            <audio controls src={audioSrc} className="mb-8" />
+
             <h1 className="text-5xl text-gray-700 font-bold mt-0">{title}</h1>
 
             <div
