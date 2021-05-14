@@ -101,3 +101,7 @@ hr.separator:after {
   box-shadow: var(--color-bg) 0 0 0 5px;
   transform: rotate(45deg);
 }
+
+p {
+  margin-bottom: 12px;
+}
