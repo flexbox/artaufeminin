@@ -43,7 +43,8 @@ export default function EpisodeItem({
               {episode.title}
             </Link>
           </h3>
-          <audio controls src={audioSrc} className="mb-8"></audio>
+          <audio controls src={audioSrc} className="mb-8" />
+
           <div dangerouslySetInnerHTML={{ __html: summary }} />
 
           <p className="text-gray-500">
