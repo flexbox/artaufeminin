@@ -11,13 +11,13 @@ h6 {
 
 h1,
 h2 {
-  letter-spacing: -2px;
+  letter-spacing: -1px;
 }
 h3,
 h4,
 h5,
 h6 {
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
 }
 
 h1 {
@@ -100,4 +100,8 @@ hr.separator:after {
   background: var(--color-border);
   box-shadow: var(--color-bg) 0 0 0 5px;
   transform: rotate(45deg);
+}
+
+p {
+  margin-bottom: 12px;
 }

@@ -53,7 +53,6 @@ function Layout({ children }: LayoutProps) {
     }
   `)
   const siteTitle = data.site.siteMetadata.title
-
   const [toggleNav, setToggleNav] = React.useState(false)
 
   return (
@@ -102,8 +101,8 @@ function Layout({ children }: LayoutProps) {
         </div>
       </header>
 
-      <main role="main">
-        <div className="transition-fade">{children}</div>
+      <main role="main" className="transition-fade">
+        {children}
       </main>
 
       <Footer title={siteTitle} />
