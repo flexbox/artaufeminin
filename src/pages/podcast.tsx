@@ -3,7 +3,6 @@ import { graphql, StaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Hero from "../components/hero"
 import EpisodeItem from "../components/podcast/episodeItem"
 import Subscribe from "../components/subscribe"
 import SubscribeInstagram from "../components/subscribeInstagram"
@@ -11,7 +10,6 @@ import SubscribeTipeee from "../components/subscribeTipeee"
 
 const PodcastPage = ({ data }) => {
   const allEpisodes = data.allAnchorEpisode.nodes
-  const imageUrlFixed = data.benchAccounting.childImageSharp.fixed
 
   return (
     <Layout>
@@ -51,13 +49,6 @@ const PodcastPage = ({ data }) => {
 
 const episodesQuery = graphql`
   query {
-    benchAccounting: file(relativePath: { eq: "art-au-feminin-podcast.jpg" }) {
-      childImageSharp {
-        fixed(width: 500, height: 500) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
     allAnchorEpisode {
       nodes {
         ...AnchorEpisodeFragment
@@ -66,11 +57,9 @@ const episodesQuery = graphql`
   }
 `
 
-export default (props) => (
+export default () => (
   <StaticQuery
     query={episodesQuery}
-    render={(data) => (
-      <PodcastPage location={props.location} props data={data} {...props} />
-    )}
+    render={(data) => <PodcastPage data={data} />}
   />
 )
