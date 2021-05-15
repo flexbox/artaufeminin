@@ -2,6 +2,8 @@ import React, { ReactNode } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import Footer from "./footer"
 
+import "../styles/css/styles.css"
+
 interface LayoutProps {
   children: ReactNode
 }

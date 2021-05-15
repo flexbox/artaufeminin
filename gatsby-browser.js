@@ -2,7 +2,6 @@
 import "typeface-merriweather"
 
 import "./src/styles/tailwind.css"
-import "./src/styles/css/styles.css"
 
 // Prismic
 const {

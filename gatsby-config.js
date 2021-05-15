@@ -75,7 +75,6 @@ module.exports = {
         icon: `src/images/favicon.png`,
       },
     },
-    `gatsby-plugin-netlify`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-remove-serviceworker`,
     `gatsby-plugin-react-helmet`,
