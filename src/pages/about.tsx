@@ -1,11 +1,11 @@
 import React from "react"
-import { graphql, Link, StaticQuery } from "gatsby"
+import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Author from "../components/blog/author"
+import Author from "../components/author"
 
-const AboutPage = ({ data }) => {
+export default function AboutPage() {
   return (
     <Layout>
       <SEO
@@ -58,8 +58,6 @@ const AboutPage = ({ data }) => {
             <cite>—Simone de Beauvoir</cite>
           </blockquote>
 
-          <hr className="separator" />
-
           <p>
             ART au féminin, c’est des podcasts, mais pas que. Vous y trouverez
             des articles et le partage de certaines lectures.
@@ -67,7 +65,7 @@ const AboutPage = ({ data }) => {
 
           <h2>Pourquoi ?</h2>
 
-          <ul>
+          <ul className="list-inside list-disc">
             <li>Car je suis une passionnée d’art, une amoureuse du partage.</li>
             <li>
               Car j’ai souvent entendue parler d’hommes artistes et beaucoup
@@ -94,7 +92,7 @@ const AboutPage = ({ data }) => {
             pages de ce site qui ne sont pas incluses dans la navigation
             principale, mais qui pourraient vous intéresser :
           </p>
-          <ul>
+          <ul className="list-inside list-disc">
             <li>
               <Link to={"/faq"}>Questions fréquentes</Link>
             </li>
@@ -107,26 +105,3 @@ const AboutPage = ({ data }) => {
     </Layout>
   )
 }
-
-const indexQuery = graphql`
-  query {
-    benchAccounting: file(
-      relativePath: { eq: "flipboard-Ylus81fS7q4-unsplash.jpg" }
-    ) {
-      childImageSharp {
-        fixed(width: 500, height: 500) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-  }
-`
-
-export default (props) => (
-  <StaticQuery
-    query={indexQuery}
-    render={(data) => (
-      <AboutPage location={props.location} data={data} {...props} />
-    )}
-  />
-)

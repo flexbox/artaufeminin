@@ -2,9 +2,6 @@ import React, { ReactNode } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import Footer from "./footer"
 
-import "../styles/tailwind.css"
-import "../styles/css/styles.css"
-
 interface LayoutProps {
   children: ReactNode
 }
@@ -85,9 +82,7 @@ function Layout({ children }: LayoutProps) {
         </div>
       </header>
 
-      <main role="main" className="transition-fade">
-        {children}
-      </main>
+      <main role="main">{children}</main>
 
       <Footer title={siteTitle} />
     </div>
