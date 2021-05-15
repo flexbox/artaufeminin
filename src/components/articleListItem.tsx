@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import { RichText } from "prismic-reactjs"
 import React, { ReactElement } from "react"
 import truncate from "lodash/truncate"
-import { formatHumanDate } from "../../utils/date"
+import { formatHumanDate } from "../utils/date"
 
 interface ArticleProps {
   title: string
@@ -55,7 +55,7 @@ function ArticleItem({ article }) {
   )
 }
 
-export default function ArticleList({ allArticles }: Props): ReactElement {
+export default function ArticleListItem({ allArticles }: Props): ReactElement {
   return (
     <>
       <div className="max-w-6xl mb-64">

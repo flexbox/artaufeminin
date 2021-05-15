@@ -10,7 +10,7 @@
 
 ## Getting started
 
-```
+```console
 yarn
 yarn start
 ```

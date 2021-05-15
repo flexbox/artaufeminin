@@ -1,16 +1,7 @@
-const urljoin = require("url-join")
-
 const siteConfig = require("./siteConfig")
 
 module.exports = {
   siteMetadata: {
-    // title: siteConfig.name,
-    // author: siteConfig.author,
-    // description: siteConfig.description,
-    // siteUrl: urljoin(siteConfig.url, siteConfig.prefix),
-    // social: {
-    //   instagram: siteConfig.instagram,
-    // },
     ...siteConfig,
   },
   plugins: [
@@ -84,7 +75,6 @@ module.exports = {
         icon: `src/images/favicon.png`,
       },
     },
-    `gatsby-plugin-netlify`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-remove-serviceworker`,
     `gatsby-plugin-react-helmet`,
