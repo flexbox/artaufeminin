@@ -4,8 +4,8 @@ import { RichText } from "prismic-reactjs"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Author from "../components/blog/author"
-import CustomRichText from "../components/blog/customRichText"
+import Author from "../components/author"
+import CustomRichText from "../components/customRichText"
 import { formatHumanDate } from "../utils/date"
 
 export default function Article(props) {

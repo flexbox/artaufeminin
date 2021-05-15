@@ -3,9 +3,7 @@ import React, { ReactElement } from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-interface Props {}
-
-export default function NotFoundPage({}: Props): ReactElement {
+export default function NotFoundPage(): ReactElement {
   return (
     <Layout>
       <SEO title="404: Not Found" />

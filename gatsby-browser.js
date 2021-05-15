@@ -1,6 +1,8 @@
 // custom typefaces
 import "typeface-merriweather"
 
+import "./src/styles/tailwind.css"
+
 // Prismic
 const {
   registerLinkResolver,
