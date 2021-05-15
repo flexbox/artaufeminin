@@ -57,11 +57,7 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "cache:clear": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "prepare": "husky install"
   }
 }
