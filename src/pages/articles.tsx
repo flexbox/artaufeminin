@@ -3,7 +3,7 @@ import { graphql, StaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ArticleList from "../components/blog/ArticleList"
+import ArticleList from "../components/articleListItem"
 import LayoutSidebar from "../components/layoutSidebar"
 
 const ArticlesPage = ({ data }) => {
