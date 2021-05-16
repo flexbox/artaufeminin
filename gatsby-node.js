@@ -1,17 +1,13 @@
 // Controlling your site’s data in the GraphQL data layer.
 // https://www.gatsbyjs.org/docs/node-apis/
 
-const path = require(`path`)
-// Log out information after a build is done
-exports.onPostBuild = ({ reporter }) => {
-  reporter.info(`✅ Your Gatsby site has been built`)
-}
+const path = require("path")
 
-// Create blog pages dynamically
+// Create pages dynamically
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const episodeTemplate = path.resolve(`src/templates/episode.tsx`)
-  const result = await graphql(`
+
+  const pages = await graphql(`
     query {
       allAnchorEpisode {
         nodes {
@@ -31,9 +27,20 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allPrismicPage {
+        nodes {
+          id
+          uid
+          data {
+            template
+          }
+        }
+      }
     }
   `)
-  result.data.allAnchorEpisode.nodes.forEach((node) => {
+
+  const episodeTemplate = path.resolve(`src/templates/episode.tsx`)
+  pages.data.allAnchorEpisode.nodes.forEach((node) => {
     createPage({
       path: `episodes/${node.guid}`,
       component: episodeTemplate,
@@ -42,4 +49,19 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+  const articleTemplate = path.resolve(`src/templates/article.tsx`)
+  pages.data.allPrismicPage.nodes.forEach((node) => {
+    createPage({
+      path: `/${node.uid}`,
+      component: articleTemplate,
+      context: {
+        id: node.id,
+      },
+    })
+  })
+}
+
+exports.onPostBuild = ({ reporter }) => {
+  reporter.info(`✅ Your Gatsby site has been built`)
 }

@@ -4,9 +4,7 @@
 
 exports.linkResolver = function linkResolver(doc) {
   // Route for blog posts
-  if (doc.type === "blog_post") {
-    return "/article/" + doc.uid
-  }
+  if (doc.type === "blog_post") return "/article/" + doc.uid
 
   // Homepage route fallback
   return "/"

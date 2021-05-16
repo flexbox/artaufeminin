@@ -1,4 +1,5 @@
 const siteConfig = require("./siteConfig")
+const { linkResolver } = require("./src/utils/linkResolver")
 
 module.exports = {
   siteMetadata: {
@@ -48,21 +49,11 @@ module.exports = {
       },
     },
     {
-      resolve: "@prismicio/gatsby-source-prismic-graphql",
+      resolve: "gatsby-source-prismic",
       options: {
         repositoryName: "artaufeminin",
         defaultLang: "fr-fr",
-        pages: [
-          {
-            type: "Blog_post",
-            match: "/article/:uid",
-            component: require.resolve("./src/templates/article.tsx"), // pages will be generated under this pattern
-          },
-        ],
-        sharpKeys: [
-          /image|photo|picture/, // (default)
-          "profilepic",
-        ],
+        linkResolver: () => (doc) => linkResolver(doc),
       },
     },
   ],
