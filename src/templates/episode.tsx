@@ -16,8 +16,6 @@ export default function Episode({ pageContext }) {
       <SEO title={title} description={description} />
 
       <LayoutSidebar>
-        <audio controls src={audioSrc} className="mb-8" />
-
         <h1 className="text-5xl text-gray-700 font-bold mt-0">{title}</h1>
 
         <p className="text-gray-500">
@@ -27,6 +25,8 @@ export default function Episode({ pageContext }) {
           <span className="mx-4">•</span>
           <em>{duration}</em>
         </p>
+
+        <audio controls src={audioSrc} className="mb-8" />
 
         <div
           className="my-12"
