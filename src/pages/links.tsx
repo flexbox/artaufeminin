@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react"
 import { graphql } from "gatsby"
-import Image from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 interface Props {}
 
@@ -33,8 +33,7 @@ export const allPodcastPlatforms = [
   },
   {
     name: "Google podcasts",
-    url:
-      "https://podcasts.google.com/?feed=aHR0cHM6Ly9hbmNob3IuZm0vcy85NDgzZGY4L3BvZGNhc3QvcnNz",
+    url: "https://podcasts.google.com/?feed=aHR0cHM6Ly9hbmNob3IuZm0vcy85NDgzZGY4L3BvZGNhc3QvcnNz",
     imageUrl:
       "https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/google_podcasts.svg",
   },
@@ -108,9 +107,9 @@ export default function LinksPage({ data }: Props): ReactElement {
     <div className="p-8">
       <div className="max-w-5xl m-auto">
         <div className="flex justify-center mb-8">
-          <Image
+          <GatsbyImage
             className="rounded-full"
-            fixed={logoUrl}
+            image={logoUrl}
             alt={"Logo femmes artistes"}
           />
         </div>

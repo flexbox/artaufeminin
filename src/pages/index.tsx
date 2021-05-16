@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, Link, StaticQuery } from "gatsby"
-import Image from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -84,8 +84,8 @@ const IndexPage = ({ data }) => {
             </a>
             .
           </p>
-          <Image
-            fixed={reviewsUrl}
+          <GatsbyImage
+            image={reviewsUrl}
             alt={"5 étoiles pour ART au feminin sur Apple podcast"}
           />
           <h2 className="text-4xl">Laissez moi une évaluation</h2>
