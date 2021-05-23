@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, StaticQuery } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -20,10 +20,10 @@ const ArticlesPage = ({ data }) => {
   )
 }
 
-const indexQuery = graphql`
+export const query = graphql`
   query {
     prismic {
-      allBlog_posts(sortBy: meta_firstPublicationDate_DESC) {
+      allBlog_posts(sortBy: date_DESC) {
         edges {
           node {
             image
@@ -40,9 +40,4 @@ const indexQuery = graphql`
   }
 `
 
-export default (props) => (
-  <StaticQuery
-    query={indexQuery}
-    render={(data) => <ArticlesPage data={data} />}
-  />
-)
+export default ArticlesPage
