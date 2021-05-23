@@ -10,11 +10,12 @@ import EpisodeItem from "../components/episodeItem"
 import ArticleList from "../components/articleListItem"
 
 const IndexPage = ({ data }) => {
+  console.log("file: index.tsx ~ line 13 ~ IndexPage ~ data", data)
   const siteDescription = data.site.siteMetadata.description
   const logoUrl = data.logo.childImageSharp.fixed
   const reviewsUrl = data.reviews.childImageSharp.fixed
   const allEpisodes = data.allAnchorEpisode.nodes
-  const allArticles = data.prismic.allBlog_posts.edges
+  const allArticles = data.allPrismicBlogPost.nodes
 
   return (
     <Layout>
@@ -132,19 +133,29 @@ const indexQuery = graphql`
       }
     }
 
-    prismic {
-      allBlog_posts(sortBy: date_DESC, first: 3) {
-        edges {
-          node {
-            _meta {
-              uid
-            }
-            title
-            description
-            date
-            image
-          }
-        }
+    allPrismicBlogPost(limit: 3, sort: { order: DESC, fields: data___date }) {
+      nodes {
+        ...PrismicPostFragment
+      }
+    }
+  }
+
+  fragment PrismicPostFragment on PrismicBlogPost {
+    uid
+    data {
+      title {
+        type
+        text
+      }
+      description {
+        type
+        text
+      }
+      date
+      image {
+        alt
+        copyright
+        url
       }
     }
   }

@@ -5,13 +5,15 @@ import truncate from "lodash/truncate"
 import { formatHumanDate } from "../utils/date"
 
 interface ArticleProps {
-  node: {
-    title: string
-    description: string
+  uid: string
+  data: {
+    title: { text: string }
     date: string
-    image: string
-    _meta: {
-      uid: string
+    description: { text: string }
+    image: {
+      alt: string
+      copyright: string
+      url: string
     }
   }
 }
@@ -20,12 +22,16 @@ interface Props {
   allArticles: ArticleProps[]
 }
 
-function ArticleItem({ article }) {
-  const slug = article.node._meta.uid
-  const thumbnail = article.node.image.url
-  const date = formatHumanDate(article.node.date)
-  const title = RichText.asText(article.node.title)
-  const description = RichText.asText(article.node.description)
+interface ArticleItemProps {
+  article: ArticleProps
+}
+
+function ArticleItem({ article }: ArticleItemProps) {
+  const slug = article.uid
+  const thumbnail = article.data.image.url
+  const date = formatHumanDate(article.data.date)
+  const title = RichText.asText(article.data.title.text)
+  const description = RichText.asText(article.data.description.text)
   const descriptionTruncated = truncate(description, {
     length: 190,
   })
@@ -58,7 +64,7 @@ export default function ArticleListItem({ allArticles }: Props): ReactElement {
   return (
     <>
       {allArticles.map((article) => {
-        return <ArticleItem article={article} key={article.node._meta.uid} />
+        return <ArticleItem article={article} key={article.uid} />
       })}
     </>
   )

@@ -22,19 +22,9 @@ const ArticlesPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    prismic {
-      allBlog_posts(sortBy: date_DESC) {
-        edges {
-          node {
-            image
-            title
-            date
-            description
-            _meta {
-              uid
-            }
-          }
-        }
+    allPrismicBlogPost(sort: { order: DESC, fields: data___date }) {
+      nodes {
+        ...PrismicPostFragment
       }
     }
   }

@@ -1,11 +1,44 @@
+const {
+  prismicRepo,
+  releaseID,
+  accessToken,
+} = require("./prismic-configuration")
+
+const linkResolver = require("./src/utils/linkResolver")
 const siteConfig = require("./siteConfig")
-const { linkResolver } = require("./src/utils/linkResolver")
+
+const reponame = process.env.PRISMIC_REPO_NAME || prismicRepo
+const apiKey = process.env.PRISMIC_API_KEY || accessToken
+const prismicReleaseID = process.env.PRISMIC_RELEASE_ID || releaseID
+
+const postSchema = require("./custom_types/blog_post.json")
+const faqSchema = require("./custom_types/faq.json")
+
+const gastbySourcePrismicConfig = {
+  resolve: "gatsby-source-prismic",
+  options: {
+    repositoryName: reponame,
+    accessToken: apiKey,
+    releaseID: prismicReleaseID,
+    prismicToolbar: true,
+    linkResolver: () => (doc) => linkResolver(doc),
+    schemas: {
+      post: postSchema,
+      faqSchema: faqSchema,
+    },
+  },
+}
 
 module.exports = {
   siteMetadata: {
     ...siteConfig,
   },
   plugins: [
+    gastbySourcePrismicConfig,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -13,8 +46,6 @@ module.exports = {
         name: `images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
@@ -40,20 +71,10 @@ module.exports = {
         icon: `src/images/favicon.png`,
       },
     },
-    `gatsby-plugin-sitemap`,
-    `gatsby-plugin-react-helmet`,
     {
       resolve: "gatsby-source-anchor",
       options: {
         rss: siteConfig.anchorRssUrl,
-      },
-    },
-    {
-      resolve: "gatsby-source-prismic",
-      options: {
-        repositoryName: "artaufeminin",
-        defaultLang: "fr-fr",
-        linkResolver: () => (doc) => linkResolver(doc),
       },
     },
   ],

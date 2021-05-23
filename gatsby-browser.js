@@ -1,12 +1,9 @@
-// custom typefaces
-import "typeface-merriweather"
+import * as React from "react"
+import { PreviewStoreProvider } from "gatsby-source-prismic"
 
+import "typeface-merriweather"
 import "./src/styles/tailwind.css"
 
-// Prismic
-const {
-  registerLinkResolver,
-} = require("@prismicio/gatsby-source-prismic-graphql")
-const { linkResolver } = require("./src/utils/linkResolver")
-
-registerLinkResolver(linkResolver)
+export const wrapRootElement = ({ element }) => (
+  <PreviewStoreProvider initialEnabled={true}>{element}</PreviewStoreProvider>
+)
