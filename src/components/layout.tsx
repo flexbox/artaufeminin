@@ -3,6 +3,7 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import Footer from "./footer"
 
 import "../styles/css/styles.css"
+import Newsletter from "./newsletter"
 
 interface LayoutProps {
   children: ReactNode
@@ -86,6 +87,7 @@ function Layout({ children }: LayoutProps) {
 
       <main role="main">{children}</main>
 
+      <Newsletter />
       <Footer title={siteTitle} />
     </div>
   )
