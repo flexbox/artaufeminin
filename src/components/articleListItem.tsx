@@ -5,12 +5,14 @@ import truncate from "lodash/truncate"
 import { formatHumanDate } from "../utils/date"
 
 interface ArticleProps {
-  title: string
-  description: string
-  date: string
-  image: string
-  _meta: {
-    uid: string
+  node: {
+    title: string
+    description: string
+    date: string
+    image: string
+    _meta: {
+      uid: string
+    }
   }
 }
 
@@ -56,7 +58,7 @@ export default function ArticleListItem({ allArticles }: Props): ReactElement {
   return (
     <>
       {allArticles.map((article) => {
-        return <ArticleItem article={article} />
+        return <ArticleItem article={article} key={article.node._meta.uid} />
       })}
     </>
   )
