@@ -62,7 +62,14 @@ const IndexPage = ({ data }) => {
           </Link>
         </div>
 
-        <ArticleList allArticles={allArticles} />
+        <div className="max-w-6xl mb-64">
+          <h2 className="text-4xl">Articles récents</h2>
+          <hr className="separator mt-16" />
+          <ArticleList allArticles={allArticles} />
+          <Link to={"/articles"} className="button">
+            Lire tous les articles
+          </Link>
+        </div>
 
         <div className="max-w-6xl">
           <h2 className="text-4xl">Ce que les auditeurs en disent</h2>
