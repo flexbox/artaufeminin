@@ -101,7 +101,7 @@ function LinkButton({ platform }: LinkButtonProps) {
 }
 
 export default function LinksPage({ data }: Props): ReactElement {
-  const logoUrl = data.logo.childImageSharp.fixed
+  const logoUrl = data.logo.childImageSharp.gatsbyImageData
 
   return (
     <div className="p-8">
@@ -114,21 +114,21 @@ export default function LinksPage({ data }: Props): ReactElement {
           />
         </div>
         <p className="text-center">@artaufeminin</p>
-        <h2 className="mt-0">Soutenir ART au féminin</h2>
+        <h2 className="text-4xl">Soutenir ART au féminin</h2>
         {allSponsorPlatforms.map((platform) => {
-          return <LinkButton platform={platform} />
+          return <LinkButton platform={platform} key={platform.name} />
         })}
-        <h2 className="mt-0">Écouter le podcast</h2>
+        <h2 className="text-4xl">Écouter le podcast</h2>
         {allPodcastPlatforms.map((platform) => {
-          return <LinkButton platform={platform} />
+          return <LinkButton platform={platform} key={platform.name} />
         })}
-        <h2>Les coulisses de l’émission</h2>
+        <h2 className="text-4xl">Les coulisses de l’émission</h2>
         {allSocialLinks.map((platform) => {
-          return <LinkButton platform={platform} />
+          return <LinkButton platform={platform} key={platform.name} />
         })}
-        <h2>ART au féminin le site</h2>
+        <h2 className="text-4xl">ART au féminin le site</h2>
         {allMoreLinks.map((platform) => {
-          return <LinkButton platform={platform} />
+          return <LinkButton platform={platform} key={platform.name} />
         })}
       </div>
     </div>
@@ -139,9 +139,7 @@ export const query = graphql`
   query {
     logo: file(absolutePath: { regex: "/logo-podcast-art-au-feminin.png/" }) {
       childImageSharp {
-        fixed(width: 128, height: 128) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 128, height: 128)
       }
     }
   }

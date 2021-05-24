@@ -7,14 +7,14 @@ import ArticleList from "../components/articleListItem"
 import LayoutSidebar from "../components/layoutSidebar"
 
 const ArticlesPage = ({ data }) => {
-  const articles = data.prismic.allBlog_posts.edges
+  const allArticles = data.allPrismicBlogPost.nodes
 
   return (
     <Layout>
       <SEO title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia" />
 
       <LayoutSidebar withPodcast={false}>
-        <ArticleList allArticles={articles} />
+        <ArticleList allArticles={allArticles} />
       </LayoutSidebar>
     </Layout>
   )
