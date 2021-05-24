@@ -10,10 +10,11 @@ import EpisodeItem from "../components/episodeItem"
 import ArticleList from "../components/articleListItem"
 
 const IndexPage = ({ data }) => {
-  console.log("file: index.tsx ~ line 13 ~ IndexPage ~ data", data)
   const siteDescription = data.site.siteMetadata.description
-  const logoUrl = data.logo.childImageSharp.fixed
-  const reviewsUrl = data.reviews.childImageSharp.fixed
+  const logoUrl = data.logo.childImageSharp.gatsbyImageData
+  const reviewsUrl = data.reviews.childImageSharp.gatsbyImageData
+  console.log("file: index.tsx ~ line 17 ~ IndexPage ~ reviewsUrl", reviewsUrl)
+
   const allEpisodes = data.allAnchorEpisode.nodes
   const allArticles = data.allPrismicBlogPost.nodes
 
@@ -87,6 +88,7 @@ const IndexPage = ({ data }) => {
           </p>
           <GatsbyImage
             image={reviewsUrl}
+            loading="eager"
             alt={"5 étoiles pour ART au feminin sur Apple podcast"}
           />
           <h2 className="text-4xl">Laissez moi une évaluation</h2>
@@ -115,16 +117,12 @@ const indexQuery = graphql`
     }
     logo: file(absolutePath: { regex: "/logo-podcast-art-au-feminin.png/" }) {
       childImageSharp {
-        fixed(width: 500, height: 500) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 500, height: 500)
       }
     }
     reviews: file(absolutePath: { regex: "/reviews.png/" }) {
       childImageSharp {
-        fixed(width: 990, height: 600) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 990, height: 600)
       }
     }
     allAnchorEpisode(limit: 3) {

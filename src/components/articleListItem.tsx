@@ -1,5 +1,5 @@
 import { Link } from "gatsby"
-import { RichText } from "prismic-reactjs"
+import { RichText, RichTextBlock } from "prismic-reactjs"
 import React, { ReactElement } from "react"
 import truncate from "lodash/truncate"
 import { formatHumanDate } from "../utils/date"
@@ -7,9 +7,9 @@ import { formatHumanDate } from "../utils/date"
 interface ArticleProps {
   uid: string
   data: {
-    title: { text: string }
+    title: RichTextBlock[]
     date: string
-    description: { text: string }
+    description: RichTextBlock[]
     image: {
       alt: string
       copyright: string
@@ -30,8 +30,8 @@ function ArticleItem({ article }: ArticleItemProps) {
   const slug = article.uid
   const thumbnail = article.data.image.url
   const date = formatHumanDate(article.data.date)
-  const title = RichText.asText(article.data.title.text)
-  const description = RichText.asText(article.data.description.text)
+  const title = RichText.asText(article.data.title)
+  const description = RichText.asText(article.data.description)
   const descriptionTruncated = truncate(description, {
     length: 190,
   })

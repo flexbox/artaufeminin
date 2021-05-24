@@ -35,10 +35,11 @@ module.exports = {
   },
   plugins: [
     gastbySourcePrismicConfig,
-    `gatsby-transformer-sharp`,
+    `gatsby-transformer-sharp`, // Needed for dynamic images
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
