@@ -8,31 +8,17 @@ import SEO from "../components/seo"
 
 const DesignPage = ({ data }) => {
   return (
-    <Layout>
+    <Layout withNewsletter={false}>
       <SEO title="Design System" />
 
       <article className="post-content no-image">
         <div className="post-content-body">
           <p>
-            This is{" "}
-            <strong>
-              <strong>bold</strong>
-            </strong>{" "}
-            and this is{" "}
-            <strong>
-              <strong>strong</strong>
-            </strong>
-            . This is{" "}
-            <em>
-              <em>italic</em>
-            </em>{" "}
-            and this is{" "}
-            <em>
-              <em>emphasized</em>
-            </em>
-            . This is <sup>superscript</sup>text and this is{" "}
-            <sub>subscript</sub> text. This is <u>underlined</u>. Finally, this
-            is a <Link to={`/`}>link</Link>.
+            This is <strong>bold</strong> and this is <strong>strong</strong>.
+            This is <em>italic</em> and this is <em>emphasized</em>. This is{" "}
+            <sup>superscript</sup>text and this is <sub>subscript</sub> text.
+            This is <u>underlined</u>. Finally, this is a{" "}
+            <Link to={`/`}>link</Link>.
           </p>
           <h1 id="heading-level-1">Heading Level 1</h1>
           <h2 id="heading-level-2">Heading Level 2</h2>

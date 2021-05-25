@@ -2,8 +2,6 @@ import React, { ReactElement } from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 
-interface Props {}
-
 interface LinkButtonProps {
   platform: {
     name: string
@@ -100,7 +98,7 @@ function LinkButton({ platform }: LinkButtonProps) {
   )
 }
 
-export default function LinksPage({ data }: Props): ReactElement {
+export default function LinksPage({ data }): ReactElement {
   const logoUrl = data.logo.childImageSharp.gatsbyImageData
 
   return (

@@ -27,13 +27,10 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      allPrismicPage {
+      allPrismicBlogPost {
         nodes {
-          id
           uid
-          data {
-            template
-          }
+          id
         }
       }
     }
