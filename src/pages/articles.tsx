@@ -7,14 +7,14 @@ import ArticleList from "../components/articleListItem"
 import LayoutSidebar from "../components/layoutSidebar"
 
 const ArticlesPage = ({ data }) => {
-  const articles = data.prismic.allBlog_posts.edges
+  const allArticles = data.allPrismicBlogPost.nodes
 
   return (
     <Layout>
       <SEO title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia" />
 
       <LayoutSidebar withPodcast={false}>
-        <ArticleList allArticles={articles} />
+        <ArticleList allArticles={allArticles} />
       </LayoutSidebar>
     </Layout>
   )
@@ -22,19 +22,9 @@ const ArticlesPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    prismic {
-      allBlog_posts(sortBy: date_DESC) {
-        edges {
-          node {
-            image
-            title
-            date
-            description
-            _meta {
-              uid
-            }
-          }
-        }
+    allPrismicBlogPost(sort: { order: DESC, fields: data___date }) {
+      nodes {
+        ...PrismicPostFragment
       }
     }
   }

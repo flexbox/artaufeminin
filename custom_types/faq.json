@@ -1,0 +1,18 @@
+{
+  "Main": {
+    "question": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "question"
+      }
+    },
+    "answer": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,strong,em,hyperlink,image,embed,list-item,o-list-item",
+        "label": "answer"
+      }
+    }
+  }
+}

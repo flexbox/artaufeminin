@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, StaticQuery } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
@@ -8,31 +8,17 @@ import SEO from "../components/seo"
 
 const DesignPage = ({ data }) => {
   return (
-    <Layout>
+    <Layout withNewsletter={false}>
       <SEO title="Design System" />
 
       <article className="post-content no-image">
         <div className="post-content-body">
           <p>
-            This is{" "}
-            <strong>
-              <strong>bold</strong>
-            </strong>{" "}
-            and this is{" "}
-            <strong>
-              <strong>strong</strong>
-            </strong>
-            . This is{" "}
-            <em>
-              <em>italic</em>
-            </em>{" "}
-            and this is{" "}
-            <em>
-              <em>emphasized</em>
-            </em>
-            . This is <sup>superscript</sup>text and this is{" "}
-            <sub>subscript</sub> text. This is <u>underlined</u>. Finally, this
-            is a <Link to={`/`}>link</Link>.
+            This is <strong>bold</strong> and this is <strong>strong</strong>.
+            This is <em>italic</em> and this is <em>emphasized</em>. This is{" "}
+            <sup>superscript</sup>text and this is <sub>subscript</sub> text.
+            This is <u>underlined</u>. Finally, this is a{" "}
+            <Link to={`/`}>link</Link>.
           </p>
           <h1 id="heading-level-1">Heading Level 1</h1>
           <h2 id="heading-level-2">Heading Level 2</h2>
@@ -127,23 +113,26 @@ const DesignPage = ({ data }) => {
           <hr />
           <h2 id="images">Images</h2>
           <figure className="kg-card kg-image-card">
-            <Img
-              fluid={data.smallPic.childImageSharp.fluid}
+            <GatsbyImage
+              image={data.smallPic.childImageSharp.fluid}
               className="kg-image"
+              alt="caption"
             />
             <figcaption>Regular image</figcaption>
           </figure>
           <figure className="kg-card kg-image-card kg-width-wide">
-            <Img
-              fluid={data.medPic.childImageSharp.fluid}
+            <GatsbyImage
+              image={data.medPic.childImageSharp.fluid}
               className="kg-image"
+              alt="caption"
             />
             <figcaption>Large image</figcaption>
           </figure>
           <figure className="kg-card kg-image-card kg-width-full">
-            <Img
-              fluid={data.largePic.childImageSharp.fluid}
+            <GatsbyImage
+              image={data.largePic.childImageSharp.fluid}
               className="kg-image"
+              alt="caption"
             />
             <figcaption>Full bleed image</figcaption>
           </figure>

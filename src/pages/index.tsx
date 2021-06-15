@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, Link, StaticQuery } from "gatsby"
-import Image from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -11,10 +11,12 @@ import ArticleList from "../components/articleListItem"
 
 const IndexPage = ({ data }) => {
   const siteDescription = data.site.siteMetadata.description
-  const logoUrl = data.logo.childImageSharp.fixed
-  const reviewsUrl = data.reviews.childImageSharp.fixed
+  const logoUrl = data.logo.childImageSharp.gatsbyImageData
+  const reviewsUrl = data.reviews.childImageSharp.gatsbyImageData
+  console.log("file: index.tsx ~ line 17 ~ IndexPage ~ reviewsUrl", reviewsUrl)
+
   const allEpisodes = data.allAnchorEpisode.nodes
-  const allArticles = data.prismic.allBlog_posts.edges
+  const allArticles = data.allPrismicBlogPost.nodes
 
   return (
     <Layout>
@@ -84,8 +86,9 @@ const IndexPage = ({ data }) => {
             </a>
             .
           </p>
-          <Image
-            fixed={reviewsUrl}
+          <GatsbyImage
+            image={reviewsUrl}
+            loading="eager"
             alt={"5 étoiles pour ART au feminin sur Apple podcast"}
           />
           <h2 className="text-4xl">Laissez moi une évaluation</h2>
@@ -114,16 +117,12 @@ const indexQuery = graphql`
     }
     logo: file(absolutePath: { regex: "/logo-podcast-art-au-feminin.png/" }) {
       childImageSharp {
-        fixed(width: 500, height: 500) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 500, height: 500)
       }
     }
     reviews: file(absolutePath: { regex: "/reviews.png/" }) {
       childImageSharp {
-        fixed(width: 990, height: 600) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 990, height: 600)
       }
     }
     allAnchorEpisode(limit: 3) {
@@ -132,19 +131,29 @@ const indexQuery = graphql`
       }
     }
 
-    prismic {
-      allBlog_posts(sortBy: date_DESC, first: 3) {
-        edges {
-          node {
-            _meta {
-              uid
-            }
-            title
-            description
-            date
-            image
-          }
-        }
+    allPrismicBlogPost(limit: 3, sort: { order: DESC, fields: data___date }) {
+      nodes {
+        ...PrismicPostFragment
+      }
+    }
+  }
+
+  fragment PrismicPostFragment on PrismicBlogPost {
+    uid
+    data {
+      title {
+        type
+        text
+      }
+      description {
+        type
+        text
+      }
+      date
+      image {
+        alt
+        copyright
+        url
       }
     }
   }

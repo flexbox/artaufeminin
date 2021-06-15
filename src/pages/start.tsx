@@ -7,7 +7,7 @@ interface Props {}
 
 export default function StartPage({}: Props): ReactElement {
   return (
-    <Layout>
+    <Layout withNewsletter={false}>
       <SEO title="Présentez vous" />
       <div className="post-content">
         <div className="post-content-body">

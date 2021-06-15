@@ -7,6 +7,7 @@ import Newsletter from "./newsletter"
 
 interface LayoutProps {
   children: ReactNode
+  withNewsletter?: boolean
 }
 
 function HeaderRight() {
@@ -26,7 +27,7 @@ function HeaderRight() {
   )
 }
 
-function Layout({ children }: LayoutProps) {
+function Layout({ children, withNewsletter = true }: LayoutProps) {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -87,7 +88,7 @@ function Layout({ children }: LayoutProps) {
 
       <main role="main">{children}</main>
 
-      <Newsletter />
+      {withNewsletter && <Newsletter />}
       <Footer title={siteTitle} />
     </div>
   )

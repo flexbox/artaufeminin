@@ -36,12 +36,18 @@ export default function FaqPage({ data }): ReactElement {
 
 export const pageQuery = graphql`
   query {
-    prismic {
-      allFaqs {
-        edges {
-          node {
-            question
-            answer
+    allPrismicFaq {
+      nodes {
+        data {
+          question {
+            type
+            text
+          }
+          answer {
+            type
+            url
+            alt
+            text
           }
         }
       }

@@ -1,10 +1,10 @@
 import React, { ReactElement } from "react"
-import Image, { FixedObject, FluidObject } from "gatsby-image"
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 
 interface Props {
   heroTitle: string
-  imageUrlFixed?: FixedObject | FixedObject[]
-  imageUrlFluid?: FluidObject | FluidObject[]
+  imageUrlFixed?: IGatsbyImageData
+  imageUrlFluid?: IGatsbyImageData
   imageAlt: string
   children?: ReactElement
 }
@@ -23,8 +23,8 @@ export default function Hero({
         {children}
       </div>
       <div className="flex justify-end">
-        {imageUrlFixed && <Image fixed={imageUrlFixed} alt={imageAlt} />}
-        {imageUrlFluid && <Image fluid={imageUrlFluid} alt={imageAlt} />}
+        {imageUrlFixed && <GatsbyImage image={imageUrlFixed} alt={imageAlt} />}
+        {imageUrlFluid && <GatsbyImage image={imageUrlFluid} alt={imageAlt} />}
       </div>
     </div>
   )

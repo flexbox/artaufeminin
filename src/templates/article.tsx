@@ -74,19 +74,15 @@ export const query = graphql`
         title
       }
     }
-    prismic {
-      allBlog_posts(uid: $uid) {
-        edges {
-          node {
-            _meta {
-              uid
-            }
-            title
-            description
-            image
-            content
-            date
-          }
+    prismicBlogPost(uid: { eq: $uid }) {
+      ...PrismicPostFragment
+      data {
+        content {
+          type
+          text
+          url
+          alt
+          copyright
         }
       }
     }
