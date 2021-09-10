@@ -13,7 +13,6 @@ const IndexPage = ({ data }) => {
   const siteDescription = data.site.siteMetadata.description
   const logoUrl = data.logo.childImageSharp.gatsbyImageData
   const reviewsUrl = data.reviews.childImageSharp.gatsbyImageData
-  console.log("file: index.tsx ~ line 17 ~ IndexPage ~ reviewsUrl", reviewsUrl)
 
   const allEpisodes = data.allAnchorEpisode.nodes
   const allArticles = data.allPrismicBlogPost.nodes

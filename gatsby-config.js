@@ -4,14 +4,13 @@ const {
   accessToken,
 } = require("./prismic-configuration")
 
-const linkResolver = require("./src/utils/linkResolver")
 const siteConfig = require("./siteConfig")
-
+const linkResolver = require("./src/utils/linkResolver")
 const reponame = process.env.PRISMIC_REPO_NAME || prismicRepo
 const apiKey = process.env.PRISMIC_API_KEY || accessToken
 const prismicReleaseID = process.env.PRISMIC_RELEASE_ID || releaseID
 
-const postSchema = require("./custom_types/blog_post.json")
+const blogPostSchema = require("./custom_types/blog_post.json")
 const faqSchema = require("./custom_types/faq.json")
 
 const gastbySourcePrismicConfig = {
@@ -23,7 +22,7 @@ const gastbySourcePrismicConfig = {
     prismicToolbar: true,
     linkResolver: () => (doc) => linkResolver(doc),
     schemas: {
-      post: postSchema,
+      blogPostSchema: blogPostSchema,
       faqSchema: faqSchema,
     },
   },

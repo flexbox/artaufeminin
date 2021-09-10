@@ -7,17 +7,26 @@ import SEO from "../components/seo"
 import Author from "../components/author"
 import CustomRichText from "../components/customRichText"
 import { formatHumanDate } from "../utils/date"
+import { ArticleProps } from "../components/articleListItem"
 
-export default function Article(props) {
-  const doc = props.data.prismic.allBlog_posts.edges.slice(0, 1).pop()
+interface ArticleTemplateProps {
+  data: {
+    prismicBlogPost: { ArticleProps }
+  }
+}
+
+export default function Article(props: ArticleTemplateProps) {
+  const doc = props.data.prismicBlogPost.data
 
   if (!doc) return null
 
-  const title = RichText.asText(doc.node.title)
-  const description = RichText.asText(doc.node.description)
-  const datePublished = formatHumanDate(doc.node.date)
+  const title = RichText.asText(doc.title)
+  const description = RichText.asText(doc.description)
+  const datePublished = formatHumanDate(doc.date)
 
-  const { image } = doc.node
+  const { image } = doc
+  const { content } = props.data.prismicBlogPost.data
+  console.log("file: article.tsx ~ line 28 ~ Article ~ content", content)
 
   return (
     <Layout>
@@ -43,7 +52,7 @@ export default function Article(props) {
 
         <div className="post-content-body">
           <div className="mb-20">
-            <CustomRichText render={doc.node.content} />
+            <CustomRichText render={content} />
           </div>
 
           <p className="text-gray-500 mb-20">
@@ -80,9 +89,18 @@ export const query = graphql`
         content {
           type
           text
-          url
+          dimensions {
+            width
+            height
+          }
+          spans {
+            start
+            end
+            type
+          }
           alt
           copyright
+          url
         }
       }
     }

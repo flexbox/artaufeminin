@@ -48,12 +48,12 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   const articleTemplate = path.resolve(`src/templates/article.tsx`)
-  pages.data.allPrismicPage.nodes.forEach((node) => {
+  pages.data.allPrismicBlogPost.nodes.forEach((blogpost) => {
     createPage({
-      path: `/${node.uid}`,
+      path: `/article/${blogpost.uid}`,
       component: articleTemplate,
       context: {
-        id: node.id,
+        id: blogpost.id,
       },
     })
   })

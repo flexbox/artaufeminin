@@ -4,7 +4,7 @@ import React, { ReactElement } from "react"
 import truncate from "lodash/truncate"
 import { formatHumanDate } from "../utils/date"
 
-interface ArticleProps {
+export interface ArticleProps {
   uid: string
   data: {
     title: RichTextBlock[]
@@ -15,6 +15,7 @@ interface ArticleProps {
       copyright: string
       url: string
     }
+    content?: RichTextBlock[]
   }
 }
 
