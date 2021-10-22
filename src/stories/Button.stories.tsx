@@ -19,13 +19,9 @@ export default {
 const Template: ComponentStory<typeof Button> = (args) => {
   return (
     <>
-      {/* <Button variant="solid">Hello</Button> */}
-      {/* <br /> */}
-      {/* <Button variant="ghost">Test</Button> */}
-      {/* <br /> */}
       <Button variant="solid">Primary</Button>
       <br />
-      <Button variant="ghost">Default</Button>
+
       <br />
       <Button variant="solid">Large</Button>
       <br />
@@ -44,4 +40,9 @@ const Template: ComponentStory<typeof Button> = (args) => {
   )
 }
 
+const TemplateDefault: ComponentStory<typeof Button> = (args) => {
+  return <Button variant="ghost">Default</Button>
+}
+
 export const Primary = Template.bind({})
+export const Default = TemplateDefault.bind({})
