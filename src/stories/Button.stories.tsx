@@ -17,32 +17,39 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Button> = (args) => {
-  return (
-    <>
-      <Button variant="solid">Primary</Button>
-      <br />
-
-      <br />
-      <Button variant="solid">Large</Button>
-      <br />
-      <Button variant="ghost">Default</Button>
-      <br />
-      <Button variant="ghost">Small</Button>
-      <br />
-      <Button variant="solid">Fit</Button>
-      <br />
-      <Button variant="ghost">Fit</Button>
-      <br />
-      <Button variant="solid">Fit + Small</Button>
-      <br />
-      <Button variant="ghost">Fit + Small</Button>
-    </>
-  )
+  return <Button variant="solid">Primary</Button>
 }
-
 const TemplateDefault: ComponentStory<typeof Button> = (args) => {
-  return <Button variant="ghost">Default</Button>
+  return <Button variant="outline">Default</Button>
+}
+const TemplateLarge: ComponentStory<typeof Button> = (args) => {
+  return <Button variant="large">Large</Button>
+}
+const TemplateDefaultGhost: ComponentStory<typeof Button> = (args) => {
+  return <Button variant="outline">Default</Button>
+}
+const TemplateSmallGhost: ComponentStory<typeof Button> = (args) => {
+  return <Button variant="outline">Small</Button>
+}
+const TemplateFit: ComponentStory<typeof Button> = (args) => {
+  return <Button variant="solid">Fit</Button>
+}
+const TemplateFitGhost: ComponentStory<typeof Button> = (args) => {
+  return <Button variant="outline">Fit</Button>
+}
+const TemplateFitSmall: ComponentStory<typeof Button> = (args) => {
+  return <Button variant="outline">Fit + Small</Button>
+}
+const TemplateFitSmallGhost: ComponentStory<typeof Button> = (args) => {
+  return <Button variant="outline">Fit + Small</Button>
 }
 
 export const Primary = Template.bind({})
 export const Default = TemplateDefault.bind({})
+export const Large = TemplateLarge.bind({})
+export const DefaultGhost = TemplateDefaultGhost.bind({})
+export const SmallGhost = TemplateSmallGhost.bind({})
+export const Fit = TemplateFit.bind({})
+export const FitGhost = TemplateFitGhost.bind({})
+export const FitSmall = TemplateFitSmall.bind({})
+export const FitSmallGhost = TemplateFitSmallGhost.bind({})
