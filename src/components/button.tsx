@@ -12,17 +12,17 @@ export default function Button({
   as,
   ...props
 }: ButtonProps) {
-  const classNamesDefault = "py-2 px-4  font-semibold rounded-lg shadow-md"
+  const classNamesDefault = "py-2 px-4 my-4  font-semibold rounded-lg shadow-md"
 
   let classNamesVariant = " text-white   font-merri m-4 text-xs"
   if (variant === "outline") {
     classNamesVariant =
-      " text-blue-500 font-merri border-blue-500 border-2 border-solid m-4 hover:border-blue-600 hover:text-blue-600"
+      " text-blue-500 font-merri border-blue-500 border-2 border-solid m-0 hover:border-blue-600 hover:text-blue-600"
   }
 
   if (variant === "solid") {
     classNamesVariant =
-      "  bg-blue-500 text-white font-merri text-md m-4  hover:bg-blue-600"
+      "  bg-blue-500 text-white font-merri text-md m-0  hover:bg-blue-600"
   }
   if (variant === "large") {
     classNamesVariant =
