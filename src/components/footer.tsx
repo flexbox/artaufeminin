@@ -15,7 +15,6 @@ export default function Footer({ title }: FooterProps) {
             <Link to={`/`} className="text-black">
               {title}
             </Link>
-            <p>{title}</p>
           </p>
         </div>
       </div>

@@ -1,10 +1,11 @@
-import React, { ReactElement } from "react"
+import React, { ButtonHTMLAttributes, ReactElement } from "react"
 
-interface ButtonProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: any
   variant?: "outline" | "solid" | "ghost"
   as?: string
   size?: string
+  href?: string
 }
 
 export default function Button({
@@ -12,24 +13,25 @@ export default function Button({
   children,
   size,
   as,
+  href,
   ...props
 }: ButtonProps) {
-  const classNamesDefault = "py-2 px-4 my-4 font-semibold rounded-lg"
+  const classNamesDefault = "py-2 px-4  font-semibold rounded-lg no-underline"
 
-  let classNamesVariant = " text-white   font-merri m-4 text-xs"
+  let classNamesVariant = " text-white   font-merri m-4 text-xs no-underline"
   let classNamesSize = ""
   if (variant === "outline") {
     classNamesVariant =
-      " text-blue-500 font-merri border-blue-500 border-2 border-solid m-0 hover:border-blue-600 hover:text-blue-600"
+      "hover:no-underline text-blue-500 font-merri border-blue-500 border-2 border-solid m-0 hover:border-blue-600 hover:text-blue-600"
   }
 
   if (variant === "solid") {
     classNamesVariant =
-      "  bg-blue-500 text-white font-merri text-md m-0  hover:bg-blue-600"
+      "no-underline  bg-blue-500 text-white font-merri text-md m-0  hover:bg-blue-600"
   }
   if (variant === "ghost") {
     classNamesVariant =
-      "bg-blue-500 text-white font-merri text-md hover:bg-blue-600 py-4 px-8"
+      "no-underline bg-blue-500 text-white font-merri text-md hover:bg-blue-600 py-4 px-8"
   }
   if (size === "s") {
     classNamesSize = "py-4 px-4"
@@ -42,7 +44,11 @@ export default function Button({
   }
   if (as === "a") {
     return (
-      <a className={`${classNamesDefault} ${classNamesVariant}`} {...props}>
+      <a
+        href={`${href}`}
+        className={`${classNamesDefault} ${classNamesVariant}`}
+        {...props}
+      >
         {children}
       </a>
     )

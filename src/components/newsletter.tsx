@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react"
+import Button from "./button"
 
 export default function Newsletter(): ReactElement {
   return (
@@ -37,13 +38,10 @@ export default function Newsletter(): ReactElement {
             className="w-full px-5 py-3 border border-gray-300 shadow-sm placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:max-w-xs rounded-md"
             placeholder="Entrez votre adresse email"
           />
-          <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-            <button
-              type="submit"
-              className="button primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-            >
+          <div className=" rounded-md shadow  sm:ml-3 sm:flex-shrink-0">
+            <Button variant="solid" type="submit">
               Je m'inscris
-            </button>
+            </Button>
           </div>
         </form>
       </div>
