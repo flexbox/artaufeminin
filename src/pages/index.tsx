@@ -8,6 +8,7 @@ import ApplePodcastIcon from "../components/applePodacstIcon"
 import Hero from "../components/hero"
 import EpisodeItem from "../components/episodeItem"
 import ArticleList from "../components/articleListItem"
+import Button from "../components/button"
 
 const IndexPage = ({ data }) => {
   const siteDescription = data.site.siteMetadata.description
@@ -28,19 +29,19 @@ const IndexPage = ({ data }) => {
         >
           <div className="flex flex-col sm:flex-row mt-12">
             <div className="flex-initial px-4 pl-0 mb-6">
-              <Link to={"/links"} className="button primary large">
-                Écouter et s’abonner
+              <Link to={"/links"}>
+                <Button variant="solid" size="m">
+                  Écouter et s’abonner
+                </Button>
               </Link>
             </div>
             <div className="flex-initial sm:px-4">
-              <a
+              <Button
+                variant="outline"
+                as="icon"
+                size="m"
                 href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex button large"
-              >
-                <ApplePodcastIcon style={{ height: 46 }} />
-              </a>
+              />
             </div>
           </div>
         </Hero>
@@ -57,8 +58,10 @@ const IndexPage = ({ data }) => {
               />
             )
           })}
-          <Link to={"/podcast"} className="button">
-            Voir tous les épisodes
+          <Link to={"/podcast"}>
+            <Button variant="outline" size="s">
+              Voir tous les épisodes
+            </Button>
           </Link>
         </div>
 
@@ -66,8 +69,10 @@ const IndexPage = ({ data }) => {
           <h2 className="text-4xl">Articles récents</h2>
           <hr className="separator mt-16" />
           <ArticleList allArticles={allArticles} />
-          <Link to={"/articles"} className="button">
-            Lire tous les articles
+          <Link to={"/articles"}>
+            <Button variant="outline" size="s">
+              Lire tous les articles
+            </Button>
           </Link>
         </div>
 
@@ -93,12 +98,15 @@ const IndexPage = ({ data }) => {
             Si vous aimez l’émission, la meilleure façon de la soutenir est de
             me laisser une évaluation sur Apple Podcast.
           </p>
-          <a
+
+          <Button
+            variant="outline"
+            size="l"
+            as="a"
             href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152"
-            className="button"
           >
             Cliquez ici pour 5 ⭐ sur Apple Podcast
-          </a>
+          </Button>
         </div>
       </div>
     </Layout>

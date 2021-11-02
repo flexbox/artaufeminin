@@ -6,13 +6,14 @@
   "dependencies": {
     "@prismicio/gatsby-source-prismic-graphql": "^3.6.13",
     "@tailwindcss/forms": "^0.3.2",
-    "@tailwindcss/typography": "^0.4.0",
+    "@tailwindcss/typography": "^0.4.1",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
     "autoprefixer": "^10.2.5",
     "date-fns": "^2.21.3",
     "gatsby": "^2.26.0",
     "gatsby-image": "^3.5.0",
+    "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-manifest": "^2.10.0",
     "gatsby-plugin-postcss": "^4.5.0",
     "gatsby-plugin-react-helmet": "^4.5.0",
@@ -31,7 +32,14 @@
     "typescript": "^4.2.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@storybook/addon-actions": "^6.3.12",
+    "@storybook/addon-essentials": "^6.3.12",
+    "@storybook/addon-links": "^6.3.12",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/react": "^6.3.12",
     "@types/react-helmet": "^6.1.1",
+    "babel-loader": "^8.2.3",
     "husky": ">=6",
     "lint-staged": ">=10",
     "postcss-color-function": "^4.1.0",
@@ -52,7 +60,9 @@
     "serve": "gatsby serve",
     "cache:clear": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "prettier --write"
