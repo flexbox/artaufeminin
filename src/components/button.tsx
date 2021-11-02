@@ -7,9 +7,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   as?: string
   size?: string
   href?: string
-  url?: any
-  alt?: any
-  key?: any
+  url?: string
+  alt?: string
+  key?: string
 }
 
 export default function Button({
@@ -51,7 +51,7 @@ export default function Button({
   if (as === "a") {
     return (
       <a
-        href={`${href}`}
+        href={href}
         className={`${classNamesDefault} ${classNamesVariant}`}
         {...props}
         target="_blank"
@@ -68,9 +68,10 @@ export default function Button({
         target="_blank"
         rel="noopener noreferrer"
         className="text-black"
+        key={key}
       >
-        <div key={`${key}`} className="flex py-4 sm:px-6 items-center">
-          <img src={`${url}`} alt={`${alt}`} className="w-16 h-16 mr-4" />
+        <div className="flex py-4 sm:px-6 items-center">
+          <img src={url} alt={alt} className="w-16 h-16 mr-4" />
           {children}
         </div>
       </a>
@@ -79,7 +80,7 @@ export default function Button({
   if (as === "icon") {
     return (
       <>
-        <a href={`${href}`} target="_blank" rel="noopener noreferrer">
+        <a href={href} target="_blank" rel="noopener noreferrer">
           <ApplePodcastIcon
             className={`${classNamesDefault} ${classNamesVariant}`}
             {...props}
