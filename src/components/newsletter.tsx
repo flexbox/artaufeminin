@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react"
-import Button from "./button"
+import Input from "./input"
 
 export default function Newsletter(): ReactElement {
   return (
@@ -13,38 +13,7 @@ export default function Newsletter(): ReactElement {
           email.
         </p>
       </div>
-      <div className="mt-8 lg:mt-0 lg:ml-8">
-        <form
-          className="sm:flex"
-          action="https://static.mailerlite.com/webforms/submit/k7i7l5"
-          data-code="k7i7l5"
-          method="post"
-          target="_blank"
-        >
-          <input type="hidden" name="ml-submit" value="1" />
-          <input type="hidden" name="anticsrf" value="true" />
-          <label htmlFor="emailAddress" className="sr-only">
-            Adresse email
-          </label>
-          <input
-            id="emailAddress"
-            autoComplete="email"
-            required
-            aria-label="email"
-            aria-required="true"
-            type="email"
-            data-inputmask=""
-            name="fields[email]"
-            className="w-full px-5 py-3 border border-gray-300 shadow-sm placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:max-w-xs rounded-md"
-            placeholder="Entrez votre adresse email"
-          />
-          <div className=" rounded-md shadow  sm:ml-3 sm:flex-shrink-0">
-            <Button variant="solid" type="submit">
-              Je m'inscris
-            </Button>
-          </div>
-        </form>
-      </div>
+      <Input variant="rounded" />
     </div>
   )
 }
