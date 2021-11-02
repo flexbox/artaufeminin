@@ -23,16 +23,16 @@ export default function Article(props) {
     <Layout>
       <SEO title={title} description={description} />
 
-      <article className="prose-2xl w-1/2 m-auto">
-        <header className="">
-          <h1 className="">{title}</h1>
+      <article className="post-content">
+        <header className="post-content-header">
+          <h1 className="post-content-title">{title}</h1>
         </header>
 
-        <div className="">{description}</div>
+        <div className="post-content-excerpt">{description}</div>
 
         {image && (
-          <div className="">
-            <figure className="">
+          <div className="text-center mb-10">
+            <figure className="post-content-figure">
               <img className="mx-auto" src={image.url} alt={image.alt} />
               <figcaption className="mt-8">
                 {image.alt} {image.copyright && `© ${image.copyright}`}
@@ -41,7 +41,7 @@ export default function Article(props) {
           </div>
         )}
 
-        <div className="">
+        <div className="post-content-body">
           <div className="mb-20">
             <CustomRichText render={doc.node.content} />
           </div>
