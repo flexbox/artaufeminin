@@ -2,7 +2,7 @@ import React, { ButtonHTMLAttributes, ReactElement } from "react"
 import ApplePodcastIcon from "./applePodacstIcon"
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: any
+  children?: any
   variant?: "outline" | "solid" | "ghost"
   as?: string
   size?: string

@@ -23,7 +23,7 @@ export default function Article(props) {
     <Layout>
       <SEO title={title} description={description} />
 
-      <article className="post-content">
+      <article className="post-content prose">
         <header className="post-content-header">
           <h1 className="post-content-title">{title}</h1>
         </header>
