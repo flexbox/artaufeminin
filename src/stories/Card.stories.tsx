@@ -1,6 +1,7 @@
 import React from "react"
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 import Card from "../components/card"
+import Button from "../components/button"
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -14,7 +15,17 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Card> = (args) => {
-  return <Card title="Je suis un titre">HEY</Card>
+  return (
+    <>
+      <Card title="Je suis un titre">HEY</Card>
+      <Card title="Je suis un titre">
+        HEY{" "}
+        <div>
+          <Button variant="outline">Default</Button>
+        </div>
+      </Card>
+    </>
+  )
 }
 
 export const Primary = Template.bind({})
