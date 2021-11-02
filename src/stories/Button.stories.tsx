@@ -49,7 +49,16 @@ const TemplateApplePodcast: ComponentStory<typeof Button> = (args) => {
 }
 const TemplatePodcast: ComponentStory<typeof Button> = (args) => {
   return (
-    <Button variant="ghost" as="iconpod" href="http://www.google.com"></Button>
+    <Button
+      variant="ghost"
+      as="iconpod"
+      href="http://www.google.com"
+      key="spotify"
+      url="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/spotify.svg"
+      alt={`ART au feminin sur spotify`}
+    >
+      Spotify
+    </Button>
   )
 }
 const TemplateAhrefButton: ComponentStory<typeof Button> = (args) => {
