@@ -47,6 +47,11 @@ const TemplateSmallGhost: ComponentStory<typeof Button> = (args) => {
 const TemplateApplePodcast: ComponentStory<typeof Button> = (args) => {
   return <Button variant="outline" as="icon" href="http://www.google.com" />
 }
+const TemplatePodcast: ComponentStory<typeof Button> = (args) => {
+  return (
+    <Button variant="ghost" as="iconpod" href="http://www.google.com"></Button>
+  )
+}
 const TemplateAhrefButton: ComponentStory<typeof Button> = (args) => {
   return (
     <Button variant="outline" as="a" href="http://www.google.com">
@@ -61,3 +66,4 @@ export const Large = TemplateSizes.bind({})
 export const SmallGhost = TemplateSmallGhost.bind({})
 export const Ahref = TemplateAhrefButton.bind({})
 export const apple = TemplateApplePodcast.bind({})
+export const pod = TemplatePodcast.bind({})
