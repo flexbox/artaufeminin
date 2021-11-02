@@ -32,13 +32,13 @@ export default function Button({
       "bg-blue-500 text-white font-merri text-md hover:bg-blue-600 py-4 px-8"
   }
   if (size === "s") {
-    classNamesSize = "py-12 px-12"
+    classNamesSize = "py-4 px-4"
   }
   if (size === "m") {
-    classNamesSize = "py-24 px-24"
+    classNamesSize = "py-5 px-5"
   }
   if (size === "l") {
-    classNamesSize = "py-48 px-48"
+    classNamesSize = "py-6 px-6"
   }
   if (as === "a") {
     return (
