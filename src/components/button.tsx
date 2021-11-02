@@ -7,6 +7,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   as?: string
   size?: string
   href?: string
+  url?: any
+  alt?: any
+  key?: any
 }
 
 export default function Button({
@@ -15,11 +18,14 @@ export default function Button({
   size,
   as,
   href,
+  url,
+  alt,
+  key,
   ...props
 }: ButtonProps) {
-  const classNamesDefault = "py-2 px-4  font-semibold rounded-lg no-underline"
+  const classNamesDefault = "py-2 px-4  font-semibold rounded-lg "
 
-  let classNamesVariant = " text-white   font-merri m-4 text-xs no-underline"
+  let classNamesVariant = " text-white   font-merri m-4 text-xs "
   let classNamesSize = ""
   if (variant === "outline") {
     classNamesVariant =
@@ -31,8 +37,7 @@ export default function Button({
       "no-underline  bg-blue-500 text-white font-merri text-md m-0  hover:bg-blue-600"
   }
   if (variant === "ghost") {
-    classNamesVariant =
-      "no-underline bg-blue-500 text-white font-merri text-md hover:bg-blue-600 py-4 px-8"
+    classNamesVariant = "flex text-black-900 font-merri text-md  py-4 px-8"
   }
   if (size === "s") {
     classNamesSize = "py-4 px-4"
@@ -53,6 +58,21 @@ export default function Button({
         rel="noopener noreferrer"
       >
         {children}
+      </a>
+    )
+  }
+  if (as === "iconpod") {
+    return (
+      <a
+        href={`${href}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-black"
+      >
+        <div key={`${key}`} className="flex py-4 sm:px-6 items-center">
+          <img src={`${url}`} alt={`${alt}`} className="w-16 h-16 mr-4" />
+          {children}
+        </div>
       </a>
     )
   }

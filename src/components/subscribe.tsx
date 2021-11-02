@@ -1,5 +1,6 @@
-import React, { ReactElement } from "react"
+import React, { Children, ReactElement } from "react"
 import { allPodcastPlatforms } from "../pages/links"
+import Button from "./button"
 import Card from "./card"
 
 export default function Subscribe(): ReactElement {
@@ -8,19 +9,18 @@ export default function Subscribe(): ReactElement {
       {allPodcastPlatforms
         .filter((platform) => platform.name !== "Anchor")
         .map((platform) => (
-          <a href={platform.url} className="text-black">
-            <div
+          <>
+            <Button
+              variant="ghost"
+              as="iconpod"
+              href={platform.url}
               key={platform.name}
-              className="flex px-4 py-4 sm:px-6 items-center"
+              url={platform.imageUrl}
+              alt={`ART au feminin sur ${platform.name}`}
             >
-              <img
-                src={platform.imageUrl}
-                alt={`ART au feminin sur ${platform.name}`}
-                className="w-16 h-16 mr-4"
-              />
               {platform.name}
-            </div>
-          </a>
+            </Button>
+          </>
         ))}
     </Card>
   )
