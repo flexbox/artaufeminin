@@ -18,9 +18,15 @@ const Template: ComponentStory<typeof Card> = (args) => {
   return (
     <>
       <Card title="Je suis un titre">HEY</Card>
+    </>
+  )
+}
+const TemplateCard2: ComponentStory<typeof Card> = (args) => {
+  return (
+    <>
       <Card title="Je suis un titre">
         HEY{" "}
-        <div>
+        <div className="mt-4">
           <Button variant="outline">Default</Button>
         </div>
       </Card>
@@ -29,3 +35,4 @@ const Template: ComponentStory<typeof Card> = (args) => {
 }
 
 export const Primary = Template.bind({})
+export const CardButton = TemplateCard2.bind({})
