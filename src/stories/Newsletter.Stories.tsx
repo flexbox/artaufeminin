@@ -13,6 +13,12 @@ export default {
 } as ComponentMeta<typeof Newsletter>
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Newsletter> = (args) => <Newsletter />
+const Template: ComponentStory<typeof Newsletter> = (args) => {
+  return (
+    <>
+      <Newsletter />
+    </>
+  )
+}
 
 export const Primary = Template.bind({})
