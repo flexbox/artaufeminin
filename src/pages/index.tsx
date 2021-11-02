@@ -36,14 +36,12 @@ const IndexPage = ({ data }) => {
               </Link>
             </div>
             <div className="flex-initial sm:px-4">
-              <a
+              <Button
+                variant="outline"
+                as="icon"
+                size="m"
                 href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex button large"
-              >
-                <ApplePodcastIcon style={{ height: 46 }} />
-              </a>
+              />
             </div>
           </div>
         </Hero>

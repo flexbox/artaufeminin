@@ -1,4 +1,5 @@
 import React, { ButtonHTMLAttributes, ReactElement } from "react"
+import ApplePodcastIcon from "./applePodacstIcon"
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: any
@@ -48,9 +49,25 @@ export default function Button({
         href={`${href}`}
         className={`${classNamesDefault} ${classNamesVariant}`}
         {...props}
+        target="_blank"
+        rel="noopener noreferrer"
       >
         {children}
       </a>
+    )
+  }
+  if (as === "icon") {
+    return (
+      <>
+        <a href={`${href}`} target="_blank" rel="noopener noreferrer">
+          <ApplePodcastIcon
+            className={`${classNamesDefault} ${classNamesVariant}`}
+            {...props}
+            style={{ height: 50 }}
+          />
+          {children}
+        </a>
+      </>
     )
   }
   return (

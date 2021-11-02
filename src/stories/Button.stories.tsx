@@ -44,8 +44,20 @@ const TemplateDefaultGhost: ComponentStory<typeof Button> = (args) => {
 const TemplateSmallGhost: ComponentStory<typeof Button> = (args) => {
   return <Button variant="outline">Small</Button>
 }
+const TemplateApplePodcast: ComponentStory<typeof Button> = (args) => {
+  return <Button variant="outline" as="icon" href="http://www.google.com" />
+}
+const TemplateAhrefButton: ComponentStory<typeof Button> = (args) => {
+  return (
+    <Button variant="outline" as="a" href="http://www.google.com">
+      Href
+    </Button>
+  )
+}
 
 export const Primary = Template.bind({})
 export const Default = TemplateDefault.bind({})
 export const Large = TemplateSizes.bind({})
 export const SmallGhost = TemplateSmallGhost.bind({})
+export const Ahref = TemplateAhrefButton.bind({})
+export const apple = TemplateApplePodcast.bind({})
