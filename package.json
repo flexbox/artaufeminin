@@ -33,6 +33,9 @@
     "typeface-merriweather": "1.1.13",
     "typescript": "^4.2.4"
   },
+  "resolutions": {
+    "gatsby-source-graphql-universal": "3.3.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@storybook/addon-actions": "^6.3.12",
