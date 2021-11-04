@@ -57,21 +57,27 @@ module.exports = {
     {
       resolve: "gatsby-source-prismic-graphql",
       options: {
-        repositoryName: "artaufeminin",
-        defaultLang: "fr-fr",
-        schemas: {
-          pages: [
-            {
-              type: "Blog_post",
-              match: "/article/:uid",
-              component: require.resolve("./src/templates/article.tsx"), // pages will be generated under this pattern
-            },
-          ],
-          sharpKeys: [
-            /image|photo|picture/, // (default)
-            "profilepic",
-          ],
-        },
+        repositoryName: "artaufeminin", // required
+        defaultLang: "en-us", // optional, but recommended
+        accessToken: "...", // optional
+        prismicRef: "...", // optional, default: master; useful for A/B experiments
+        path: "/preview", // optional, default: /preview
+        previews: true, // optional, default: true
+        pages: [
+          {
+            // optional
+            type: "Blog_post", // TypeName from prismic
+            match: "/article/:uid", // pages will be generated under this pattern
+            previewPath: "/article", // optional path for unpublished documents
+            component: require.resolve("./src/templates/article.tsx"),
+            sortBy: "date_ASC", // optional, default: meta_lastPublicationDate_ASC; useful for pagination
+          },
+        ],
+        extraPageFields: "article_type", // optional, extends pages query to pass extra fields
+        sharpKeys: [
+          /image|photo|picture/, // (default)
+          "profilepic",
+        ],
       },
     },
   ],
