@@ -24,7 +24,6 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-image`,
-    `gatsby-source-prismic`,
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
@@ -65,33 +64,21 @@ module.exports = {
         linkResolver: (doc) => linkResolver(doc),
         // required
         schemas: {
-          pages: [
-            {
-              // optional
-              type: "Blog_post", // TypeName from prismic
-              match: "/article/:uid", // pages will be generated under this pattern
-              previewPath: "/article", // optional path for unpublished documents
-              component: require.resolve("./src/templates/article.tsx"),
-              sortBy: "date_ASC", // optional, default: meta_lastPublicationDate_ASC; useful for pagination
-            },
-          ],
+          // pages: [
+          //   {
+          //     // optional
+          //     type: "Blog_post", // TypeName from prismic
+          //     match: "/article/:uid", // pages will be generated under this pattern
+          //     previewPath: "/article", // optional path for unpublished documents
+          //     component: require.resolve("./src/templates/article.tsx"),
+          //     sortBy: "date_ASC", // optional, default: meta_lastPublicationDate_ASC; useful for pagination
+          //   },
+          // ],
           extraPageFields: "article_type", // optional, extends pages query to pass extra fields
           sharpKeys: [
             /image|photo|picture/, // (default)
             "profilepic",
           ],
-        },
-      },
-    },
-    "gatsby-plugin-image",
-    {
-      resolve: "gatsby-source-prismic",
-      options: {
-        repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
-        customTypesApiToken: process.env.PRISMIC_CUSTOM_TYPES_API_TOKEN,
-        linkResolver: (doc) => linkResolver(doc),
-        schemas: {
-          page: require("./src/templates/article.tsx"),
         },
       },
     },
