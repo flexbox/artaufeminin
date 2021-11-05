@@ -1,12 +1,27 @@
 import React, { ReactElement } from "react"
 import { graphql } from "gatsby"
-import { RichText } from "prismic-reactjs"
+import { RichText, RichTextBlock } from "prismic-reactjs"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-export default function FaqPage({ data }): ReactElement {
-  const questions = data.prismic.allFaqs.edges
+interface FaqPageProps {
+  data: {
+    allFaqs: {
+      edges: [
+        {
+          node: {
+            question: RichTextBlock[]
+            answer: RichTextBlock[]
+          }
+        }
+      ]
+    }
+  }
+}
+
+export default function FaqPage({ data }: FaqPageProps): ReactElement {
+  const questions = data.allFaqs.edges
 
   return (
     <Layout>
@@ -35,14 +50,12 @@ export default function FaqPage({ data }): ReactElement {
 }
 
 export const pageQuery = graphql`
-  query {
-    prismic {
-      allFaqs {
-        edges {
-          node {
-            question
-            answer
-          }
+  {
+    allFaqs {
+      edges {
+        node {
+          question
+          answer
         }
       }
     }

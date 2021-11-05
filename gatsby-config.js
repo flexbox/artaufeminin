@@ -23,8 +23,6 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-image`,
-    `gatsby-source-prismic`,
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
@@ -61,9 +59,8 @@ module.exports = {
     {
       resolve: "gatsby-source-prismic",
       options: {
-        // repositoryName: "artaufeminin",
         repositoryName: "artaufeminin",
-        customTypesApiToken: `${process.env.PRISMIC_CUSTOM_TYPES_API_TOKEN}`,
+        // customTypesApiToken: `${process.env.PRISMIC_CUSTOM_TYPES_API_TOKEN}`,
         linkResolver: (doc) => linkResolver(doc),
         schemas: {
           blog_post: require("./custom_types/blog_post.json"),
