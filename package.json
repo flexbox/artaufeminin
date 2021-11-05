@@ -3,6 +3,18 @@
   "private": false,
   "description": "A podcast landing page",
   "author": "David Leuliette <dleuliette@gmail.com>",
+  "scripts": {
+    "start": "gatsby develop",
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "format": "prettier --write src/**/*.{js,jsx,ts,tsx}",
+    "serve": "gatsby serve",
+    "cache:clear": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "prepare": "husky install",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
   "dependencies": {
     "@tailwindcss/forms": "^0.3.2",
     "@tailwindcss/typography": "^0.4.1",
@@ -55,18 +67,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/flexbox/artaufeminin.git"
-  },
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{js,jsx,ts,tsx}",
-    "start": "gatsby develop",
-    "serve": "gatsby serve",
-    "cache:clear": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "prepare": "husky install",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "prettier --write"
