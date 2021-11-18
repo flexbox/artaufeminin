@@ -7,7 +7,7 @@ import ArticleList from "../components/articleListItem"
 import LayoutSidebar from "../components/layoutSidebar"
 
 const ArticlesPage = ({ data }) => {
-  const articles = data.allPrismicBlogPost.nodes
+  const articles = data.allPrismicBlogPost.edges
   console.log("file: articles.tsx ~ line 11 ~ ArticlesPage ~ data", data)
 
   return (
