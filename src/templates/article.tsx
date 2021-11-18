@@ -9,7 +9,7 @@ import CustomRichText from "../components/customRichText"
 import { formatHumanDate } from "../utils/date"
 
 export default function Article(props) {
-  const doc = props.data.prismic.allBlog_posts.edges.slice(0, 1).pop()
+  const doc = props.data.allBlog_posts.edges.slice(0, 1).pop()
 
   if (!doc) return null
 
@@ -69,24 +69,17 @@ export default function Article(props) {
 
 export const query = graphql`
   query ArticleQuery($uid: String) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    prismic {
-      allBlog_posts(uid: $uid) {
-        edges {
-          node {
-            _meta {
-              uid
-            }
-            title
-            description
-            image
-            content
-            date
+    allBlog_posts(uid: $uid) {
+      edges {
+        node {
+          _meta {
+            uid
           }
+          title
+          description
+          image
+          content
+          date
         }
       }
     }

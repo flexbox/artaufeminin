@@ -50,7 +50,7 @@ export default function FaqPage({ data }: FaqPageProps): ReactElement {
 }
 
 export const pageQuery = graphql`
-  {
+  query {
     allFaqs {
       edges {
         node {
