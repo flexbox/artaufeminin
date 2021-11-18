@@ -142,19 +142,19 @@ const indexQuery = graphql`
       }
     }
 
-    allBlog_posts(sortBy: date_DESC, first: 3) {
-      edges {
-        node {
-          _meta {
-            uid
-          }
-          title
-          description
-          date
-          image
-        }
-      }
-    }
+    # allBlog_posts(sortBy: date_DESC, first: 3) {
+    #   edges {
+    #     node {
+    #       _meta {
+    #         uid
+    #       }
+    #       title
+    #       description
+    #       date
+    #       image
+    #     }
+    #   }
+    # }
   }
 
   fragment AnchorEpisodeFragment on AnchorEpisode {

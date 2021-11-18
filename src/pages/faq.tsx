@@ -7,11 +7,11 @@ import SEO from "../components/seo"
 
 interface FaqPageProps {
   data: {
-    allFaqs: {
-      edges: [
+    allPrismicFaq: {
+      nodes: [
         {
-          node: {
-            question: RichTextBlock[]
+          data: {
+            question: string
             answer: RichTextBlock[]
           }
         }
@@ -20,8 +20,18 @@ interface FaqPageProps {
   }
 }
 
+function QuestionItem({ question }): ReactElement {
+  return (
+    <>
+      <h2>{question.data.question.text}</h2>
+      <div>{RichText.render(question.data.answer.raw)}</div>
+      <hr className="separator" />
+    </>
+  )
+}
+
 export default function FaqPage({ data }: FaqPageProps): ReactElement {
-  const questions = data.allFaqs.edges
+  const questions = data.allPrismicFaq.nodes
 
   return (
     <Layout>
@@ -34,14 +44,8 @@ export default function FaqPage({ data }: FaqPageProps): ReactElement {
           <h1 className="post-content-title">Questions fréquentes</h1>
         </div>
         <div className="post-content-body">
-          {questions.map((question) => {
-            return (
-              <>
-                <h2>{RichText.asText(question.node.question)}</h2>
-                <div>{RichText.render(question.node.answer)}</div>
-                <hr className="separator" />
-              </>
-            )
+          {questions.map((question, index) => {
+            return <QuestionItem key={index} question={question} />
           })}
         </div>
       </article>
@@ -51,11 +55,15 @@ export default function FaqPage({ data }: FaqPageProps): ReactElement {
 
 export const pageQuery = graphql`
   query {
-    allFaqs {
-      edges {
-        node {
-          question
-          answer
+    allPrismicFaq {
+      nodes {
+        data {
+          question {
+            text
+          }
+          answer {
+            raw
+          }
         }
       }
     }
