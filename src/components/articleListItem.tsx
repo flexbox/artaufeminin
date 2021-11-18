@@ -1,31 +1,35 @@
 import { Link } from "gatsby"
-import { RichText } from "prismic-reactjs"
+import { RichText, RichTextBlock } from "prismic-reactjs"
 import React, { ReactElement } from "react"
 import truncate from "lodash/truncate"
 import { formatHumanDate } from "../utils/date"
 
 interface ArticleProps {
-  node: {
-    uid: string
-    data: {
-      title: string
-      description: string
-      date: string
-      image: string
+  uid: string
+  data: {
+    title: {
+      raw: RichTextBlock[]
+    }
+    description: {
+      raw: RichTextBlock[]
+    }
+    date: string
+    image: {
+      url: string
     }
   }
 }
 
-interface Props {
+interface ArticleListItemProps {
   allArticles: ArticleProps[]
 }
 
-function ArticleItem({ article }) {
-  const slug = article.node.uid
-  const thumbnail = article.node.data.image.url.text
-  const date = formatHumanDate(article.node.data.date)
-  const title = RichText.asText(article.node.data.title.text)
-  const description = RichText.asText(article.node.data.description.text)
+function ArticleItem({ article }: { article: ArticleProps }): ReactElement {
+  const slug = article.uid
+  const thumbnailUrl = article.data.image.url
+  const date = formatHumanDate(article.data.date)
+  const title = RichText.asText(article.data.title.raw)
+  const description = RichText.asText(article.data.description.raw)
   const descriptionTruncated = truncate(description, {
     length: 190,
   })
@@ -44,7 +48,7 @@ function ArticleItem({ article }) {
           <div className="flex-shrink-0 px-3">
             <div
               className="bg-cover bg-center w-48 h-48"
-              style={{ backgroundImage: `url(${thumbnail})` }}
+              style={{ backgroundImage: `url(${thumbnailUrl})` }}
             ></div>
           </div>
         </div>
@@ -54,11 +58,13 @@ function ArticleItem({ article }) {
   )
 }
 
-export default function ArticleListItem({ allArticles }: Props): ReactElement {
+export default function ArticleListItem({
+  allArticles,
+}: ArticleListItemProps): ReactElement {
   return (
     <>
       {allArticles.map((article) => {
-        return <ArticleItem article={article} key={article.node.uid} />
+        return <ArticleItem article={article} key={article.uid} />
       })}
     </>
   )
