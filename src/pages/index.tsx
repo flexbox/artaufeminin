@@ -15,7 +15,7 @@ const IndexPage = ({ data }) => {
   const logoUrl = data.logo.childImageSharp.fixed
   const reviewsUrl = data.reviews.childImageSharp.fixed
   const allEpisodes = data.allAnchorEpisode.nodes
-  // const allArticles = data.prismic.allBlog_posts.edges
+  const allArticles = data.allPrismicBlogPost.nodes
   console.log("file: index.tsx ~ line 19 ~ IndexPage ~ data", data)
 
   return (
@@ -70,7 +70,7 @@ const IndexPage = ({ data }) => {
           <h2 className="text-4xl">Articles récents</h2>
           <hr className="separator mt-16" />
           <h3>ICIIIII</h3>
-          {/* <ArticleList allArticles={allArticles} /> */}
+          {<ArticleList allArticles={allArticles} />}
           <Link to={"/articles"}>
             <Button variant="outline" size="s">
               Lire tous les articles
@@ -142,19 +142,32 @@ const indexQuery = graphql`
       }
     }
 
-    # allBlog_posts(sortBy: date_DESC, first: 3) {
-    #   edges {
-    #     node {
-    #       _meta {
-    #         uid
-    #       }
-    #       title
-    #       description
-    #       date
-    #       image
-    #     }
-    #   }
-    # }
+    allPrismicBlogPost {
+      nodes {
+        uid
+        data {
+          title {
+            text
+            html
+            richText
+            raw
+          }
+          image {
+            alt
+            copyright
+            url
+            gatsbyImageData
+          }
+          description {
+            text
+            html
+            richText
+            raw
+          }
+          date
+        }
+      }
+    }
   }
 
   fragment AnchorEpisodeFragment on AnchorEpisode {

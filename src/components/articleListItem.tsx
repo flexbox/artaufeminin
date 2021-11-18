@@ -6,12 +6,12 @@ import { formatHumanDate } from "../utils/date"
 
 interface ArticleProps {
   node: {
-    title: string
-    description: string
-    date: string
-    image: string
-    _meta: {
-      uid: string
+    uid: string
+    data: {
+      title: string
+      description: string
+      date: string
+      image: string
     }
   }
 }
@@ -21,11 +21,11 @@ interface Props {
 }
 
 function ArticleItem({ article }) {
-  const slug = article.node._meta.uid
-  const thumbnail = article.node.image.url
-  const date = formatHumanDate(article.node.date)
-  const title = RichText.asText(article.node.title)
-  const description = RichText.asText(article.node.description)
+  const slug = article.node.uid
+  const thumbnail = article.node.data.image.url.text
+  const date = formatHumanDate(article.node.data.date)
+  const title = RichText.asText(article.node.data.title.text)
+  const description = RichText.asText(article.node.data.description.text)
   const descriptionTruncated = truncate(description, {
     length: 190,
   })
@@ -58,7 +58,7 @@ export default function ArticleListItem({ allArticles }: Props): ReactElement {
   return (
     <>
       {allArticles.map((article) => {
-        return <ArticleItem article={article} key={article.node._meta.uid} />
+        return <ArticleItem article={article} key={article.node.uid} />
       })}
     </>
   )
