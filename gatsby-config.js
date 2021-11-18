@@ -1,6 +1,5 @@
 const siteConfig = require("./siteConfig")
 
-const { registerLinkResolver } = require("gatsby-source-prismic")
 const { linkResolver } = require("./src/utils/linkResolver.ts")
 
 module.exports = {
@@ -63,8 +62,8 @@ module.exports = {
         // customTypesApiToken: `${process.env.PRISMIC_CUSTOM_TYPES_API_TOKEN}`,
         linkResolver: (doc) => linkResolver(doc),
         schemas: {
-          blog_post: require("./custom_types/blog_post.json"),
           faq: require("./custom_types/faq.json"),
+          blog_post: require("./custom_types/blog_post.json"),
         },
         // required
         //schemas: {
