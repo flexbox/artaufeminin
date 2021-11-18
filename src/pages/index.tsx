@@ -4,7 +4,6 @@ import Image from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ApplePodcastIcon from "../components/applePodacstIcon"
 import Hero from "../components/hero"
 import EpisodeItem from "../components/episodeItem"
 import ArticleList from "../components/articleListItem"
@@ -16,6 +15,10 @@ const IndexPage = ({ data }) => {
   const reviewsUrl = data.reviews.childImageSharp.fixed
   const allEpisodes = data.allAnchorEpisode.nodes
   const allArticles = data.allPrismicBlogPost.nodes
+  console.log(
+    "file: index.tsx ~ line 18 ~ IndexPage ~ allArticles",
+    allArticles
+  )
   console.log("file: index.tsx ~ line 19 ~ IndexPage ~ data", data)
 
   return (
@@ -141,24 +144,28 @@ const indexQuery = graphql`
       }
     }
 
-    allPrismicBlogPost {
+    allPrismicBlogPost(limit: 3) {
       nodes {
-        uid
-        data {
-          title {
-            text
-          }
-          image {
-            alt
-            copyright
-            url
-            gatsbyImageData
-          }
-          description {
-            text
-          }
-          date
-        }
+        ...PrismicBlogPostFragment
+      }
+    }
+  }
+
+  fragment PrismicBlogPostFragment on PrismicBlogPost {
+    uid
+    data {
+      date
+      title {
+        raw
+      }
+      description {
+        raw
+      }
+      image {
+        alt
+        copyright
+        url
+        gatsbyImageData
       }
     }
   }
@@ -185,7 +192,7 @@ export default (props) => (
   <StaticQuery
     query={indexQuery}
     render={(data) => (
-      <IndexPage location={props.location} props data={data} {...props} />
+      <IndexPage location={props.location} data={data} {...props} />
     )}
   />
 )

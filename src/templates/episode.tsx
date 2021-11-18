@@ -7,7 +7,6 @@ import { dutationToString } from "../utils/dutationToString"
 export default function Episode({ pageContext }) {
   const title = pageContext.title
   const description = pageContext.contentSnippet.substring(0, 155)
-
   const duration = dutationToString(pageContext.itunes.duration)
   const audioSrc = pageContext.enclosure.url
 
