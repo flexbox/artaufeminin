@@ -69,8 +69,7 @@ const IndexPage = ({ data }) => {
         <div className="max-w-6xl mb-64">
           <h2 className="text-4xl">Articles récents</h2>
           <hr className="separator mt-16" />
-          <h3>ICIIIII</h3>
-          {<ArticleList allArticles={allArticles} />}
+          <ArticleList allArticles={allArticles} />
           <Link to={"/articles"}>
             <Button variant="outline" size="s">
               Lire tous les articles
@@ -148,9 +147,6 @@ const indexQuery = graphql`
         data {
           title {
             text
-            html
-            richText
-            raw
           }
           image {
             alt
@@ -160,9 +156,6 @@ const indexQuery = graphql`
           }
           description {
             text
-            html
-            richText
-            raw
           }
           date
         }

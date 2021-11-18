@@ -77,9 +77,6 @@ export const query = graphql`
           date
           description {
             text
-            html
-            richText
-            raw
           }
           image {
             alt
@@ -89,9 +86,6 @@ export const query = graphql`
           }
           title {
             text
-            html
-            richText
-            raw
           }
         }
       }
