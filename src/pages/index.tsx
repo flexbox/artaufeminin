@@ -15,7 +15,8 @@ const IndexPage = ({ data }) => {
   const logoUrl = data.logo.childImageSharp.fixed
   const reviewsUrl = data.reviews.childImageSharp.fixed
   const allEpisodes = data.allAnchorEpisode.nodes
-  const allArticles = data.prismic.allBlog_posts.edges
+  // const allArticles = data.prismic.allBlog_posts.edges
+  console.log("file: index.tsx ~ line 19 ~ IndexPage ~ data", data)
 
   return (
     <Layout>
@@ -68,7 +69,8 @@ const IndexPage = ({ data }) => {
         <div className="max-w-6xl mb-64">
           <h2 className="text-4xl">Articles récents</h2>
           <hr className="separator mt-16" />
-          <ArticleList allArticles={allArticles} />
+          <h3>ICIIIII</h3>
+          {/* <ArticleList allArticles={allArticles} /> */}
           <Link to={"/articles"}>
             <Button variant="outline" size="s">
               Lire tous les articles
@@ -140,18 +142,16 @@ const indexQuery = graphql`
       }
     }
 
-    prismic {
-      allBlog_posts(sortBy: date_DESC, first: 3) {
-        edges {
-          node {
-            _meta {
-              uid
-            }
-            title
-            description
-            date
-            image
+    allBlog_posts(sortBy: date_DESC, first: 3) {
+      edges {
+        node {
+          _meta {
+            uid
           }
+          title
+          description
+          date
+          image
         }
       }
     }
