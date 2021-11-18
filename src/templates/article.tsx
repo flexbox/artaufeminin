@@ -75,6 +75,9 @@ export const query = graphql`
         uid
         data {
           date
+          title {
+            text
+          }
           description {
             text
           }
@@ -83,9 +86,6 @@ export const query = graphql`
             copyright
             url
             gatsbyImageData
-          }
-          title {
-            text
           }
         }
       }

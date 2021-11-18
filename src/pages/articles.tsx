@@ -9,7 +9,7 @@ import LayoutSidebar from "../components/layoutSidebar"
 interface ArticlesPageProps {
   data: {
     allPrismicBlogPost: {
-      nodes: [] // it should be something like PrismicBlogPost[]
+      nodes: [] // it should be something like PrismicBlogPost[] insteead of a simple []
     }
   }
 }
@@ -32,22 +32,7 @@ export const query = graphql`
   query allBlogPosts {
     allPrismicBlogPost {
       nodes {
-        uid
-        data {
-          date
-          image {
-            alt
-            copyright
-            url
-            gatsbyImageData
-          }
-          title {
-            raw
-          }
-          description {
-            raw
-          }
-        }
+        ...PrismicBlogPostFragment
       }
     }
   }
