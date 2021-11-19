@@ -15,11 +15,6 @@ const IndexPage = ({ data }) => {
   const reviewsUrl = data.reviews.childImageSharp.fixed
   const allEpisodes = data.allAnchorEpisode.nodes
   const allArticles = data.allPrismicBlogPost.nodes
-  console.log(
-    "file: index.tsx ~ line 18 ~ IndexPage ~ allArticles",
-    allArticles
-  )
-  console.log("file: index.tsx ~ line 19 ~ IndexPage ~ data", data)
 
   return (
     <Layout>
