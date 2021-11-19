@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { RichText } from "prismic-reactjs"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -13,11 +12,11 @@ export default function Article(props) {
 
   if (!doc) return null
 
-  const title = RichText.asText(doc.node.data.title.text)
-  const description = RichText.asText(doc.node.data.description.text)
+  const title = doc.node.data.title.text
+  const description = doc.node.data.description.text
   const datePublished = formatHumanDate(doc.node.data.date)
 
-  const { image } = doc.node
+  const { image } = doc.node.image.url
 
   return (
     <Layout>
@@ -43,7 +42,7 @@ export default function Article(props) {
 
         <div className="post-content-body">
           <div className="mb-20">
-            <CustomRichText render={doc.node.content} />
+            <CustomRichText render={doc.node.content.text} />
           </div>
 
           <p className="text-gray-500 mb-20">
@@ -68,7 +67,7 @@ export default function Article(props) {
 }
 
 export const query = graphql`
-  query ArticleQuery {
+  query {
     allPrismicBlogPost {
       nodes {
         uid
@@ -78,6 +77,9 @@ export const query = graphql`
             text
           }
           description {
+            text
+          }
+          content {
             text
           }
           image {

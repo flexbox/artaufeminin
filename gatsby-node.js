@@ -42,4 +42,42 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+  const articleTemplate = path.resolve(`src/templates/article.tsx`)
+  const result2 = await graphql(`
+    query {
+      allPrismicBlogPost {
+        nodes {
+          data {
+            date
+            title {
+              text
+            }
+            image {
+              alt
+              copyright
+              url
+              gatsbyImageData
+            }
+            description {
+              text
+            }
+            content {
+              text
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  result2.data.allPrismicBlogPost.nodes.forEach((node) => {
+    createPage({
+      path: `articles/${node.data.title.text}`,
+      component: articleTemplate,
+      context: {
+        ...node,
+      },
+    })
+  })
 }
