@@ -49,6 +49,7 @@ module.exports = {
     },
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-image`,
     {
       resolve: "gatsby-source-anchor",
       options: {
@@ -59,44 +60,12 @@ module.exports = {
       resolve: "gatsby-source-prismic",
       options: {
         repositoryName: "artaufeminin",
-        // customTypesApiToken: `${process.env.PRISMIC_CUSTOM_TYPES_API_TOKEN}`,
         linkResolver: (doc) => linkResolver(doc),
         schemas: {
           faq: require("./custom_types/faq.json"),
           blog_post: require("./custom_types/blog_post.json"),
         },
-        // required
-        //schemas: {
-
-        // pages: [
-        //   {
-        //     // optional
-        //     type: "Blog_post", // TypeName from prismic
-        //     match: "/article/:uid", // pages will be generated under this pattern
-        //     previewPath: "/article", // optional path for unpublished documents
-        //     component: require.resolve("./src/templates/article.tsx"),
-        //     sortBy: "date_ASC", // optional, default: meta_lastPublicationDate_ASC; useful for pagination
-        //   },
-        // ],
-        // extraPageFields: "article_type", // optional, extends pages query to pass extra fields
-        // sharpKeys: [
-        //   /image|photo|picture/, // (default)
-        //   "profilepic",
-        // ],
       },
     },
-
-    "gatsby-plugin-image",
-    // {
-    //   resolve: "gatsby-source-prismic",
-    //   options: {
-    //     repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
-    //     customTypesApiToken: process.env.PRISMIC_CUSTOM_TYPES_API_TOKEN,
-    //     linkResolver: (doc) => linkResolver(doc),
-    //     schemas: {
-    //       page: require("./custom_types/blog_post.json"),
-    //     },
-    //   },
-    // },
   ],
 }
