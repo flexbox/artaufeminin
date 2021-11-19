@@ -9,7 +9,6 @@ import CustomRichText from "../components/customRichText"
 import { formatHumanDate } from "../utils/date"
 
 export default function Article(props) {
-  console.log("file: article.tsx ~ line 12 ~ Article ~ props", props)
   const doc = props.allPrismicBlogPost.slice(0, 1).pop()
 
   if (!doc) return null
