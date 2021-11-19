@@ -1,10 +1,10 @@
 import React from "react"
 import { graphql, StaticQuery } from "gatsby"
-import Img from "gatsby-image"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { StaticImage } from "gatsby-plugin-image"
 
 const DesignPage = ({ data }) => {
   return (
@@ -127,23 +127,26 @@ const DesignPage = ({ data }) => {
           <hr />
           <h2 id="images">Images</h2>
           <figure className="kg-card kg-image-card">
-            <Img
-              fluid={data.smallPic.childImageSharp.fluid}
+            <StaticImage
+              src="../images/fabio-comparelli-696506-unsplash.jpg"
               className="kg-image"
+              alt="designalt"
             />
             <figcaption>Regular image</figcaption>
           </figure>
           <figure className="kg-card kg-image-card kg-width-wide">
-            <Img
-              fluid={data.medPic.childImageSharp.fluid}
+            <StaticImage
+              src="../images/sophia-valkova-30139-unsplash.jpg"
               className="kg-image"
+              alt="designalt"
             />
             <figcaption>Large image</figcaption>
           </figure>
           <figure className="kg-card kg-image-card kg-width-full">
-            <Img
-              fluid={data.largePic.childImageSharp.fluid}
+            <StaticImage
+              src="../images/vladimir-malyutin-98174-unsplash.jpg"
               className="kg-image"
+              alt="designalt"
             />
             <figcaption>Full bleed image</figcaption>
           </figure>

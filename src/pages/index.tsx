@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql, Link, StaticQuery } from "gatsby"
-import Image from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -8,11 +7,11 @@ import Hero from "../components/hero"
 import EpisodeItem from "../components/episodeItem"
 import ArticleList from "../components/articleListItem"
 import Button from "../components/button"
+import { StaticImage } from "gatsby-plugin-image"
 
 const IndexPage = ({ data }) => {
   const siteDescription = data.site.siteMetadata.description
   const logoUrl = data.logo.childImageSharp.fixed
-  const reviewsUrl = data.reviews.childImageSharp.fixed
   const allEpisodes = data.allAnchorEpisode.nodes
   const allArticles = data.allPrismicBlogPost.nodes
 
@@ -23,7 +22,7 @@ const IndexPage = ({ data }) => {
       <div style={{ maxWidth: "80em", margin: "0 auto" }}>
         <Hero
           heroTitle={siteDescription}
-          imageUrlFixed={logoUrl}
+          imageUrl="../images/logo-podcast-art-au-feminin.png/"
           imageAlt={"Logo podcast ART au feminin"}
         >
           <div className="flex flex-col sm:flex-row mt-12">
@@ -88,8 +87,8 @@ const IndexPage = ({ data }) => {
             </a>
             .
           </p>
-          <Image
-            fixed={reviewsUrl}
+          <StaticImage
+            src="../images/reviews.png"
             alt={"5 étoiles pour ART au feminin sur Apple podcast"}
           />
           <h2 className="text-4xl">Laissez moi une évaluation</h2>
