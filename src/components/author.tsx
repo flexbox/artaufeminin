@@ -1,6 +1,6 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+import { StaticImage } from "gatsby-plugin-image"
 
 function Author() {
   return (
@@ -11,7 +11,7 @@ function Author() {
         return (
           <section className="flex p-8 bg-white shadow-md items-center">
             <div className="flex-2 pr-12">
-              <Image fixed={data.avatar.childImageSharp.fixed} alt={author} />
+              <StaticImage src="../images/profile-picture.jpg" alt={author} />
             </div>
             <div className="flex-10">
               <p className="text-3xl font-extrabold tracking-tight sm:text-4xl mb-3">
