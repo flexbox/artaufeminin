@@ -64,6 +64,8 @@ exports.createPages = async ({ graphql, actions }) => {
             }
             content {
               text
+              raw
+              html
             }
           }
         }
@@ -75,7 +77,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `articles/${node.data.title.text}`,
       component: articleTemplate,
-      context: {
+      props: {
         ...node,
       },
     })
