@@ -1,5 +1,4 @@
 import React, { ReactElement } from "react"
-import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -98,33 +97,3 @@ export default function Article({
     </Layout>
   )
 }
-
-export const query = graphql`
-  query {
-    allPrismicBlogPost {
-      nodes {
-        uid
-        data {
-          date
-          title {
-            text
-          }
-          description {
-            text
-          }
-          content {
-            text
-            raw
-            html
-          }
-          image {
-            alt
-            copyright
-            url
-            gatsbyImageData
-          }
-        }
-      }
-    }
-  }
-`
