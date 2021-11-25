@@ -31,38 +31,41 @@ interface PropsArticle {
 }
 
 export default function Article(props: PropsArticle): ReactElement {
-  console.log("file: article.tsx ~ line 38 ~ props", props)
-
   // if (!doc) return null
-  const datePublished = formatHumanDate(props.data.date)
-  const title = RichText.asText(props.data.title.raw)
-  const description = RichText.asText(props.data.description.raw)
+  const datePublished = formatHumanDate(props.pageContext.data.date)
 
-  const image = props.data.image.url
+  const image = props.pageContext.data.image.url
 
   return (
     <Layout>
-      <SEO title={title} description={description} />
+      <SEO
+        title={props.pageContext.data.title.text}
+        description={props.pageContext.data.description.text}
+      />
 
-      {/* <article className="post-content">
+      <article className="post-content">
         <header className="post-content-header">
-          <h1 className="post-content-title">{title}</h1>
+          <h1 className="post-content-title">
+            {props.pageContext.data.title.text}
+          </h1>
         </header>
 
-        <div className="post-content-excerpt">{description}</div>
+        <div className="post-content-excerpt">
+          {props.pageContext.data.description.text}
+        </div>
 
         {image && (
           <div className="text-center mb-10">
             <figure className="post-content-figure">
               <img
                 className="mx-auto"
-                src={props.data.image.url}
-                alt={props.data.image.alt}
+                src={props.pageContext.data.image.url}
+                alt={props.pageContext.data.image.alt}
               />
               <figcaption className="mt-8">
-                {props.data.image.alt}{" "}
-                {props.data.image.copyright &&
-                  `© ${props.data.image.copyright}`}
+                {props.pageContext.data.image.alt}{" "}
+                {props.pageContext.data.image.copyright &&
+                  `© ${props.pageContext.data.image.copyright}`}
               </figcaption>
             </figure>
           </div>
@@ -70,8 +73,7 @@ export default function Article(props: PropsArticle): ReactElement {
 
         <div className="post-content-body">
           <div className="mb-20">
-            {props.data.content.html}
-            <CustomRichText render={props.data.content.raw} />
+            <CustomRichText render={props.pageContext.data.content.raw} />
           </div>
 
           <p className="text-gray-500 mb-20">
@@ -90,7 +92,7 @@ export default function Article(props: PropsArticle): ReactElement {
         </div>
 
         <Author />
-      </article> */}
+      </article>
     </Layout>
   )
 }
