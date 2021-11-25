@@ -30,12 +30,9 @@ interface PropsArticle {
   }
 }
 
-export default function Article({
-  props,
-}: {
-  props: PropsArticle
-}): ReactElement {
-  console.log(props)
+export default function Article(props: PropsArticle): ReactElement {
+  console.log("file: article.tsx ~ line 38 ~ props", props)
+
   // if (!doc) return null
   const datePublished = formatHumanDate(props.data.date)
   const title = RichText.asText(props.data.title.raw)
@@ -47,7 +44,7 @@ export default function Article({
     <Layout>
       <SEO title={title} description={description} />
 
-      <article className="post-content">
+      {/* <article className="post-content">
         <header className="post-content-header">
           <h1 className="post-content-title">{title}</h1>
         </header>
@@ -93,7 +90,7 @@ export default function Article({
         </div>
 
         <Author />
-      </article>
+      </article> */}
     </Layout>
   )
 }
