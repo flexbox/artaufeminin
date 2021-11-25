@@ -11,7 +11,7 @@ exports.onPostBuild = ({ reporter }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const episodeTemplate = path.resolve(`src/templates/episode.tsx`)
-  const result = await graphql(`
+  const podcats = await graphql(`
     query {
       allAnchorEpisode {
         nodes {
@@ -33,7 +33,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-  result.data.allAnchorEpisode.nodes.forEach((node) => {
+  podcats.data.allAnchorEpisode.nodes.forEach((node) => {
     createPage({
       path: `episodes/${node.guid}`,
       component: episodeTemplate,
@@ -44,10 +44,11 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   const articleTemplate = path.resolve(`src/templates/article.tsx`)
-  const result2 = await graphql(`
+  const articles = await graphql(`
     query {
       allPrismicBlogPost {
         nodes {
+          uid
           data {
             date
             title {
@@ -73,9 +74,9 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  result2.data.allPrismicBlogPost.nodes.forEach((node) => {
+  articles.data.allPrismicBlogPost.nodes.forEach((node) => {
     createPage({
-      path: `articles/${node.data.title.text}`,
+      path: `article/${node.uid}`,
       component: articleTemplate,
       props: {
         ...node,
