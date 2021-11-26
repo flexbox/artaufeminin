@@ -8,6 +8,7 @@ import EpisodeItem from "../components/episodeItem"
 import ArticleList from "../components/articleListItem"
 import Button from "../components/button"
 import { StaticImage } from "gatsby-plugin-image"
+import Text from "../components/text"
 
 const IndexPage = ({ data }) => {
   const siteDescription = data.site.siteMetadata.description

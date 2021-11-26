@@ -23,7 +23,7 @@ export default function Button({
   key,
   ...props
 }: ButtonProps) {
-  const classNamesDefault = "py-2 px-4  font-semibold rounded-lg "
+  const classNamesDefault = "py-2 px-4  font-semibold rounded-lg leading-none"
 
   let classNamesVariant = " text-white   font-merri m-4 text-xs "
   let classNamesSize = ""
@@ -43,7 +43,7 @@ export default function Button({
     classNamesSize = "py-4 px-4"
   }
   if (size === "m") {
-    classNamesSize = "py-5 px-5"
+    classNamesSize = "py-5 px-5 "
   }
   if (size === "l") {
     classNamesSize = "py-6 px-6"
@@ -71,7 +71,7 @@ export default function Button({
         key={key}
       >
         <div className="flex py-4 sm:px-6 items-center">
-          <img src={url} alt={alt} className="w-16 h-16 mr-4" />
+          <img src={url} alt={alt} className="w-10 h-10 mr-4" />
           {children}
         </div>
       </a>
@@ -84,7 +84,7 @@ export default function Button({
           <ApplePodcastIcon
             className={`${classNamesDefault} ${classNamesVariant}`}
             {...props}
-            style={{ height: 50 }}
+            style={{ height: 57 }}
           />
           {children}
         </a>
