@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Author from "../components/author"
+import Text from "../components/text"
 
 export default function AboutPage() {
   return (
@@ -15,35 +16,35 @@ export default function AboutPage() {
 
       <article className="post-content">
         <div className="post-content-body">
-          <h2>Mon histoire</h2>
-          <p>
+          <Text as="h2about">Mon histoire</Text>
+          <Text as="pAbout">
             Pour ma part, je vous propose de revenir sur certaines périodes de
             l’histoire de l’art, plus particulièrement sur{" "}
             <strong className="font-extrabold">
               l’histoire des femmes artistes
             </strong>
             .
-          </p>
+          </Text>
 
-          <p>
+          <Text as="pAbout">
             Avec ART au féminin, j’invite des directrices, conservatrices de
             musées, des historiennes de l’art… à nous parler de femmes artistes.
             Et ainsi, revenir sur l’histoire et les oeuvres de ces femmes qui
             ont marquées l’histoire de l’art. Des femmes pour la plupart
             oubliées.
-          </p>
+          </Text>
 
-          <p>
+          <Text as="pAbout">
             J’invite aussi des{" "}
             <strong className="font-extrabold">
               femmes artistes d’aujourd’hui
             </strong>{" "}
             à témoigner sur leur parcours, leur travail, et donner leur point de
             vue sur la place des femmes artistes dans le monde de l’art.
-          </p>
+          </Text>
 
           <blockquote>
-            <p className="mb-4">
+            <Text as="h2about" className="mb-4">
               Nous commencerons par discuter les points de vue pris sur la femme
               par la biologie, la psychanalyse, le matérialisme historique. Nous
               essaierons de monter ensuite positivement comment la réalité
@@ -54,32 +55,38 @@ export default function AboutPage() {
               difficultés elles se heurtent au moment où, essayant de s’évader
               de la sphère qui leur a été jusqu’a présent assignée, elles
               prétendent participer au mitsein humain
-            </p>
-            <cite>—Simone de Beauvoir</cite>
+            </Text>
+            <Text as="h2about">
+              <cite>—Simone de Beauvoir</cite>
+            </Text>
           </blockquote>
 
-          <p>
+          <Text as="pAbout">
             ART au féminin, c’est des podcasts, mais pas que. Vous y trouverez
             des articles et le partage de certaines lectures.
-          </p>
+          </Text>
 
-          <h2>Pourquoi ?</h2>
+          <Text as="h2about">Pourquoi ?</Text>
 
-          <ul className="list-inside list-disc">
-            <li>Car je suis une passionnée d’art, une amoureuse du partage.</li>
-            <li>
-              Car j’ai souvent entendue parler d’hommes artistes et beaucoup
-              moins de femmes artistes.
-            </li>
-            <li>
-              Car le monde de l’art regorge de talentueuses femmes artistes.
-            </li>
-            <li>Car on en parle jamais trop,</li>
-            <li>Car va va nous enrichir culturellement. </li>
-          </ul>
-          <p>
+          <Text as="pAbout">
+            <ul className="list-inside list-disc leading-relaxed">
+              <li>
+                Car je suis une passionnée d’art, une amoureuse du partage.
+              </li>
+              <li>
+                Car j’ai souvent entendue parler d’hommes artistes et beaucoup
+                moins de femmes artistes.
+              </li>
+              <li>
+                Car le monde de l’art regorge de talentueuses femmes artistes.
+              </li>
+              <li>Car on en parle jamais trop,</li>
+              <li>Car va va nous enrichir culturellement. </li>
+            </ul>
+          </Text>
+          <Text as="pAbout">
             Ici je vous propose de retracer l’histoire des femmes artistes !
-          </p>
+          </Text>
         </div>
 
         <div className="my-48">
@@ -87,19 +94,25 @@ export default function AboutPage() {
         </div>
 
         <div className="post-content-body">
-          <p>
+          <Text as="pAbout">
             <strong className="font-extrabold">P.S.</strong> Voici quelques
             pages de ce site qui ne sont pas incluses dans la navigation
             principale, mais qui pourraient vous intéresser :
-          </p>
-          <ul className="list-inside list-disc">
-            <li>
-              <Link to={"/faq"}>Questions fréquentes</Link>
-            </li>
-            <li>
-              <Link to={"/start"}>Participer à un épisode</Link>
-            </li>
-          </ul>
+          </Text>
+          <Text as="pAbout">
+            <ul className="list-inside list-disc">
+              <li>
+                <Link className="text-blue-500 " to={"/faq"}>
+                  Questions fréquentes
+                </Link>
+              </li>
+              <li>
+                <Link className="text-blue-500 " to={"/start"}>
+                  Participer à un épisode
+                </Link>
+              </li>
+            </ul>
+          </Text>
         </div>
       </article>
     </Layout>
