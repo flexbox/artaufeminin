@@ -15,7 +15,8 @@ function Author() {
               <StaticImage
                 src="../images/profile-picture.jpg"
                 alt={author}
-                width={150}
+                width={120}
+                height={120}
               />
             </div>
             <div className="flex-10">

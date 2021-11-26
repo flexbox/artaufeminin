@@ -54,7 +54,7 @@ function ArticleItem({ article }: { article: ArticleProps }): ReactElement {
           </div>
         </div>
       </Link>
-      <hr className="separator" />
+      <hr className="separator mb-12" />
     </>
   )
 }
