@@ -8,6 +8,9 @@ import Newsletter from "./newsletter"
 interface LayoutProps {
   children: ReactNode
 }
+const activeStyles = {
+  color: "black",
+}
 
 function HeaderRight() {
   return (
@@ -60,17 +63,17 @@ function Layout({ children }: LayoutProps) {
           <nav className="site-head-left flex w-1/3 justify-start text-sm text-gray-400">
             <ul className="nav flex">
               <li className="nav-home px-2 hover:text-black">
-                <Link to={`/articles`} activeClassName="nav-current">
+                <Link to={`/articles`} activeStyle={activeStyles}>
                   Articles
                 </Link>
               </li>
               <li className="nav-home px-2 hover:text-black">
-                <Link to={`/podcast`} activeClassName="nav-current">
+                <Link to={`/podcast`} activeStyle={activeStyles}>
                   Épisodes
                 </Link>
               </li>
               <li className="nav-about px-2 hover:text-black">
-                <Link to={`/about`} activeClassName="nav-current">
+                <Link to={`/about`} activeStyle={activeStyles}>
                   À propos
                 </Link>
               </li>
