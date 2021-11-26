@@ -1,7 +1,17 @@
 import React, { ReactElement } from "react"
 
 interface TextProps {
-  as?: "h1" | "h2" | "p" | "h3" | "h3Link" | "h2about" | "pAbout" | "pAuthor"
+  as?:
+    | "h1"
+    | "h2"
+    | "p"
+    | "h3"
+    | "h3Link"
+    | "h2about"
+    | "pAbout"
+    | "pAuthor"
+    | "h2episode"
+    | "pEpisode"
 
   children: string | any
 }
@@ -26,6 +36,10 @@ export default function Text({
     classNamesVariant =
       "font-merri text-4xl text-black-500 font-semibold mt-2 mb-0 leading-relaxed"
   }
+  if (as === "h2episode") {
+    classNamesVariant =
+      "font-merri text-4xl text-black-400 font-semibold mt-2 mb-0 leading-none"
+  }
   if (as === "h3") {
     classNamesVariant = "font-merri text-lg mt-2"
   }
@@ -42,6 +56,10 @@ export default function Text({
   if (as === "pAuthor") {
     classNamesVariant =
       "font-merri mb-6 text-xl text-gray-500 mt-2 font-semibold"
+  }
+  if (as === "pEpisode") {
+    classNamesVariant =
+      "font-merri mb-6 text-lg text-gray-500 mt-2 font-thin leading-relaxed"
   }
 
   return <div className={` ${classNamesVariant}`}>{children}</div>

@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import LayoutSidebar from "../components/layoutSidebar"
 import SEO from "../components/seo"
+import Text from "../components/text"
 import { dutationToString } from "../utils/dutationToString"
 
 export default function Episode({ pageContext }) {
@@ -15,22 +16,24 @@ export default function Episode({ pageContext }) {
       <SEO title={title} description={description} />
 
       <LayoutSidebar>
-        <h1 className="text-5xl text-gray-700 font-bold mt-0">{title}</h1>
+        <Text as="h2episode">{title}</Text>
 
-        <p className="text-gray-500">
+        <Text as="pEpisode">
           <em>Saison {pageContext.itunes.season}</em>
           <span className="mx-4">•</span>
           <em>Épisode {pageContext.itunes.episode}</em>
           <span className="mx-4">•</span>
           <em>{duration}</em>
-        </p>
+        </Text>
 
         <audio controls src={audioSrc} className="mb-8" />
 
-        <div
-          className="my-12"
-          dangerouslySetInnerHTML={{ __html: pageContext.itunes.summary }}
-        />
+        <Text as="pEpisode">
+          <div
+            className="my-12"
+            dangerouslySetInnerHTML={{ __html: pageContext.itunes.summary }}
+          />
+        </Text>
 
         <hr className="separator" />
       </LayoutSidebar>
