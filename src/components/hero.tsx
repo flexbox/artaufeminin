@@ -5,6 +5,7 @@ import Text from "./text"
 interface Props {
   heroTitle: string
   imageAlt: string
+  imageUrl: string
   children?: ReactElement
 }
 

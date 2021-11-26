@@ -8,6 +8,7 @@ import { formatHumanDate } from "../utils/date"
 import { RichText, RichTextBlock } from "prismic-reactjs"
 
 interface PropsArticle {
+  pageContext
   data: {
     title: {
       raw: RichTextBlock[]

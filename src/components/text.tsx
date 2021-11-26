@@ -25,42 +25,64 @@ export default function Text({
   let classNamesVariant = ""
 
   if (as === "h1") {
-    classNamesVariant =
-      "mb-0 text-gray-700 text-6xl font-merri font-bold leading-snug"
+    return (
+      <h1 className="mb-0 text-gray-700 text-6xl font-merri font-bold leading-snug">
+        {children}
+      </h1>
+    )
   }
   if (as === "h2") {
-    classNamesVariant =
-      "font-merri text-xl text-gray-500 font-semibold mt-2 mb-0"
+    return (
+      <h2 className="font-merri text-xl text-gray-500 font-semibold mt-2 mb-0">
+        {children}
+      </h2>
+    )
   }
   if (as === "h2about") {
-    classNamesVariant =
-      "font-merri text-4xl text-black-500 font-semibold mt-2 mb-0 leading-relaxed"
+    return (
+      <h2 className="font-merri text-4xl text-black-500 font-semibold mt-2 mb-0 leading-relaxed">
+        {children}
+      </h2>
+    )
   }
   if (as === "h2episode") {
-    classNamesVariant =
-      "font-merri text-4xl text-black-400 font-semibold mt-2 mb-0 leading-none"
+    return (
+      <h2 className="font-merri text-4xl text-black-400 font-semibold mt-2 mb-0 leading-none">
+        {children}
+      </h2>
+    )
   }
   if (as === "h3") {
-    classNamesVariant = "font-merri text-lg mt-2"
+    return <h3 className="font-merri text-lg mt-2">{children}</h3>
   }
   if (as === "h3Link") {
-    classNamesVariant = "font-merri text-lg text-blue-500 mt-2"
+    return <h3 className="font-merri text-lg text-blue-500 mt-2">{children}</h3>
   }
 
   if (as === "p") {
-    classNamesVariant = "font-merri mb-6 text-base text-gray-400 mt-2"
+    return (
+      <p className="font-merri mb-6 text-base text-gray-400 mt-2">{children}</p>
+    )
   }
   if (as === "pAbout") {
-    classNamesVariant = "font-merri mb-6 text-xl text-gray-500 mt-2 font-thin"
+    return (
+      <p className="font-merri mb-6 text-xl text-gray-500 mt-2 font-thin">
+        {children}
+      </p>
+    )
   }
   if (as === "pAuthor") {
-    classNamesVariant =
-      "font-merri mb-6 text-xl text-gray-500 mt-2 font-semibold"
+    return (
+      <p className="font-merri mb-6 text-xl text-gray-500 mt-2 font-semibold">
+        {children}
+      </p>
+    )
   }
   if (as === "pEpisode") {
-    classNamesVariant =
-      "font-merri mb-6 text-lg text-gray-500 mt-2 font-thin leading-relaxed"
+    return (
+      <p className="font-merri mb-6 text-lg text-gray-500 mt-2 font-thin leading-relaxed">
+        {children}
+      </p>
+    )
   }
-
-  return <div className={` ${classNamesVariant}`}>{children}</div>
 }
