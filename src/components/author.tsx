@@ -1,6 +1,7 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import Text from "./text"
 
 function Author() {
   return (
@@ -11,20 +12,33 @@ function Author() {
         return (
           <section className="flex p-8 bg-white shadow-md items-center">
             <div className="flex-2 pr-12">
-              <StaticImage src="../images/profile-picture.jpg" alt={author} />
+              <StaticImage
+                src="../images/profile-picture.jpg"
+                alt={author}
+                width={150}
+              />
             </div>
             <div className="flex-10">
-              <p className="text-3xl font-extrabold tracking-tight sm:text-4xl mb-3">
+              <Text
+                as="pAuthor"
+                className="text-3xl font-extrabold tracking-tight sm:text-4xl mb-3"
+              >
                 Aldjia
-                <span className="text-2xl sm:text-3xl mb-3">
+                <span>
                   {" "}
-                  <span className="text-gray-400">•</span> Créatrice et
-                  animatrice de podcasts
+                  <span>•</span> Créatrice et animatrice de podcasts
                 </span>
-              </p>
-              <p className="mb-0">
-                À tout de suite sur <a href={social.instagramUrl}>Instagram</a>{" "}
-                ou <a href={social.facebookUrl}>Facebook</a> !
+              </Text>
+              <p className="mb-0 font-merri">
+                À tout de suite sur{" "}
+                <a className="text-blue-500 " href={social.instagramUrl}>
+                  Instagram
+                </a>{" "}
+                ou{" "}
+                <a className="text-blue-500 " href={social.facebookUrl}>
+                  Facebook
+                </a>{" "}
+                !
               </p>
             </div>
           </section>
