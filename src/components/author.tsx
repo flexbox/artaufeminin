@@ -20,10 +20,7 @@ function Author() {
               />
             </div>
             <div className="flex-10">
-              <Text
-                as="pAuthor"
-                className="text-3xl font-extrabold tracking-tight sm:text-4xl mb-3"
-              >
+              <Text as="pAuthor">
                 Aldjia
                 <span>
                   {" "}

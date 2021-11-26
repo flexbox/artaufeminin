@@ -44,7 +44,7 @@ export default function AboutPage() {
           </Text>
 
           <blockquote>
-            <Text as="h2about" className="mb-4">
+            <Text as="h2about">
               Nous commencerons par discuter les points de vue pris sur la femme
               par la biologie, la psychanalyse, le matérialisme historique. Nous
               essaierons de monter ensuite positivement comment la réalité
