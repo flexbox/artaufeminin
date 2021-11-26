@@ -11,8 +11,8 @@ interface LayoutProps {
 
 function HeaderRight() {
   return (
-    <div className="site-head-right">
-      <div className="social-links">
+    <div className="site-head-right w-1/3 flex justify-end text-gray-400 text-sm">
+      <div className="social-links hover:text-black">
         <a
           href="mailto:artaufemininlepodcast@gmail.com"
           title="Envoyer un email"
@@ -40,10 +40,10 @@ function Layout({ children }: LayoutProps) {
   const [toggleNav, setToggleNav] = React.useState(false)
 
   return (
-    <div className={`site-wrapper ${toggleNav ? `site-head-open` : ``}`}>
+    <div className={`site-wrapper ${toggleNav ? `site-head-open` : ``}px-8`}>
       <header className="site-head mb-8">
-        <div className="site-head-container py-6">
-          <button
+        <div className="site-head-container py-12 px-8 flex font-merri leading-none">
+          {/* <button
             className="nav-burger"
             onClick={() => setToggleNav(!toggleNav)}
           >
@@ -56,27 +56,27 @@ function Layout({ children }: LayoutProps) {
                 <div className="hamburger-inner" />
               </div>
             </div>
-          </button>
-          <nav className="site-head-left">
-            <ul className="nav">
-              <li className="nav-home">
+          </button> */}
+          <nav className="site-head-left flex w-1/3 justify-start text-sm text-gray-400">
+            <ul className="nav flex">
+              <li className="nav-home px-2 hover:text-black">
                 <Link to={`/articles`} activeClassName="nav-current">
                   Articles
                 </Link>
               </li>
-              <li className="nav-home">
+              <li className="nav-home px-2 hover:text-black">
                 <Link to={`/podcast`} activeClassName="nav-current">
                   Épisodes
                 </Link>
               </li>
-              <li className="nav-about">
+              <li className="nav-about px-2 hover:text-black">
                 <Link to={`/about`} activeClassName="nav-current">
                   À propos
                 </Link>
               </li>
             </ul>
           </nav>
-          <div className="site-head-center">
+          <div className="site-head-center w-1/3 flex justify-center text-2xl font-medium">
             <Link className="site-head-logo" to={`/`}>
               {siteTitle}
             </Link>

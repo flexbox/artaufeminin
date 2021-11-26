@@ -13,6 +13,7 @@ export default function Subscribe(): ReactElement {
             <Button
               variant="ghost"
               as="iconpod"
+              size="s"
               href={platform.url}
               key={platform.name}
               url={platform.imageUrl}
