@@ -66,7 +66,7 @@ const IndexPage = ({ data }) => {
 
         <div className="max-w-6xl mb-64 w-2/3">
           <Text as="h2">Articles récents</Text>
-          <hr className="separator mt-16" />
+          <hr className="separator mt-16 " />
           <ArticleList allArticles={allArticles} />
           <Link to={"/articles"}>
             <Button variant="outline" size="s">

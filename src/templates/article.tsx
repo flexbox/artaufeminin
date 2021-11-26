@@ -43,20 +43,16 @@ export default function Article(props: PropsArticle): ReactElement {
         description={props.pageContext.data.description.text}
       />
 
-      <article className="post-content">
-        <header className="post-content-header">
-          <h1 className="post-content-title">
-            {props.pageContext.data.title.text}
-          </h1>
+      <article className="prose justify-center m-auto">
+        <header>
+          <h1>{props.pageContext.data.title.text}</h1>
         </header>
 
-        <div className="post-content-excerpt">
-          {props.pageContext.data.description.text}
-        </div>
+        <div>{props.pageContext.data.description.text}</div>
 
         {image && (
           <div className="text-center mb-10">
-            <figure className="post-content-figure">
+            <figure>
               <img
                 className="mx-auto"
                 src={props.pageContext.data.image.url}
@@ -71,7 +67,7 @@ export default function Article(props: PropsArticle): ReactElement {
           </div>
         )}
 
-        <div className="post-content-body">
+        <div>
           <div className="mb-20">
             <CustomRichText render={props.pageContext.data.content.raw} />
           </div>
@@ -90,9 +86,10 @@ export default function Article(props: PropsArticle): ReactElement {
             <em>Publié {datePublished}</em>
           </p>
         </div>
-
-        <Author />
       </article>
+      <div className="justify-center m-auto w-1/3">
+        <Author />
+      </div>
     </Layout>
   )
 }
