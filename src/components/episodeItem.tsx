@@ -1,5 +1,6 @@
 import { Link } from "gatsby"
 import React from "react"
+import Text from "./text"
 
 interface EpisodeItemProps {
   isSummaryTruncate?: boolean
@@ -38,13 +39,11 @@ export default function EpisodeItem({
         className="flex flex-col md:flex-row hover:no-underline post-preview"
       >
         <div className="flex-1 px-6">
-          <h3 className="text-3xl text-blue-500 font-bold mt-0">
-            {episode.title}
-          </h3>
-          <audio controls src={audioSrc} className="mb-8" />
+          <Text as="h3Link">{episode.title}</Text>
+          <audio controls src={audioSrc} className="mb-8 mt-4" />
 
           <div
-            className="text-gray-500"
+            className="text-gray-500 font-merri font-light "
             dangerouslySetInnerHTML={{ __html: summary }}
           />
         </div>
@@ -56,7 +55,7 @@ export default function EpisodeItem({
           />
         </div>
       </Link>
-      <hr className="separator" />
+      <hr className="separator my-8" />
     </>
   )
 }

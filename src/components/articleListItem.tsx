@@ -3,6 +3,7 @@ import { RichText, RichTextBlock } from "prismic-reactjs"
 import React, { ReactElement } from "react"
 import truncate from "lodash/truncate"
 import { formatHumanDate } from "../utils/date"
+import Text from "./text"
 
 interface ArticleProps {
   uid: string
@@ -37,13 +38,13 @@ function ArticleItem({ article }: { article: ArticleProps }): ReactElement {
   return (
     <>
       <Link to={`/article/${slug}`} className="post-preview hover:no-underline">
-        <div className="flex flex-col md:flex-row">
+        <div className="flex flex-col md:flex-row my-6">
           <div className="flex-1 px-6">
-            <h3 className="text-3xl text-blue-500 font-bold mt-0">{title}</h3>
-            <p className="text-gray-500">{descriptionTruncated}</p>
-            <p className="text-gray-500">
-              <em>Publié {date}</em>
-            </p>
+            <Text as="h3Link" className="text-3xl text-blue-500 font-bold mt-0">
+              {title}
+            </Text>
+            <Text as="p">{descriptionTruncated}</Text>
+            <Text as="p">Publié {date}</Text>
           </div>
           <div className="flex-shrink-0 px-3">
             <div

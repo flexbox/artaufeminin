@@ -45,9 +45,9 @@ const IndexPage = ({ data }) => {
           </div>
         </Hero>
 
-        <div className="max-w-6xl mb-64">
-          <h2 className="text-4xl">Épisodes récents</h2>
-          <hr className="separator mt-16" />
+        <div className="max-w-6xl mb-64 w-2/3">
+          <Text as="h2">Épisodes récents</Text>
+          <hr className="separator mt-16 mb-12" />
           {allEpisodes.map((episode) => {
             return (
               <EpisodeItem
@@ -64,8 +64,8 @@ const IndexPage = ({ data }) => {
           </Link>
         </div>
 
-        <div className="max-w-6xl mb-64">
-          <h2 className="text-4xl">Articles récents</h2>
+        <div className="max-w-6xl mb-64 w-2/3">
+          <Text as="h2">Articles récents</Text>
           <hr className="separator mt-16" />
           <ArticleList allArticles={allArticles} />
           <Link to={"/articles"}>
@@ -76,8 +76,8 @@ const IndexPage = ({ data }) => {
         </div>
 
         <div className="max-w-6xl">
-          <h2 className="text-4xl">Ce que les auditeurs en disent</h2>
-          <p>
+          <Text as="h2">Ce que les auditeurs en disent</Text>
+          <Text as="p">
             ⭐ Moyenne de 5/5 étoiles sur{" "}
             <a
               href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152#see-all/reviews"
@@ -87,16 +87,16 @@ const IndexPage = ({ data }) => {
               Apple Podcast
             </a>
             .
-          </p>
+          </Text>
           <StaticImage
             src="../images/reviews.png"
             alt={"5 étoiles pour ART au feminin sur Apple podcast"}
           />
-          <h2 className="text-4xl">Laissez moi une évaluation</h2>
-          <p>
+          <Text as="h2">Laissez moi une évaluation</Text>
+          <Text as="p">
             Si vous aimez l’émission, la meilleure façon de la soutenir est de
             me laisser une évaluation sur Apple Podcast.
-          </p>
+          </Text>
 
           <Button
             variant="outline"
@@ -139,7 +139,10 @@ const indexQuery = graphql`
       }
     }
 
-    allPrismicBlogPost(limit: 3) {
+    allPrismicBlogPost(
+      limit: 3
+      sort: { fields: last_publication_date, order: DESC }
+    ) {
       nodes {
         ...PrismicBlogPostFragment
       }
