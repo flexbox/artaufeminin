@@ -34,7 +34,7 @@ const IndexPage = ({ data }) => {
                 </Button>
               </Link>
             </div>
-            <div className="flex-initial sm:px-4">
+            <div className=" flex-initial">
               <Button
                 variant="outline"
                 as="icon"
@@ -141,7 +141,7 @@ const indexQuery = graphql`
 
     allPrismicBlogPost(
       limit: 3
-      sort: { fields: last_publication_date, order: DESC }
+      sort: { fields: first_publication_date, order: DESC }
     ) {
       nodes {
         ...PrismicBlogPostFragment

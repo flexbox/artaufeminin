@@ -3,7 +3,7 @@ import ApplePodcastIcon from "./applePodacstIcon"
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: any
-  variant?: "outline" | "solid" | "ghost"
+  variant?: "outline" | "solid" | "ghost" | "news"
   as?: string
   size?: string
   href?: string
@@ -33,6 +33,10 @@ export default function Button({
   }
 
   if (variant === "solid") {
+    classNamesVariant =
+      "no-underline  bg-blue-500 text-white font-merri text-md m-0  hover:bg-blue-600 mt-2 sm:mt-0 md:m-0"
+  }
+  if (variant === "news") {
     classNamesVariant =
       "no-underline  bg-blue-500 text-white font-merri text-md m-0  hover:bg-blue-600 w-full mt-2 sm:mt-0 md:m-0"
   }

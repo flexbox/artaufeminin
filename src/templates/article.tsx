@@ -88,7 +88,7 @@ export default function Article(props: PropsArticle): ReactElement {
           </p>
         </div>
       </article>
-      <div className="justify-center m-auto w-1/3">
+      <div className="justify-center m-auto w-full sm:w-1/3">
         <Author />
       </div>
     </Layout>
