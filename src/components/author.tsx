@@ -50,9 +50,7 @@ const authorQuery = graphql`
   query AuthorQuery {
     avatar: file(absolutePath: { regex: "/profile-picture.jpg/" }) {
       childImageSharp {
-        fixed(width: 100, height: 100) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 100, height: 100, layout: FIXED)
       }
     }
     site {

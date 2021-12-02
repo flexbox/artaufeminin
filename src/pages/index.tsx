@@ -12,7 +12,7 @@ import Text from "../components/text"
 
 const IndexPage = ({ data }) => {
   const siteDescription = data.site.siteMetadata.description
-  const logoUrl = data.logo.childImageSharp.fixed
+  const logoUrl = data.logo.childImageSharp.gatsbyImageData
   const allEpisodes = data.allAnchorEpisode.nodes
   const allArticles = data.allPrismicBlogPost.nodes
 
@@ -113,7 +113,7 @@ const IndexPage = ({ data }) => {
 }
 
 const indexQuery = graphql`
-  query {
+  {
     site {
       siteMetadata {
         description
@@ -121,16 +121,12 @@ const indexQuery = graphql`
     }
     logo: file(absolutePath: { regex: "/logo-podcast-art-au-feminin.png/" }) {
       childImageSharp {
-        fixed(width: 500, height: 500) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 500, height: 500, layout: FIXED)
       }
     }
     reviews: file(absolutePath: { regex: "/reviews.png/" }) {
       childImageSharp {
-        fixed(width: 990, height: 600) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 990, height: 600, layout: FIXED)
       }
     }
     allAnchorEpisode(limit: 3) {
@@ -138,7 +134,6 @@ const indexQuery = graphql`
         ...AnchorEpisodeFragment
       }
     }
-
     allPrismicBlogPost(
       limit: 3
       sort: { fields: first_publication_date, order: DESC }
