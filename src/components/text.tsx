@@ -26,14 +26,14 @@ export default function Text({
 
   if (as === "h1") {
     return (
-      <h1 className="mb-0 text-gray-700 text-6xl font-merri font-bold leading-snug">
+      <h1 className="mb-0 text-gray-700 md:text-6xl font-merri font-bold leading-snug text-2xl">
         {children}
       </h1>
     )
   }
   if (as === "h2") {
     return (
-      <h2 className="font-merri text-xl text-gray-500 font-semibold mt-2 mb-0">
+      <h2 className="font-merri text-xl text-gray-500 font-semibold mt-4 mb-0">
         {children}
       </h2>
     )

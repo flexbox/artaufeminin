@@ -49,7 +49,7 @@ export default function EpisodeItem({
         </div>
         <div className="flex-shrink-0 px-3">
           <img
-            className="w-48 h-48"
+            className="w-48 h-48 mt-2"
             src={episode.itunes.image}
             alt={`ART au feminin S${episode.itunes.season} E${episode.itunes.episode}`}
           />

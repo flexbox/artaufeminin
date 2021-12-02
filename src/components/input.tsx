@@ -13,7 +13,7 @@ export default function Input({
   ...props
 }: InputProps) {
   const classNamesDefault =
-    "w-full px-5 border border-gray-300 shadow-sm placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:max-w-xs"
+    "mr-2 w-full px-5 border border-gray-300 shadow-sm placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:max-w-xs"
 
   let classNamesVariant = ""
   if (variant === "border") {
@@ -26,7 +26,7 @@ export default function Input({
       "w-full px-5 py-1 border border-gray-300 shadow-sm placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:max-w-xs rounded-md"
   }
   return (
-    <div className="max-w-6xl mx-auto py-24 px-4 sm:px-6 lg:py-32 lg:px-8 lg:flex lg:items-center">
+    <div className="max-w-6xl mx-auto p-4 sm:py-8 md:py-0 px-4 sm:px-6 lg:py-32 lg:px-8 lg:flex lg:items-center ">
       <div className="mt-8 lg:mt-0 lg:ml-8">
         <form
           className="sm:flex"
@@ -52,7 +52,7 @@ export default function Input({
             className={`${classNamesDefault} ${classNamesVariant}`}
             placeholder="Entrez votre adresse email"
           />
-          <div className=" rounded-md shadow  sm:ml-3 sm:flex-shrink-0">
+          <div className=" rounded-md    sm:flex-shrink-0">
             <Button variant="solid" type="submit" size="s">
               Je m'inscris
             </Button>
