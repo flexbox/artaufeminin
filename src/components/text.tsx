@@ -40,7 +40,7 @@ export default function Text({
   }
   if (as === "h2about") {
     return (
-      <h2 className="font-merri text-4xl text-black-500 font-semibold mt-2 mb-0 leading-relaxed">
+      <h2 className="font-merri text-3xl text-black-500 font-semibold mt-2 mb-0 leading-relaxed">
         {children}
       </h2>
     )
