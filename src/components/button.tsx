@@ -29,7 +29,7 @@ export default function Button({
   let classNamesSize = ""
   if (variant === "outline") {
     classNamesVariant =
-      "hover:no-underline text-blue-500 font-merri border-blue-500 border-2 border-solid m-0 hover:border-blue-600 hover:text-blue-600"
+      "no-underline text-blue-500 font-merri border-blue-500 border-2 border-solid m-0 hover:border-blue-600 hover:text-blue-600"
   }
 
   if (variant === "solid") {
