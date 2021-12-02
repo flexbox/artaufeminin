@@ -53,7 +53,7 @@ export default function Input({
             placeholder="Entrez votre adresse email"
           />
           <div className=" rounded-md    sm:flex-shrink-0">
-            <Button variant="solid" type="submit" size="s">
+            <Button variant="news" type="submit" size="s">
               Je m'inscris
             </Button>
           </div>

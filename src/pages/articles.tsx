@@ -30,7 +30,7 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
 
 export const query = graphql`
   query allBlogPosts {
-    allPrismicBlogPost(sort: { fields: last_publication_date, order: DESC }) {
+    allPrismicBlogPost(sort: { fields: first_publication_date, order: DESC }) {
       nodes {
         ...PrismicBlogPostFragment
       }

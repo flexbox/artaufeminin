@@ -85,8 +85,8 @@ const allSponsorPlatforms = [
 
 function LinkButton({ platform }: LinkButtonProps) {
   return (
-    <a href={platform.url} className="button large min-w-full mb-8">
-      <div className="flex p-4">
+    <a href={platform.url} className="">
+      <div className="flex p-4 my-8 font-merri font-bold align-middle border-2 border-blue-500 text-blue-500 hover:text-blue-600 hover:border-blue-600">
         <img
           src={platform.imageUrl}
           alt={`ART au feminin sur ${platform.name}`}
