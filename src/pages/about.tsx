@@ -93,7 +93,7 @@ export default function AboutPage() {
           <Author />
         </div>
 
-        <div className="post-content-body">
+        <div>
           <Text as="pAbout">
             <strong className="font-extrabold">P.S.</strong> Voici quelques
             pages de ce site qui ne sont pas incluses dans la navigation
