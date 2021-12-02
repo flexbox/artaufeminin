@@ -195,30 +195,24 @@ const DesignPage = ({ data }) => {
 }
 
 const indexQuery = graphql`
-  query {
+  {
     smallPic: file(
       relativePath: { eq: "fabio-comparelli-696506-unsplash.jpg" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 1360) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(layout: FULL_WIDTH)
       }
     }
     medPic: file(relativePath: { eq: "sophia-valkova-30139-unsplash.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1360) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(layout: FULL_WIDTH)
       }
     }
     largePic: file(
       relativePath: { eq: "vladimir-malyutin-98174-unsplash.jpg" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 1360) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(layout: FULL_WIDTH)
       }
     }
   }

@@ -101,7 +101,7 @@ function LinkButton({ platform }: LinkButtonProps) {
 }
 
 export default function LinksPage({ data }: Props): ReactElement {
-  const logoUrl = data.logo.childImageSharp.fixed
+  const logoUrl = data.logo.childImageSharp.gatsbyImageData
 
   return (
     <div className="p-8 font-merri">
@@ -139,12 +139,10 @@ export default function LinksPage({ data }: Props): ReactElement {
 }
 
 export const query = graphql`
-  query {
+  {
     logo: file(absolutePath: { regex: "/logo-podcast-art-au-feminin.png/" }) {
       childImageSharp {
-        fixed(width: 128, height: 128) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 128, height: 128, layout: FIXED)
       }
     }
   }
