@@ -45,7 +45,7 @@ const IndexPage = ({ data }) => {
           </div>
         </Hero>
 
-        <div className="max-w-6xl mb-64 w-2/3">
+        <div className="max-w-6xl mb-16 md:mb-64 md:w-2/3 w-full">
           <Text as="h2">Épisodes récents</Text>
           <hr className="separator mt-16 mb-12" />
           {allEpisodes.map((episode) => {
@@ -64,7 +64,7 @@ const IndexPage = ({ data }) => {
           </Link>
         </div>
 
-        <div className="max-w-6xl mb-64 w-2/3">
+        <div className="max-w-6xl mb-16 md:mb-64 md:w-2/3 w-full">
           <Text as="h2">Articles récents</Text>
           <hr className="separator mt-16 " />
           <ArticleList allArticles={allArticles} />

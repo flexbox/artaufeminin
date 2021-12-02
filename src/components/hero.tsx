@@ -21,7 +21,7 @@ export default function Hero({
         <Text as="h1">{heroTitle}</Text>
         {children}
       </div>
-      <div className="flex justify-end w-5/6">
+      <div className="flex justify-end md:w-5/6 w-full">
         <StaticImage
           src="../images/logo-podcast-art-au-feminin.png/"
           alt={imageAlt}

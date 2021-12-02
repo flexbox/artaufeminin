@@ -46,7 +46,7 @@ function Layout({ children }: LayoutProps) {
     <div className={`site-wrapper ${toggleNav ? `site-head-open` : ``}px-8`}>
       <header className="site-head mb-8">
         <div className="site-head-container py-12 px-8 flex font-merri leading-none">
-          {/* <button
+          <button
             className="nav-burger"
             onClick={() => setToggleNav(!toggleNav)}
           >
@@ -59,7 +59,7 @@ function Layout({ children }: LayoutProps) {
                 <div className="hamburger-inner" />
               </div>
             </div>
-          </button> */}
+          </button>
           <nav className="site-head-left flex w-1/3 justify-start text-sm text-gray-400">
             <ul className="nav flex">
               <li className="nav-home px-2 hover:text-black">
