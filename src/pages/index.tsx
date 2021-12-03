@@ -1,21 +1,20 @@
 import React from "react"
 import { graphql, Link, StaticQuery } from "gatsby"
-import Image from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ApplePodcastIcon from "../components/applePodacstIcon"
 import Hero from "../components/hero"
 import EpisodeItem from "../components/episodeItem"
 import ArticleList from "../components/articleListItem"
 import Button from "../components/button"
+import { StaticImage } from "gatsby-plugin-image"
+import Text from "../components/text"
 
 const IndexPage = ({ data }) => {
   const siteDescription = data.site.siteMetadata.description
-  const logoUrl = data.logo.childImageSharp.fixed
-  const reviewsUrl = data.reviews.childImageSharp.fixed
+  const logoUrl = data.logo.childImageSharp.gatsbyImageData
   const allEpisodes = data.allAnchorEpisode.nodes
-  const allArticles = data.prismic.allBlog_posts.edges
+  const allArticles = data.allPrismicBlogPost.nodes
 
   return (
     <Layout>
@@ -24,7 +23,7 @@ const IndexPage = ({ data }) => {
       <div style={{ maxWidth: "80em", margin: "0 auto" }}>
         <Hero
           heroTitle={siteDescription}
-          imageUrlFixed={logoUrl}
+          imageUrl="../images/logo-podcast-art-au-feminin.png/"
           imageAlt={"Logo podcast ART au feminin"}
         >
           <div className="flex flex-col sm:flex-row mt-12">
@@ -35,7 +34,7 @@ const IndexPage = ({ data }) => {
                 </Button>
               </Link>
             </div>
-            <div className="flex-initial sm:px-4">
+            <div className=" flex-initial">
               <Button
                 variant="outline"
                 as="icon"
@@ -46,9 +45,9 @@ const IndexPage = ({ data }) => {
           </div>
         </Hero>
 
-        <div className="max-w-6xl mb-64">
-          <h2 className="text-4xl">Épisodes récents</h2>
-          <hr className="separator mt-16" />
+        <div className="max-w-6xl mb-16 md:mb-64 md:w-2/3 w-full">
+          <Text as="h2">Épisodes récents</Text>
+          <hr className="separator mt-16 mb-12" />
           {allEpisodes.map((episode) => {
             return (
               <EpisodeItem
@@ -65,9 +64,9 @@ const IndexPage = ({ data }) => {
           </Link>
         </div>
 
-        <div className="max-w-6xl mb-64">
-          <h2 className="text-4xl">Articles récents</h2>
-          <hr className="separator mt-16" />
+        <div className="max-w-6xl mb-16 md:mb-64 md:w-2/3 w-full">
+          <Text as="h2">Articles récents</Text>
+          <hr className="separator mt-16 " />
           <ArticleList allArticles={allArticles} />
           <Link to={"/articles"}>
             <Button variant="outline" size="s">
@@ -77,8 +76,8 @@ const IndexPage = ({ data }) => {
         </div>
 
         <div className="max-w-6xl">
-          <h2 className="text-4xl">Ce que les auditeurs en disent</h2>
-          <p>
+          <Text as="h2">Ce que les auditeurs en disent</Text>
+          <Text as="p">
             ⭐ Moyenne de 5/5 étoiles sur{" "}
             <a
               href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152#see-all/reviews"
@@ -88,16 +87,16 @@ const IndexPage = ({ data }) => {
               Apple Podcast
             </a>
             .
-          </p>
-          <Image
-            fixed={reviewsUrl}
+          </Text>
+          <StaticImage
+            src="../images/reviews.png"
             alt={"5 étoiles pour ART au feminin sur Apple podcast"}
           />
-          <h2 className="text-4xl">Laissez moi une évaluation</h2>
-          <p>
+          <Text as="h2">Laissez moi une évaluation</Text>
+          <Text as="p">
             Si vous aimez l’émission, la meilleure façon de la soutenir est de
             me laisser une évaluation sur Apple Podcast.
-          </p>
+          </Text>
 
           <Button
             variant="outline"
@@ -114,7 +113,7 @@ const IndexPage = ({ data }) => {
 }
 
 const indexQuery = graphql`
-  query {
+  {
     site {
       siteMetadata {
         description
@@ -122,16 +121,12 @@ const indexQuery = graphql`
     }
     logo: file(absolutePath: { regex: "/logo-podcast-art-au-feminin.png/" }) {
       childImageSharp {
-        fixed(width: 500, height: 500) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 500, height: 500, layout: FIXED)
       }
     }
     reviews: file(absolutePath: { regex: "/reviews.png/" }) {
       childImageSharp {
-        fixed(width: 990, height: 600) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 990, height: 600, layout: FIXED)
       }
     }
     allAnchorEpisode(limit: 3) {
@@ -139,20 +134,31 @@ const indexQuery = graphql`
         ...AnchorEpisodeFragment
       }
     }
+    allPrismicBlogPost(
+      limit: 3
+      sort: { fields: first_publication_date, order: DESC }
+    ) {
+      nodes {
+        ...PrismicBlogPostFragment
+      }
+    }
+  }
 
-    prismic {
-      allBlog_posts(sortBy: date_DESC, first: 3) {
-        edges {
-          node {
-            _meta {
-              uid
-            }
-            title
-            description
-            date
-            image
-          }
-        }
+  fragment PrismicBlogPostFragment on PrismicBlogPost {
+    uid
+    data {
+      date
+      title {
+        raw
+      }
+      description {
+        raw
+      }
+      image {
+        alt
+        copyright
+        url
+        gatsbyImageData
       }
     }
   }
@@ -179,7 +185,7 @@ export default (props) => (
   <StaticQuery
     query={indexQuery}
     render={(data) => (
-      <IndexPage location={props.location} props data={data} {...props} />
+      <IndexPage location={props.location} data={data} {...props} />
     )}
   />
 )

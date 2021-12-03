@@ -6,8 +6,16 @@ import SEO from "../components/seo"
 import ArticleList from "../components/articleListItem"
 import LayoutSidebar from "../components/layoutSidebar"
 
-const ArticlesPage = ({ data }) => {
-  const articles = data.prismic.allBlog_posts.edges
+interface ArticlesPageProps {
+  data: {
+    allPrismicBlogPost: {
+      nodes: [] // it should be something like PrismicBlogPost[] insteead of a simple []
+    }
+  }
+}
+
+const ArticlesPage = ({ data }: ArticlesPageProps) => {
+  const articles = data.allPrismicBlogPost.nodes
 
   return (
     <Layout>
@@ -21,20 +29,10 @@ const ArticlesPage = ({ data }) => {
 }
 
 export const query = graphql`
-  query {
-    prismic {
-      allBlog_posts(sortBy: date_DESC) {
-        edges {
-          node {
-            image
-            title
-            date
-            description
-            _meta {
-              uid
-            }
-          }
-        }
+  query allBlogPosts {
+    allPrismicBlogPost(sort: { fields: first_publication_date, order: DESC }) {
+      nodes {
+        ...PrismicBlogPostFragment
       }
     }
   }
