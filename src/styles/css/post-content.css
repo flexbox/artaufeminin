@@ -1,34 +1,3 @@
-:root {
-  /* Fonts */
-  --font-sans-serif: "Merriweather", serif;
-  --font-serif: Georgia, Times, serif;
-  --font-mono: Menlo, Courier, monospace;
-  --font-normal: 400;
-  --font-bold: 700;
-  --font-heavy: 800;
-
-  /* Breakpoints */
-  --xlarge: 1680px;
-  --large: 1280px;
-  --medium: 980px;
-  --small: 740px;
-  --xsmall: 480px;
-
-  /* Sizes */
-  --height: 4rem;
-  --margin: 2rem;
-  --radius: 0.5rem;
-
-  /* spacing */
-  --space-1: 2px;
-  --space-2: 4px;
-  --space-3: 8px;
-  --space-4: 16px;
-  --space-5: 32px;
-  --space-6: 64px;
-  --space-7: 128px;
-}
-
 .post-content {
   max-width: 720px;
   margin: 0 auto;
