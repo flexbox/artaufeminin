@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react"
 import Button from "./button"
+import Text from "./text"
 
 interface Props {
   title: string
@@ -8,9 +9,9 @@ interface Props {
 
 export default function Card({ title, children }: Props): ReactElement {
   return (
-    <div className="bg-white shadow-md p-8 mb-4">
+    <div className="bg-white shadow-md py-6 px-4 mb-4">
       <div className="mb-6">
-        <h2 className="text-4xl text-gray-500 font-bold mt-0 mb-0">{title}</h2>
+        <Text as="h2">{title}</Text>
       </div>
       {children}
     </div>

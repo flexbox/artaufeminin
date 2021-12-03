@@ -14,3 +14,7 @@
 yarn
 yarn start
 ```
+
+## Troubleshouting
+
+You can debug your [queries from the graphql endpoint](https://artaufeminin.prismic.io/graphql)

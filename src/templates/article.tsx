@@ -1,49 +1,75 @@
-import React from "react"
-import { graphql } from "gatsby"
-import { RichText } from "prismic-reactjs"
+import React, { ReactElement } from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Author from "../components/author"
 import CustomRichText from "../components/customRichText"
 import { formatHumanDate } from "../utils/date"
+import { RichText, RichTextBlock } from "prismic-reactjs"
 
-export default function Article(props) {
-  const doc = props.data.prismic.allBlog_posts.edges.slice(0, 1).pop()
+interface PropsArticle {
+  pageContext
+  data: {
+    title: {
+      raw: RichTextBlock[]
+    }
+    description: {
+      raw: RichTextBlock[]
+    }
+    content: {
+      text: string
+      raw: RichTextBlock[]
+      html: string
+    }
+    date: string
+    image: {
+      url: string
+      alt: string
+      copyright: string
+      gatsbyImageData
+    }
+  }
+}
 
-  if (!doc) return null
+export default function Article(props: PropsArticle): ReactElement {
+  // if (!doc) return null
+  const datePublished = formatHumanDate(props.pageContext.data.date)
 
-  const title = RichText.asText(doc.node.title)
-  const description = RichText.asText(doc.node.description)
-  const datePublished = formatHumanDate(doc.node.date)
-
-  const { image } = doc.node
+  const image = props.pageContext.data.image.url
 
   return (
     <Layout>
-      <SEO title={title} description={description} />
+      <SEO
+        title={props.pageContext.data.title.text}
+        description={props.pageContext.data.description.text}
+      />
 
-      <article className="post-content">
-        <header className="post-content-header">
-          <h1 className="post-content-title">{title}</h1>
+      <article className="max-w-3xl prose-lg prose-blue justify-center m-auto font-merri relative">
+        <header>
+          <h1>{props.pageContext.data.title.text}</h1>
         </header>
 
-        <div className="post-content-excerpt">{description}</div>
+        <div>{props.pageContext.data.description.text}</div>
 
         {image && (
-          <div className="text-center mb-10">
-            <figure className="post-content-figure">
-              <img className="mx-auto" src={image.url} alt={image.alt} />
+          <div className="  m-auto text-center mb-10 -mx-96 ">
+            <figure>
+              <img
+                src={props.pageContext.data.image.url}
+                alt={props.pageContext.data.image.alt}
+              />
               <figcaption className="mt-8">
-                {image.alt} {image.copyright && `© ${image.copyright}`}
+                {props.pageContext.data.image.alt}{" "}
+                {props.pageContext.data.image.copyright &&
+                  `© ${props.pageContext.data.image.copyright}`}
               </figcaption>
             </figure>
           </div>
         )}
 
-        <div className="post-content-body">
+        <div>
           <div className="mb-20">
-            <CustomRichText render={doc.node.content} />
+            <CustomRichText render={props.pageContext.data.content.raw} />
           </div>
 
           <p className="text-gray-500 mb-20">
@@ -60,35 +86,10 @@ export default function Article(props) {
             <em>Publié {datePublished}</em>
           </p>
         </div>
-
-        <Author />
       </article>
+      <div className="justify-center m-auto w-full sm:w-1/3">
+        <Author />
+      </div>
     </Layout>
   )
 }
-
-export const query = graphql`
-  query ArticleQuery($uid: String) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    prismic {
-      allBlog_posts(uid: $uid) {
-        edges {
-          node {
-            _meta {
-              uid
-            }
-            title
-            description
-            image
-            content
-            date
-          }
-        }
-      }
-    }
-  }
-`
