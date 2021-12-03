@@ -1,13 +1,14 @@
-// -- The Link Resolver
-// This function will be used to generate links to Prismic documents
-// As your project grows, you should update this function according to your routes
-
-exports.linkResolver = function linkResolver(doc) {
-  // Route for blog posts
-  if (doc.type === "blog_post") {
-    return "/article/" + doc.uid
+exports.linkResolver = (doc) => {
+  // URL for a blogpost type
+  if (doc.type === "article") {
+    return `/article/${doc.uid}`
   }
 
-  // Homepage route fallback
+  // URL for a page type
+  if (doc.type === "page") {
+    return `/${doc.uid}`
+  }
+
+  // Backup for all other types
   return "/"
 }

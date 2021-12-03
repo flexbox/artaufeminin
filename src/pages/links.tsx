@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react"
 import { graphql } from "gatsby"
-import Image from "gatsby-image"
+import { StaticImage } from "gatsby-plugin-image"
 
 interface Props {}
 
@@ -33,8 +33,7 @@ export const allPodcastPlatforms = [
   },
   {
     name: "Google podcasts",
-    url:
-      "https://podcasts.google.com/?feed=aHR0cHM6Ly9hbmNob3IuZm0vcy85NDgzZGY4L3BvZGNhc3QvcnNz",
+    url: "https://podcasts.google.com/?feed=aHR0cHM6Ly9hbmNob3IuZm0vcy85NDgzZGY4L3BvZGNhc3QvcnNz",
     imageUrl:
       "https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/google_podcasts.svg",
   },
@@ -86,48 +85,49 @@ const allSponsorPlatforms = [
 
 function LinkButton({ platform }: LinkButtonProps) {
   return (
-    <a href={platform.url} className="button large min-w-full mb-8">
-      <div className="flex p-4">
+    <a href={platform.url} className="">
+      <div className=" text-lg rounded-lg flex p-2 my-2 font-merri font-bold align-middle border-2 border-blue-500 text-blue-500 hover:text-blue-600 hover:border-blue-600">
         <img
           src={platform.imageUrl}
           alt={`ART au feminin sur ${platform.name}`}
-          className="w-16 h-16 mr-4"
+          className="w-12 h-12 mr-4"
         />
-        <div className="min-w-full text-left pl-16 sm:pl-4">
-          {platform.name}
-        </div>
+        <div className="m-auto min-w-full sm:pl-4">{platform.name}</div>
       </div>
     </a>
   )
 }
 
 export default function LinksPage({ data }: Props): ReactElement {
-  const logoUrl = data.logo.childImageSharp.fixed
+  const logoUrl = data.logo.childImageSharp.gatsbyImageData
 
   return (
-    <div className="p-8">
+    <div className="p-8 font-merri h-full">
       <div className="max-w-5xl m-auto">
         <div className="flex justify-center mb-8">
-          <Image
+          <StaticImage
             className="rounded-full"
-            fixed={logoUrl}
+            src="../images/logo-podcast-art-au-feminin.png"
             alt={"Logo femmes artistes"}
+            width={150}
           />
         </div>
-        <p className="text-center">@artaufeminin</p>
-        <h2 className="mt-0">Soutenir ART au féminin</h2>
+        <p className="text-center text-gray-400 mb-8">@artaufeminin</p>
+        <h2 className="my-2 text-2xl text-gray-500">Soutenir ART au féminin</h2>
         {allSponsorPlatforms.map((platform) => {
           return <LinkButton platform={platform} />
         })}
-        <h2 className="mt-0">Écouter le podcast</h2>
+        <h2 className="my-2 text-2xl text-gray-500">Écouter le podcast</h2>
         {allPodcastPlatforms.map((platform) => {
           return <LinkButton platform={platform} />
         })}
-        <h2>Les coulisses de l’émission</h2>
+        <h2 className="my-2 text-2xl text-gray-500">
+          Les coulisses de l’émission
+        </h2>
         {allSocialLinks.map((platform) => {
           return <LinkButton platform={platform} />
         })}
-        <h2>ART au féminin le site</h2>
+        <h2 className="my-2 text-2xl text-gray-500">ART au féminin le site</h2>
         {allMoreLinks.map((platform) => {
           return <LinkButton platform={platform} />
         })}
@@ -137,12 +137,10 @@ export default function LinksPage({ data }: Props): ReactElement {
 }
 
 export const query = graphql`
-  query {
+  {
     logo: file(absolutePath: { regex: "/logo-podcast-art-au-feminin.png/" }) {
       childImageSharp {
-        fixed(width: 128, height: 128) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 128, height: 128, layout: FIXED)
       }
     }
   }
