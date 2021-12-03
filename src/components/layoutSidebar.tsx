@@ -14,13 +14,13 @@ export default function LayoutSidebar({
 }: Props): ReactElement {
   return (
     <div style={{ maxWidth: "80em", margin: "0 auto" }}>
-      <div className="grid md:grid-cols-12 gap-12">
-        <div className="md:col-span-4">
+      <div className="lg:grid lg:grid-cols-12 gap-12">
+        <div className=" md:col-span-4">
           {withPodcast && <Subscribe />}
-          <div className="hidden md:flex">
+          <div className="hidden lg:flex">
             <SubscribeInstagram />
           </div>
-          <div className="hidden md:flex">
+          <div className="hidden lg:flex">
             <SubscribeTipeee />
           </div>
         </div>

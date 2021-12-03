@@ -1,4 +1,4 @@
-import React, { Children, ReactElement } from "react"
+import React, { ReactElement } from "react"
 import { allPodcastPlatforms } from "../pages/links"
 import Button from "./button"
 import Card from "./card"
@@ -13,6 +13,7 @@ export default function Subscribe(): ReactElement {
             <Button
               variant="ghost"
               as="iconpod"
+              size="s"
               href={platform.url}
               key={platform.name}
               url={platform.imageUrl}

@@ -3,7 +3,7 @@ import ApplePodcastIcon from "./applePodacstIcon"
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: any
-  variant?: "outline" | "solid" | "ghost"
+  variant?: "outline" | "solid" | "ghost" | "news"
   as?: string
   size?: string
   href?: string
@@ -23,18 +23,22 @@ export default function Button({
   key,
   ...props
 }: ButtonProps) {
-  const classNamesDefault = "py-2 px-4  font-semibold rounded-lg "
+  const classNamesDefault = "py-2 px-4  font-semibold rounded-lg leading-none"
 
   let classNamesVariant = " text-white   font-merri m-4 text-xs "
   let classNamesSize = ""
   if (variant === "outline") {
     classNamesVariant =
-      "hover:no-underline text-blue-500 font-merri border-blue-500 border-2 border-solid m-0 hover:border-blue-600 hover:text-blue-600"
+      "no-underline text-blue-500 font-merri border-blue-500 border-2 border-solid m-0 hover:border-blue-600 hover:text-blue-600"
   }
 
   if (variant === "solid") {
     classNamesVariant =
-      "no-underline  bg-blue-500 text-white font-merri text-md m-0  hover:bg-blue-600"
+      "no-underline  bg-blue-500 text-white font-merri text-md m-0  hover:bg-blue-600 mt-2 sm:mt-0 md:m-0"
+  }
+  if (variant === "news") {
+    classNamesVariant =
+      "no-underline  bg-blue-500 text-white font-merri text-md m-0  hover:bg-blue-600 w-full mt-2 sm:mt-0 md:m-0"
   }
   if (variant === "ghost") {
     classNamesVariant = "flex text-black-900 font-merri text-md  py-4 px-8"
@@ -43,7 +47,7 @@ export default function Button({
     classNamesSize = "py-4 px-4"
   }
   if (size === "m") {
-    classNamesSize = "py-5 px-5"
+    classNamesSize = "py-5 px-5 "
   }
   if (size === "l") {
     classNamesSize = "py-6 px-6"
@@ -51,6 +55,7 @@ export default function Button({
   if (as === "a") {
     return (
       <a
+        {...props}
         href={href}
         className={`${classNamesDefault} ${classNamesVariant}`}
         {...props}
@@ -64,6 +69,7 @@ export default function Button({
   if (as === "iconpod") {
     return (
       <a
+        {...props}
         href={`${href}`}
         target="_blank"
         rel="noopener noreferrer"
@@ -71,7 +77,7 @@ export default function Button({
         key={key}
       >
         <div className="flex py-4 sm:px-6 items-center">
-          <img src={url} alt={alt} className="w-16 h-16 mr-4" />
+          <img src={url} alt={alt} className="w-10 h-10 mr-4" />
           {children}
         </div>
       </a>
@@ -80,11 +86,11 @@ export default function Button({
   if (as === "icon") {
     return (
       <>
-        <a href={href} target="_blank" rel="noopener noreferrer">
+        <a {...props} href={href} target="_blank" rel="noopener noreferrer">
           <ApplePodcastIcon
             className={`${classNamesDefault} ${classNamesVariant}`}
             {...props}
-            style={{ height: 50 }}
+            style={{ height: 57 }}
           />
           {children}
         </a>
@@ -93,6 +99,7 @@ export default function Button({
   }
   return (
     <button
+      {...props}
       className={`${classNamesDefault} ${classNamesVariant} ${classNamesSize}`}
     >
       {children}
