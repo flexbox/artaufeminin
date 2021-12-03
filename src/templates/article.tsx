@@ -44,7 +44,7 @@ export default function Article(props: PropsArticle): ReactElement {
         description={props.pageContext.data.description.text}
       />
 
-      <article className="prose justify-center m-auto">
+      <article className="max-w-3xl prose justify-center m-auto font-merri relative">
         <header>
           <h1>{props.pageContext.data.title.text}</h1>
         </header>
@@ -52,10 +52,9 @@ export default function Article(props: PropsArticle): ReactElement {
         <div>{props.pageContext.data.description.text}</div>
 
         {image && (
-          <div className="text-center mb-10">
+          <div className="  m-auto text-center mb-10 -mx-96 ">
             <figure>
               <img
-                className="mx-auto"
                 src={props.pageContext.data.image.url}
                 alt={props.pageContext.data.image.alt}
               />
