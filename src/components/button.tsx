@@ -55,6 +55,7 @@ export default function Button({
   if (as === "a") {
     return (
       <a
+        {...props}
         href={href}
         className={`${classNamesDefault} ${classNamesVariant}`}
         {...props}
@@ -68,6 +69,7 @@ export default function Button({
   if (as === "iconpod") {
     return (
       <a
+        {...props}
         href={`${href}`}
         target="_blank"
         rel="noopener noreferrer"
@@ -84,7 +86,7 @@ export default function Button({
   if (as === "icon") {
     return (
       <>
-        <a href={href} target="_blank" rel="noopener noreferrer">
+        <a {...props} href={href} target="_blank" rel="noopener noreferrer">
           <ApplePodcastIcon
             className={`${classNamesDefault} ${classNamesVariant}`}
             {...props}
@@ -97,6 +99,7 @@ export default function Button({
   }
   return (
     <button
+      {...props}
       className={`${classNamesDefault} ${classNamesVariant} ${classNamesSize}`}
     >
       {children}
