@@ -13,7 +13,7 @@ const activeStyles = {
 
 function HeaderRight() {
   return (
-    <div className="w-1/3 flex justify-end text-gray-400 text-sm invisible lg:visible">
+    <div className="w-0 md:w-1/3 flex justify-end text-gray-400 text-sm invisible lg:visible">
       <div className="social-links hover:text-black">
         <a
           href="mailto:artaufemininlepodcast@gmail.com"
@@ -46,7 +46,7 @@ function Layout({ children }: LayoutProps) {
       <header className="site-head mb-8">
         <div className="site-head-container py-12 pl-2 flex font-merri leading-none">
           <button
-            className="flex visible lg:hidden"
+            className="flex visible lg:hidden mt-1"
             onClick={() => setToggleNav(!toggleNav)}
           >
             <svg
@@ -90,7 +90,7 @@ function Layout({ children }: LayoutProps) {
               />
             </svg>
           </button>
-          <nav className="site-head-left flex w-1/3 justify-start text-sm text-gray-400">
+          <nav className="site-head-left flex w-0 md:w-1/3 justify-start text-sm text-gray-400">
             <ul className="nav flex invisible lg:visible">
               <li className="nav-home px-2 hover:text-black">
                 <Link to={`/articles`} activeStyle={activeStyles}>
@@ -109,7 +109,7 @@ function Layout({ children }: LayoutProps) {
               </li>
             </ul>
           </nav>
-          <div className="site-head-center w-1/3 flex  -pl-12 lg:pl-0 lg:justify-center text-2xl font-medium">
+          <div className="relative site-head-center w-full justify-center items-center md:w-1/3 flex   sm:pl-0  lg:pl-0 lg:justify-center text-2xl font-medium">
             <Link className="site-head-logo" to={`/`}>
               {siteTitle}
             </Link>
