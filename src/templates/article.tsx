@@ -44,7 +44,7 @@ export default function Article(props: PropsArticle): ReactElement {
         description={props.pageContext.data.description.text}
       />
 
-      <article className="max-w-3xl prose justify-center m-auto font-merri relative">
+      <article className="max-w-3xl prose-lg prose-blue justify-center m-auto font-merri relative">
         <header>
           <h1>{props.pageContext.data.title.text}</h1>
         </header>
