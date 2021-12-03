@@ -49,46 +49,47 @@ function Layout({ children }: LayoutProps) {
             className="flex visible lg:hidden mt-1"
             onClick={() => setToggleNav(!toggleNav)}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className={`${toggleNav ? `hidden h-6 w-6` : `visible h-6 w-6`}`}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-
-              <div
-                className="hamburger hamburger--collapse"
-                aria-label="Menu"
-                aria-controls="navigation"
+            {toggleNav ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
               >
-                <div className="hamburger-box">
-                  <div className="hamburger-inner" />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+
+                <div
+                  className="hamburger hamburger--collapse"
+                  aria-label="Menu"
+                  aria-controls="navigation"
+                >
+                  <div className="hamburger-box">
+                    <div className="hamburger-inner" />
+                  </div>
                 </div>
-              </div>
-            </svg>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className={`${
-                toggleNav ? `visible h-6 w-6` : `invisible h-6 w-6`
-              }`}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+              </svg>
+            )}
           </button>
           <nav className="site-head-left flex w-0 md:w-1/3 justify-start text-sm text-gray-400">
             <ul className="nav flex invisible lg:visible">
