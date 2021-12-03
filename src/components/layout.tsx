@@ -40,7 +40,7 @@ function Layout({ children }: LayoutProps) {
   `)
   const siteTitle = data.site.siteMetadata.title
   const [toggleNav, setToggleNav] = React.useState(false)
-  const open = "bg-black"
+
   return (
     <div className={`${toggleNav ? `px-8` : `px-8`}`}>
       <header className="site-head mb-8">
