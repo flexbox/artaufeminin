@@ -86,15 +86,13 @@ const allSponsorPlatforms = [
 function LinkButton({ platform }: LinkButtonProps) {
   return (
     <a href={platform.url} className="">
-      <div className="rounded-lg flex p-4 my-8 font-merri font-bold align-middle border-2 border-blue-500 text-blue-500 hover:text-blue-600 hover:border-blue-600">
+      <div className=" text-lg rounded-lg flex p-2 my-2 font-merri font-bold align-middle border-2 border-blue-500 text-blue-500 hover:text-blue-600 hover:border-blue-600">
         <img
           src={platform.imageUrl}
           alt={`ART au feminin sur ${platform.name}`}
-          className="w-16 h-16 mr-4"
+          className="w-12 h-12 mr-4"
         />
-        <div className="m-auto min-w-full text-left pl-16 sm:pl-4">
-          {platform.name}
-        </div>
+        <div className="m-auto min-w-full sm:pl-4">{platform.name}</div>
       </div>
     </a>
   )
@@ -104,7 +102,7 @@ export default function LinksPage({ data }: Props): ReactElement {
   const logoUrl = data.logo.childImageSharp.gatsbyImageData
 
   return (
-    <div className="p-8 font-merri">
+    <div className="p-8 font-merri h-full">
       <div className="max-w-5xl m-auto">
         <div className="flex justify-center mb-8">
           <StaticImage
@@ -115,21 +113,21 @@ export default function LinksPage({ data }: Props): ReactElement {
           />
         </div>
         <p className="text-center text-gray-400 mb-8">@artaufeminin</p>
-        <h2 className="mt-0 text-2xl text-gray-500">Soutenir ART au féminin</h2>
+        <h2 className="my-2 text-2xl text-gray-500">Soutenir ART au féminin</h2>
         {allSponsorPlatforms.map((platform) => {
           return <LinkButton platform={platform} />
         })}
-        <h2 className="mt-0 text-2xl text-gray-500">Écouter le podcast</h2>
+        <h2 className="my-2 text-2xl text-gray-500">Écouter le podcast</h2>
         {allPodcastPlatforms.map((platform) => {
           return <LinkButton platform={platform} />
         })}
-        <h2 className="mt-0 text-2xl text-gray-500">
+        <h2 className="my-2 text-2xl text-gray-500">
           Les coulisses de l’émission
         </h2>
         {allSocialLinks.map((platform) => {
           return <LinkButton platform={platform} />
         })}
-        <h2 className="mt-0 text-2xl text-gray-500">ART au féminin le site</h2>
+        <h2 className="my-2 text-2xl text-gray-500">ART au féminin le site</h2>
         {allMoreLinks.map((platform) => {
           return <LinkButton platform={platform} />
         })}
