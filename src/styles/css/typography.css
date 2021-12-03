@@ -1,82 +1,3 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1.4;
-  font-weight: 700;
-  text-rendering: optimizeLegibility;
-}
-
-h1,
-h2 {
-  letter-spacing: -1px;
-}
-h3,
-h4,
-h5,
-h6 {
-  letter-spacing: -0.5px;
-}
-
-h1 {
-  margin: 0 0 0.5em 0;
-  font-size: 5.7rem;
-  font-weight: 800;
-}
-@media (max-width: 500px) {
-  h1 {
-    font-size: 2.7rem;
-  }
-}
-
-h2 {
-  margin: 1.5em 0 0.5em 0;
-  font-size: 4rem;
-}
-@media (max-width: 500px) {
-  h2 {
-    font-size: 2rem;
-  }
-}
-
-h3 {
-  margin: 1.5em 0 1em 0;
-  font-size: 3.2rem;
-}
-@media (max-width: 500px) {
-  h3 {
-    font-size: 1.8rem;
-  }
-}
-
-h4 {
-  margin: 1.5em 0 1em 0;
-  font-size: 2.6rem;
-}
-
-h5 {
-  margin: 1.5em 0 1em 0;
-  font-size: 2.4rem;
-}
-
-h6 {
-  margin: 1.5em 0 1em 0;
-  font-size: 2.2rem;
-}
-
-a {
-  color: var(--color-primary);
-  text-decoration: none;
-  transition: 0.4s ease;
-}
-
-a:hover {
-  text-decoration: underline;
-  transition: 300ms ease-in-out;
-}
-
 hr.separator {
   position: relative;
   display: block;
@@ -85,7 +6,7 @@ hr.separator {
   padding: 0;
   height: 1px;
   border: 0;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid #d4d4d8;
 }
 
 hr.separator:after {
@@ -97,11 +18,16 @@ hr.separator:after {
   margin-left: -10px;
   width: 1px;
   height: 30px;
-  background: var(--color-border);
-  box-shadow: var(--color-bg) 0 0 0 5px;
+  background: #d4d4d8;
+  box-shadow: #ffffff 0 0 0 5px;
   transform: rotate(45deg);
 }
-
-p {
-  margin-bottom: 12px;
+:root {
+  --gray-50: #fafafa;
+  --gray-300: #d4d4d8;
+  --color-primary: #3b82f6;
+  --color-base: #27272a;
+  --color-border: var(--gray-300);
+  --color-bg: var(--gray-50);
+  --color-white: #ffffff;
 }
