@@ -50,7 +50,6 @@ module.exports = {
     {
       resolve: "gatsby-plugin-sitemap",
       options: {
-        output: `/sitemap.xml`,
         query: `
         {
           allSitePage {
@@ -76,9 +75,17 @@ module.exports = {
             return { ...page }
           })
         },
-        serialize: ({ path }) => {
-          return {
-            url: path,
+        serialize: ({ path, last_publication_date, pubDate }) => {
+          if (path.startsWith("/article/")) {
+            return {
+              url: `${siteUrl}${path}`,
+              lastmod: last_publication_date,
+            }
+          } else {
+            return {
+              url: `${siteUrl}${path}`,
+              lastmod: pubDate,
+            }
           }
         },
       },
