@@ -16,7 +16,9 @@ export default function Episode({ pageContext }) {
 
       <LayoutSidebar>
         <article className="prose text-gray-500 font-merri">
-          <h1 className="text-5xl text-gray-700 mt-0 font-merri">{title}</h1>
+          <h1 className="text-5xl text-gray-700 mt-0 font-merri">
+            {title} | Podcast ART au feminin
+          </h1>
 
           <p className="text-gray-500">
             <em>Saison {pageContext.itunes.season}</em>
