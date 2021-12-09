@@ -1,7 +1,7 @@
 const siteConfig = require("./siteConfig")
 
 const { linkResolver } = require("./src/utils/linkResolver.ts")
-
+const siteUrl = process.env.URL || `https://www.artaufeminin.fr`
 module.exports = {
   siteMetadata: {
     ...siteConfig,
@@ -47,7 +47,42 @@ module.exports = {
         icon: `src/images/favicon.png`,
       },
     },
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        output: `/sitemap.xml`,
+        query: `
+        {
+          allSitePage {
+            nodes {
+              path
+            }
+          }
+          allPrismicBlogPost {
+            nodes {
+              last_publication_date
+            }
+          }
+          allAnchorEpisode {
+            nodes {
+              pubDate
+            }
+          }
+        }
+      `,
+        resolveSiteUrl: () => siteUrl,
+        resolvePages: ({ allSitePage: { nodes: allPages } }) => {
+          return allPages.map((page) => {
+            return { ...page }
+          })
+        },
+        serialize: ({ path }) => {
+          return {
+            url: path,
+          }
+        },
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
