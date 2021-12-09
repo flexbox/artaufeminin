@@ -39,7 +39,7 @@ export default function EpisodeItem({
         className="flex flex-col md:flex-row hover:no-underline post-preview"
       >
         <div className="flex-1 px-6">
-          <Text as="h3Link">{episode.title} | Podcast ART au feminin</Text>
+          <Text as="h3Link">{episode.title}</Text>
           <audio controls src={audioSrc} className="mb-8 mt-4" />
 
           <div
