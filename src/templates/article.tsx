@@ -40,7 +40,7 @@ export default function Article(props: PropsArticle): ReactElement {
   return (
     <Layout>
       <SEO
-        title={props.pageContext.data.title.text}
+        title={`${props.pageContext.data.title.text} |`}
         description={props.pageContext.data.description.text}
       />
 

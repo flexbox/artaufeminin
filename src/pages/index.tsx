@@ -18,7 +18,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="🎙 Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia" />
+      <SEO title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia |" />
 
       <div style={{ maxWidth: "80em", margin: "0 auto" }}>
         <Hero
