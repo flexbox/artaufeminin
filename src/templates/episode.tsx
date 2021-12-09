@@ -12,12 +12,12 @@ export default function Episode({ pageContext }) {
 
   return (
     <Layout>
-      <SEO title={title} description={description} />
+      <SEO title={`${title} |`} description={description} />
 
       <LayoutSidebar>
         <article className="prose text-gray-500 font-merri">
           <h1 className="text-5xl text-gray-700 mt-0 font-merri">
-            {title} | Podcast ART au feminin
+            {title} | Podcast
           </h1>
 
           <p className="text-gray-500">
