@@ -100,8 +100,6 @@ function LinkButton({ platform }: LinkButtonProps) {
 }
 
 export default function LinksPage({ data }: Props): ReactElement {
-  const logoUrl = data.logo.childImageSharp.gatsbyImageData
-
   return (
     <div className="p-8 font-merri h-full">
       <SEO

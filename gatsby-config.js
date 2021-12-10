@@ -23,6 +23,13 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://www.artaufeminin.fr`,
+      },
+    },
+
+    {
       resolve: `gatsby-plugin-postcss`,
       options: {
         postCssPlugins: [
