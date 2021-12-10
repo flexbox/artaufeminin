@@ -32,9 +32,7 @@ interface PropsArticle {
 }
 
 export default function Article(props: PropsArticle): ReactElement {
-  // if (!doc) return null
   const datePublished = formatHumanDate(props.pageContext.data.date)
-
   const image = props.pageContext.data.image.url
 
   return (
@@ -52,7 +50,7 @@ export default function Article(props: PropsArticle): ReactElement {
         <div>{props.pageContext.data.description.text}</div>
 
         {image && (
-          <div className="  m-auto text-center mb-10 -mx-96 ">
+          <div className="  m-auto text-center mb-10 -mx-96 article-content">
             <figure>
               <img
                 src={props.pageContext.data.image.url}
@@ -68,7 +66,7 @@ export default function Article(props: PropsArticle): ReactElement {
         )}
 
         <div>
-          <div className="mb-20">
+          <div className="mb-20 article-content">
             <CustomRichText render={props.pageContext.data.content.raw} />
           </div>
 
