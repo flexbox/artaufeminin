@@ -12,7 +12,7 @@ export default function Episode({ pageContext }) {
 
   return (
     <Layout>
-      <SEO title={title} description={description} />
+      <SEO title={`Podcast ${title}   `} description={description} />
 
       <LayoutSidebar>
         <article className="prose text-gray-500 font-merri">

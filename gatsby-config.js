@@ -1,7 +1,7 @@
 const siteConfig = require("./siteConfig")
 
 const { linkResolver } = require("./src/utils/linkResolver.ts")
-
+const siteUrl = process.env.URL || `https://www.artaufeminin.fr`
 module.exports = {
   siteMetadata: {
     ...siteConfig,
@@ -22,6 +22,13 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://www.artaufeminin.fr`,
+      },
+    },
+
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
@@ -47,7 +54,49 @@ module.exports = {
         icon: `src/images/favicon.png`,
       },
     },
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        query: `
+        {
+          allSitePage {
+            nodes {
+              path
+            }
+          }
+          allPrismicBlogPost {
+            nodes {
+              last_publication_date
+            }
+          }
+          allAnchorEpisode {
+            nodes {
+              pubDate
+            }
+          }
+        }
+      `,
+        resolveSiteUrl: () => siteUrl,
+        resolvePages: ({ allSitePage: { nodes: allPages } }) => {
+          return allPages.map((page) => {
+            return { ...page }
+          })
+        },
+        serialize: ({ path, last_publication_date, pubDate }) => {
+          if (path.startsWith("/article/")) {
+            return {
+              url: `${siteUrl}${path}`,
+              lastmod: last_publication_date,
+            }
+          } else {
+            return {
+              url: `${siteUrl}${path}`,
+              lastmod: pubDate,
+            }
+          }
+        },
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
