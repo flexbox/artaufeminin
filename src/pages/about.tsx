@@ -10,7 +10,7 @@ export default function AboutPage() {
   return (
     <Layout>
       <SEO
-        title="À propos |"
+        title="À propos"
         description="à l’origine du projet, une question simple : combien existe-t-il de femme artistes dans les musées. La réponse est difficile à trouver voire impossible sans recherches approfondies que vous pourrez découvrir en écoutant le podcast."
       />
 

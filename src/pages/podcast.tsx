@@ -12,7 +12,7 @@ const PodcastPage = ({ data }) => {
   return (
     <Layout>
       <SEO
-        title="Tous les épisodes du podcast sur les femmes artistes |"
+        title="Tous les épisodes du podcast sur les femmes artistes "
         description=""
       />
 
