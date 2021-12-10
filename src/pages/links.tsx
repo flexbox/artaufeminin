@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react"
 import { graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import SEO from "../components/seo"
 
 interface Props {}
 
@@ -99,10 +100,12 @@ function LinkButton({ platform }: LinkButtonProps) {
 }
 
 export default function LinksPage({ data }: Props): ReactElement {
-  const logoUrl = data.logo.childImageSharp.gatsbyImageData
-
   return (
     <div className="p-8 font-merri h-full">
+      <SEO
+        title="Liens"
+        description="Retrouvez toujours plus de contenu sur ART au feminin,sur Instagram, sur Facebook, sur Spotify, sur Deezer, sur Anchor, sur Google Podcasts, sur Apple Podcasts, sur Tipeee, sur le site internet, sur les articles."
+      />
       <div className="max-w-5xl m-auto">
         <div className="flex justify-center mb-8">
           <StaticImage
@@ -113,24 +116,36 @@ export default function LinksPage({ data }: Props): ReactElement {
           />
         </div>
         <p className="text-center text-gray-400 mb-8">@artaufeminin</p>
-        <h2 className="my-2 text-2xl text-gray-500">Soutenir ART au féminin</h2>
-        {allSponsorPlatforms.map((platform) => {
-          return <LinkButton platform={platform} />
-        })}
-        <h2 className="my-2 text-2xl text-gray-500">Écouter le podcast</h2>
-        {allPodcastPlatforms.map((platform) => {
-          return <LinkButton platform={platform} />
-        })}
-        <h2 className="my-2 text-2xl text-gray-500">
-          Les coulisses de l’émission
-        </h2>
-        {allSocialLinks.map((platform) => {
-          return <LinkButton platform={platform} />
-        })}
-        <h2 className="my-2 text-2xl text-gray-500">ART au féminin le site</h2>
-        {allMoreLinks.map((platform) => {
-          return <LinkButton platform={platform} />
-        })}
+        <div className="mb-8">
+          <h2 className="my-2 text-2xl text-gray-500">
+            Soutenir ART au féminin
+          </h2>
+          {allSponsorPlatforms.map((platform) => {
+            return <LinkButton platform={platform} />
+          })}
+        </div>
+        <div className="mb-8">
+          <h2 className="my-2 text-2xl text-gray-500">Écouter le podcast</h2>
+          {allPodcastPlatforms.map((platform) => {
+            return <LinkButton platform={platform} />
+          })}
+        </div>
+        <div className="mb-8">
+          <h2 className="my-2 text-2xl text-gray-500">
+            Les coulisses de l’émission
+          </h2>
+          {allSocialLinks.map((platform) => {
+            return <LinkButton platform={platform} />
+          })}
+        </div>
+        <div className="mb-8">
+          <h2 className="my-2 text-2xl text-gray-500">
+            ART au féminin le site
+          </h2>
+          {allMoreLinks.map((platform) => {
+            return <LinkButton platform={platform} />
+          })}
+        </div>
       </div>
     </div>
   )
