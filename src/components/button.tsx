@@ -23,9 +23,10 @@ export default function Button({
   key,
   ...props
 }: ButtonProps) {
-  const classNamesDefault = "py-2 px-4  font-semibold rounded-lg leading-none"
+  const classNamesDefault =
+    "py-2 px-4 font-merri font-semibold rounded-lg leading-none"
 
-  let classNamesVariant = " text-white   font-merri m-4 text-xs "
+  let classNamesVariant = "text-white   font-merri m-4 text-xs "
   let classNamesSize = ""
   if (variant === "outline") {
     classNamesVariant =
@@ -73,10 +74,10 @@ export default function Button({
         href={`${href}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-black"
+        className={`${classNamesDefault} hover:text-blue-500`}
         key={key}
       >
-        <div className="flex py-4 sm:px-6 items-center">
+        <div className="flex items-center">
           <img src={url} alt={alt} className="w-10 h-10 mr-4" />
           {children}
         </div>
