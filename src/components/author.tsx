@@ -21,11 +21,7 @@ function Author() {
             </div>
             <div className="flex-10">
               <Text as="pAuthor">
-                Aldjia
-                <span>
-                  {" "}
-                  <span>•</span> Créatrice et animatrice de podcasts
-                </span>
+                Aldjia <span>•</span> Créatrice et animatrice de podcasts
               </Text>
               <p className="mb-0 font-merri">
                 À tout de suite sur{" "}

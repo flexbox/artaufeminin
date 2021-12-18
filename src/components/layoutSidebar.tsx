@@ -3,7 +3,7 @@ import Subscribe from "./subscribe"
 import SubscribeInstagram from "./subscribeInstagram"
 import SubscribeTipeee from "./subscribeTipeee"
 
-interface Props {
+interface LayoutSidebarProps {
   withPodcast?: boolean
   children: any
 }
@@ -11,7 +11,7 @@ interface Props {
 export default function LayoutSidebar({
   withPodcast = true,
   children,
-}: Props): ReactElement {
+}: LayoutSidebarProps): ReactElement {
   return (
     <div style={{ maxWidth: "80em", margin: "0 auto" }}>
       <div className="lg:grid lg:grid-cols-12 gap-12">

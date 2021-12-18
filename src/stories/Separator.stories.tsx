@@ -1,7 +1,6 @@
 import React from "react"
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 import Hr from "../components/hr"
-import Button from "../components/button"
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
