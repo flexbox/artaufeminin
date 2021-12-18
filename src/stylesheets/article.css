@@ -1,0 +1,16 @@
+.article-content figure img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.article-content .stylistic-quote-mark {
+  font-size: 5rem;
+  right: 100%;
+  @apply mr-2 hidden font-serif text-gray-300 absolute top-0 leading-none;
+}
+
+@screen sm {
+  .article-content .stylistic-quote-mark {
+    @apply block;
+  }
+}

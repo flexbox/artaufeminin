@@ -1,3 +1,21 @@
+html {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga" on;
+
+  font-family: "Merriweather", serif !important;
+}
+
+::selection {
+  text-shadow: none;
+  background: #fef9c3;
+  color: #854d0f;
+}
+
 hr.separator {
   position: relative;
   display: block;

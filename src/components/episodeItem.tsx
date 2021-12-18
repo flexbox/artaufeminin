@@ -43,7 +43,7 @@ export default function EpisodeItem({
           <audio controls src={audioSrc} className="mb-8 mt-4" />
 
           <div
-            className="text-gray-500 font-merri font-light "
+            className="text-gray-500 font-light "
             dangerouslySetInnerHTML={{ __html: summary }}
           />
         </div>

@@ -23,7 +23,7 @@ function Author() {
               <Text as="pAuthor">
                 Aldjia <span>•</span> Créatrice et animatrice de podcasts
               </Text>
-              <p className="mb-0 font-merri">
+              <p className="mb-0">
                 À tout de suite sur{" "}
                 <a className="text-blue-500 " href={social.instagramUrl}>
                   Instagram

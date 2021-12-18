@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import Footer from "./footer"
-import "../styles/css/styles.css"
 import Newsletter from "./newsletter"
 import Burger from "../components/burger"
 import Cross from "../components/cross"
@@ -46,7 +45,7 @@ function Layout({ children }: LayoutProps) {
   return (
     <div className={`${toggleNav ? `px-8` : `px-8`}`}>
       <header className="site-head mb-8">
-        <div className="site-head-container py-12 pl-2 flex font-merri leading-none">
+        <div className="site-head-container py-12 pl-2 flex leading-none">
           <button
             className="flex visible lg:hidden mt-1"
             onClick={() => setToggleNav(!toggleNav)}
@@ -80,7 +79,7 @@ function Layout({ children }: LayoutProps) {
           <HeaderRight />
         </div>
         <div className={`${toggleNav ? `visible flex-col` : `invisible h-0`}`}>
-          <nav className="w-full font-merri text-3xl fo text-gray-400 bg-white">
+          <nav className="w-full text-3xl fo text-gray-400 bg-white">
             <ul className="nav flex-col space-y-4 ">
               <li className="nav-home hover:text-black">
                 <Link to={`/articles`} activeStyle={activeStyles}>

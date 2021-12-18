@@ -6,6 +6,7 @@ import Author from "../components/author"
 import CustomRichText from "../components/customRichText"
 import { formatHumanDate } from "../utils/date"
 import { RichTextBlock } from "prismic-reactjs"
+import Text from "../components/text"
 
 interface PropsArticle {
   pageContext
@@ -34,22 +35,20 @@ interface PropsArticle {
 export default function Article(props: PropsArticle): ReactElement {
   const datePublished = formatHumanDate(props.pageContext.data.date)
   const imageHero = props.pageContext.data.image
+  const seoTitle = props.pageContext.data.title.text
+  const seoDescription = props.pageContext.data.description.text
 
   return (
     <Layout>
-      <SEO
-        title={props.pageContext.data.title.text}
-        description={props.pageContext.data.description.text}
-      />
+      <SEO title={seoTitle} description={seoDescription} />
 
       <div className="max-w-3xl justify-center m-auto">
-        <article className="prose prose-lg prose-blue font-merri">
-          <header>
-            <h1>{props.pageContext.data.title.text}</h1>
-          </header>
+        <header>
+          <Text as="h1">{seoTitle}</Text>
+          <Text as="p">{seoDescription}</Text>
+        </header>
 
-          <div>{props.pageContext.data.description.text}</div>
-
+        <article className="prose prose-lg prose-blue">
           {imageHero && (
             <div className="m-auto text-center mb-10 -mx-96 article-content">
               <figure>
@@ -62,25 +61,23 @@ export default function Article(props: PropsArticle): ReactElement {
             </div>
           )}
 
-          <div>
-            <div className="mb-20 article-content">
-              <CustomRichText render={props.pageContext.data.content.raw} />
-            </div>
-
-            <p className="text-gray-500 mb-20">
-              Vous avez aimé cet article ?{" "}
-              <a
-                href="https://fr.tipeee.com/art-au-feminin"
-                title="Sponsoriser les épisodes"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Devenez mécène sur tipeee m’aide beaucoup.
-              </a>
-              <br />
-              <em>Publié {datePublished}</em>
-            </p>
+          <div className="mb-20 article-content">
+            <CustomRichText render={props.pageContext.data.content.raw} />
           </div>
+
+          <p className="text-gray-500 mb-20">
+            Vous avez aimé cet article ?{" "}
+            <a
+              href="https://fr.tipeee.com/art-au-feminin"
+              title="Sponsoriser les épisodes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Devenez mécène sur tipeee m’aide beaucoup.
+            </a>
+            <br />
+            <em>Publié {datePublished}</em>
+          </p>
         </article>
       </div>
 

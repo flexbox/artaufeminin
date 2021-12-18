@@ -1,8 +1,0 @@
-.article-content figure img {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.article-content .blockquote {
-  @apply mr-2 hidden font-mono text-gray-500 absolute top-0 leading-none;
-}

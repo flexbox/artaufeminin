@@ -87,7 +87,7 @@ const allSponsorPlatforms = [
 function LinkButton({ platform }: LinkButtonProps) {
   return (
     <a href={platform.url} className="">
-      <div className=" text-lg rounded-lg flex p-2 my-2 font-merri font-bold align-middle border-2 border-blue-500 text-blue-500 hover:text-blue-600 hover:border-blue-600">
+      <div className=" text-lg rounded-lg flex p-2 my-2 font-bold align-middle border-2 border-blue-500 text-blue-500 hover:text-blue-600 hover:border-blue-600">
         <img
           src={platform.imageUrl}
           alt={`ART au feminin sur ${platform.name}`}
@@ -99,9 +99,9 @@ function LinkButton({ platform }: LinkButtonProps) {
   )
 }
 
-export default function LinksPage({ data }: Props): ReactElement {
+export default function LinksPage({}: Props): ReactElement {
   return (
-    <div className="p-8 font-merri h-full">
+    <div className="p-8 h-full">
       <SEO
         title="Liens"
         description="Retrouvez toujours plus de contenu sur ART au feminin,sur Instagram, sur Facebook, sur Spotify, sur Deezer, sur Anchor, sur Google Podcasts, sur Apple Podcasts, sur Tipeee, sur le site internet, sur les articles."
