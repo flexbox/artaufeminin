@@ -44,11 +44,6 @@ function Author() {
 
 const authorQuery = graphql`
   query AuthorQuery {
-    avatar: file(absolutePath: { regex: "/profile-picture.jpg/" }) {
-      childImageSharp {
-        gatsbyImageData(width: 100, height: 100, layout: FIXED)
-      }
-    }
     site {
       siteMetadata {
         author
