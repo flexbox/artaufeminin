@@ -1,4 +1,4 @@
 // custom typefaces
 import "typeface-merriweather"
 
-import "./src/styles/tailwind.css"
+import "./src/stylessheets/tailwind.css"

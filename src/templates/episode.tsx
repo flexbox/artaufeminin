@@ -12,11 +12,11 @@ export default function Episode({ pageContext }) {
 
   return (
     <Layout>
-      <SEO title={`Podcast ${title}   `} description={description} />
+      <SEO title={`Podcast ${title} `} description={description} />
 
       <LayoutSidebar>
-        <article className="prose text-gray-500 font-merri">
-          <h1 className="text-5xl text-gray-700 mt-0 font-merri">{title}</h1>
+        <article className="prose text-gray-500">
+          <h1 className="text-5xl text-gray-700 mt-0">{title}</h1>
 
           <p className="text-gray-500">
             <em>Saison {pageContext.itunes.season}</em>
