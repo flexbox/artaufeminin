@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react"
+import React from "react"
 
 interface TextProps {
   as?:
@@ -16,14 +16,7 @@ interface TextProps {
   children: string | any
 }
 
-export default function Text({
-  children,
-  as,
-
-  ...props
-}: TextProps) {
-  let classNamesVariant = ""
-
+export default function Text({ children, as, ...props }: TextProps) {
   if (as === "h1") {
     return (
       <h1
@@ -116,4 +109,6 @@ export default function Text({
       </p>
     )
   }
+
+  return <p {...props}>{children}</p>
 }
