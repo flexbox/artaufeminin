@@ -12,7 +12,6 @@ interface TextProps extends HTMLAttributes<HTMLHeadingElement> {
     | "h3Link"
     | "p"
     | "pAbout"
-    | "pAuthor"
     | "pEpisode"
 }
 
@@ -21,7 +20,7 @@ export default function Text({ children, as, className, ...props }: TextProps) {
     return (
       <h1
         {...props}
-        className="text-gray-700 md:text-6xl font-bold leading-snug text-3xl"
+        className="text-gray-700 md:text-6xl font-bold leading-snug text-3xl tracking-tight"
       >
         {children}
       </h1>
@@ -31,7 +30,7 @@ export default function Text({ children, as, className, ...props }: TextProps) {
     return (
       <h2
         {...props}
-        className="text-gray-700 font-bold mt-4 leading-snug text-2xl"
+        className="text-gray-700 md:text-4xl font-bold mt-4 leading-snug text-2xl"
       >
         {children}
       </h2>
@@ -82,13 +81,6 @@ export default function Text({ children, as, className, ...props }: TextProps) {
   if (as === "pAbout") {
     return (
       <p {...props} className="mb-6 text-xl text-gray-500 mt-2">
-        {children}
-      </p>
-    )
-  }
-  if (as === "pAuthor") {
-    return (
-      <p {...props} className="mb-6 text-xl text-gray-500 mt-2 font-semibold">
         {children}
       </p>
     )

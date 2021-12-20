@@ -41,12 +41,6 @@ export const TextStory = () => {
           baccalauréat en philosophie tout en se formant aux études grecques et
           d’histoire de l’art.
         </Text>
-        <Text as="pAuthor">
-          pAuthor Avant de devenir historienne de l’art, professeure
-          d’université, théoricienne de l’art, … Elle obtient en 1951 un
-          baccalauréat en philosophie tout en se formant aux études grecques et
-          d’histoire de l’art.
-        </Text>
         <Text as="pEpisode">
           pEpisode Avant de devenir historienne de l’art, professeure
           d’université, théoricienne de l’art, … Elle obtient en 1951 un
