@@ -20,7 +20,7 @@ function Author() {
               />
             </div>
             <div className="flex-10">
-              <Text as="pAuthor">
+              <Text as="p" className="mt-2 font-semibold">
                 Aldjia <span>•</span> Créatrice et animatrice de podcasts
               </Text>
               <p className="mb-0">
