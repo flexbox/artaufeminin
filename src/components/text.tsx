@@ -1,34 +1,27 @@
-import React, { ReactElement } from "react"
+import React, { HTMLAttributes } from "react"
 
-interface TextProps {
+interface TextProps extends HTMLAttributes<HTMLHeadingElement> {
+  children: string | any
+  className?: string
   as?:
     | "h1"
     | "h2"
-    | "p"
+    | "h2about"
+    | "h2episode"
     | "h3"
     | "h3Link"
-    | "h2about"
+    | "p"
     | "pAbout"
-    | "pAuthor"
-    | "h2episode"
     | "pEpisode"
-
-  children: string | any
 }
 
-export default function Text({
-  children,
-  as,
-
-  ...props
-}: TextProps) {
-  let classNamesVariant = ""
-
+export default function Text({ children, as, className, ...props }: TextProps) {
+  className = ""
   if (as === "h1") {
     return (
       <h1
         {...props}
-        className="mb-0 text-gray-700 md:text-6xl font-merri font-bold leading-snug text-2xl"
+        className={`text-gray-700 md:text-6xl font-bold leading-snug text-3xl tracking-tight ${className}`}
       >
         {children}
       </h1>
@@ -38,7 +31,7 @@ export default function Text({
     return (
       <h2
         {...props}
-        className="font-merri text-xl text-gray-500 font-semibold mt-4 mb-0"
+        className={`text-gray-700 md:text-4xl font-bold mt-4 leading-snug text-2xl ${className}`}
       >
         {children}
       </h2>
@@ -48,7 +41,7 @@ export default function Text({
     return (
       <h2
         {...props}
-        className="font-merri text-3xl text-black-500 font-semibold mt-2 mb-0 leading-relaxed"
+        className={`text-gray-700 font-bold mt-2 mb-0 leading-snug text-2xl ${className}`}
       >
         {children}
       </h2>
@@ -58,7 +51,7 @@ export default function Text({
     return (
       <h2
         {...props}
-        className="font-merri text-4xl text-black-400 font-semibold mt-2 mb-0 leading-none"
+        className={`text-gray-700 font-bold mt-2 mb-0 leading-snug text-2xl ${className}`}
       >
         {children}
       </h2>
@@ -66,14 +59,14 @@ export default function Text({
   }
   if (as === "h3") {
     return (
-      <h3 {...props} className="font-merri text-lg mt-2">
+      <h3 {...props} className={`text-lg mt-2 ${className}`}>
         {children}
       </h3>
     )
   }
   if (as === "h3Link") {
     return (
-      <h3 {...props} className="font-merri text-lg text-blue-500 mt-2">
+      <h3 {...props} className={`text-lg text-blue-500 mt-2 ${className}`}>
         {children}
       </h3>
     )
@@ -81,27 +74,17 @@ export default function Text({
 
   if (as === "p") {
     return (
-      <p {...props} className="font-merri mb-6 text-base text-gray-400 mt-2">
+      <p
+        {...props}
+        className={`mb-6 text-xl sm:text-base text-gray-500 ${className}`}
+      >
         {children}
       </p>
     )
   }
   if (as === "pAbout") {
     return (
-      <p
-        {...props}
-        className="font-merri mb-6 text-xl text-gray-500 mt-2 font-thin"
-      >
-        {children}
-      </p>
-    )
-  }
-  if (as === "pAuthor") {
-    return (
-      <p
-        {...props}
-        className="font-merri mb-6 text-xl text-gray-500 mt-2 font-semibold"
-      >
+      <p {...props} className={`mb-6 text-xl text-gray-500 mt-2 ${className}`}>
         {children}
       </p>
     )
@@ -110,10 +93,12 @@ export default function Text({
     return (
       <p
         {...props}
-        className="font-merri mb-6 text-lg text-gray-500 mt-2 font-thin leading-relaxed"
+        className={`mb-6 text-lg text-gray-500 mt-2 font-thin leading-relaxed ${className}`}
       >
         {children}
       </p>
     )
   }
+
+  return <p {...props}>{children}</p>
 }

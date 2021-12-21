@@ -20,14 +20,10 @@ function Author() {
               />
             </div>
             <div className="flex-10">
-              <Text as="pAuthor">
-                Aldjia
-                <span>
-                  {" "}
-                  <span>•</span> Créatrice et animatrice de podcasts
-                </span>
+              <Text as="p" className="mt-2 font-semibold">
+                Aldjia <span>•</span> Créatrice et animatrice de podcasts
               </Text>
-              <p className="mb-0 font-merri">
+              <p className="mb-0">
                 À tout de suite sur{" "}
                 <a className="text-blue-500 " href={social.instagramUrl}>
                   Instagram

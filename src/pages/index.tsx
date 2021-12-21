@@ -12,7 +12,6 @@ import Text from "../components/text"
 
 const IndexPage = ({ data }) => {
   const siteDescription = data.site.siteMetadata.description
-  const logoUrl = data.logo.childImageSharp.gatsbyImageData
   const allEpisodes = data.allAnchorEpisode.nodes
   const allArticles = data.allPrismicBlogPost.nodes
 
@@ -21,11 +20,7 @@ const IndexPage = ({ data }) => {
       <SEO title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia |" />
 
       <div style={{ maxWidth: "80em", margin: "0 auto" }}>
-        <Hero
-          heroTitle={siteDescription}
-          imageUrl="../images/logo-podcast-art-au-feminin.png/"
-          imageAlt={"Logo podcast ART au feminin"}
-        >
+        <Hero heroTitle={siteDescription}>
           <div className="flex flex-col sm:flex-row mt-12">
             <div className="flex-initial px-4 pl-0 mb-6">
               <Link to={"/links"}>
@@ -117,16 +112,6 @@ const indexQuery = graphql`
     site {
       siteMetadata {
         description
-      }
-    }
-    logo: file(absolutePath: { regex: "/logo-podcast-art-au-feminin.png/" }) {
-      childImageSharp {
-        gatsbyImageData(width: 500, height: 500, layout: FIXED)
-      }
-    }
-    reviews: file(absolutePath: { regex: "/reviews.png/" }) {
-      childImageSharp {
-        gatsbyImageData(width: 990, height: 600, layout: FIXED)
       }
     }
     allAnchorEpisode(limit: 3) {

@@ -5,7 +5,8 @@ import SEO from "../components/seo"
 import Author from "../components/author"
 import CustomRichText from "../components/customRichText"
 import { formatHumanDate } from "../utils/date"
-import { RichText, RichTextBlock } from "prismic-reactjs"
+import { RichTextBlock } from "prismic-reactjs"
+import Text from "../components/text"
 
 interface PropsArticle {
   pageContext
@@ -33,39 +34,33 @@ interface PropsArticle {
 
 export default function Article(props: PropsArticle): ReactElement {
   const datePublished = formatHumanDate(props.pageContext.data.date)
-  const image = props.pageContext.data.image.url
+  const imageHero = props.pageContext.data.image
+  const seoTitle = props.pageContext.data.title.text
+  const seoDescription = props.pageContext.data.description.text
 
   return (
     <Layout>
-      <SEO
-        title={props.pageContext.data.title.text}
-        description={props.pageContext.data.description.text}
-      />
+      <SEO title={seoTitle} description={seoDescription} />
 
-      <article className="max-w-3xl prose-lg prose-blue justify-center m-auto font-merri relative">
+      <div className="max-w-3xl justify-center m-auto">
         <header>
-          <h1>{props.pageContext.data.title.text}</h1>
+          <Text as="h1">{seoTitle}</Text>
+          <Text as="p">{seoDescription}</Text>
         </header>
 
-        <div>{props.pageContext.data.description.text}</div>
+        <article className="prose prose-lg prose-blue">
+          {imageHero && (
+            <div className="m-auto text-center mb-10 -mx-96 article-content">
+              <figure>
+                <img src={imageHero.url} alt={imageHero.alt} />
+                <figcaption className="mt-8">
+                  {imageHero.alt}{" "}
+                  {imageHero.copyright && `© ${imageHero.copyright}`}
+                </figcaption>
+              </figure>
+            </div>
+          )}
 
-        {image && (
-          <div className="  m-auto text-center mb-10 -mx-96 article-content">
-            <figure>
-              <img
-                src={props.pageContext.data.image.url}
-                alt={props.pageContext.data.image.alt}
-              />
-              <figcaption className="mt-8">
-                {props.pageContext.data.image.alt}{" "}
-                {props.pageContext.data.image.copyright &&
-                  `© ${props.pageContext.data.image.copyright}`}
-              </figcaption>
-            </figure>
-          </div>
-        )}
-
-        <div>
           <div className="mb-20 article-content">
             <CustomRichText render={props.pageContext.data.content.raw} />
           </div>
@@ -83,8 +78,9 @@ export default function Article(props: PropsArticle): ReactElement {
             <br />
             <em>Publié {datePublished}</em>
           </p>
-        </div>
-      </article>
+        </article>
+      </div>
+
       <div className="justify-center m-auto w-full sm:w-1/3">
         <Author />
       </div>

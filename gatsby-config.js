@@ -28,7 +28,6 @@ module.exports = {
         siteUrl: `https://www.artaufeminin.fr`,
       },
     },
-
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
