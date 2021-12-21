@@ -37,7 +37,7 @@ hr.separator:after {
   width: 1px;
   height: 30px;
   background: var(--color-border);
-  box-shadow: var(--color-white) 0 0 0 5px;
+  box-shadow: #f9fafb 0 0 0 5px;
   transform: rotate(45deg);
 }
 

@@ -15,9 +15,14 @@ interface TextProps extends HTMLAttributes<HTMLHeadingElement> {
     | "pEpisode"
 }
 
-export default function Text({ children, as, className, ...props }: TextProps) {
-  className = ""
+export default function Text({
+  children,
+  as,
+  className = "",
+  ...props
+}: TextProps) {
   if (as === "h1") {
+    console.log("file: text.tsx ~ line 24 ~ className", className)
     return (
       <h1
         {...props}
@@ -66,7 +71,7 @@ export default function Text({ children, as, className, ...props }: TextProps) {
   }
   if (as === "h3Link") {
     return (
-      <h3 {...props} className={`text-lg text-blue-500 mt-2 ${className}`}>
+      <h3 {...props} className={`text-lg text-blue-500 mb-4 ${className}`}>
         {children}
       </h3>
     )

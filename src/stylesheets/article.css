@@ -2,3 +2,7 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.article-preview:hover h3 {
+  text-decoration: underline;
+}

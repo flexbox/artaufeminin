@@ -28,15 +28,15 @@ export default function Header({ siteTitle }: Props): ReactElement {
   const [toggleNav, setToggleNav] = useState<boolean>(false)
 
   return (
-    <header className="site-head ">
-      <div className="site-head-container py-12 pl-2 flex leading-none">
+    <header className="">
+      <div className="site-head-container py-12 flex">
         <button
           className="flex visible lg:hidden mt-1"
           onClick={() => setToggleNav(!toggleNav)}
         >
           {toggleNav ? <Burger /> : <Cross />}
         </button>
-        <nav className="site-head-left flex w-0 md:w-1/3 justify-start text-sm text-gray-400">
+        <nav className="flex w-0 md:w-1/3 justify-start text-sm text-gray-400">
           <ul className="nav flex invisible lg:visible">
             <li className="nav-home px-2 hover:text-black">
               <Link
@@ -64,7 +64,7 @@ export default function Header({ siteTitle }: Props): ReactElement {
           </ul>
         </nav>
         <div className="relative site-head-center w-full justify-center items-center md:w-1/3 flex   sm:pl-0  lg:pl-0 lg:justify-center text-2xl font-medium">
-          <Link className="site-head-logo" to={`/`}>
+          <Link className="font-bold" to={`/`}>
             {siteTitle}
           </Link>
         </div>

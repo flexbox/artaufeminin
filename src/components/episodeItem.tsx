@@ -36,7 +36,7 @@ export default function EpisodeItem({
     <>
       <Link
         to={`/episodes/${episode.guid}`}
-        className="flex flex-col md:flex-row hover:no-underline post-preview"
+        className="flex flex-col md:flex-row hover:no-underline article-preview"
       >
         <div className="flex-1 px-6">
           <Text as="h3Link">{episode.title}</Text>

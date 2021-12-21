@@ -37,12 +37,17 @@ function ArticleItem({ article }: { article: ArticleProps }): ReactElement {
 
   return (
     <>
-      <Link to={`/article/${slug}`} className="post-preview hover:no-underline">
+      <Link
+        to={`/article/${slug}`}
+        className="article-preview hover:no-underline"
+      >
         <div className="flex flex-col md:flex-row my-6">
           <div className="flex-1 px-6">
             <Text as="h3Link">{title}</Text>
             <Text as="p">{descriptionTruncated}</Text>
-            <Text as="p">Publié {date}</Text>
+            <Text as="p" className="italic text-gray-400">
+              Publié {date}
+            </Text>
           </div>
           <div className="flex-shrink-0 px-3">
             <div
