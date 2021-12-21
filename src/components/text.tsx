@@ -20,7 +20,7 @@ export default function Text({ children, as, className, ...props }: TextProps) {
     return (
       <h1
         {...props}
-        className="text-gray-700 md:text-6xl font-bold leading-snug text-3xl tracking-tight"
+        className={`text-gray-700 md:text-6xl font-bold leading-snug text-3xl tracking-tight ${className}`}
       >
         {children}
       </h1>
