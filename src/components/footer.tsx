@@ -13,7 +13,7 @@ export default function Footer({ title }: FooterProps) {
         <div className="flex-none sm:flex-1">
           <Text as="p">
             &copy; {new Date().getFullYear()} •{" "}
-            <Link to={`/`} className="text-black">
+            <Link to={`/`} className="text-black font-bold">
               {title}
             </Link>
           </Text>

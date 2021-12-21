@@ -44,8 +44,12 @@ export default function Article(props: PropsArticle): ReactElement {
 
       <div className="max-w-3xl justify-center m-auto">
         <header>
-          <Text as="h1">{seoTitle}</Text>
-          <Text as="p">{seoDescription}</Text>
+          <Text as="h1" className="mb-12 text-center">
+            {seoTitle}
+          </Text>
+          <div className="prose prose-xl">
+            <p>{seoDescription}</p>
+          </div>
         </header>
 
         <article className="prose prose-lg prose-blue">
