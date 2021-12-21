@@ -23,25 +23,25 @@ export default function Button({
   key,
   ...props
 }: ButtonProps) {
-  const classNamesDefault = "py-2 px-4  font-semibold rounded-lg leading-none"
+  const classNamesDefault = "py-2 px-4 font-semibold rounded-lg leading-none"
 
-  let classNamesVariant = " text-white   font-merri m-4 text-xs "
+  let classNamesVariant = "text-white m-4 text-xs "
   let classNamesSize = ""
   if (variant === "outline") {
     classNamesVariant =
-      "no-underline text-blue-500 font-merri border-blue-500 border-2 border-solid m-0 hover:border-blue-600 hover:text-blue-600"
+      "no-underline text-blue-500 border-blue-500 border-2 border-solid m-0 hover:border-blue-600 hover:text-blue-600"
   }
 
   if (variant === "solid") {
     classNamesVariant =
-      "no-underline  bg-blue-500 text-white font-merri text-md m-0  hover:bg-blue-600 mt-2 sm:mt-0 md:m-0"
+      "no-underline  bg-blue-500 text-white text-md m-0  hover:bg-blue-600 mt-2 sm:mt-0 md:m-0"
   }
   if (variant === "news") {
     classNamesVariant =
-      "no-underline  bg-blue-500 text-white font-merri text-md m-0  hover:bg-blue-600 w-full mt-2 sm:mt-0 md:m-0"
+      "no-underline  bg-blue-500 text-white text-md m-0  hover:bg-blue-600 w-full mt-2 sm:mt-0 md:m-0"
   }
   if (variant === "ghost") {
-    classNamesVariant = "flex text-black-900 font-merri text-md  py-4 px-8"
+    classNamesVariant = "flex text-black-900 text-md  py-4 px-8"
   }
   if (size === "s") {
     classNamesSize = "py-4 px-4"
@@ -73,10 +73,10 @@ export default function Button({
         href={`${href}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-black"
+        className={`${classNamesDefault} hover:text-blue-500`}
         key={key}
       >
-        <div className="flex py-4 sm:px-6 items-center">
+        <div className="flex items-center">
           <img src={url} alt={alt} className="w-10 h-10 mr-4" />
           {children}
         </div>

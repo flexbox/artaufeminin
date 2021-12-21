@@ -6,13 +6,14 @@ import {
 } from "prismic-reactjs"
 
 import kebabCase from "lodash/kebabCase"
+import Text from "./text"
 
 function customHtmlSerializer(type, element, content, children, key) {
   if (type === Elements.heading2) {
     return (
-      <h2 key={key} id={kebabCase(children)}>
+      <Text as="h2" key={key} id={kebabCase(children)}>
         {children}
-      </h2>
+      </Text>
     )
   }
   if (type === Elements.image) {
