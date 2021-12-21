@@ -4,6 +4,7 @@ import Footer from "./footer"
 import Newsletter from "./newsletter"
 import Burger from "../components/burger"
 import Cross from "../components/cross"
+import "../stylesheets/styles.css"
 
 interface LayoutProps {
   children: ReactNode
