@@ -1,13 +1,14 @@
 import { graphql, useStaticQuery } from "gatsby"
+import { RichTextBlock } from "prismic-reactjs"
 import React, { ReactElement } from "react"
 
 interface PressProps {
-  slug: string
+  id: string
   data: {
-    siteName: {
-      text: string
-    }
     description: {
+      raw: RichTextBlock[]
+    }
+    sitename: {
       text: string
     }
     url: {
@@ -17,8 +18,8 @@ interface PressProps {
 }
 
 function PressItem({ press }: { press: PressProps }): ReactElement {
-  const siteName = press.data.siteName.text
-  const description = press.data.description.text
+  const siteName = press.data.sitename.text
+  const description = press.data.description.raw
   const url = press.data.url.url
 
   return (
@@ -29,24 +30,22 @@ function PressItem({ press }: { press: PressProps }): ReactElement {
     </>
   )
 }
+
 export default function pressList(): ReactElement {
   const allPress = useStaticQuery(graphql`
     {
       allPrismicPress {
         nodes {
+          id
           data {
             description {
-              text
-              html
               raw
             }
             sitename {
               text
-              html
-              raw
             }
             url {
-              id
+              url
             }
           }
         }
@@ -60,9 +59,10 @@ export default function pressList(): ReactElement {
   )
   return (
     <>
-      {allPress.map((press) => {
-        return <PressItem press={press} key={press.slug} />
-      })}
+      yo
+      {/* {allPress.map((press: PressProps) => {
+        return <PressItem press={press} key={press.id} />
+      })} */}
     </>
   )
 }
