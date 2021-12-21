@@ -45,7 +45,7 @@ function Layout({ children }: LayoutProps) {
 
   return (
     <div className={`${toggleNav ? `px-8` : `px-8`}`}>
-      <header className="site-head mb-8">
+      <header className="site-head ">
         <div className="site-head-container py-12 pl-2 flex leading-none">
           <button
             className="flex visible lg:hidden mt-1"
@@ -56,17 +56,25 @@ function Layout({ children }: LayoutProps) {
           <nav className="site-head-left flex w-0 md:w-1/3 justify-start text-sm text-gray-400">
             <ul className="nav flex invisible lg:visible">
               <li className="nav-home px-2 hover:text-black">
-                <Link to={`/articles`} activeStyle={activeStyles}>
+                <Link
+                  to={`/articles`}
+                  activeStyle={activeStyles}
+                  className="p-2"
+                >
                   Articles
                 </Link>
               </li>
               <li className="nav-home px-2 hover:text-black">
-                <Link to={`/podcast`} activeStyle={activeStyles}>
+                <Link
+                  to={`/podcast`}
+                  activeStyle={activeStyles}
+                  className="p-2"
+                >
                   Épisodes
                 </Link>
               </li>
               <li className="nav-about px-2 hover:text-black">
-                <Link to={`/about`} activeStyle={activeStyles}>
+                <Link to={`/about`} activeStyle={activeStyles} className="p-2">
                   À propos
                 </Link>
               </li>
