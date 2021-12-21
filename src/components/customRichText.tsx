@@ -9,14 +9,6 @@ import kebabCase from "lodash/kebabCase"
 import Text from "./text"
 
 function customHtmlSerializer(type, element, content, children, key) {
-  console.log(
-    "file: customRichText.tsx ~ line 12 ~ customHtmlSerializer ~ type",
-    type,
-    element,
-    content,
-    children,
-    key
-  )
   if (type === Elements.heading2) {
     return (
       <Text as="h2" key={key} id={kebabCase(children)}>
