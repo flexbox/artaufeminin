@@ -13,7 +13,6 @@ export default function SubscribeInstagram({}: Props): ReactElement {
           Pour encore plus d'ART au féminin. Suivez-moi ! Au plaisir d'échanger
           avec vous.
         </Text>
-
         <Button
           variant="outline"
           href="https://www.instagram.com/artaufeminin/"

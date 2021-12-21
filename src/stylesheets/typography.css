@@ -40,3 +40,15 @@ hr.separator:after {
   box-shadow: var(--color-white) 0 0 0 5px;
   transform: rotate(45deg);
 }
+
+blockquote .stylistic-quote-mark {
+  font-size: 5rem;
+  right: 100%;
+  @apply mr-2 hidden font-serif text-gray-300 text-4xl absolute top-0 leading-none;
+}
+
+@screen sm {
+  blockquote .stylistic-quote-mark {
+    @apply block;
+  }
+}

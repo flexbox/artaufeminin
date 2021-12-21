@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Author from "../components/author"
 import Text from "../components/text"
+import Quote from "../components/quote"
 
 export default function AboutPage() {
   return (
@@ -60,6 +61,20 @@ export default function AboutPage() {
               <cite>—Simone de Beauvoir</cite>
             </Text>
           </blockquote>
+
+          <Quote
+            quote="Nous commencerons par discuter les points de vue pris sur la femme
+              par la biologie, la psychanalyse, le matérialisme historique. Nous
+              essaierons de monter ensuite positivement comment la réalité
+              féminine s’est constituée, pourquoi la femme a été définie comme
+              l’Autre et quelles en ont été les conséquences du point de vue des
+              hommes. Alors nous décrirons du point de vue des femmes le monde
+              tel qu’il leur est proposé, et nous pourrons comprendre a quelles
+              difficultés elles se heurtent au moment où, essayant de s’évader
+              de la sphère qui leur a été jusqu’a présent assignée, elles
+              prétendent participer au mitsein humain"
+            cite="Simone de Beauvoir"
+          />
 
           <Text as="pAbout">
             ART au féminin, c’est des podcasts, mais pas que. Vous y trouverez
