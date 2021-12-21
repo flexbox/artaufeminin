@@ -10,15 +10,13 @@ export default function SubscribeTipeee(): ReactElement {
         <Text as="p">
           Pour aider ART au féminin à réaliser ses futurs projets.
         </Text>
-        <div className="">
-          <Button
-            variant="outline"
-            href="https://fr.tipeee.com/art-au-feminin"
-            as="a"
-          >
-            Soutenir sur tipeee
-          </Button>
-        </div>
+        <Button
+          variant="outline"
+          href="https://fr.tipeee.com/art-au-feminin"
+          as="a"
+        >
+          Soutenir sur tipeee
+        </Button>
       </div>
     </Card>
   )
