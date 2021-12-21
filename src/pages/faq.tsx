@@ -39,11 +39,11 @@ export default function FaqPage({ data }: FaqPageProps): ReactElement {
         title="Questions fréquentes"
         description="Conseils et réponses sur le podcast."
       />
-      <article className="post-content no-image">
-        <div className="post-content-header">
-          <h1 className="post-content-title">Questions fréquentes</h1>
+      <article className="prose m-auto">
+        <div>
+          <h1>Questions fréquentes</h1>
         </div>
-        <div className="post-content-body">
+        <div>
           {questions.map((question, index) => {
             return <QuestionItem key={index} question={question} />
           })}
