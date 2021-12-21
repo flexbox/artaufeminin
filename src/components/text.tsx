@@ -30,7 +30,7 @@ export default function Text({ children, as, className, ...props }: TextProps) {
     return (
       <h2
         {...props}
-        className="text-gray-700 md:text-4xl font-bold mt-4 leading-snug text-2xl"
+        className={`text-gray-700 md:text-4xl font-bold mt-4 leading-snug text-2xl ${className}`}
       >
         {children}
       </h2>
@@ -40,7 +40,7 @@ export default function Text({ children, as, className, ...props }: TextProps) {
     return (
       <h2
         {...props}
-        className="text-gray-700 font-bold mt-2 mb-0 leading-snug text-2xl"
+        className={`text-gray-700 font-bold mt-2 mb-0 leading-snug text-2xl ${className}`}
       >
         {children}
       </h2>
@@ -50,7 +50,7 @@ export default function Text({ children, as, className, ...props }: TextProps) {
     return (
       <h2
         {...props}
-        className="text-gray-700 font-bold mt-2 mb-0 leading-snug text-2xl"
+        className={`text-gray-700 font-bold mt-2 mb-0 leading-snug text-2xl ${className}`}
       >
         {children}
       </h2>
@@ -58,14 +58,14 @@ export default function Text({ children, as, className, ...props }: TextProps) {
   }
   if (as === "h3") {
     return (
-      <h3 {...props} className="text-lg mt-2">
+      <h3 {...props} className={`text-lg mt-2 ${className}`}>
         {children}
       </h3>
     )
   }
   if (as === "h3Link") {
     return (
-      <h3 {...props} className="text-lg text-blue-500 mt-2">
+      <h3 {...props} className={`text-lg text-blue-500 mt-2 ${className}`}>
         {children}
       </h3>
     )
@@ -73,14 +73,17 @@ export default function Text({ children, as, className, ...props }: TextProps) {
 
   if (as === "p") {
     return (
-      <p {...props} className="mb-6 text-xl sm:text-base text-gray-500">
+      <p
+        {...props}
+        className={`mb-6 text-xl sm:text-base text-gray-500 ${className}`}
+      >
         {children}
       </p>
     )
   }
   if (as === "pAbout") {
     return (
-      <p {...props} className="mb-6 text-xl text-gray-500 mt-2">
+      <p {...props} className={`mb-6 text-xl text-gray-500 mt-2 ${className}`}>
         {children}
       </p>
     )
@@ -89,7 +92,7 @@ export default function Text({ children, as, className, ...props }: TextProps) {
     return (
       <p
         {...props}
-        className="mb-6 text-lg text-gray-500 mt-2 font-thin leading-relaxed"
+        className={`mb-6 text-lg text-gray-500 mt-2 font-thin leading-relaxed ${className}`}
       >
         {children}
       </p>
