@@ -2,7 +2,7 @@ import React from "react"
 
 interface QuoteProps {
   quote: string
-  cite: string
+  cite?: string
 }
 
 export default function Quote({ quote }: QuoteProps) {
@@ -12,19 +12,24 @@ export default function Quote({ quote }: QuoteProps) {
         &ldquo;
       </div>
       <p className="mb-4">{quote}</p>
-      <cite className="flex items-center">
-        <div className="flex flex-col items-start">
-          <span className="mb-1 text-sm italic font-bold">nickd</span>
-          <a
-            href="..."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm"
-          >
-            Draft
-          </a>
-        </div>
-      </cite>
+      {cite && (
+        <cite className="flex items-center">
+          <div className="flex flex-col items-start">
+            <span className="mb-1 text-sm italic font-bold">— {cite}</span>
+          </div>
+        </cite>
+      )}
+      <div className="flex flex-col items-start">
+        <span className="mb-1 text-sm italic font-bold">nickd</span>
+        <a
+          href="..."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm"
+        >
+          Draft
+        </a>
+      </div>
     </blockquote>
   )
 }

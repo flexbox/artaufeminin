@@ -16,6 +16,7 @@ interface TextProps extends HTMLAttributes<HTMLHeadingElement> {
 }
 
 export default function Text({ children, as, className, ...props }: TextProps) {
+  className = ""
   if (as === "h1") {
     return (
       <h1
