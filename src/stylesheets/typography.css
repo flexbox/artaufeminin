@@ -42,9 +42,9 @@ hr.separator:after {
 }
 
 blockquote .stylistic-quote-mark {
+  @apply mr-2 hidden font-serif text-gray-300 text-4xl absolute top-0 leading-none;
   font-size: 5rem;
   right: 100%;
-  @apply mr-2 hidden font-serif text-gray-300 text-4xl absolute top-0 leading-none;
 }
 
 @screen sm {
