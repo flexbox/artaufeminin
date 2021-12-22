@@ -56,6 +56,11 @@ export default function Header({ siteTitle }: Props): ReactElement {
                 Épisodes
               </Link>
             </li>
+            <li className="nav-home px-2 hover:text-black">
+              <Link to={`/press`} activeClassName="text-black" className="p-2">
+                Presse
+              </Link>
+            </li>
             <li className="nav-about px-2 hover:text-black">
               <Link to={`/about`} activeClassName="text-black" className="p-2">
                 À propos
