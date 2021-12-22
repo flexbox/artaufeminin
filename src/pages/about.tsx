@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Author from "../components/author"
 import Text from "../components/text"
+import Quote from "../components/quote"
 
 export default function AboutPage() {
   return (
@@ -43,7 +44,7 @@ export default function AboutPage() {
             vue sur la place des femmes artistes dans le monde de l’art.
           </Text>
 
-          <blockquote className="-mx-52 py-12 m-auto items-center text-center">
+          <blockquote className="-mx-52 py-12 m-auto items-center text-center mb-12">
             <Text as="h2about">
               Nous commencerons par discuter les points de vue pris sur la femme
               par la biologie, la psychanalyse, le matérialisme historique. Nous
@@ -74,12 +75,10 @@ export default function AboutPage() {
                 Car je suis une passionnée d’art, une amoureuse du partage.
               </li>
               <li>
-                Car j’ai souvent entendue parler d’hommes artistes et beaucoup
-                moins de femmes artistes.
+                J’entend souvent parler d’hommes artistes et beaucoup moins de
+                femmes artistes.
               </li>
-              <li>
-                Car le monde de l’art regorge de talentueuses femmes artistes.
-              </li>
+              <li>Car le monde regorge de talentueuses femmes artistes.</li>
               <li>Car on en parle jamais trop,</li>
               <li>Car va va nous enrichir culturellement. </li>
             </ul>
@@ -93,26 +92,24 @@ export default function AboutPage() {
           <Author />
         </div>
 
-        <div>
-          <Text as="pAbout">
+        <div className="prose prose-xl prose-blue text-gray-500">
+          <p>
             <strong className="font-extrabold">P.S.</strong> Voici quelques
             pages de ce site qui ne sont pas incluses dans la navigation
             principale, mais qui pourraient vous intéresser :
-          </Text>
-          <Text as="pAbout">
-            <ul className="list-inside list-disc">
-              <li>
-                <Link className="text-blue-500 " to={"/faq"}>
-                  Questions fréquentes
-                </Link>
-              </li>
-              <li>
-                <Link className="text-blue-500 " to={"/start"}>
-                  Participer à un épisode
-                </Link>
-              </li>
-            </ul>
-          </Text>
+          </p>
+          <ul>
+            <li>
+              <Link className="text-blue-500 " to={"/faq"}>
+                Questions fréquentes
+              </Link>
+            </li>
+            <li>
+              <Link className="text-blue-500 " to={"/start"}>
+                Participer à un épisode
+              </Link>
+            </li>
+          </ul>
         </div>
       </article>
     </Layout>
