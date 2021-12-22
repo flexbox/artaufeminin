@@ -2,7 +2,6 @@ import React from "react"
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 import Button from "../components/button"
 import "typeface-merriweather"
-import "tailwindcss/tailwind.css"
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

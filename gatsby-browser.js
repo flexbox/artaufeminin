@@ -1,2 +1,2 @@
-import "./src/stylesheets/tailwind.css"
+import "./src/stylesheets/global.css"
 import "typeface-merriweather"

@@ -4,8 +4,6 @@ import Footer from "./footer"
 import Newsletter from "./newsletter"
 import Header from "./header"
 
-import "../stylesheets/styles.css"
-
 interface LayoutProps {
   children: ReactNode
 }

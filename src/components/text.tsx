@@ -22,7 +22,6 @@ export default function Text({
   ...props
 }: TextProps) {
   if (as === "h1") {
-    console.log("file: text.tsx ~ line 24 ~ className", className)
     return (
       <h1
         {...props}
