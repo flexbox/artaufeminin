@@ -7,6 +7,7 @@ module.exports = {
     ...siteConfig,
   },
   plugins: [
+    `gatsby-plugin-postcss`,
     {
       resolve: "gatsby-plugin-google-fonts",
       options: {
@@ -26,18 +27,6 @@ module.exports = {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
         siteUrl: `https://www.artaufeminin.fr`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-postcss`,
-      options: {
-        postCssPlugins: [
-          require("postcss-easy-import")(),
-          require("postcss-custom-properties")({
-            preserve: false,
-          }),
-          require("postcss-color-function")(),
-        ],
       },
     },
     {
