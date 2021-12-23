@@ -88,6 +88,11 @@ export default function Header({ siteTitle }: Props): ReactElement {
                 Épisodes
               </Link>
             </li>
+            <li className="nav-home  hover:text-black">
+              <Link to={`/press`} activeClassName="text-black">
+                Presse
+              </Link>
+            </li>
             <li className="nav-about  hover:text-black">
               <Link to={`/about`} activeClassName="text-black">
                 À propos
