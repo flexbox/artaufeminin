@@ -34,7 +34,6 @@
     "gatsby-plugin-typescript": "^4.1.0",
     "gatsby-source-anchor": "^0.5.1",
     "gatsby-source-filesystem": "^4.4.0",
-    "gatsby-source-instagram": "^0.9.0",
     "gatsby-source-prismic": "5.2.3",
     "gatsby-transformer-sharp": "^4.4.0",
     "postcss": "^8.4.5",
