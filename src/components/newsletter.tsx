@@ -4,7 +4,7 @@ import Text from "./text"
 
 export default function Newsletter(): ReactElement {
   return (
-    <div className="max-w-6xl m-auto  lg:items-center md:w-1/2 w-full">
+    <div className="max-w-6xl m-auto pt-12  lg:items-center md:w-1/2 w-full">
       <div className="m-auto text-center lg:flex-1">
         <Text as="h2">Inscrivez-vous à ma newsletter</Text>
         <Text as="p">
