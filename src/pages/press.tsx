@@ -13,7 +13,7 @@ export default function press({}: PressProps): ReactElement {
     <Layout>
       <SEO title="page presse" description="" />
       <Text as="h1" className="text-center text-3xl mb-12 m-auto pt-12">
-        Ces articles parlent d'Art au Féminin
+        Ces articles parlent d'ART au féminin
       </Text>
       <PressList />
       <ul className="flex  m-auto justify-center py-12">
