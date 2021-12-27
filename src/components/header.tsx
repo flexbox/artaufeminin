@@ -16,6 +16,7 @@ function HeaderRight() {
           title="Envoyer un email"
           target="_blank"
           rel="noopener noreferrer"
+          className="py-4 px-8"
         >
           Contacter par email
         </a>
@@ -48,7 +49,7 @@ export default function Header({ siteTitle }: Props): ReactElement {
                 <Link
                   to={`/articles`}
                   activeClassName="text-black"
-                  className="p-2"
+                  className="py-4 px-8 "
                 >
                   Articles
                 </Link>
@@ -57,7 +58,7 @@ export default function Header({ siteTitle }: Props): ReactElement {
                 <Link
                   to={`/podcast`}
                   activeClassName="text-black"
-                  className="p-2"
+                  className="py-4 px-8"
                 >
                   Épisodes
                 </Link>
@@ -66,7 +67,7 @@ export default function Header({ siteTitle }: Props): ReactElement {
                 <Link
                   to={`/press`}
                   activeClassName="text-black"
-                  className="p-2"
+                  className="py-4 px-8"
                 >
                   Presse
                 </Link>
@@ -75,7 +76,7 @@ export default function Header({ siteTitle }: Props): ReactElement {
                 <Link
                   to={`/about`}
                   activeClassName="text-black"
-                  className="p-2"
+                  className="py-4 px-8"
                 >
                   À propos
                 </Link>
@@ -90,7 +91,7 @@ export default function Header({ siteTitle }: Props): ReactElement {
       <div className={`${toggleNav ? `visible flex-col` : `invisible h-0`}`}>
         <nav className="w-full text-3xl fo text-gray-400 bg-white">
           <ul className="nav flex-col space-y-4 ">
-            <li className="nav-home hover:text-black">
+            <li className="nav-home hover:text-black ">
               <Link to={`/articles`} activeClassName="text-black">
                 Articles
               </Link>
