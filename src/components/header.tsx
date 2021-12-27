@@ -9,7 +9,7 @@ interface Props {
 
 function HeaderRight() {
   return (
-    <div className="w-0 md:w-1/3 flex justify-end text-gray-400 text-sm invisible lg:visible">
+    <div className="">
       <div className="social-links hover:text-black">
         <a
           href="mailto:artaufemininlepodcast@gmail.com"
@@ -36,44 +36,56 @@ export default function Header({ siteTitle }: Props): ReactElement {
         >
           {toggleNav ? <Burger /> : <Cross />}
         </button>
-        <nav className="flex w-0 md:w-1/3 justify-start text-sm text-gray-400">
-          <ul className="nav flex invisible lg:visible">
-            <li className="nav-home px-2 hover:text-black">
-              <Link
-                to={`/articles`}
-                activeClassName="text-black"
-                className="p-2"
-              >
-                Articles
-              </Link>
-            </li>
-            <li className="nav-home px-2 hover:text-black">
-              <Link
-                to={`/podcast`}
-                activeClassName="text-black"
-                className="p-2"
-              >
-                Épisodes
-              </Link>
-            </li>
-            <li className="nav-home px-2 hover:text-black">
-              <Link to={`/press`} activeClassName="text-black" className="p-2">
-                Presse
-              </Link>
-            </li>
-            <li className="nav-about px-2 hover:text-black">
-              <Link to={`/about`} activeClassName="text-black" className="p-2">
-                À propos
-              </Link>
-            </li>
-          </ul>
-        </nav>
-        <div className="relative site-head-center w-full justify-center items-center md:w-1/3 flex   sm:pl-0  lg:pl-0 lg:justify-center text-2xl font-medium">
-          <Link className="font-bold" to={`/`}>
-            {siteTitle}
-          </Link>
+        <div className="flex-col m-auto w-2/3">
+          <div className="text-center relative site-head-center w-full justify-center items-center  flex   sm:pl-0  lg:pl-0 lg:justify-center text-2xl font-medium">
+            <Link className="font-bold" to={`/`}>
+              {siteTitle}
+            </Link>
+          </div>
+          <nav className="mt-8 flex m-auto justify-center space-x-6 text-sm text-gray-400">
+            <ul className="w-full nav flex invisible lg:visible">
+              <li className="nav-home px-2 hover:text-black w-1/5 text-center">
+                <Link
+                  to={`/articles`}
+                  activeClassName="text-black"
+                  className="p-2"
+                >
+                  Articles
+                </Link>
+              </li>
+              <li className="nav-home px-2 hover:text-black w-1/5 text-center">
+                <Link
+                  to={`/podcast`}
+                  activeClassName="text-black"
+                  className="p-2"
+                >
+                  Épisodes
+                </Link>
+              </li>
+              <li className="nav-home px-2 hover:text-black w-1/5 text-center">
+                <Link
+                  to={`/press`}
+                  activeClassName="text-black"
+                  className="p-2"
+                >
+                  Presse
+                </Link>
+              </li>
+              <li className="nav-about px-2 hover:text-black w-1/5 text-center">
+                <Link
+                  to={`/about`}
+                  activeClassName="text-black"
+                  className="p-2"
+                >
+                  À propos
+                </Link>
+              </li>
+              <li className="nav-about px-2 hover:text-black w-1/5 text-center">
+                <HeaderRight />
+              </li>
+            </ul>
+          </nav>
         </div>
-        <HeaderRight />
       </div>
       <div className={`${toggleNav ? `visible flex-col` : `invisible h-0`}`}>
         <nav className="w-full text-3xl fo text-gray-400 bg-white">
