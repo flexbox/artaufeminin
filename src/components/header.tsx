@@ -89,30 +89,30 @@ export default function Header({ siteTitle }: Props): ReactElement {
         </div>
       </div>
       <div className={`${toggleNav ? `visible flex-col` : `invisible h-0`}`}>
-        <nav className="w-full text-3xl fo text-gray-400 bg-white">
+        <nav className="w-full py-4 text-3xl fo text-gray-400 bg-white">
           <ul className="nav flex-col space-y-4 ">
-            <li className="nav-home hover:text-black ">
+            <li className="nav-home hover:text-black py-2 ">
               <Link to={`/articles`} activeClassName="text-black">
                 Articles
               </Link>
             </li>
-            <li className="nav-home  hover:text-black">
+            <li className="nav-home  hover:text-black py-2">
               <Link to={`/podcast`} activeClassName="text-black">
                 Épisodes
               </Link>
             </li>
-            <li className="nav-home  hover:text-black">
+            <li className="nav-home  hover:text-black py-2">
               <Link to={`/press`} activeClassName="text-black">
                 Presse
               </Link>
             </li>
-            <li className="nav-about  hover:text-black">
+            <li className="nav-about  hover:text-black py-2">
               <Link to={`/about`} activeClassName="text-black">
                 À propos
               </Link>
             </li>
-            <li className="nav-about  hover:text-black">
-              <div className="w-1/3 flex-col justify-end text-gray-400">
+            <li className="nav-about  hover:text-black py-2">
+              <div className="flex-col justify-end text-gray-400">
                 <div className="social-links hover:text-black">
                   <a
                     href="mailto:artaufemininlepodcast@gmail.com"
