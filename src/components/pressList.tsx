@@ -88,7 +88,7 @@ const PressList = () => {
         id: "22811171-efc6-5a9b-b91c-6ff11d77df34",
         data: {
           description: {
-            text: "Pour le tout premier Hors-Série de ART au Féminin, j'ai eu la chance d'être interviewée par Aldjia fondatrice et animatrice du podcast ART au Féminin",
+            text: "Pour le tout premier Hors-Série de ART au féminin, j'ai eu la chance d'être interviewée par Aldjia fondatrice et animatrice du podcast ART au féminin",
           },
           url: {
             url: "https://www.amylee.fr/podcast-art-feminin/",
