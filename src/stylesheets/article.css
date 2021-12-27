@@ -6,10 +6,32 @@
 .article-preview:hover h3 {
   text-decoration: underline;
 }
-.article-preview:hover .img {
-  transform: scale(1.05);
+.article-preview .img {
+  height: 100%;
+  width: 100%;
 }
-.item-episode:hover .img {
-  /* css des items podcast */
-  transform: scale(1.05);
+.article-preview .img {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.article-preview .img-parent {
+  height: 12rem;
+  width: 12rem;
+
+  overflow: hidden;
+  position: relative;
+  float: left;
+  display: inline-block;
+  cursor: pointer;
+}
+.article-preview:hover .img,
+.article-preview:focus .img {
+  transform: scale(1.1);
 }
