@@ -51,7 +51,7 @@ function ArticleItem({ article }: { article: ArticleProps }): ReactElement {
           </div>
           <div className="img-parent flex-shrink-0 px-3 ">
             <div
-              className="img bg-cover bg-center"
+              className="img bg-cover bg-center ease-in-out duration-300"
               style={{ backgroundImage: `url(${thumbnailUrl})` }}
             ></div>
           </div>
