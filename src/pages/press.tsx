@@ -13,7 +13,7 @@ export default function press({}: PressProps): ReactElement {
     <Layout>
       <SEO title="page presse" description="" />
       <Text as="h1" className="text-center text-3xl mb-12 m-auto pt-12">
-        Ces articles parlent d'Art au Féminin
+        Ces articles parlent d'ART au féminin
       </Text>
       <PressList />
       <ul className="flex  m-auto justify-center py-12">
@@ -54,7 +54,7 @@ export default function press({}: PressProps): ReactElement {
         <li>
           <StaticImage
             src="../images/logo/logo-black.svg"
-            alt="Logo Noir Art au Féminin"
+            alt="Logo Noir ART au féminin"
             width={200}
           />
         </li>
@@ -63,7 +63,7 @@ export default function press({}: PressProps): ReactElement {
           <StaticImage
             width={200}
             src="../images/logo/logo-green.svg"
-            alt="Logo Vert Art au Féminin"
+            alt="Logo Vert ART au féminin"
           />
         </li>
 
@@ -71,7 +71,7 @@ export default function press({}: PressProps): ReactElement {
           <StaticImage
             width={200}
             src="../images/logo/logo-white.svg"
-            alt="Logo Blanc Art au Féminin"
+            alt="Logo Blanc ART au féminin"
           />
         </li>
       </ul>
@@ -80,7 +80,7 @@ export default function press({}: PressProps): ReactElement {
         <li>
           <StaticImage
             src="../images/logo/logo-black.png"
-            alt="Logo Noir Art au Féminin"
+            alt="Logo Noir ART au féminin"
             width={200}
           />
         </li>
@@ -89,7 +89,7 @@ export default function press({}: PressProps): ReactElement {
           <StaticImage
             width={200}
             src="../images/logo/logo-green.png"
-            alt="Logo Vert Art au Féminin"
+            alt="Logo Vert ART au féminin"
           />
         </li>
 
@@ -97,7 +97,7 @@ export default function press({}: PressProps): ReactElement {
           <StaticImage
             width={200}
             src="../images/logo/logo-white.png"
-            alt="Logo Blanc Art au Féminin"
+            alt="Logo Blanc ART au féminin"
           />
         </li>
       </ul>

@@ -24,7 +24,7 @@ const PressList = () => {
         id: "0f581395-d732-583b-a7f6-a5452d8ccf5d",
         data: {
           description: {
-            text: "Retrouvez Art au féminin sur Google Podcast",
+            text: "Retrouvez ART au féminin sur Google Podcast",
           },
           url: {
             url: "https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy85NDgzZGY4L3BvZGNhc3QvcnNz",
@@ -40,7 +40,7 @@ const PressList = () => {
         id: "1ffe6a7d-0863-5e89-9c01-08a90a762218",
         data: {
           description: {
-            text: "Retrouvez Art au féminin sur Podtail",
+            text: "Retrouvez ART au féminin sur Podtail",
           },
           url: {
             url: "https://podtail.com/fi/podcast/art-au-feminin/",
@@ -72,7 +72,7 @@ const PressList = () => {
         id: "6359dd98-01ff-5713-bb91-15acb445df6f",
         data: {
           description: {
-            text: "Apparition d'art au féminin ",
+            text: "Apparition d'ART au féminin ",
           },
           url: {
             url: "https://pantherepremiere.org/texte/la-peinture-apres-la-fin-de-la-peinture/",
@@ -88,7 +88,7 @@ const PressList = () => {
         id: "22811171-efc6-5a9b-b91c-6ff11d77df34",
         data: {
           description: {
-            text: "Pour le tout premier Hors-Série de ART au Féminin, j'ai eu la chance d'être interviewée par Aldjia fondatrice et animatrice du podcast ART au Féminin",
+            text: "Pour le tout premier Hors-Série de ART au féminin, j'ai eu la chance d'être interviewée par Aldjia fondatrice et animatrice du podcast ART au féminin",
           },
           url: {
             url: "https://www.amylee.fr/podcast-art-feminin/",
