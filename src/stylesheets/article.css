@@ -6,3 +6,10 @@
 .article-preview:hover h3 {
   text-decoration: underline;
 }
+.article-preview:hover .img {
+  transform: scale(1.05);
+}
+.item-episode:hover .img {
+  /* css des items podcast */
+  transform: scale(1.05);
+}
