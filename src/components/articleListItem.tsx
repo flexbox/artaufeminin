@@ -41,7 +41,7 @@ function ArticleItem({ article }: { article: ArticleProps }): ReactElement {
         to={`/article/${slug}`}
         className="article-preview hover:no-underline"
       >
-        <div className="flex flex-col md:flex-row my-6">
+        <div className="flex flex-col md:flex-row my-6 hover:scale-105 ease-in duration-300">
           <div className="flex-1 px-6">
             <Text as="h3Link">{title}</Text>
             <Text as="p">{descriptionTruncated}</Text>
