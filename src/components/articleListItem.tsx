@@ -20,12 +20,24 @@ interface ArticleProps {
     }
   }
 }
+interface ArticlePropsNext {
+  next: {
+    uid: string
+  }
+  previous: {
+    uid: string
+  }
+}
 
 interface ArticleListItemProps {
   allArticles: ArticleProps[]
+  allArticlesNext: ArticlePropsNext[]
 }
 
-function ArticleItem({ article }: { article: ArticleProps }): ReactElement {
+function ArticleItem(
+  { article }: { article: ArticleProps },
+  { articleNext }: { articleNext: ArticlePropsNext }
+): ReactElement {
   const slug = article.uid
   const thumbnailUrl = article.data.image.url
   const date = formatHumanDate(article.data.date)
@@ -34,6 +46,8 @@ function ArticleItem({ article }: { article: ArticleProps }): ReactElement {
   const descriptionTruncated = truncate(description, {
     length: 190,
   })
+  const next = articleNext.next.uid
+  const previous = articleNext.previous.uid
 
   return (
     <>
@@ -58,6 +72,7 @@ function ArticleItem({ article }: { article: ArticleProps }): ReactElement {
         </div>
       </Link>
       <hr className="separator mb-12" />
+      <p>{previous}</p>
     </>
   )
 }
@@ -67,8 +82,14 @@ export default function ArticleListItem({
 }: ArticleListItemProps): ReactElement {
   return (
     <>
-      {allArticles.map((article) => {
-        return <ArticleItem article={article} key={article.uid} />
+      {allArticles.map((article, articleNext) => {
+        return (
+          <ArticleItem
+            article={article}
+            articleNext={articleNext}
+            key={article.uid}
+          />
+        )
       })}
     </>
   )
