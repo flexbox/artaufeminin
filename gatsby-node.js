@@ -47,26 +47,34 @@ exports.createPages = async ({ graphql, actions }) => {
   const articles = await graphql(`
     query {
       allPrismicBlogPost {
-        nodes {
-          uid
-          data {
-            date
-            title {
-              text
-            }
-            image {
-              alt
-              copyright
-              url
-              gatsbyImageData
-            }
-            description {
-              text
-            }
-            content {
-              text
-              raw
-              html
+        edges {
+          next {
+            uid
+          }
+          previous {
+            uid
+          }
+          node {
+            uid
+            data {
+              date
+              title {
+                text
+              }
+              image {
+                alt
+                copyright
+                url
+                gatsbyImageData
+              }
+              description {
+                text
+              }
+              content {
+                text
+                raw
+                html
+              }
             }
           }
         }
@@ -74,12 +82,12 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  articles.data.allPrismicBlogPost.nodes.forEach((node) => {
+  articles.data.allPrismicBlogPost.edges.forEach((edge) => {
     createPage({
-      path: `article/${node.uid}`,
+      path: `article/${edge.node.uid}`,
       component: articleTemplate,
       context: {
-        ...node,
+        ...edge,
       },
     })
   })

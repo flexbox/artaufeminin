@@ -9,39 +9,55 @@ import { RichTextBlock } from "prismic-reactjs"
 import Text from "../components/text"
 
 interface PropsArticle {
-  pageContext
-  data: {
-    title: {
-      raw: RichTextBlock[]
+  pageContext: {
+    next: {
+      uid: string
     }
-    description: {
-      raw: RichTextBlock[]
+    previous: {
+      uid: string | null
     }
-    content: {
-      text: string
-      raw: RichTextBlock[]
-      html: string
-    }
-    date: string
-    image: {
-      url: string
-      alt: string
-      copyright: string
-      gatsbyImageData
+    node: {
+      uid: string
+      data: {
+        title: {
+          text: string
+        }
+        description: {
+          text: string
+        }
+        content: {
+          text: string
+          raw: RichTextBlock[]
+          html: string
+        }
+        date: string
+        image: {
+          url: string
+          alt: string
+          copyright: string
+          gatsbyImageData
+        }
+      }
     }
   }
 }
 
 export default function Article(props: PropsArticle): ReactElement {
-  const datePublished = formatHumanDate(props.pageContext.data.date)
-  const imageHero = props.pageContext.data.image
-  const seoTitle = props.pageContext.data.title.text
-  const seoDescription = props.pageContext.data.description.text
+  const { data } = props.pageContext.node
+
+  const datePublished = formatHumanDate(data.date)
+  const imageHero = data.image
+  const seoTitle = data.title.text
+  const seoDescription = data.description.text
+  const nextUid = props.pageContext.next.uid
+  const previousUid = props.pageContext.previous.uid
 
   return (
     <Layout>
       <SEO title={seoTitle} description={seoDescription} />
 
+      <h1>Next {nextUid}</h1>
+      <h1>Prev {previousUid}</h1>
       <div className="max-w-3xl justify-center m-auto">
         <header>
           <Text as="h1" className="mb-12 text-center">
@@ -66,7 +82,7 @@ export default function Article(props: PropsArticle): ReactElement {
           )}
 
           <div className="mb-20 article-content">
-            <CustomRichText render={props.pageContext.data.content.raw} />
+            <CustomRichText render={data.content.raw} />
           </div>
 
           <p className="text-gray-500 mb-20">
