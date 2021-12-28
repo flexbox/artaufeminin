@@ -8,7 +8,9 @@ export default function SubscribeTipeee(): ReactElement {
     <Card title="Mécénat">
       <div className="">
         <Text as="p">
-          Pour aider ART au féminin à réaliser ses futurs projets.
+          Si vous appréciez l'émission, vous avez désormais la possibilité de
+          m'encourager et de m'aider à continuer, ou tout simplement de montrer
+          que vous appréciez le travail accompli.
         </Text>
         <Button
           variant="outline"

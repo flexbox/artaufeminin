@@ -2,7 +2,8 @@ module.exports = {
   name: "ART au féminin",
   title: "ART au féminin",
   shortName: "ART",
-  description: "Explorons ensemble l’histoire des femmes artistes",
+  description:
+    "Explorons l’histoire des femmes artistes d’hier et d’aujourd’hui",
   url: "https://artaufeminin.fr",
   siteUrl: "https://artaufeminin.fr",
   prefix: "/",
