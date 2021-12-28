@@ -68,10 +68,9 @@ function Previous(props: PropsArticle): ReactElement {
   return (
     <Link
       to={`/article/${previousUid}`}
-      className=" hover:underline flex flex-col p-4 w-1/2 bg-white shadow-md m-auto "
+      className=" hover:underline flex p-4 w-2/3 bg-white shadow-md m-auto "
     >
-      <section className="">
-        <div>{previousTitle}</div>
+      <section className="flex flex-row text-left items-center">
         <img
           src={previousImgUrl}
           alt="test"
@@ -79,6 +78,7 @@ function Previous(props: PropsArticle): ReactElement {
           height={180}
           className="m-auto p-4 "
         />
+        <div>{previousTitle}</div>
       </section>
     </Link>
   )
@@ -92,10 +92,9 @@ function Next(props: PropsArticle): ReactElement {
   return (
     <Link
       to={`/article/${nextUid}`}
-      className="  flex flex-col p-4 w-1/2 hover:underline bg-white shadow-md m-auto"
+      className=" hover:underline flex p-4 w-2/3 bg-white shadow-md m-auto  "
     >
-      <section className="">
-        <div>{nextTitle}</div>
+      <section className="flex flex-row text-left items-center">
         <img
           src={nextImgUrl}
           alt="test"
@@ -103,6 +102,7 @@ function Next(props: PropsArticle): ReactElement {
           height={180}
           className="m-auto p-4 "
         />
+        <div>{nextTitle}</div>
       </section>
     </Link>
   )
@@ -167,7 +167,10 @@ export default function Article(props: PropsArticle): ReactElement {
       <Text as="h2" className="mb-12 text-center">
         Lectures Liées
       </Text>
-      <Text as="h3" className="flex m-auto mb-12 text-center w-2/3 space-x-8 ">
+      <Text
+        as="h3"
+        className="flex flex-col m-auto mb-12 text-center w-2/3 space-y-8 "
+      >
         {previous !== null && <Previous {...props} />}
         {next !== null && <Next {...props} />}
       </Text>
