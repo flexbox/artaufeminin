@@ -8,7 +8,6 @@ import { formatHumanDate } from "../utils/date"
 import { RichTextBlock } from "prismic-reactjs"
 import Text from "../components/text"
 import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 
 interface PropsArticle {
   pageContext: {
@@ -60,49 +59,27 @@ interface PropsArticle {
   }
 }
 
-function Previous(props: PropsArticle): ReactElement {
-  const previousImgUrl = props.pageContext.previous.data.image.url
-  const previousTitle = props.pageContext.previous.data.title.text
-  const previousUid = props.pageContext.previous.uid
-
-  return (
-    <Link
-      to={`/article/${previousUid}`}
-      className=" hover:underline flex p-4 w-2/3 m-auto "
-    >
-      <section className="flex flex-row text-left items-center">
-        <img
-          src={previousImgUrl}
-          alt="test"
-          width={180}
-          height={180}
-          className="m-auto p-4 "
-        />
-        <div>{previousTitle}</div>
-      </section>
-    </Link>
-  )
+interface NextPrevProps {
+  uid: string
+  imgUrl: string
+  title: string
 }
-function Next(props: PropsArticle): ReactElement {
-  const nextUid = props.pageContext.next.uid
 
-  const nextImgUrl = props.pageContext.next.data.image.url
-
-  const nextTitle = props.pageContext.next.data.title.text
+const NextPrevious = ({ uid, imgUrl, title }: NextPrevProps) => {
   return (
     <Link
-      to={`/article/${nextUid}`}
+      to={`/article/${uid}`}
       className=" hover:underline flex p-4 w-2/3  m-auto  "
     >
       <section className="flex flex-row text-left items-center">
         <img
-          src={nextImgUrl}
+          src={imgUrl}
           alt="test"
           width={180}
           height={180}
           className="m-auto p-4 "
         />
-        <div>{nextTitle}</div>
+        <div className="p-4">{title}</div>
       </section>
     </Link>
   )
@@ -117,6 +94,12 @@ export default function Article(props: PropsArticle): ReactElement {
   const seoDescription = data.description.text
   const next = props.pageContext.next
   const previous = props.pageContext.previous
+  const nextUid = props.pageContext.next.uid
+  const nextImgUrl = props.pageContext.next.data.image.url
+  const nextTitle = props.pageContext.next.data.title.text
+  const previousImgUrl = props.pageContext.previous.data.image.url
+  const previousTitle = props.pageContext.previous.data.title.text
+  const previousUid = props.pageContext.previous.uid
 
   return (
     <Layout>
@@ -164,17 +147,37 @@ export default function Article(props: PropsArticle): ReactElement {
           </p>
         </article>
       </div>
+      <div className="w-1/2 m-auto">
+        <hr className="separator" />
+      </div>
       <Text as="h2" className="mb-12 text-center">
         Lectures Liées
       </Text>
       <Text
-        as="h3"
+        as="h3Link"
         className="flex flex-col m-auto mb-12 text-center w-2/3 space-y-8 "
       >
-        {previous !== null && <Previous {...props} />}
-        {next !== null && <Next {...props} />}
-      </Text>
+        {previous !== null && (
+          <NextPrevious
+            {...props}
+            uid={previousUid}
+            imgUrl={previousImgUrl}
+            title={previousTitle}
+          />
+        )}
 
+        {next !== null && (
+          <NextPrevious
+            {...props}
+            uid={nextUid}
+            imgUrl={nextImgUrl}
+            title={nextTitle}
+          />
+        )}
+      </Text>
+      <div className="w-1/2 m-auto">
+        <hr className="separator" />
+      </div>
       <div className="justify-center m-auto w-full sm:w-1/3">
         <Author />
       </div>
