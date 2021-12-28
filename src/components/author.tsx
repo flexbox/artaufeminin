@@ -1,7 +1,8 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+// import StaticImage from "gatsby-plugin-image"
 import Text from "./text"
+import { StaticImage } from "gatsby-plugin-image"
 
 function Author() {
   return (
