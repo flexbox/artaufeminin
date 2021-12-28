@@ -7,82 +7,71 @@ interface Props {
   siteTitle: string
 }
 
-function HeaderRight() {
-  return (
-    <div className="">
-      <div className="social-links hover:text-black">
-        <a
-          href="mailto:artaufemininlepodcast@gmail.com"
-          title="Envoyer un email"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="py-4 px-8"
-        >
-          Contacter par email
-        </a>
-      </div>
-    </div>
-  )
-}
-
 export default function Header({ siteTitle }: Props): ReactElement {
   const [toggleNav, setToggleNav] = useState<boolean>(false)
 
   return (
     <header className="">
-      <div className="site-head-container py-12 flex">
+      <div className="site-head-container sm:py-6">
         <button
           className="flex visible lg:hidden mt-1"
           onClick={() => setToggleNav(!toggleNav)}
         >
           {toggleNav ? <Burger /> : <Cross />}
         </button>
-        <div className="flex-col m-auto w-2/3">
-          <div className="text-center relative site-head-center w-full justify-center items-center  flex   sm:pl-0  lg:pl-0 lg:justify-center text-2xl font-medium">
-            <Link className="font-bold" to={`/`}>
-              {siteTitle}
-            </Link>
-          </div>
-          <nav className="mt-8 flex m-auto justify-center space-x-6 text-sm text-gray-400">
-            <ul className="w-full nav flex invisible lg:visible">
-              <li className="nav-home px-2 hover:text-black w-1/5 text-center">
+        <div className="flex-col m-auto w-2/3 text-center">
+          <Link className="font-bold text-2xl sm:text-4xl" to={`/`}>
+            {siteTitle}
+          </Link>
+
+          <nav className="my-8 flex m-auto justify-center text-gray-400">
+            <ul className="flex invisible lg:visible">
+              <li className="px-2">
                 <Link
                   to={`/articles`}
-                  activeClassName="text-black"
-                  className="py-4 px-8 "
+                  activeClassName="text-gray-700 border-b-2 border-blue-300"
+                  className="py-4 px-8 hover:text-black font-extrabold text-lg"
                 >
                   Articles
                 </Link>
               </li>
-              <li className="nav-home px-2 hover:text-black w-1/5 text-center">
+              <li className="px-2">
                 <Link
                   to={`/podcast`}
-                  activeClassName="text-black"
-                  className="py-4 px-8"
+                  activeClassName="text-gray-700 border-b-2 border-blue-300"
+                  className="py-4 px-8 hover:text-black font-extrabold text-lg"
                 >
-                  Épisodes
+                  Podcast
                 </Link>
               </li>
-              <li className="nav-home px-2 hover:text-black w-1/5 text-center">
+              {/* <li className="px-2">
                 <Link
                   to={`/press`}
-                  activeClassName="text-black"
-                  className="py-4 px-8"
+                  activeClassName="text-gray-700 border-b-2 border-blue-300"
+                  className="py-4 px-8 hover:text-black font-extrabold text-lg"
                 >
                   Presse
                 </Link>
               </li>
-              <li className="nav-about px-2 hover:text-black w-1/5 text-center">
+              <li className="px-2">
                 <Link
                   to={`/about`}
-                  activeClassName="text-black"
-                  className="py-4 px-8"
+                  activeClassName="text-gray-700 border-b-2 border-blue-300"
+                  className="py-4 px-8 hover:text-black font-extrabold text-lg"
                 >
                   À propos
                 </Link>
-              </li>
-              <li className="nav-about px-2 hover:text-black w-1/5 text-center">
-                <HeaderRight />
+              </li> */}
+              <li className="px-2">
+                <a
+                  href="mailto:artaufemininlepodcast@gmail.com"
+                  title="Envoyer un email"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="py-4 px-8 hover:text-black font-extrabold text-lg"
+                >
+                  Me contacter par email
+                </a>
               </li>
             </ul>
           </nav>

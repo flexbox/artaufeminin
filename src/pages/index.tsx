@@ -21,15 +21,15 @@ const IndexPage = ({ data }) => {
 
       <div style={{ maxWidth: "80em", margin: "0 auto" }}>
         <Hero heroTitle={siteDescription}>
-          <div className="flex flex-col sm:flex-row mt-12">
-            <div className="flex-initial px-4 pl-0 mb-6">
+          <div className="flex flex-col md:flex-row mt-12">
+            <div className="flex-1 md:flex-initial mb-6 mr-4">
               <Link to={"/links"}>
                 <Button variant="solid" size="m">
                   Écouter et s’abonner
                 </Button>
               </Link>
             </div>
-            <div className=" flex-initial">
+            <div className="flex-1 sm:flex-initial">
               <Button
                 variant="outline"
                 as="icon"
@@ -40,7 +40,7 @@ const IndexPage = ({ data }) => {
           </div>
         </Hero>
 
-        <div className="max-w-6xl mb-16 md:mb-64 md:w-2/3 w-full">
+        <div className="max-w-6xl mb-16 md:mb-64 mt-16 md:w-2/3 w-full">
           <Text as="h2">Épisodes récents</Text>
           <hr className="separator mt-16 mb-12" />
           {allEpisodes.map((episode) => {
@@ -85,7 +85,8 @@ const IndexPage = ({ data }) => {
           </Text>
           <StaticImage
             src="../images/reviews.png"
-            alt={"5 étoiles pour ART au feminin sur Apple podcast"}
+            alt="5 étoiles pour ART au feminin sur Apple podcast"
+            className="mb-6"
           />
           <Text as="h2">Laissez moi une évaluation</Text>
           <Text as="p">
