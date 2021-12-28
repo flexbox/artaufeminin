@@ -68,7 +68,7 @@ function Previous(props: PropsArticle): ReactElement {
   return (
     <Link
       to={`/article/${previousUid}`}
-      className=" hover:underline flex p-4 w-2/3 bg-white shadow-md m-auto "
+      className=" hover:underline flex p-4 w-2/3 m-auto "
     >
       <section className="flex flex-row text-left items-center">
         <img
@@ -92,7 +92,7 @@ function Next(props: PropsArticle): ReactElement {
   return (
     <Link
       to={`/article/${nextUid}`}
-      className=" hover:underline flex p-4 w-2/3 bg-white shadow-md m-auto  "
+      className=" hover:underline flex p-4 w-2/3  m-auto  "
     >
       <section className="flex flex-row text-left items-center">
         <img
