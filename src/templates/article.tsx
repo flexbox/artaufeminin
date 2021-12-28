@@ -94,12 +94,12 @@ export default function Article(props: PropsArticle): ReactElement {
   const seoDescription = data.description.text
   const next = props.pageContext.next
   const previous = props.pageContext.previous
-  const nextUid = props.pageContext.next.uid
-  const nextImgUrl = props.pageContext.next.data.image.url
-  const nextTitle = props.pageContext.next.data.title.text
-  const previousImgUrl = props.pageContext.previous.data.image.url
-  const previousTitle = props.pageContext.previous.data.title.text
-  const previousUid = props.pageContext.previous.uid
+  const nextUid = props.pageContext.next?.uid
+  const nextImgUrl = props.pageContext.next?.data.image.url
+  const nextTitle = props.pageContext.next?.data.title.text
+  const previousImgUrl = props.pageContext.previous?.data.image.url
+  const previousTitle = props.pageContext.previous?.data.title.text
+  const previousUid = props.pageContext.previous?.uid
 
   return (
     <Layout>
