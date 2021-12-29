@@ -5,7 +5,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Author from "../components/author"
 import Text from "../components/text"
-import Quote from "../components/quote"
 
 export default function AboutPage() {
   return (
