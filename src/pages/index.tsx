@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link, StaticQuery } from "gatsby"
+import { graphql, Link, StaticQuery, useStaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -108,7 +108,7 @@ const IndexPage = ({ data }) => {
   )
 }
 
-const indexQuery = graphql`
+export const indexPageQuery = graphql`
   {
     site {
       siteMetadata {
@@ -167,11 +167,4 @@ const indexQuery = graphql`
   }
 `
 
-export default (props) => (
-  <StaticQuery
-    query={indexQuery}
-    render={(data) => (
-      <IndexPage location={props.location} data={data} {...props} />
-    )}
-  />
-)
+export default IndexPage
