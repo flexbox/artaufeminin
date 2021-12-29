@@ -33,7 +33,7 @@ export default function Header(): ReactElement {
 
         <div className="m-auto">
           <Link
-            className="font-bold text-gray-700 hover:text-lime-700 text-2xl sm:text-5xl p-12 flex justify-center transition duration-300 ease-in-out"
+            className="font-bold text-gray-700 hover:text-lime-700 text-2xl sm:text-5xl pt-6 pb-0 sm:p-12 flex justify-center transition duration-300 ease-in-out"
             to={`/`}
           >
             ART <span className="italic tracking-tighter ml-2">au féminin</span>
@@ -60,21 +60,21 @@ export default function Header(): ReactElement {
         </div>
       </div>
       <div className={`${toggleNav ? `visible flex-col` : `invisible h-0`}`}>
-        <nav className="w-full py-4 text-3xl fo text-gray-400">
-          <ul className="nav flex-col space-y-4 ">
+        <nav className="w-full px-4 text-3xl font-bold text-gray-400">
+          <ul className="nav space-y-4">
             <li className="hover:text-black py-2 ">
-              <Link to={`/articles`} activeClassName="text-black">
+              <Link to={`/articles`} activeClassName="text-lime-700">
                 Articles
               </Link>
             </li>
             <li className="hover:text-black py-2">
-              <Link to={`/podcast`} activeClassName="text-black">
+              <Link to={`/podcast`} activeClassName="text-lime-700">
                 Épisodes
               </Link>
             </li>
             <li className="nav-about  hover:text-black py-2">
               <div className="flex-col justify-end text-gray-400">
-                <div className="social-links hover:text-black">
+                <div className="hover:text-black">
                   <a
                     href="mailto:artaufemininlepodcast@gmail.com"
                     title="Envoyer un email"
@@ -87,6 +87,7 @@ export default function Header(): ReactElement {
               </div>
             </li>
           </ul>
+          <hr className="separator" />
         </nav>
       </div>
     </header>
