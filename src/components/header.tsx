@@ -23,12 +23,13 @@ export default function Header(): ReactElement {
   return (
     <header>
       <div className="">
-        <button
-          className="flex visible lg:hidden mt-1"
-          onClick={() => setToggleNav(!toggleNav)}
-        >
-          {toggleNav ? <Burger /> : <Cross />}
-        </button>
+        <div className="relative visible lg:hidden">
+          <div className="absolute top-6 left-6">
+            <button className="" onClick={() => setToggleNav(!toggleNav)}>
+              {toggleNav ? <Burger /> : <Cross />}
+            </button>
+          </div>
+        </div>
 
         <div className="m-auto">
           <Link
@@ -38,8 +39,8 @@ export default function Header(): ReactElement {
             ART <span className="italic tracking-tighter ml-2">au féminin</span>
           </Link>
 
-          <nav className="my-8 flex m-auto justify-center text-gray-400">
-            <ul className="flex invisible lg:visible">
+          <nav className="invisible h-0 lg:visible">
+            <ul className="text-gray-400 flex justify-center my-8">
               <HeaderLink to="/podcast" title="Podcast" />
               <HeaderLink to="/articles" title="Articles" />
 

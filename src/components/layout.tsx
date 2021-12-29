@@ -24,7 +24,7 @@ function Layout({ children, withNewsletter = false }: LayoutProps) {
   return (
     <div className="bg-gray-50">
       <Header />
-      <main role="main" className="mt-12">
+      <main role="main" className="mt-12 px-4">
         {children}
       </main>
       {withNewsletter && <Newsletter />}
