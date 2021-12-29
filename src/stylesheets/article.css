@@ -4,7 +4,8 @@
 }
 
 .article-preview:hover h3 {
-  text-decoration: underline;
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
 }
 .article-preview .img {
   height: 100%;
@@ -23,7 +24,6 @@
 
   overflow: hidden;
   position: relative;
-  float: left;
   display: inline-block;
   cursor: pointer;
 }

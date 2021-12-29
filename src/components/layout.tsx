@@ -5,10 +5,11 @@ import Newsletter from "./newsletter"
 import Header from "./header"
 
 interface LayoutProps {
+  withNewsletter?: boolean
   children: ReactNode
 }
 
-function Layout({ children }: LayoutProps) {
+function Layout({ children, withNewsletter = false }: LayoutProps) {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -21,11 +22,13 @@ function Layout({ children }: LayoutProps) {
   const siteTitle = data.site.siteMetadata.title
 
   return (
-    <div className="bg-gray-50 p-4">
-      <Header siteTitle={siteTitle} />
-      <main role="main">{children}</main>
-      <Newsletter />
-      <Footer title={siteTitle} />
+    <div className="bg-gray-50">
+      <Header />
+      <main role="main" className="mt-12">
+        {children}
+      </main>
+      {withNewsletter && <Newsletter />}
+      <Footer siteTitle={siteTitle} />
     </div>
   )
 }

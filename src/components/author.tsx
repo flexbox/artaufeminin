@@ -11,7 +11,7 @@ function Author() {
       render={(data) => {
         const { author, social } = data.site.siteMetadata
         return (
-          <section className="flex p-8 bg-white shadow-md items-center">
+          <section className="flex p-8 bg-white shadow-md items-center my-12">
             <div className="flex-2 pr-12">
               <StaticImage
                 src="../images/profile-picture.jpg"
