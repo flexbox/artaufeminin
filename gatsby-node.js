@@ -87,9 +87,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 text
               }
               content {
-                text
-                raw
-                html
+                richText
               }
             }
           }
