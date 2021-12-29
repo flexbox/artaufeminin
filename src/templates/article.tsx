@@ -65,14 +65,14 @@ interface NextPrevProps {
 
 const OtherArticleLink = ({ uid, imgUrl, title }: NextPrevProps) => {
   return (
-    <Link to={`/article/${uid}`} className="">
+    <Link
+      to={`/article/${uid}`}
+      className="text-blue-500 hover:underline flex mb-8"
+    >
       <section className="flex flex-row text-left items-center">
-        <img
-          src={imgUrl}
-          alt="test"
-          width={180}
-          height={180}
-          className="m-auto p-4 "
+        <div
+          style={{ backgroundImage: `url(${imgUrl})` }}
+          className="w-24 h-24 sm:w-32 sm:h-32 bg-cover bg-center bg-no-repeat"
         />
         <div className="p-4">{title}</div>
       </section>
@@ -100,7 +100,7 @@ export default function Article(props: PropsArticle): ReactElement {
     <Layout withNewsletter={true}>
       <SEO title={seoTitle} description={seoDescription} />
 
-      <div className="max-w-3xl justify-center m-auto">
+      <div className="max-w-3xl m-auto">
         <header>
           <Text as="h1" className="my-24">
             {seoTitle}
@@ -129,6 +129,8 @@ export default function Article(props: PropsArticle): ReactElement {
             <CustomRichText render={data.content.richText} />
           </div>
 
+          <Author />
+
           <p className="text-gray-500 mb-20">
             Vous avez aimé cet article ?{" "}
             <a
@@ -143,34 +145,25 @@ export default function Article(props: PropsArticle): ReactElement {
             <em>Publié {datePublished}</em>
           </p>
         </article>
-      </div>
-      <Text as="h2" className="mb-12 text-center">
-        Autres articles
-      </Text>
-      <div className="w-1/2 m-auto">
-        <hr className="separator" />
 
+        <Text as="h2" className="mb-12">
+          Autres articles
+        </Text>
+        <hr className="separator" />
         {previous !== null && (
           <OtherArticleLink
-            {...props}
             uid={previousUid}
             imgUrl={previousImgUrl}
             title={previousTitle}
           />
         )}
-
         {next !== null && (
           <OtherArticleLink
-            {...props}
             uid={nextUid}
             imgUrl={nextImgUrl}
             title={nextTitle}
           />
         )}
-      </div>
-
-      <div className="m-auto w-1/3">
-        <Author />
       </div>
     </Layout>
   )
