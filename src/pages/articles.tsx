@@ -17,7 +17,7 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
   const articles = data.allPrismicBlogPost.nodes
 
   return (
-    <Layout withNewsletter>
+    <Layout>
       <SEO title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia" />
 
       <LayoutSidebar withPodcast={false}>

@@ -70,7 +70,7 @@ const IndexPage = ({ data }) => {
           </Link>
         </div>
 
-        <div className="max-w-6xl">
+        <div className="max-w-6xl mb-24">
           <Text as="h2">Ce que les auditeurs en disent</Text>
           <Text as="p">
             ⭐ Moyenne de 5/5 étoiles sur{" "}

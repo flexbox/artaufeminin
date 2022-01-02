@@ -1,6 +1,6 @@
 import React from "react"
 import { ComponentStory, ComponentMeta } from "@storybook/react"
-import Header from "../components/header"
+import Header from "./header"
 
 export default {
   title: "Example/Header",
@@ -14,7 +14,7 @@ export default {
 const Template: ComponentStory<typeof Header> = (args) => {
   return (
     <>
-      <Header siteTitle={"Art au Féminin"} />
+      <Header />
     </>
   )
 }

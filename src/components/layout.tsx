@@ -1,15 +1,13 @@
 import React, { ReactNode } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Footer from "./footer"
-import Newsletter from "./newsletter"
 import Header from "./header"
 
 interface LayoutProps {
-  withNewsletter?: boolean
   children: ReactNode
 }
 
-function Layout({ children, withNewsletter = false }: LayoutProps) {
+function Layout({ children }: LayoutProps) {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -27,7 +25,6 @@ function Layout({ children, withNewsletter = false }: LayoutProps) {
       <main role="main" className="mt-12 px-4">
         {children}
       </main>
-      {withNewsletter && <Newsletter />}
       <Footer siteTitle={siteTitle} />
     </div>
   )
