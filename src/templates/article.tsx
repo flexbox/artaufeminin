@@ -97,7 +97,7 @@ export default function Article(props: PropsArticle): ReactElement {
   const previousUid = props.pageContext.previous?.uid
 
   return (
-    <Layout withNewsletter={true}>
+    <Layout>
       <SEO title={seoTitle} description={seoDescription} />
 
       <div className="max-w-3xl m-auto">
