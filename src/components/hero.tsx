@@ -10,7 +10,7 @@ interface HeroProps {
 export default function Hero({ children, heroTitle }: HeroProps): ReactElement {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-flow-col gap-8 justify-items-auto">
-      <div className="justify-center flex flex-col pr-16">
+      <div className="justify-center flex flex-col">
         <Text as="h1">{heroTitle}</Text>
         {children}
       </div>

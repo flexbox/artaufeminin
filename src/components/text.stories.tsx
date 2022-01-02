@@ -1,4 +1,5 @@
 import React from "react"
+import Hr from "./hr"
 import Text from "./text"
 
 export default {
@@ -27,6 +28,9 @@ export const TextStory = () => {
         <Text as="h3Link">
           h3Link - Pourquoi n'y a-t-il pas eu de grands artistes femmes ?
         </Text>
+      </div>
+      <div className="mb-10">
+        <Hr />
       </div>
       <div className="mb-10">
         <Text as="p">

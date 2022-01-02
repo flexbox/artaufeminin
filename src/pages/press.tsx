@@ -4,48 +4,72 @@ import { StaticImage } from "gatsby-plugin-image"
 import SEO from "../components/seo"
 import PressList from "../components/pressList"
 import Text from "../components/text"
-import { Link } from "gatsby"
 
-interface PressProps {}
+const PressLogoList = () => (
+  <ul className="flex m-auto justify-center py-2">
+    <li>
+      <StaticImage
+        src="../images/logo-panthere-premiere.png"
+        alt="Logo Premier Panthere"
+        placeholder="blurred"
+      />
+    </li>
+    <li>
+      <StaticImage
+        src="../images/logo-podtail.png"
+        alt="Logo Podtail"
+        placeholder="blurred"
+      />
+    </li>
+    <li>
+      <StaticImage
+        src="../images/logo-google-podcast.png"
+        alt="Logo Google Podcast"
+        placeholder="blurred"
+      />
+    </li>
+    <li>
+      <StaticImage
+        src="../images/logo-cultea.png"
+        alt="Logo Cultea"
+        placeholder="blurred"
+      />
+    </li>
+    <li>
+      <StaticImage
+        src="../images/logo-francetv.png"
+        alt="Logo France Info"
+        placeholder="blurred"
+      />
+    </li>
+    <li>
+      <StaticImage
+        src="../images/logo-amylee.png"
+        alt="Logo Amylee"
+        placeholder="blurred"
+      />
+    </li>
+  </ul>
+)
 
-export default function press({}: PressProps): ReactElement {
+export default function pressPage(): ReactElement {
   return (
     <Layout>
-      <SEO title="page presse" description="" />
-      <Text as="h1" className="text-center text-3xl mb-12 m-auto pt-12">
-        Ces articles parlent d'ART au féminin
-      </Text>
-      <PressList />
-      <ul className="flex  m-auto justify-center py-12">
-        <li>
-          <StaticImage
-            src="../images/logo-panthere-premiere.png"
-            alt="Logo Premier Panthere"
-          />
-        </li>
-        <li>
-          <StaticImage src="../images/logo-podtail.png" alt="Logo Podtail" />
-        </li>
-        <li>
-          <StaticImage
-            src="../images/logo-google-podcast.png"
-            alt="Logo Google Podcast"
-          />
-        </li>
-        <li>
-          <StaticImage src="../images/logo-cultea.png" alt="Logo Cultea" />
-        </li>
-        <li>
-          <StaticImage
-            src="../images/logo-francetv.png"
-            alt="Logo France Info"
-          />
-        </li>
+      <SEO
+        title="Espace Presse"
+        description="Le podcast nouvelle génération qui nous raconte l'histoire des femmes artistes d'hier et d'aujoud'hui"
+      />
+      <div className="max-w-2xl m-auto">
+        <Text as="h1" className="mb-4">
+          Presse
+        </Text>
+        <Text as="p" className="">
+          Contact presse : artaufemininlepodcast@gmail.com
+        </Text>
+        <PressLogoList />
+        <PressList />
+      </div>
 
-        <li>
-          <StaticImage src="../images/logo-amylee.png" alt="Logo Amylee" />
-        </li>
-      </ul>
       <Text as="h2" className="text-center my-8">
         Logos
       </Text>

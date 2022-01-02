@@ -3,117 +3,78 @@ import React, { ReactElement, useState } from "react"
 import Burger from "../components/burger"
 import Cross from "../components/cross"
 
-interface Props {
-  siteTitle: string
-}
-
-function HeaderRight() {
+const HeaderLink = ({ to, title }: { to: string; title: string }) => {
   return (
-    <div className="">
-      <div className="social-links hover:text-black">
-        <a
-          href="mailto:artaufemininlepodcast@gmail.com"
-          title="Envoyer un email"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="py-4 px-8"
-        >
-          Contacter par email
-        </a>
-      </div>
-    </div>
+    <li className="px-4">
+      <Link
+        to={to}
+        activeClassName="text-lime-700 relative"
+        className="py-4 px-8 hover:text-black font-extrabold text-lg"
+      >
+        <span className="relative">{title}</span>
+      </Link>
+    </li>
   )
 }
 
-export default function Header({ siteTitle }: Props): ReactElement {
+export default function Header(): ReactElement {
   const [toggleNav, setToggleNav] = useState<boolean>(false)
 
   return (
-    <header className="">
-      <div className="site-head-container py-12 flex">
-        <button
-          className="flex visible lg:hidden mt-1"
-          onClick={() => setToggleNav(!toggleNav)}
-        >
-          {toggleNav ? <Burger /> : <Cross />}
-        </button>
-        <div className="flex-col m-auto w-2/3">
-          <div className="text-center relative site-head-center w-full justify-center items-center  flex   sm:pl-0  lg:pl-0 lg:justify-center text-2xl font-medium">
-            <Link className="font-bold" to={`/`}>
-              {siteTitle}
-            </Link>
+    <header>
+      <div className="">
+        <div className="relative visible lg:hidden">
+          <div className="absolute top-6 left-6">
+            <button className="" onClick={() => setToggleNav(!toggleNav)}>
+              {toggleNav ? <Burger /> : <Cross />}
+            </button>
           </div>
-          <nav className="mt-8 flex m-auto justify-center space-x-6 text-sm text-gray-400">
-            <ul className="w-full nav flex invisible lg:visible">
-              <li className="nav-home px-2 hover:text-black w-1/5 text-center">
-                <Link
-                  to={`/articles`}
-                  activeClassName="text-black"
-                  className="py-4 px-8 "
+        </div>
+
+        <div className="m-auto">
+          <Link
+            className="font-bold text-gray-700 hover:text-black text-2xl sm:text-5xl pt-6 pb-0 sm:pt-12 flex justify-center transition duration-300 ease-in-out"
+            to={`/`}
+          >
+            ART <span className="italic tracking-tighter ml-2">au féminin</span>
+          </Link>
+
+          <nav className="invisible h-0 sm:h-auto lg:visible">
+            <ul className="text-gray-400 flex justify-center my-8">
+              <HeaderLink to="/podcast" title="Podcast" />
+              <HeaderLink to="/articles" title="Articles" />
+
+              <li className="px-4">
+                <a
+                  href="mailto:artaufemininlepodcast@gmail.com"
+                  title="Envoyer un email"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="py-4 px-8 hover:text-black font-extrabold text-lg"
                 >
-                  Articles
-                </Link>
-              </li>
-              <li className="nav-home px-2 hover:text-black w-1/5 text-center">
-                <Link
-                  to={`/podcast`}
-                  activeClassName="text-black"
-                  className="py-4 px-8"
-                >
-                  Épisodes
-                </Link>
-              </li>
-              <li className="nav-home px-2 hover:text-black w-1/5 text-center">
-                <Link
-                  to={`/press`}
-                  activeClassName="text-black"
-                  className="py-4 px-8"
-                >
-                  Presse
-                </Link>
-              </li>
-              <li className="nav-about px-2 hover:text-black w-1/5 text-center">
-                <Link
-                  to={`/about`}
-                  activeClassName="text-black"
-                  className="py-4 px-8"
-                >
-                  À propos
-                </Link>
-              </li>
-              <li className="nav-about px-2 hover:text-black w-1/5 text-center">
-                <HeaderRight />
+                  Me contacter par email
+                </a>
               </li>
             </ul>
           </nav>
         </div>
       </div>
       <div className={`${toggleNav ? `visible flex-col` : `invisible h-0`}`}>
-        <nav className="w-full py-4 text-3xl fo text-gray-400 bg-white">
-          <ul className="nav flex-col space-y-4 ">
-            <li className="nav-home hover:text-black py-2 ">
-              <Link to={`/articles`} activeClassName="text-black">
+        <nav className="w-full px-4 text-3xl font-bold text-gray-400">
+          <ul className="nav space-y-4">
+            <li className="hover:text-black py-2 ">
+              <Link to={`/articles`} activeClassName="text-lime-700">
                 Articles
               </Link>
             </li>
-            <li className="nav-home  hover:text-black py-2">
-              <Link to={`/podcast`} activeClassName="text-black">
+            <li className="hover:text-black py-2">
+              <Link to={`/podcast`} activeClassName="text-lime-700">
                 Épisodes
-              </Link>
-            </li>
-            <li className="nav-home  hover:text-black py-2">
-              <Link to={`/press`} activeClassName="text-black">
-                Presse
-              </Link>
-            </li>
-            <li className="nav-about  hover:text-black py-2">
-              <Link to={`/about`} activeClassName="text-black">
-                À propos
               </Link>
             </li>
             <li className="nav-about  hover:text-black py-2">
               <div className="flex-col justify-end text-gray-400">
-                <div className="social-links hover:text-black">
+                <div className="hover:text-black">
                   <a
                     href="mailto:artaufemininlepodcast@gmail.com"
                     title="Envoyer un email"
@@ -126,6 +87,7 @@ export default function Header({ siteTitle }: Props): ReactElement {
               </div>
             </li>
           </ul>
+          <hr className="separator" />
         </nav>
       </div>
     </header>
