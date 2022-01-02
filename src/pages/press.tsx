@@ -60,7 +60,7 @@ export default function pressPage(): ReactElement {
         description="Le podcast nouvelle génération qui nous raconte l'histoire des femmes artistes d'hier et d'aujoud'hui"
       />
       <div className="max-w-2xl m-auto">
-        <Text as="h1" className=" mb-4">
+        <Text as="h1" className="mb-4">
           Presse
         </Text>
         <Text as="p" className="">

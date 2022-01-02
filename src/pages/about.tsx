@@ -14,7 +14,7 @@ export default function AboutPage() {
         description="à l’origine du projet, une question simple : combien existe-t-il de femme artistes dans les musées. La réponse est difficile à trouver voire impossible sans recherches approfondies que vous pourrez découvrir en écoutant le podcast."
       />
 
-      <article className="w-1/2 m-auto">
+      <article className="max-w-2xl m-auto">
         <div>
           <Text as="h2about">Mon histoire</Text>
           <Text as="pAbout">
@@ -87,28 +87,8 @@ export default function AboutPage() {
           </Text>
         </div>
 
-        <div className="my-48">
+        <div className="my-24">
           <Author />
-        </div>
-
-        <div className="prose prose-xl prose-blue text-gray-500">
-          <p>
-            <strong className="font-extrabold">P.S.</strong> Voici quelques
-            pages de ce site qui ne sont pas incluses dans la navigation
-            principale, mais qui pourraient vous intéresser :
-          </p>
-          <ul>
-            <li>
-              <Link className="text-blue-500 " to={"/faq"}>
-                Questions fréquentes
-              </Link>
-            </li>
-            <li>
-              <Link className="text-blue-500 " to={"/start"}>
-                Participer à un épisode
-              </Link>
-            </li>
-          </ul>
         </div>
       </article>
     </Layout>
