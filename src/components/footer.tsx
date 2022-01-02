@@ -12,6 +12,7 @@ const navigation = {
     { name: "Questions fréquentes", href: "/faq" },
     { name: "Presse", href: "/press" },
   ],
+  podcast: [{ name: "Participer", href: "/start" }],
   social: [
     {
       name: "Facebook",
@@ -61,6 +62,23 @@ export default function Footer({ siteTitle }: FooterProps) {
                 </h3>
                 <ul role="list" className="mt-4 space-y-4">
                   {navigation.about.map((item) => (
+                    <li key={item.name}>
+                      <Link
+                        to={item.href}
+                        className="text-base text-white hover:text-gray-900"
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold text-white tracking-wider uppercase">
+                  Le podcast
+                </h3>
+                <ul role="list" className="mt-4 space-y-4">
+                  {navigation.podcast.map((item) => (
                     <li key={item.name}>
                       <Link
                         to={item.href}
