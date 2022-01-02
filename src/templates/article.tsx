@@ -106,7 +106,7 @@ export default function Article(props: PropsArticle): ReactElement {
             {seoTitle}
           </Text>
           <div className="prose prose-xl">
-            <p className="first-line:uppercase first-line:tracking-widest first-letter:text-7xl first-letter:font-bold first-letter:text-gray-700 first-letter:mt-2 first-letter:mr-3 first-letter:float-left">
+            <p className="first-line:uppercase first-line:tracking-widest first-letter:text-7xl first-letter:font-bold first-letter:text-gray-700 first-letter:mt-2 first-letter:mr-3 first-letter:float-left font-merri">
               {seoDescription}
             </p>
           </div>
@@ -128,9 +128,6 @@ export default function Article(props: PropsArticle): ReactElement {
           <div className="mb-20 article-content">
             <CustomRichText render={data.content.richText} />
           </div>
-
-          <Author />
-
           <p className="text-gray-500 mb-20">
             Vous avez aimé cet article ?{" "}
             <a
@@ -144,6 +141,8 @@ export default function Article(props: PropsArticle): ReactElement {
             <br />
             <em>Publié {datePublished}</em>
           </p>
+
+          <Author />
         </article>
 
         <Text as="h2" className="mb-12">

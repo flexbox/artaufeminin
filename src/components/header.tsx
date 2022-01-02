@@ -9,7 +9,7 @@ const HeaderLink = ({ to, title }: { to: string; title: string }) => {
       <Link
         to={to}
         activeClassName="text-lime-700 relative"
-        className="py-4 px-8 hover:text-lime-700 font-extrabold text-lg"
+        className="py-4 px-8 hover:text-lime-600 font-extrabold text-lg"
       >
         <span className="relative">{title}</span>
       </Link>
@@ -33,13 +33,13 @@ export default function Header(): ReactElement {
 
         <div className="m-auto">
           <Link
-            className="font-bold text-gray-700 hover:text-lime-700 text-2xl sm:text-5xl pt-6 pb-0 sm:p-12 flex justify-center transition duration-300 ease-in-out"
+            className="font-bold text-gray-700 hover:text-lime-600 text-2xl sm:text-5xl pt-6 pb-0 sm:pt-12 flex justify-center transition duration-300 ease-in-out"
             to={`/`}
           >
             ART <span className="italic tracking-tighter ml-2">au féminin</span>
           </Link>
 
-          <nav className="invisible h-0 lg:visible">
+          <nav className="invisible h-0 sm:h-auto lg:visible">
             <ul className="text-gray-400 flex justify-center my-8">
               <HeaderLink to="/podcast" title="Podcast" />
               <HeaderLink to="/articles" title="Articles" />
@@ -50,7 +50,7 @@ export default function Header(): ReactElement {
                   title="Envoyer un email"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="py-4 px-8 hover:text-lime-500 font-extrabold text-lg"
+                  className="py-4 px-8 hover:text-lime-600 font-extrabold text-lg"
                 >
                   Me contacter par email
                 </a>
