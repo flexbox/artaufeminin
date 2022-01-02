@@ -25,7 +25,7 @@ export default function Text({
     return (
       <h1
         {...props}
-        className={`text-gray-700 md:text-6xl font-bold leading-snug text-3xl tracking-tight ${className}`}
+        className={`text-gray-700 font-bold tracking-tight text-3xl md:text-6xl ${className}`}
       >
         {children}
       </h1>
@@ -35,7 +35,7 @@ export default function Text({
     return (
       <h2
         {...props}
-        className={`text-gray-700 md:text-4xl font-bold mt-4 leading-snug text-2xl ${className}`}
+        className={`text-gray-700 font-bold leading-snug text-2xl md:text-3xl ${className}`}
       >
         {children}
       </h2>
@@ -70,12 +70,14 @@ export default function Text({
   }
   if (as === "h3Link") {
     return (
-      <h3 {...props} className={`text-lg text-blue-500 mb-4 ${className}`}>
+      <h3
+        {...props}
+        className={`text-lg text-blue-500 mb-4 font-bold ${className}`}
+      >
         {children}
       </h3>
     )
   }
-
   if (as === "p") {
     return (
       <p
@@ -104,5 +106,9 @@ export default function Text({
     )
   }
 
-  return <p {...props}>{children}</p>
+  return (
+    <p {...props} className={className}>
+      {children}
+    </p>
+  )
 }

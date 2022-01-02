@@ -10,6 +10,11 @@ body {
   font-family: "Merriweather", serif !important;
 }
 
+p {
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
+    helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+}
+
 ::selection {
   text-shadow: none;
   background: #fef9c3;

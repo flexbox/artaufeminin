@@ -43,9 +43,7 @@ interface PropsArticle {
           text: string
         }
         content: {
-          text: string
-          raw: RichTextBlock[]
-          html: string
+          richText: RichTextBlock[]
         }
         date: string
         image: {
@@ -65,19 +63,16 @@ interface NextPrevProps {
   title: string
 }
 
-const NextPrevious = ({ uid, imgUrl, title }: NextPrevProps) => {
+const OtherArticleLink = ({ uid, imgUrl, title }: NextPrevProps) => {
   return (
     <Link
       to={`/article/${uid}`}
-      className=" hover:underline flex p-4 w-2/3  m-auto  "
+      className="text-blue-500 hover:underline flex mb-8"
     >
       <section className="flex flex-row text-left items-center">
-        <img
-          src={imgUrl}
-          alt="test"
-          width={180}
-          height={180}
-          className="m-auto p-4 "
+        <div
+          style={{ backgroundImage: `url(${imgUrl})` }}
+          className="w-24 h-24 sm:w-32 sm:h-32 bg-cover bg-center bg-no-repeat"
         />
         <div className="p-4">{title}</div>
       </section>
@@ -105,17 +100,19 @@ export default function Article(props: PropsArticle): ReactElement {
     <Layout>
       <SEO title={seoTitle} description={seoDescription} />
 
-      <div className="max-w-3xl justify-center m-auto">
+      <div className="max-w-3xl m-auto">
         <header>
-          <Text as="h1" className="mb-12 text-center">
+          <Text as="h1" className="my-24">
             {seoTitle}
           </Text>
           <div className="prose prose-xl">
-            <p>{seoDescription}</p>
+            <p className="first-line:uppercase first-line:tracking-widest first-letter:text-7xl first-letter:font-bold first-letter:text-gray-700 first-letter:mt-2 first-letter:mr-3 first-letter:float-left font-merri">
+              {seoDescription}
+            </p>
           </div>
         </header>
 
-        <article className="prose prose-lg prose-blue">
+        <article className="prose prose-xl prose-blue">
           {imageHero && (
             <div className="m-auto text-center mb-10 -mx-96 article-content">
               <figure>
@@ -129,9 +126,8 @@ export default function Article(props: PropsArticle): ReactElement {
           )}
 
           <div className="mb-20 article-content">
-            <CustomRichText render={data.content.raw} />
+            <CustomRichText render={data.content.richText} />
           </div>
-
           <p className="text-gray-500 mb-20">
             Vous avez aimé cet article ?{" "}
             <a
@@ -145,41 +141,28 @@ export default function Article(props: PropsArticle): ReactElement {
             <br />
             <em>Publié {datePublished}</em>
           </p>
+
+          <Author />
         </article>
-      </div>
-      <div className="w-1/2 m-auto">
+
+        <Text as="h2" className="mb-12">
+          Autres articles
+        </Text>
         <hr className="separator" />
-      </div>
-      <Text as="h2" className="mb-12 text-center">
-        Lectures Liées
-      </Text>
-      <Text
-        as="h3Link"
-        className="flex flex-col m-auto mb-12 text-center w-2/3 space-y-8 "
-      >
         {previous !== null && (
-          <NextPrevious
-            {...props}
+          <OtherArticleLink
             uid={previousUid}
             imgUrl={previousImgUrl}
             title={previousTitle}
           />
         )}
-
         {next !== null && (
-          <NextPrevious
-            {...props}
+          <OtherArticleLink
             uid={nextUid}
             imgUrl={nextImgUrl}
             title={nextTitle}
           />
         )}
-      </Text>
-      <div className="w-1/2 m-auto">
-        <hr className="separator" />
-      </div>
-      <div className="justify-center m-auto w-full sm:w-1/3">
-        <Author />
       </div>
     </Layout>
   )

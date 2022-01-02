@@ -2,6 +2,7 @@ import React, { ReactElement } from "react"
 import { graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import SEO from "../components/seo"
+import Text from "../components/text"
 
 interface Props {}
 
@@ -106,7 +107,7 @@ export default function LinksPage({}: Props): ReactElement {
         title="Liens"
         description="Retrouvez toujours plus de contenu sur ART au feminin,sur Instagram, sur Facebook, sur Spotify, sur Deezer, sur Anchor, sur Google Podcasts, sur Apple Podcasts, sur Tipeee, sur le site internet, sur les articles."
       />
-      <div className="max-w-5xl m-auto">
+      <div className="max-w-xl m-auto">
         <div className="flex justify-center mb-8">
           <StaticImage
             className="rounded-full"
@@ -116,32 +117,26 @@ export default function LinksPage({}: Props): ReactElement {
           />
         </div>
         <p className="text-center text-gray-400 mb-8">@artaufeminin</p>
-        <div className="mb-8">
-          <h2 className="my-2 text-2xl text-gray-500">
-            Soutenir ART au féminin
-          </h2>
+        <div className="mb-12">
+          <Text as="h2">Soutenir ART au féminin</Text>
           {allSponsorPlatforms.map((platform) => {
             return <LinkButton platform={platform} />
           })}
         </div>
-        <div className="mb-8">
-          <h2 className="my-2 text-2xl text-gray-500">Écouter le podcast</h2>
+        <div className="mb-12">
+          <Text as="h2">Écouter le podcast</Text>
           {allPodcastPlatforms.map((platform) => {
             return <LinkButton platform={platform} />
           })}
         </div>
-        <div className="mb-8">
-          <h2 className="my-2 text-2xl text-gray-500">
-            Les coulisses de l’émission
-          </h2>
+        <div className="mb-12">
+          <Text as="h2">Les coulisses de l’émission</Text>
           {allSocialLinks.map((platform) => {
             return <LinkButton platform={platform} />
           })}
         </div>
-        <div className="mb-8">
-          <h2 className="my-2 text-2xl text-gray-500">
-            ART au féminin le site
-          </h2>
+        <div className="mb-12">
+          <Text as="h2">ART au féminin le site</Text>
           {allMoreLinks.map((platform) => {
             return <LinkButton platform={platform} />
           })}

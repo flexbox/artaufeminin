@@ -1,6 +1,6 @@
 import React from "react"
 import { ComponentStory, ComponentMeta } from "@storybook/react"
-import Button from "../components/button"
+import Button from "./button"
 import "typeface-merriweather"
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

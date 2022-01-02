@@ -15,7 +15,7 @@ export default function LayoutSidebar({
   return (
     <div style={{ maxWidth: "80em", margin: "0 auto" }}>
       <div className="lg:grid lg:grid-cols-12 gap-12">
-        <div className=" md:col-span-4">
+        <div className="md:col-span-4">
           {withPodcast && <Subscribe />}
           <div className="hidden lg:flex">
             <SubscribeInstagram />

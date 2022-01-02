@@ -20,6 +20,7 @@ const PodcastPage = ({ data }) => {
         {allEpisodes.map((episode) => {
           return (
             <EpisodeItem
+              withPlayer={false}
               key={episode.id}
               episode={episode}
               isSummaryTruncate={true}

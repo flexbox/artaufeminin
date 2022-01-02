@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, ReactElement } from "react"
+import React, { ButtonHTMLAttributes } from "react"
 import ApplePodcastIcon from "./applePodacstIcon"
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -27,11 +27,11 @@ export default function Button({
 
   let classNamesVariant = "text-white m-4 text-xs "
   let classNamesSize = ""
+
   if (variant === "outline") {
     classNamesVariant =
       "no-underline text-blue-500 border-blue-500 border-2 border-solid m-0 hover:border-blue-600 hover:text-blue-600"
   }
-
   if (variant === "solid") {
     classNamesVariant =
       "no-underline  bg-blue-500 text-white text-md m-0  hover:bg-blue-600 mt-2 sm:mt-0 md:m-0"
@@ -85,16 +85,14 @@ export default function Button({
   }
   if (as === "icon") {
     return (
-      <>
-        <a {...props} href={href} target="_blank" rel="noopener noreferrer">
-          <ApplePodcastIcon
-            className={`${classNamesDefault} ${classNamesVariant}`}
-            {...props}
-            style={{ height: 57 }}
-          />
-          {children}
-        </a>
-      </>
+      <a {...props} href={href} target="_blank" rel="noopener noreferrer">
+        <ApplePodcastIcon
+          className={`${classNamesDefault} ${classNamesVariant}`}
+          {...props}
+          style={{ height: 57 }}
+        />
+        {children}
+      </a>
     )
   }
   return (
