@@ -72,7 +72,7 @@ const PressList = () => {
         id: "6359dd98-01ff-5713-bb91-15acb445df6f",
         data: {
           description: {
-            text: "Apparition d'ART au féminin ",
+            text: "Introduction au travail de Sylvia Sleigh",
           },
           url: {
             url: "https://pantherepremiere.org/texte/la-peinture-apres-la-fin-de-la-peinture/",
@@ -102,27 +102,23 @@ const PressList = () => {
   ]
 
   return (
-    <div>
-      <ul className="py-12">
-        {allPress.map((press) => {
-          return (
-            <div className="w-1/2 m-auto py-4 leading-6">
-              <li className="flex">
-                <Text as="h3">
-                  <a
-                    href={press.node.data.url.url}
-                    className="text-lg text-blue-500 mb-4"
-                  >
-                    {press.node.data.sitename.text}
-                  </a>
-                  : {press.node.data.description.text}
-                </Text>
-              </li>
-            </div>
-          )
-        })}
-      </ul>
-    </div>
+    <ul className="py-12">
+      {allPress.map((press) => {
+        return (
+          <li className="flex py-4 leading-6">
+            <Text as="h3">
+              <a
+                href={press.node.data.url.url}
+                className="text-lg text-blue-500 mb-4"
+              >
+                <strong>{press.node.data.sitename.text}</strong>
+              </a>
+              : {press.node.data.description.text}
+            </Text>
+          </li>
+        )
+      })}
+    </ul>
   )
 }
 

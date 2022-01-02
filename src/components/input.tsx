@@ -6,21 +6,16 @@ interface InputProps {
   variant?: "border" | "rounded"
 }
 
-export default function Input({
-  children,
-  variant,
-
-  ...props
-}: InputProps) {
+export default function Input({ children, variant, ...props }: InputProps) {
   const classNamesDefault =
-    "  mr-2 h-12 w-full px-5 border border-gray-300 shadow-sm placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:max-w-xs"
+    "mr-2 h-12 w-full px-5 border border-gray-300 shadow-sm placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:max-w-xs"
 
   let classNamesVariant = ""
+
   if (variant === "border") {
     classNamesVariant =
       "w-full px-5 py-1 border border-gray-300 shadow-sm placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:max-w-xs"
   }
-
   if (variant === "rounded") {
     classNamesVariant =
       "m-auto w-full px-5 py-1 border border-gray-300 shadow-sm placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:max-w-xs rounded-md"
@@ -55,7 +50,7 @@ export default function Input({
             className={`${classNamesDefault} ${classNamesVariant}`}
             placeholder="Entrez votre adresse email"
           />
-          <div className=" rounded-md    sm:flex-shrink-0">
+          <div className="rounded-md sm:flex-shrink-0">
             <Button variant="news" type="submit" size="s">
               Je m'inscris
             </Button>
