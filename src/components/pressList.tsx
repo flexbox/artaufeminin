@@ -109,7 +109,7 @@ const PressList = () => {
             <Text as="h3">
               <a
                 href={press.node.data.url.url}
-                className="text-lg text-blue-500 mb-4"
+                className="mb-4 text-lg text-blue-500"
               >
                 <strong>{press.node.data.sitename.text}</strong>
               </a>

@@ -6,7 +6,7 @@ import PressList from "../components/pressList"
 import Text from "../components/text"
 
 const PressLogoList = () => (
-  <ul className="flex m-auto justify-center py-2">
+  <ul className="m-auto flex justify-center py-2">
     <li>
       <StaticImage
         src="../images/logo-panthere-premiere.png"
@@ -59,7 +59,7 @@ export default function pressPage(): ReactElement {
         title="Espace Presse"
         description="Le podcast nouvelle génération qui nous raconte l'histoire des femmes artistes d'hier et d'aujoud'hui"
       />
-      <div className="max-w-2xl m-auto">
+      <div className="m-auto max-w-2xl">
         <Text as="h1" className="mb-4">
           Presse
         </Text>
@@ -70,11 +70,11 @@ export default function pressPage(): ReactElement {
         <PressList />
       </div>
 
-      <Text as="h2" className="text-center my-8">
+      <Text as="h2" className="my-8 text-center">
         Logos
       </Text>
       <div className="m-auto text-center">SVG</div>
-      <ul className="flex space-x-4 m-auto justify-center py-12">
+      <ul className="m-auto flex justify-center space-x-4 py-12">
         <li>
           <StaticImage
             src="../images/logo/logo-black.svg"
@@ -100,7 +100,7 @@ export default function pressPage(): ReactElement {
         </li>
       </ul>
       <div className="m-auto text-center">PNG</div>
-      <ul className="flex space-x-4 m-auto justify-center py-12">
+      <ul className="m-auto flex justify-center space-x-4 py-12">
         <li>
           <StaticImage
             src="../images/logo/logo-black.png"

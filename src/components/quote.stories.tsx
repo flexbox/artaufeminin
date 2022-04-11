@@ -7,7 +7,7 @@ export default {
 
 export const QuoteStory = () => {
   return (
-    <div className="max-w-3xl justify-center m-auto">
+    <div className="m-auto max-w-3xl justify-center">
       <p>
         <span className="blockquote">
           Mes concepts naissent plus ou moins d'un contexte personnel et sont
