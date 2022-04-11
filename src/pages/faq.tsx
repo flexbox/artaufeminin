@@ -24,7 +24,7 @@ function QuestionItem({ question }): ReactElement {
   return (
     <>
       <h2>{question.data.question.text}</h2>
-      <div>{RichText.render(question.data.answer.raw)}</div>
+      <div>{RichText.render(question.data.answer.richText)}</div>
       <hr className="separator" />
     </>
   )

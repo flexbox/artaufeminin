@@ -67,12 +67,12 @@ const OtherArticleLink = ({ uid, imgUrl, title }: NextPrevProps) => {
   return (
     <Link
       to={`/article/${uid}`}
-      className="text-blue-500 hover:underline flex mb-8"
+      className="mb-8 flex text-blue-500 hover:underline"
     >
-      <section className="flex flex-row text-left items-center">
+      <section className="flex flex-row items-center text-left">
         <div
           style={{ backgroundImage: `url(${imgUrl})` }}
-          className="w-24 h-24 sm:w-32 sm:h-32 bg-cover bg-center bg-no-repeat"
+          className="h-24 w-24 bg-cover bg-center bg-no-repeat sm:h-32 sm:w-32"
         />
         <div className="p-4">{title}</div>
       </section>
@@ -100,13 +100,13 @@ export default function Article(props: PropsArticle): ReactElement {
     <Layout>
       <SEO title={seoTitle} description={seoDescription} />
 
-      <div className="max-w-3xl m-auto">
+      <div className="m-auto max-w-3xl">
         <header>
           <Text as="h1" className="my-24">
             {seoTitle}
           </Text>
           <div className="prose prose-xl">
-            <p className="first-line:uppercase first-line:tracking-widest first-letter:text-7xl first-letter:font-bold first-letter:text-gray-700 first-letter:mt-2 first-letter:mr-3 first-letter:float-left font-merri">
+            <p className="font-merri first-letter:float-left first-letter:mt-2 first-letter:mr-3 first-letter:text-7xl first-letter:font-bold first-letter:text-gray-700 first-line:uppercase first-line:tracking-widest">
               {seoDescription}
             </p>
           </div>
@@ -114,7 +114,7 @@ export default function Article(props: PropsArticle): ReactElement {
 
         <article className="prose prose-xl prose-blue">
           {imageHero && (
-            <div className="m-auto text-center mb-10 -mx-96 article-content">
+            <div className="article-content m-auto -mx-96 mb-10 text-center">
               <figure>
                 <img src={imageHero.url} alt={imageHero.alt} />
                 <figcaption className="mt-8">
@@ -125,10 +125,10 @@ export default function Article(props: PropsArticle): ReactElement {
             </div>
           )}
 
-          <div className="mb-20 article-content">
+          <div className="article-content mb-20">
             <CustomRichText render={data.content.richText} />
           </div>
-          <p className="text-gray-500 mb-20">
+          <p className="mb-20 text-gray-500">
             Vous avez aimé cet article ?{" "}
             <a
               href="https://fr.tipeee.com/art-au-feminin"
