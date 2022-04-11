@@ -11,7 +11,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import Text from "../components/text"
 
 const IndexPage = ({ data }) => {
-  const siteDescription = data.site.siteMetadata.description
+  const siteDescription = data.site.siteMetadata.description.richText
   const allEpisodes = data.allAnchorEpisode.nodes
   const allArticles = data.allPrismicBlogPost.nodes
 
