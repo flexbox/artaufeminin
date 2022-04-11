@@ -9,7 +9,7 @@ const HeaderLink = ({ to, title }: { to: string; title: string }) => {
       <Link
         to={to}
         activeClassName="text-lime-700 relative"
-        className="py-4 px-8 hover:text-black font-extrabold text-lg"
+        className="py-4 px-8 text-lg font-extrabold hover:text-black"
       >
         <span className="relative">{title}</span>
       </Link>
@@ -23,7 +23,7 @@ export default function Header(): ReactElement {
   return (
     <header>
       <div className="">
-        <div className="relative visible lg:hidden">
+        <div className="visible relative lg:hidden">
           <div className="absolute top-6 left-6">
             <button className="" onClick={() => setToggleNav(!toggleNav)}>
               {toggleNav ? <Burger /> : <Cross />}
@@ -33,14 +33,14 @@ export default function Header(): ReactElement {
 
         <div className="m-auto">
           <Link
-            className="font-bold text-gray-700 hover:text-black text-2xl sm:text-5xl pt-6 pb-0 sm:pt-12 flex justify-center transition duration-300 ease-in-out"
+            className="flex justify-center pt-6 pb-0 text-2xl font-bold text-gray-700 transition duration-300 ease-in-out hover:text-black sm:pt-12 sm:text-5xl"
             to={`/`}
           >
-            ART <span className="italic tracking-tighter ml-2">au féminin</span>
+            ART <span className="ml-2 italic tracking-tighter">au féminin</span>
           </Link>
 
           <nav className="invisible h-0 sm:h-auto lg:visible">
-            <ul className="text-gray-400 flex justify-center my-8">
+            <ul className="my-8 flex justify-center text-gray-400">
               <HeaderLink to="/podcast" title="Podcast" />
               <HeaderLink to="/articles" title="Articles" />
 
@@ -50,7 +50,7 @@ export default function Header(): ReactElement {
                   title="Envoyer un email"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="py-4 px-8 hover:text-black font-extrabold text-lg"
+                  className="py-4 px-8 text-lg font-extrabold hover:text-black"
                 >
                   Me contacter par email
                 </a>
@@ -62,17 +62,17 @@ export default function Header(): ReactElement {
       <div className={`${toggleNav ? `visible flex-col` : `invisible h-0`}`}>
         <nav className="w-full px-4 text-3xl font-bold text-gray-400">
           <ul className="nav space-y-4">
-            <li className="hover:text-black py-2 ">
+            <li className="py-2 hover:text-black ">
               <Link to={`/articles`} activeClassName="text-lime-700">
                 Articles
               </Link>
             </li>
-            <li className="hover:text-black py-2">
+            <li className="py-2 hover:text-black">
               <Link to={`/podcast`} activeClassName="text-lime-700">
                 Épisodes
               </Link>
             </li>
-            <li className="nav-about  hover:text-black py-2">
+            <li className="nav-about  py-2 hover:text-black">
               <div className="flex-col justify-end text-gray-400">
                 <div className="hover:text-black">
                   <a

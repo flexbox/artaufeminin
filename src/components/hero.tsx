@@ -9,12 +9,12 @@ interface HeroProps {
 
 export default function Hero({ children, heroTitle }: HeroProps): ReactElement {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-flow-col gap-8 justify-items-auto">
-      <div className="justify-center flex flex-col">
+    <div className="justify-items-auto grid grid-cols-1 gap-8 sm:grid-flow-col sm:grid-cols-2">
+      <div className="flex flex-col justify-center">
         <Text as="h1">{heroTitle}</Text>
         {children}
       </div>
-      <div className="flex justify-end md:w-5/6 w-full">
+      <div className="flex w-full justify-end md:w-5/6">
         <StaticImage
           src="../images/logo-podcast-art-au-feminin.png"
           alt="Logo podcast ART au feminin"

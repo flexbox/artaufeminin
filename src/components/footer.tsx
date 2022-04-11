@@ -53,12 +53,12 @@ export default function Footer({ siteTitle }: FooterProps) {
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+      <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="grid grid-cols-2 gap-8 xl:col-span-2">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-bold text-white tracking-wider uppercase">
+                <h3 className="text-sm font-bold uppercase tracking-wider text-white">
                   À propos
                 </h3>
                 <ul role="list" className="mt-4 space-y-4">
@@ -75,7 +75,7 @@ export default function Footer({ siteTitle }: FooterProps) {
                 </ul>
               </div>
               <div className="mt-6 sm:mt-0 ">
-                <h3 className="text-sm font-bold text-white tracking-wider uppercase">
+                <h3 className="text-sm font-bold uppercase tracking-wider text-white">
                   Le podcast
                 </h3>
                 <ul role="list" className="mt-4 space-y-4">
@@ -110,9 +110,9 @@ export default function Footer({ siteTitle }: FooterProps) {
               </a>
             ))}
           </div>
-          <p className="mt-8 text-base text-gray-200 md:mt-0 md:order-1">
+          <p className="mt-8 text-base text-gray-200 md:order-1 md:mt-0">
             &copy; {new Date().getFullYear()}{" "}
-            <span className="text-white font-bold font-merri">{siteTitle}</span>{" "}
+            <span className="font-merri font-bold text-white">{siteTitle}</span>{" "}
             All rights reserved.
           </p>
         </div>
