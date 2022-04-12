@@ -16,7 +16,7 @@ const IndexPage = ({ data }) => {
   const allArticles = data.allPrismicBlogPost.nodes
 
   return (
-    <Layout>
+    <Layout withInstagram={true}>
       <SEO title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia |" />
 
       <div style={{ maxWidth: "80em", margin: "0 auto" }}>
