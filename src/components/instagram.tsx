@@ -23,9 +23,9 @@ export default function Instagram() {
           as="a"
           size="s"
           href={"https://instagram.com/artaufeminin"}
-          alt={`@artaufeminin sur Instagram`}
+          alt={`ART au feminin sur Instagram`}
         >
-          Art au féminin sur Instagram
+          @artaufeminin sur Instagram
         </Button>
       </div>
       <div className="md:show m-auto hidden w-full flex-col justify-center  md:flex md:flex-row lg:w-3/5 lg:justify-around">
