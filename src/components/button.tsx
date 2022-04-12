@@ -77,7 +77,7 @@ export default function Button({
         key={key}
       >
         <div className="flex items-center">
-          <img src={url} alt={alt} className="w-10 h-10 mr-4" />
+          <img src={url} alt={alt} className="mr-4 h-10 w-10" />
           {children}
         </div>
       </a>

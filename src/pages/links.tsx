@@ -88,11 +88,11 @@ const allSponsorPlatforms = [
 function LinkButton({ platform }: LinkButtonProps) {
   return (
     <a href={platform.url} className="">
-      <div className=" text-lg rounded-lg flex p-2 my-2 font-bold align-middle border-2 border-blue-500 text-blue-500 hover:text-blue-600 hover:border-blue-600">
+      <div className=" my-2 flex rounded-lg border-2 border-blue-500 p-2 align-middle text-lg font-bold text-blue-500 hover:border-blue-600 hover:text-blue-600">
         <img
           src={platform.imageUrl}
           alt={`ART au feminin sur ${platform.name}`}
-          className="w-12 h-12 mr-4"
+          className="mr-4 h-12 w-12"
         />
         <div className="m-auto min-w-full sm:pl-4">{platform.name}</div>
       </div>
@@ -102,13 +102,13 @@ function LinkButton({ platform }: LinkButtonProps) {
 
 export default function LinksPage({}: Props): ReactElement {
   return (
-    <div className="p-8 h-full">
+    <div className="h-full p-8">
       <SEO
         title="Liens"
         description="Retrouvez toujours plus de contenu sur ART au feminin,sur Instagram, sur Facebook, sur Spotify, sur Deezer, sur Anchor, sur Google Podcasts, sur Apple Podcasts, sur Tipeee, sur le site internet, sur les articles."
       />
-      <div className="max-w-xl m-auto">
-        <div className="flex justify-center mb-8">
+      <div className="m-auto max-w-xl">
+        <div className="mb-8 flex justify-center">
           <StaticImage
             className="rounded-full"
             src="../images/logo-podcast-art-au-feminin.png"
@@ -116,7 +116,7 @@ export default function LinksPage({}: Props): ReactElement {
             width={150}
           />
         </div>
-        <p className="text-center text-gray-400 mb-8">@artaufeminin</p>
+        <p className="mb-8 text-center text-gray-400">@artaufeminin</p>
         <div className="mb-12">
           <Text as="h2">Soutenir ART au féminin</Text>
           {allSponsorPlatforms.map((platform) => {

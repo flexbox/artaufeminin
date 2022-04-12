@@ -14,7 +14,7 @@ export default function AboutPage() {
         description="à l’origine du projet, une question simple : combien existe-t-il de femme artistes dans les musées. La réponse est difficile à trouver voire impossible sans recherches approfondies que vous pourrez découvrir en écoutant le podcast."
       />
 
-      <article className="max-w-2xl m-auto">
+      <article className="m-auto max-w-2xl">
         <div>
           <Text as="h2about">Mon histoire</Text>
           <Text as="pAbout">
@@ -43,7 +43,7 @@ export default function AboutPage() {
             vue sur la place des femmes artistes dans le monde de l’art.
           </Text>
 
-          <blockquote className="-mx-52 py-12 m-auto items-center text-center mb-12">
+          <blockquote className="m-auto -mx-52 mb-12 items-center py-12 text-center">
             <Text as="h2about">
               Nous commencerons par discuter les points de vue pris sur la femme
               par la biologie, la psychanalyse, le matérialisme historique. Nous

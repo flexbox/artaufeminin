@@ -6,7 +6,7 @@ import Text from "./text"
 export default function Newsletter(): ReactElement {
   return (
     <>
-      <h3 className="text-sm font-semibold text-white tracking-wider uppercase">
+      <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
         Inscrivez-vous à ma newsletter
       </h3>
       <p className="mt-4 text-base text-gray-200">
@@ -36,7 +36,7 @@ export default function Newsletter(): ReactElement {
           type="email"
           data-inputmask=""
           name="fields[email]"
-          className="appearance-none min-w-0 w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:placeholder-gray-400"
+          className="w-full min-w-0 appearance-none rounded-md border border-gray-300 bg-white py-2 px-4 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-blue-500 focus:placeholder-gray-400 focus:outline-none focus:ring-blue-500"
           placeholder="Entrez votre adresse email"
         />
         <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">

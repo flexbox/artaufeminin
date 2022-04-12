@@ -38,7 +38,7 @@ export default function EpisodeItem({
     <>
       <Link
         to={`/episodes/${episode.guid}`}
-        className="flex flex-col md:flex-row hover:no-underline article-preview"
+        className="article-preview flex flex-col hover:no-underline md:flex-row"
       >
         <div className="flex-1">
           <Text as="h3Link">{episode.title}</Text>
@@ -47,13 +47,13 @@ export default function EpisodeItem({
           )}
 
           <div
-            className="text-gray-500 font-light "
+            className="font-light text-gray-500 "
             dangerouslySetInnerHTML={{ __html: summary }}
           />
         </div>
-        <div className="hidden sm:flex flex-shrink-0 px-3">
+        <div className="hidden flex-shrink-0 px-3 sm:flex">
           <img
-            className="w-48 h-48 mt-2"
+            className="mt-2 h-48 w-48"
             src={episode.itunes.image}
             alt={`ART au feminin S${episode.itunes.season} E${episode.itunes.episode}`}
           />

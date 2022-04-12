@@ -41,7 +41,7 @@ function ArticleItem({ article }: { article: ArticleProps }): ReactElement {
         to={`/article/${slug}`}
         className="article-preview hover:no-underline"
       >
-        <div className="flex flex-col md:flex-row my-6 ">
+        <div className="my-6 flex flex-col md:flex-row ">
           <div className="flex-1">
             <Text as="h3Link">{title}</Text>
             <Text as="p">{descriptionTruncated}</Text>
@@ -51,7 +51,7 @@ function ArticleItem({ article }: { article: ArticleProps }): ReactElement {
           </div>
           <div className="img-parent flex-shrink-0 px-3 ">
             <div
-              className="img bg-cover bg-center ease-in-out duration-300"
+              className="img bg-cover bg-center duration-300 ease-in-out"
               style={{ backgroundImage: `url(${thumbnailUrl})` }}
             ></div>
           </div>
