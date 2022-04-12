@@ -19,7 +19,7 @@ export default function Instagram() {
           sur Instagram
         </Text>
         <Button
-          variant="solid"
+          variant="outline"
           as="a"
           size="s"
           href={"https://instagram.com/artaufeminin"}
