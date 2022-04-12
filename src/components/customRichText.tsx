@@ -20,7 +20,7 @@ function customHtmlSerializer(type, element, content, children, key) {
     const { url, alt, copyright } = element
 
     return (
-      <figure className="bg-white overflow-hidden my-32">
+      <figure className="my-32 overflow-hidden bg-white">
         <div className="px-4 py-5 sm:p-6">
           <img className="mx-auto" src={url} alt={alt} />
           <figcaption className="mt-8">

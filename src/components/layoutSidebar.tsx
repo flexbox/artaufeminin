@@ -14,7 +14,7 @@ export default function LayoutSidebar({
 }: LayoutSidebarProps): ReactElement {
   return (
     <div style={{ maxWidth: "80em", margin: "0 auto" }}>
-      <div className="lg:grid lg:grid-cols-12 gap-12">
+      <div className="gap-12 lg:grid lg:grid-cols-12">
         <div className="md:col-span-4">
           {withPodcast && <Subscribe />}
           <div className="hidden lg:flex">

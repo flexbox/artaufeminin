@@ -16,13 +16,13 @@ const IndexPage = ({ data }) => {
   const allArticles = data.allPrismicBlogPost.nodes
 
   return (
-    <Layout>
+    <Layout withInstagram={true}>
       <SEO title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia |" />
 
       <div style={{ maxWidth: "80em", margin: "0 auto" }}>
         <Hero heroTitle={siteDescription}>
-          <div className="flex flex-col md:flex-row mt-12">
-            <div className="flex-1 md:flex-initial mb-6 mr-4">
+          <div className="mt-12 flex flex-col md:flex-row">
+            <div className="mb-6 mr-4 flex-1 md:flex-initial">
               <Link to={"/links"}>
                 <Button variant="solid" size="m">
                   Écouter et s’abonner
@@ -40,7 +40,7 @@ const IndexPage = ({ data }) => {
           </div>
         </Hero>
 
-        <div className="max-w-6xl mb-16 md:mb-64 mt-16 md:w-2/3 w-full">
+        <div className="mb-16 mt-16 w-full max-w-6xl md:mb-64 md:w-2/3">
           <Text as="h2">Épisodes récents</Text>
           <hr className="separator mt-16 mb-12" />
           {allEpisodes.map((episode) => {
@@ -59,7 +59,7 @@ const IndexPage = ({ data }) => {
           </Link>
         </div>
 
-        <div className="max-w-6xl mb-16 md:mb-64 md:w-2/3 w-full">
+        <div className="mb-16 w-full max-w-6xl md:mb-64 md:w-2/3">
           <Text as="h2">Articles récents</Text>
           <hr className="separator mt-16 " />
           <ArticleList allArticles={allArticles} />
@@ -70,7 +70,7 @@ const IndexPage = ({ data }) => {
           </Link>
         </div>
 
-        <div className="max-w-6xl mb-24">
+        <div className="mb-12 max-w-6xl">
           <Text as="h2">Ce que les auditeurs en disent</Text>
           <Text as="p">
             ⭐ Moyenne de 5/5 étoiles sur{" "}

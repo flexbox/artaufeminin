@@ -7,7 +7,7 @@ interface QuoteProps {
 
 export default function Quote({ quote, cite }: QuoteProps) {
   return (
-    <blockquote className="relative p-4 text-xl italic text-gray-600 quote mt-4 mb-4">
+    <blockquote className="quote relative mt-4 mb-4 p-4 text-xl italic text-gray-600">
       <div className="stylistic-quote-mark" aria-hidden="true">
         &ldquo;
       </div>
@@ -15,7 +15,7 @@ export default function Quote({ quote, cite }: QuoteProps) {
       {cite && (
         <cite className="flex items-center">
           <div className="flex flex-col items-start">
-            <span className="mb-1 text-sm italic font-bold">— {cite}</span>
+            <span className="mb-1 text-sm font-bold italic">— {cite}</span>
           </div>
         </cite>
       )}
