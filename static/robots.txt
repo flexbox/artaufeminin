@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://artaufeminin.fr/sitemap/sitemap.xml
+Sitemap: https://artaufeminin.fr/sitemap-0.xml
