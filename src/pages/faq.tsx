@@ -63,6 +63,7 @@ export const pageQuery = graphql`
           }
           answer {
             raw
+            richText
           }
         }
       }
