@@ -17,7 +17,7 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
   const articles = data.allPrismicBlogPost.nodes
 
   return (
-    <Layout>
+    <Layout withInstagram={false}>
       <SEO title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia" />
 
       <LayoutSidebar withPodcast={false}>
@@ -29,7 +29,7 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
 
 export const query = graphql`
   query allBlogPosts {
-    allPrismicBlogPost(sort: { fields: first_publication_date, order: DESC }) {
+    allPrismicBlogPost(sort: { first_publication_date: DESC }) {
       nodes {
         ...PrismicBlogPostFragment
       }
