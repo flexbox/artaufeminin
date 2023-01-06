@@ -120,10 +120,7 @@ export const indexPageQuery = graphql`
         ...AnchorEpisodeFragment
       }
     }
-    allPrismicBlogPost(
-      limit: 3
-      sort: { fields: first_publication_date, order: DESC }
-    ) {
+    allPrismicBlogPost(limit: 3, sort: { first_publication_date: DESC }) {
       nodes {
         ...PrismicBlogPostFragment
       }
@@ -135,10 +132,10 @@ export const indexPageQuery = graphql`
     data {
       date
       title {
-        raw
+        richText
       }
       description {
-        raw
+        richText
       }
       image {
         alt
