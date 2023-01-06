@@ -1,4 +1,4 @@
-import Link from "gatsby-link"
+import { Link } from "gatsby-link"
 import React, { ReactElement, useState } from "react"
 import Burger from "../components/burger"
 import Cross from "../components/cross"

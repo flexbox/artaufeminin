@@ -9,10 +9,10 @@ interface ArticleProps {
   uid: string
   data: {
     title: {
-      raw: RichTextBlock[]
+      richText: RichTextBlock[]
     }
     description: {
-      raw: RichTextBlock[]
+      richText: RichTextBlock[]
     }
     date: string
     image: {
@@ -29,8 +29,8 @@ function ArticleItem({ article }: { article: ArticleProps }): ReactElement {
   const slug = article.uid
   const thumbnailUrl = article.data.image.url
   const date = formatHumanDate(article.data.date)
-  const title = RichText.asText(article.data.title.raw)
-  const description = RichText.asText(article.data.description.raw)
+  const title = RichText.asText(article.data.title.richText)
+  const description = RichText.asText(article.data.description.richText)
   const descriptionTruncated = truncate(description, {
     length: 190,
   })
