@@ -5,8 +5,9 @@
 ## Tooling
 
 - Pages generated with [Gatsby](https://www.gatsbyjs.com/).
-- [Prismic](https://prismic.io/) for the content.
-- Hosted on Netlify, you [can check the website](https://artaufeminin.fr).
+- [Prismic](https://prismic.io/) for the `/blog` content.
+- [anchor.fm](https://anchor.fm) for podcast episodes.
+- Hosted on Netlify, [check the website artaufeminin.fr](https://artaufeminin.fr).
 
 ## Getting started
 
