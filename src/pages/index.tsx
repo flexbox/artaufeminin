@@ -17,8 +17,6 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout withInstagram={true}>
-      <SEO title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia |" />
-
       <div style={{ maxWidth: "80em", margin: "0 auto" }}>
         <Hero heroTitle={siteDescription}>
           <div className="mt-12 flex flex-col md:flex-row">
@@ -42,7 +40,7 @@ const IndexPage = ({ data }) => {
 
         <div className="mb-16 mt-16 w-full max-w-6xl md:mb-64 md:w-2/3">
           <Text as="h2">Épisodes récents</Text>
-          <hr className="separator mt-16 mb-12" />
+          <hr className="separator mb-12 mt-16" />
           {allEpisodes.map((episode) => {
             return (
               <EpisodeItem
