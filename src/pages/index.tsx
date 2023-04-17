@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link, StaticQuery, useStaticQuery } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -42,7 +42,7 @@ const IndexPage = ({ data }) => {
 
         <div className="mb-16 mt-16 w-full max-w-6xl md:mb-64 md:w-2/3">
           <Text as="h2">Épisodes récents</Text>
-          <hr className="separator mt-16 mb-12" />
+          <hr className="separator mb-12 mt-16" />
           {allEpisodes.map((episode) => {
             return (
               <EpisodeItem
