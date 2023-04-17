@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link, StaticQuery, useStaticQuery } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -17,6 +17,8 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout withInstagram={true}>
+      <SEO title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia |" />
+
       <div style={{ maxWidth: "80em", margin: "0 auto" }}>
         <Hero heroTitle={siteDescription}>
           <div className="mt-12 flex flex-col md:flex-row">
