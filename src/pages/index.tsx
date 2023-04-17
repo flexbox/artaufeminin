@@ -41,7 +41,7 @@ const IndexPage = ({ data }) => {
         </Hero>
 
         <div className="mb-16 mt-16 w-full max-w-6xl md:mb-64 md:w-2/3">
-          <Text as="h2">Épisodes récents</Text>
+          <Text as="h2">Épisodes récents sur les artistes femmes</Text>
           <hr className="separator mb-12 mt-16" />
           {allEpisodes.map((episode) => {
             return (
