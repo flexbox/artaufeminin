@@ -15,7 +15,7 @@ export default function Episode({ pageContext }) {
       <SEO title={`Podcast ${title} `} description={description} />
 
       <LayoutSidebar>
-        <article className="prose text-gray-500 prose-blue">
+        <article className="prose prose-blue text-gray-500">
           <h1 className=" text-gray-700">{title}</h1>
 
           <p className="text-gray-500">

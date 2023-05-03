@@ -1,7 +1,5 @@
 import React, { ReactElement } from "react"
 import Button from "./button"
-import Input from "./input"
-import Text from "./text"
 
 export default function Newsletter(): ReactElement {
   return (
@@ -36,10 +34,10 @@ export default function Newsletter(): ReactElement {
           type="email"
           data-inputmask=""
           name="fields[email]"
-          className="w-full min-w-0 appearance-none rounded-md border border-gray-300 bg-white py-2 px-4 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-blue-500 focus:placeholder-gray-400 focus:outline-none focus:ring-blue-500"
+          className="w-full min-w-0 appearance-none rounded-md border border-gray-300 bg-white px-4 py-2 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-blue-500 focus:placeholder-gray-400 focus:outline-none focus:ring-blue-500"
           placeholder="Entrez votre adresse email"
         />
-        <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+        <div className="mt-3 rounded-md sm:ml-3 sm:mt-0 sm:flex-shrink-0">
           <Button type="submit" variant="news" style={{ minHeight: 48 }}>
             Je m'inscris
           </Button>
