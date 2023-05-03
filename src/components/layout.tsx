@@ -6,10 +6,10 @@ import Instagram from "./instagram"
 
 interface LayoutProps {
   children: ReactNode
-  withInstagram: boolean
+  withInstagram?: boolean
 }
 
-function Layout({ children, withInstagram }: LayoutProps) {
+function Layout({ children, withInstagram = false }: LayoutProps) {
   const data = useStaticQuery(graphql`
     query {
       site {
