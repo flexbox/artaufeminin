@@ -50,7 +50,7 @@ interface PropsArticle {
           url: string
           alt: string
           copyright: string
-          gatsbyImageData
+          gatsbyImageData: any
         }
       }
     }
@@ -106,7 +106,7 @@ export default function Article(props: PropsArticle): ReactElement {
             {seoTitle}
           </Text>
           <div className="prose prose-xl">
-            <p className="font-merri first-letter:float-left first-letter:mt-2 first-letter:mr-3 first-letter:text-7xl first-letter:font-bold first-letter:text-gray-700 first-line:uppercase first-line:tracking-widest">
+            <p className="font-merri first-letter:float-left first-letter:mr-3 first-letter:mt-2 first-letter:text-7xl first-letter:font-bold first-letter:text-gray-700 first-line:uppercase first-line:tracking-widest">
               {seoDescription}
             </p>
           </div>
