@@ -103,6 +103,7 @@ module.exports = {
           faq: require("./custom_types/faq.json"),
           blog_post: require("./custom_types/blog_post.json"),
           press: require("./custom_types/press.json"),
+          quotation: require("./custom_types/quotation.json"),
         },
       },
     },
