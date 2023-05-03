@@ -17,5 +17,13 @@ module.exports = {
         },
       },
     },
+    "@storybook/addon-mdx-gfm",
   ],
+  framework: {
+    name: "@storybook/react-webpack5",
+    options: {},
+  },
+  docs: {
+    autodocs: true,
+  },
 }
