@@ -7,7 +7,7 @@ interface QuoteProps {
 
 export default function Quote({ quote, cite }: QuoteProps) {
   return (
-    <blockquote className="quote relative mt-4 mb-4 p-4 text-xl italic text-gray-600">
+    <blockquote className="quote relative mb-4 mt-4 p-4 text-xl italic text-gray-600">
       <div className="stylistic-quote-mark" aria-hidden="true">
         &ldquo;
       </div>
