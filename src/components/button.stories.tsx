@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, ComponentMeta } from "@storybook/react"
+import { StoryFn, Meta } from "@storybook/react"
 import Button from "./button"
 import "typeface-merriweather"
 
@@ -11,10 +11,10 @@ export default {
   argTypes: {
     backgroundColor: { control: "color" },
   },
-} as ComponentMeta<typeof Button>
+} as Meta<typeof Button>
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Button> = (args) => {
+const Template: StoryFn<typeof Button> = (args) => {
   return (
     <>
       <Button>Hello</Button>
@@ -24,10 +24,10 @@ const Template: ComponentStory<typeof Button> = (args) => {
     </>
   )
 }
-const TemplateDefault: ComponentStory<typeof Button> = (args) => {
+const TemplateDefault: StoryFn<typeof Button> = (args) => {
   return <Button variant="outline">Default</Button>
 }
-const TemplateSizes: ComponentStory<typeof Button> = (args) => {
+const TemplateSizes: StoryFn<typeof Button> = (args) => {
   return (
     <>
       <Button size="s">Small</Button>
@@ -36,16 +36,16 @@ const TemplateSizes: ComponentStory<typeof Button> = (args) => {
     </>
   )
 }
-const TemplateDefaultGhost: ComponentStory<typeof Button> = (args) => {
+const TemplateDefaultGhost: StoryFn<typeof Button> = (args) => {
   return <Button variant="outline">Default</Button>
 }
-const TemplateSmallGhost: ComponentStory<typeof Button> = (args) => {
+const TemplateSmallGhost: StoryFn<typeof Button> = (args) => {
   return <Button variant="outline">Small</Button>
 }
-const TemplateApplePodcast: ComponentStory<typeof Button> = (args) => {
+const TemplateApplePodcast: StoryFn<typeof Button> = (args) => {
   return <Button variant="outline" as="icon" href="http://www.google.com" />
 }
-const TemplatePodcast: ComponentStory<typeof Button> = (args) => {
+const TemplatePodcast: StoryFn<typeof Button> = (args) => {
   return (
     <Button
       variant="ghost"
@@ -59,7 +59,7 @@ const TemplatePodcast: ComponentStory<typeof Button> = (args) => {
     </Button>
   )
 }
-const TemplateAhrefButton: ComponentStory<typeof Button> = (args) => {
+const TemplateAhrefButton: StoryFn<typeof Button> = (args) => {
   return (
     <Button variant="outline" as="a" href="http://www.google.com">
       Href
@@ -67,10 +67,24 @@ const TemplateAhrefButton: ComponentStory<typeof Button> = (args) => {
   )
 }
 
-export const Primary = Template.bind({})
-export const Default = TemplateDefault.bind({})
-export const Large = TemplateSizes.bind({})
-export const SmallGhost = TemplateSmallGhost.bind({})
-export const Ahref = TemplateAhrefButton.bind({})
-export const apple = TemplateApplePodcast.bind({})
-export const pod = TemplatePodcast.bind({})
+export const Primary = {
+  render: Template,
+}
+export const Default = {
+  render: TemplateDefault,
+}
+export const Large = {
+  render: TemplateSizes,
+}
+export const SmallGhost = {
+  render: TemplateSmallGhost,
+}
+export const Ahref = {
+  render: TemplateAhrefButton,
+}
+export const apple = {
+  render: TemplateApplePodcast,
+}
+export const pod = {
+  render: TemplatePodcast,
+}
