@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, ComponentMeta } from "@storybook/react"
+import { StoryFn, Meta } from "@storybook/react"
 import Newsletter from "./newsletter"
 import Button from "./button"
 
@@ -11,10 +11,10 @@ export default {
   argTypes: {
     backgroundColor: { control: "color" },
   },
-} as ComponentMeta<typeof Newsletter>
+} as Meta<typeof Newsletter>
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Newsletter> = (args) => {
+const Template: StoryFn<typeof Newsletter> = (args) => {
   return (
     <>
       <Newsletter />
@@ -22,4 +22,6 @@ const Template: ComponentStory<typeof Newsletter> = (args) => {
   )
 }
 
-export const Primary = Template.bind({})
+export const Primary = {
+  render: Template,
+}

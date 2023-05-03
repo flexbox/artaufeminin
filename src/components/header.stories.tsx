@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, ComponentMeta } from "@storybook/react"
+import { StoryFn, Meta } from "@storybook/react"
 import Header from "./header"
 
 export default {
@@ -8,10 +8,10 @@ export default {
   argTypes: {
     backgroundColor: { control: "color" },
   },
-} as ComponentMeta<typeof Header>
+} as Meta<typeof Header>
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Header> = (args) => {
+const Template: StoryFn<typeof Header> = (args) => {
   return (
     <>
       <Header />
@@ -19,4 +19,6 @@ const Template: ComponentStory<typeof Header> = (args) => {
   )
 }
 
-export const Primary = Template.bind({})
+export const Primary = {
+  render: Template,
+}
