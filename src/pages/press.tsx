@@ -4,6 +4,15 @@ import { StaticImage } from "gatsby-plugin-image"
 import SEO from "../components/seo"
 import PressList from "../components/pressList"
 import Text from "../components/text"
+import { graphql } from "gatsby"
+
+interface PressPageProps {
+  data: {
+    allPrismicPress: {
+      nodes: []
+    }
+  }
+}
 
 const PressLogoList = () => (
   <ul className="m-auto flex justify-center py-2">
@@ -52,7 +61,8 @@ const PressLogoList = () => (
   </ul>
 )
 
-export default function pressPage(): ReactElement {
+export default function pressPage({ data }: PressPageProps): ReactElement {
+  const press = data.allPrismicPress.nodes
   return (
     <Layout>
       <SEO
@@ -67,7 +77,7 @@ export default function pressPage(): ReactElement {
           Contact presse : artaufemininlepodcast@gmail.com
         </Text>
         <PressLogoList />
-        <PressList />
+        <PressList allPress={press} />
       </div>
 
       <Text as="h2" className="my-8 text-center">
@@ -128,3 +138,23 @@ export default function pressPage(): ReactElement {
     </Layout>
   )
 }
+
+export const pressQuery = graphql`
+  query allPress {
+    allPrismicPress {
+      nodes {
+        data {
+          description {
+            text
+          }
+          sitename {
+            text
+          }
+          url {
+            url
+          }
+        }
+      }
+    }
+  }
+`
