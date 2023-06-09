@@ -43,6 +43,7 @@ export default function Header(): ReactElement {
             <ul className="my-8 flex justify-center text-gray-400">
               <HeaderLink to="/podcast" title="Podcast" />
               <HeaderLink to="/articles" title="Articles" />
+              <HeaderLink to="/citations" title="Citations" />
 
               <li className="px-4">
                 <a
