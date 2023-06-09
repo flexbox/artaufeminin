@@ -23,8 +23,8 @@ function ArticleItem({
     <>
       <div className="my-6 flex flex-col md:flex-row ">
         <div className="flex-1">
-          <Text as="h3Link">{author}</Text>
-          <Text as="p">{quote}</Text>
+          <Text as="h2about">{quote}</Text>
+          <Text as="p">{author}</Text>
         </div>
         <div className="img-parent flex-shrink-0 px-3 "></div>
       </div>
