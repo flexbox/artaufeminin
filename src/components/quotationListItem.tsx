@@ -4,14 +4,7 @@ import React, { ReactElement } from "react"
 import truncate from "lodash/truncate"
 import { formatHumanDate } from "../utils/date"
 import Text from "./text"
-
-interface QuotationProps {
-  id: string
-  data: {
-    author: string
-    quotation: string
-  }
-}
+import { QuotationProps } from "./quotation" // Importing QuotationProps from quotation.d.ts
 
 interface QuotationListItemProps {
   allQuotation: QuotationProps[]
