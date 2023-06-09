@@ -15,7 +15,7 @@ const QuotationPage = ({
 
   return (
     <Layout withInstagram={false}>
-      <SEO title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia" />
+      <SEO title="Citation courte femme artistes" />
 
       <LayoutSidebar withPodcast={false}>
         <QuotationList allQuotation={quotation} />
