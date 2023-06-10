@@ -2,9 +2,9 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import QuotationList from "../components/quotationListItem"
+import QuotationList from "../components/quotationList"
 import LayoutSidebar from "../components/layoutSidebar"
-import { QuotationProps } from "../components/quotation" // Importing QuotationProps from quotation.d.ts
+import { QuotationProps } from "../components/quotation"
 
 const QuotationPage = ({
   data,

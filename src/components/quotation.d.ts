@@ -1,9 +1,11 @@
-interface QuotationProps {
-  id: string
+export interface QuotationProps {
+  id?: string
   data: {
     author: string
     quotation: string
   }
 }
 
-export { QuotationProps }
+export interface QuotationListProps {
+  allQuotation: QuotationProps[]
+}

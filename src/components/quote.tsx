@@ -1,21 +1,20 @@
 import React from "react"
+import { QuotationProps } from "./quotation"
 
-interface QuoteProps {
-  quote: string
-  cite?: string
-}
+export function Quote({ data }: QuotationProps) {
+  const author = data.author
+  const quote = data.quotation
 
-export default function Quote({ quote, cite }: QuoteProps) {
   return (
     <blockquote className="quote relative mb-4 mt-4 p-4 text-xl italic text-gray-600">
       <div className="stylistic-quote-mark" aria-hidden="true">
         &ldquo;
       </div>
       <p className="mb-4">{quote}</p>
-      {cite && (
+      {author && (
         <cite className="flex items-center">
           <div className="flex flex-col items-start">
-            <span className="mb-1 text-sm font-bold italic">— {cite}</span>
+            <span className="mb-1 text-sm font-bold italic">— {author}</span>
           </div>
         </cite>
       )}
