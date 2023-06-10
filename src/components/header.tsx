@@ -8,8 +8,8 @@ const HeaderLink = ({ to, title }: { to: string; title: string }) => {
     <li className="px-4">
       <Link
         to={to}
-        activeClassName="text-lime-700 relative"
-        className="px-8 py-4 text-lg font-extrabold hover:text-black"
+        activeClassName="text-black relative"
+        className="rounded-md px-8 py-4 text-lg font-extrabold hover:bg-white hover:text-gray-600"
       >
         <span className="relative">{title}</span>
       </Link>
@@ -22,7 +22,7 @@ export default function Header(): ReactElement {
 
   return (
     <header>
-      <div className="">
+      <div>
         <div className="visible relative lg:hidden">
           <div className="absolute left-6 top-6">
             <button className="" onClick={() => setToggleNav(!toggleNav)}>
@@ -33,7 +33,7 @@ export default function Header(): ReactElement {
 
         <div className="m-auto">
           <Link
-            className="flex justify-center pb-0 pt-6 text-2xl font-bold text-gray-700 transition duration-300 ease-in-out hover:text-black sm:pt-12 sm:text-5xl"
+            className="flex justify-center pb-0 pt-6 text-xl font-bold text-gray-700 transition duration-300 ease-in-out hover:text-black sm:text-3xl"
             to={`/`}
           >
             ART <span className="ml-2 italic tracking-tighter">au féminin</span>
@@ -53,7 +53,7 @@ export default function Header(): ReactElement {
                   rel="noopener noreferrer"
                   className="px-8 py-4 text-lg font-extrabold hover:text-black"
                 >
-                  Me contacter par email
+                  Contacter par email
                 </a>
               </li>
             </ul>
@@ -64,13 +64,18 @@ export default function Header(): ReactElement {
         <nav className="w-full px-4 text-3xl font-bold text-gray-400">
           <ul className="nav space-y-4">
             <li className="py-2 hover:text-black ">
-              <Link to={`/articles`} activeClassName="text-lime-700">
+              <Link to="/articles" activeClassName="text-lime-700">
                 Articles
               </Link>
             </li>
             <li className="py-2 hover:text-black">
-              <Link to={`/podcast`} activeClassName="text-lime-700">
+              <Link to="/podcast" activeClassName="text-lime-700">
                 Épisodes
+              </Link>
+            </li>
+            <li className="py-2 hover:text-black">
+              <Link to="/podcast" activeClassName="text-lime-700">
+                Citations
               </Link>
             </li>
             <li className="nav-about  py-2 hover:text-black">
