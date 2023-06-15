@@ -40,7 +40,7 @@ const BooksPage = ({ data }: BooksPageProps) => {
 }
 
 export const query = graphql`
-  query allBooks {
+  query {
     allPrismicBook(sort: { fields: first_publication_date, order: DESC }) {
       nodes {
         uid
