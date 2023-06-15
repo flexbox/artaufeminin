@@ -23,14 +23,14 @@ function BookItem({ book }: { book: BookProps }): ReactElement {
   return (
     <>
       <div className="book-item">
-        <Link to="/" className="book-item-link hover:no-underline">
+        <Text to="/" className="book-item-link hover:no-underline">
           <Text as="h3" className="book-item-title">
             {title}
           </Text>
           <Text as="p" className="book-item-content">
             {truncatedContent}
           </Text>
-        </Link>
+        </Text>
       </div>
       <hr className="separator mb-12" />
     </>
