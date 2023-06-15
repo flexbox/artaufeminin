@@ -7,14 +7,13 @@ import LayoutSidebar from "../components/layoutSidebar"
 
 interface BooksPageProps {
   data: {
-    allPrismicBook: {
+    allPrismicBookReview: {
       nodes: Book[]
     }
   }
 }
 
 interface Book {
-  uid: string
   data: {
     title: {
       text: string
@@ -26,7 +25,10 @@ interface Book {
 }
 
 const BooksPage = ({ data }: BooksPageProps) => {
-  const books = data.allPrismicBook.nodes
+  const books = data.allPrismicBookReview.nodes.map((node: Book) => ({
+    title: node.data.title.text,
+    content: node.data.content.text,
+  }))
 
   return (
     <Layout withInstagram={false}>
@@ -40,10 +42,9 @@ const BooksPage = ({ data }: BooksPageProps) => {
 }
 
 export const query = graphql`
-  query allBooks {
-    allPrismicBook {
+  query {
+    allPrismicBookReview {
       nodes {
-        uid
         data {
           title {
             text

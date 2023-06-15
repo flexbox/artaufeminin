@@ -1,18 +1,13 @@
-import { Link } from "gatsby"
 import React, { ReactElement } from "react"
+import { Link } from "gatsby"
+import { RichText, RichTextBlock } from "prismic-reactjs"
 import truncate from "lodash/truncate"
+import { formatHumanDate } from "../utils/date"
 import Text from "./text"
 
 interface BookProps {
-  uid: string
-  data: {
-    title: {
-      text: string
-    }
-    content: {
-      text: string
-    }
-  }
+  title: string
+  content: string
 }
 
 interface BookListItemProps {
@@ -20,21 +15,23 @@ interface BookListItemProps {
 }
 
 function BookItem({ book }: { book: BookProps }): ReactElement {
-  const slug = book.uid
-  const title = book.data.title.text
-  const content = book.data.content.text
-  const contentTruncated = truncate(content, {
+  const { title, content } = book
+  const truncatedContent = truncate(content, {
     length: 190,
   })
 
   return (
     <>
-      <Link to={`/book/${slug}`} className="book-preview hover:no-underline">
-        <div className="my-6">
-          <Text as="h3Link">{title}</Text>
-          <Text as="p">{contentTruncated}</Text>
-        </div>
-      </Link>
+      <div className="book-item">
+        <Link to="/" className="book-item-link hover:no-underline">
+          <Text as="h3" className="book-item-title">
+            {title}
+          </Text>
+          <Text as="p" className="book-item-content">
+            {truncatedContent}
+          </Text>
+        </Link>
+      </div>
       <hr className="separator mb-12" />
     </>
   )
@@ -45,9 +42,9 @@ export default function BookList({
 }: BookListItemProps): ReactElement {
   return (
     <>
-      {allBooks.map((book) => {
-        return <BookItem book={book} key={book.uid} />
-      })}
+      {allBooks.map((book, index) => (
+        <BookItem book={book} key={index} />
+      ))}
     </>
   )
 }
