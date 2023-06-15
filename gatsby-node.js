@@ -1,13 +1,9 @@
-// Controlling your site’s data in the GraphQL data layer.
-// https://www.gatsbyjs.org/docs/node-apis/
-
 const path = require(`path`)
-// Log out information after a build is done
+
 exports.onPostBuild = ({ reporter }) => {
   reporter.info(`✅ Your Gatsby site has been built`)
 }
 
-// Create blog pages dynamically
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const episodeTemplate = path.resolve(`src/templates/episode.tsx`)
@@ -100,6 +96,39 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `article/${edge.node.uid}`,
       component: articleTemplate,
+      context: {
+        ...edge,
+      },
+    })
+  })
+
+  // Add the following code to include allPrismicBook
+
+  const bookTemplate = path.resolve(`src/templates/livres.tsx`)
+  const books = await graphql(`
+    query {
+      allPrismicBook {
+        edges {
+          node {
+            uid
+            data {
+              title {
+                text
+              }
+              content {
+                richText
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  books.data.allPrismicBook.edges.forEach((edge) => {
+    createPage({
+      path: `book/${edge.node.uid}`,
+      component: bookTemplate,
       context: {
         ...edge,
       },

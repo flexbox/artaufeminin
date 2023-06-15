@@ -8,7 +8,7 @@ import LayoutSidebar from "../components/layoutSidebar"
 interface BooksPageProps {
   data: {
     allPrismicBook: {
-      nodes: Book[] // Définissez une interface pour représenter la structure de vos livres
+      nodes: Book[]
     }
   }
 }
@@ -40,8 +40,8 @@ const BooksPage = ({ data }: BooksPageProps) => {
 }
 
 export const query = graphql`
-  query {
-    allPrismicBook(sort: { fields: first_publication_date, order: DESC }) {
+  query allBooks {
+    allPrismicBook {
       nodes {
         uid
         data {

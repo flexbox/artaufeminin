@@ -1,7 +1,7 @@
 const siteConfig = require("./siteConfig")
-
 const { linkResolver } = require("./src/utils/linkResolver.ts")
 const siteUrl = process.env.URL || `https://www.artaufeminin.fr`
+
 module.exports = {
   siteMetadata: {
     ...siteConfig,
@@ -63,6 +63,11 @@ module.exports = {
               pubDate
             }
           }
+          allPrismicBook {
+            nodes {
+              last_publication_date
+            }
+          }
         }
       `,
         resolveSiteUrl: () => siteUrl,
@@ -104,6 +109,7 @@ module.exports = {
           blog_post: require("./custom_types/blog_post.json"),
           press: require("./custom_types/press.json"),
           quotation: require("./custom_types/quotation.json"),
+          book_review: require("./custom_types/book_review.json"),
         },
       },
     },
