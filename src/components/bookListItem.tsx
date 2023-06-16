@@ -4,6 +4,7 @@ import { RichText, RichTextBlock } from "prismic-reactjs"
 import truncate from "lodash/truncate"
 import { formatHumanDate } from "../utils/date"
 import Text from "./text"
+import "./bookStyles.css"
 
 interface BookProps {
   title: string
@@ -24,12 +25,8 @@ function BookItem({ book }: { book: BookProps }): ReactElement {
     <>
       <div className="book-item">
         <Text to="/" className="book-item-link hover:no-underline">
-          <Text as="h3" className="book-item-title">
-            {title}
-          </Text>
-          <Text as="p" className="book-item-content">
-            {truncatedContent}
-          </Text>
+          <h2 className="book-item-title">{title}</h2>
+          <p className="book-item-content">{truncatedContent}</p>
         </Text>
       </div>
       <hr className="separator mb-12" />

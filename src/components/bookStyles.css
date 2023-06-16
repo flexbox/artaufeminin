@@ -1,0 +1,35 @@
+.book-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .book-item-link {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .book-item-link:hover {
+    text-decoration: none;
+  }
+  
+  .book-item-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  
+  .book-item-content {
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  .separator {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin-bottom: 12px;
+  }
+  
