@@ -107,7 +107,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const bookTemplate = path.resolve(`src/templates/livres.tsx`)
   const books = await graphql(`
     query {
-      allPrismicBook {
+      allPrismicBookReview {
         edges {
           node {
             uid
@@ -125,7 +125,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  books.data.allPrismicBook.edges.forEach((edge) => {
+  books.data.allPrismicBookReview.edges.forEach((edge) => {
     createPage({
       path: `book/${edge.node.uid}`,
       component: bookTemplate,
