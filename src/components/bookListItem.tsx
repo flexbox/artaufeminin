@@ -24,10 +24,7 @@ function BookItem({ book }: { book: BookProps }): ReactElement {
     <>
       <div className="book-item text-center">
         <Text to="/" className="book-item-link hover:no-underline">
-          <h2
-            className="book-item-title mb-2 text-2xl font-bold"
-            style={{ fontFamily: "Great Vibes, cursive" }}
-          >
+          <h2 className="book-item-title mb-2 font-serif text-2xl font-bold">
             {title}
           </h2>
           <p className="book-item-content text-gray-600">{truncatedContent}</p>
