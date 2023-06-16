@@ -4,7 +4,6 @@ import { RichText, RichTextBlock } from "prismic-reactjs"
 import truncate from "lodash/truncate"
 import { formatHumanDate } from "../utils/date"
 import Text from "./text"
-import "./bookStyles.css"
 
 interface BookProps {
   title: string
