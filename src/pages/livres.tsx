@@ -25,17 +25,15 @@ interface Book {
 }
 
 const BooksPage = ({ data }: BooksPageProps) => {
-  const books = data.allPrismicBookReview.nodes.map((node: Book) => ({
-    title: node.data.title.text,
-    content: node.data.content.text,
-  }))
+  const book = data.allPrismicBookReview.nodes[0]
+  const { title, content } = book.data
 
   return (
     <Layout withInstagram={false}>
       <SEO title="Critiques de livres" />
 
       <LayoutSidebar withPodcast={false}>
-        <BookList allBooks={books} />
+        <BookList allBooks={[{ title: title.text, content: content.text }]} />
       </LayoutSidebar>
     </Layout>
   )
