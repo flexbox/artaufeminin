@@ -24,10 +24,10 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: 24px 24px;
-    background-image: url("play-pause-icon.png"); /* Remplacez l'image par votre propre icône */
+    background-image: url("/Users/alban/Documents/artaufeminin/img/play-pause-icon.png");
   }
   
   .play-pause-button.playing {
-    background-image: url("pause-icon.png"); /* Remplacez l'image par votre propre icône */
+    background-image: url("/Users/alban/Documents/artaufeminin/img/pause-icon.png.png"); 
   }
   
