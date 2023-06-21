@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import Layout from "../components/layout"
 import LayoutSidebar from "../components/layoutSidebar"
 import SEO from "../components/seo"
@@ -12,6 +12,18 @@ export default function Episode({ pageContext }) {
   const description = pageContext.contentSnippet.substring(0, 155)
   const duration = dutationToString(pageContext.itunes.duration)
   const audioSrc = pageContext.enclosure.url
+
+  const [isPlaying, setIsPlaying] = useState(false)
+
+  const togglePlay = () => {
+    const audioElement = document.getElementById("audio-element")
+    if (isPlaying) {
+      audioElement.pause()
+    } else {
+      audioElement.play()
+    }
+    setIsPlaying(!isPlaying)
+  }
 
   return (
     <Layout>
@@ -29,11 +41,18 @@ export default function Episode({ pageContext }) {
             <em>{duration}</em>
           </p>
 
-          {audioSrc && (
-            <div className="fixed-audio-player">
-              <audio controls src={audioSrc} className="audio-element" />
-            </div>
-          )}
+          <div className="fixed-audio-player">
+            <button
+              className={`play-pause-button ${isPlaying ? "playing" : ""}`}
+              onClick={togglePlay}
+            />
+            <audio
+              controls
+              src={audioSrc}
+              id="audio-element"
+              className="audio-element"
+            />
+          </div>
 
           <div
             className="my-12"
