@@ -104,6 +104,7 @@ module.exports = {
           blog_post: require("./custom_types/blog_post.json"),
           press: require("./custom_types/press.json"),
           quotation: require("./custom_types/quotation.json"),
+          book_review: require("./custom_types/book_review.json"),
         },
       },
     },
