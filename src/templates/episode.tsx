@@ -1,8 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import Layout from "../components/layout"
 import LayoutSidebar from "../components/layoutSidebar"
 import SEO from "../components/seo"
 import { dutationToString } from "../utils/dutationToString"
+
+// Importez le fichier CSS pour le lecteur audio
+import "./audio-player.css"
 
 export default function Episode({ pageContext }) {
   const title = pageContext.title
@@ -10,13 +13,25 @@ export default function Episode({ pageContext }) {
   const duration = dutationToString(pageContext.itunes.duration)
   const audioSrc = pageContext.enclosure.url
 
+  const [isPlaying, setIsPlaying] = useState(false)
+
+  const togglePlay = () => {
+    const audioElement = document.getElementById("audio-element")
+    if (isPlaying) {
+      audioElement.pause()
+    } else {
+      audioElement.play()
+    }
+    setIsPlaying(!isPlaying)
+  }
+
   return (
     <Layout>
-      <SEO title={`Podcast ${title} `} description={description} />
+      <SEO title={`Podcast ${title}`} description={description} />
 
       <LayoutSidebar>
         <article className="prose prose-blue text-gray-500">
-          <h1 className=" text-gray-700">{title}</h1>
+          <h1 className="text-gray-700">{title}</h1>
 
           <p className="text-gray-500">
             <em>Saison {pageContext.itunes.season}</em>
@@ -26,7 +41,18 @@ export default function Episode({ pageContext }) {
             <em>{duration}</em>
           </p>
 
-          <audio controls src={audioSrc} className="mb-8" />
+          <div className="fixed-audio-player">
+            <button
+              className={`play-pause-button ${isPlaying ? "playing" : ""}`}
+              onClick={togglePlay}
+            />
+            <audio
+              controls
+              src={audioSrc}
+              id="audio-element"
+              className="audio-element"
+            />
+          </div>
 
           <div
             className="my-12"
