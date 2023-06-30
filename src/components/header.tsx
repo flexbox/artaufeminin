@@ -44,6 +44,7 @@ export default function Header(): ReactElement {
               <HeaderLink to="/podcast" title="Podcast" />
               <HeaderLink to="/articles" title="Articles" />
               <HeaderLink to="/citations" title="Citations" />
+              <HeaderLink to="/livres" title="Livres" />
 
               <li className="px-4">
                 <a
