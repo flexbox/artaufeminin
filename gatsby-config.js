@@ -63,6 +63,11 @@ module.exports = {
               pubDate
             }
           }
+          allPrismicBookReview {
+            nodes {
+              last_publication_date
+            }
+          }
         }
       `,
         resolveSiteUrl: () => siteUrl,
