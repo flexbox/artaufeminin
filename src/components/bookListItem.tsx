@@ -1,8 +1,6 @@
 import React, { ReactElement } from "react"
 import { Link } from "gatsby"
-import { RichText, RichTextBlock } from "prismic-reactjs"
 import truncate from "lodash/truncate"
-import { formatHumanDate } from "../utils/date"
 import Text from "./text"
 
 interface BookProps {
@@ -24,14 +22,12 @@ function BookItem({ book }: { book: BookProps }): ReactElement {
 
   return (
     <>
-      <div className="book-item text-center">
+      <div className="book-item">
         <Link
           to={`/livre/${slug}`}
           className="book-item-link hover:no-underline"
         >
-          <h2 className="book-item-title mb-2 font-serif text-2xl font-bold">
-            {title}
-          </h2>
+          <Text as="h3Link">{title}</Text>
           <p className="book-item-content text-gray-600">{truncatedContent}</p>
         </Link>
       </div>

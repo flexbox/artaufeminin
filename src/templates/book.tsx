@@ -4,21 +4,29 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Author from "../components/author"
 import Text from "../components/text"
+import { RichTextBlock } from "prismic-reactjs"
+import CustomRichText from "../components/customRichText"
+import Tipee from "../components/tipee"
 
-interface PropsLivre {
-  uid: string
-  data: {
-    title: {
-      text: string
-    }
-    content: {
-      text: string
+interface PropsBook {
+  pageContext: {
+    node: {
+      uid: string
+      data: {
+        title: {
+          text: string
+        }
+        content: {
+          text: string
+          richText: RichTextBlock[]
+        }
+      }
     }
   }
 }
 
-export default function Livre(props: PropsLivre): ReactElement {
-  const { data } = props
+export default function Book(props: PropsBook): ReactElement {
+  const { data } = props.pageContext.node
   const seoTitle = data.title.text
   const seoDescription = data.content.text
 
@@ -39,19 +47,10 @@ export default function Livre(props: PropsLivre): ReactElement {
         </header>
 
         <article className="prose prose-xl prose-blue">
-          <div className="article-content mb-20">{data.content.text}</div>
-          <p className="mb-20 text-gray-500">
-            Vous avez aimé cet article ?{" "}
-            <a
-              href="https://fr.tipeee.com/art-au-feminin"
-              title="Sponsoriser les épisodes"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Devenez mécène sur tipeee m’aide beaucoup.
-            </a>
-          </p>
-
+          <div className="article-content mb-20">
+            <CustomRichText render={data.content.richText} />
+          </div>
+          <Tipee />
           <Author />
         </article>
       </div>
