@@ -8,6 +8,7 @@ import { formatHumanDate } from "../utils/date"
 import { RichTextBlock } from "prismic-reactjs"
 import Text from "../components/text"
 import { Link } from "gatsby"
+import Tipee from "../components/tipee"
 
 interface PropsArticle {
   pageContext: {
@@ -128,20 +129,7 @@ export default function Article(props: PropsArticle): ReactElement {
           <div className="article-content mb-20">
             <CustomRichText render={data.content.richText} />
           </div>
-          <p className="mb-20 text-gray-500">
-            Vous avez aimé cet article ?{" "}
-            <a
-              href="https://fr.tipeee.com/art-au-feminin"
-              title="Sponsoriser les épisodes"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Devenez mécène sur tipeee m’aide beaucoup.
-            </a>
-            <br />
-            <em>Publié {datePublished}</em>
-          </p>
-
+          <Tipee />
           <Author />
         </article>
 
