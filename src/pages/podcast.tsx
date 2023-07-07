@@ -34,8 +34,9 @@ const PodcastPage = ({ data }) => {
 
 const episodesQuery = graphql`
   query {
-    allAnchorEpisode {
+    allAnchorEpisode(sort: { isoDate: DESC }) {
       nodes {
+        isoDate
         ...AnchorEpisodeFragment
       }
     }
