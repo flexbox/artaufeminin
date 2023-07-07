@@ -4,9 +4,6 @@ import LayoutSidebar from "../components/layoutSidebar"
 import SEO from "../components/seo"
 import { dutationToString } from "../utils/dutationToString"
 
-// Importez le fichier CSS pour le lecteur audio
-import "./audio-player.css"
-
 export default function Episode({ pageContext }) {
   const title = pageContext.title
   const description = pageContext.contentSnippet.substring(0, 155)
@@ -18,9 +15,9 @@ export default function Episode({ pageContext }) {
   const togglePlay = () => {
     const audioElement = document.getElementById("audio-element")
     if (isPlaying) {
-      audioElement.pause()
+      audioElement?.pause()
     } else {
-      audioElement.play()
+      audioElement?.play()
     }
     setIsPlaying(!isPlaying)
   }
@@ -41,18 +38,11 @@ export default function Episode({ pageContext }) {
             <em>{duration}</em>
           </p>
 
-          <div className="fixed-audio-player">
-            <button
-              className={`play-pause-button ${isPlaying ? "playing" : ""}`}
-              onClick={togglePlay}
-            />
-            <audio
-              controls
-              src={audioSrc}
-              id="audio-element"
-              className="audio-element"
-            />
-          </div>
+          <button
+            className={`play-pause-button ${isPlaying ? "playing" : ""}`}
+            onClick={togglePlay}
+          />
+          <audio controls src={audioSrc} id="audio-element" />
 
           <div
             className="my-12"

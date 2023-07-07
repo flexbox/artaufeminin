@@ -8,7 +8,7 @@ import { RichTextBlock } from "prismic-reactjs"
 import CustomRichText from "../components/customRichText"
 import Tipee from "../components/tipee"
 
-interface PropsBook {
+interface BookProps {
   pageContext: {
     node: {
       uid: string
@@ -25,7 +25,7 @@ interface PropsBook {
   }
 }
 
-export default function Book(props: PropsBook): ReactElement {
+export default function Book(props: BookProps): ReactElement {
   const { data } = props.pageContext.node
   const seoTitle = data.title.text
   const seoDescription = data.content.text
