@@ -23,7 +23,7 @@ export default function Episode({ pageContext }) {
   }
 
   return (
-    <Layout>
+    <Layout withLastPodcast={false}>
       <SEO title={`Podcast ${title}`} description={description} />
 
       <LayoutSidebar>
