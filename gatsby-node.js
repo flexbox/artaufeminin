@@ -1,5 +1,5 @@
 // Controlling your site’s data in the GraphQL data layer.
-// https://www.gatsbyjs.org/docs/node-apis/
+// https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
 
 const path = require(`path`)
 // Log out information after a build is done
@@ -100,6 +100,38 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `article/${edge.node.uid}`,
       component: articleTemplate,
+      context: {
+        ...edge,
+      },
+    })
+  })
+
+  const bookTemplate = path.resolve(`src/templates/book.tsx`)
+  const books = await graphql(`
+    query {
+      allPrismicBookReview {
+        edges {
+          node {
+            uid
+            data {
+              content {
+                text
+                richText
+              }
+              title {
+                text
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  books.data.allPrismicBookReview.edges.forEach((edge) => {
+    createPage({
+      path: `livre/${edge.node.uid}`,
+      component: bookTemplate,
       context: {
         ...edge,
       },

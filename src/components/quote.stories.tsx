@@ -20,7 +20,7 @@ export const QuoteStory = () => {
         </span>
       </p>
       <Quote
-        id={"12345"}
+        id="12345"
         data={{
           author: "Stacey Gillian Abe",
           quotation:
