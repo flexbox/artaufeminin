@@ -1,7 +1,6 @@
 import { Link } from "gatsby"
 import React from "react"
 import Text from "./text"
-import AudioPlayer from "./player/audioPlayer"
 
 interface EpisodeItemProps {
   isSummaryTruncate?: boolean
@@ -44,10 +43,7 @@ export default function EpisodeItem({
         <div className="flex-1">
           <Text as="h3Link">{episode.title}</Text>
           {withPlayer && (
-            <>
-              <AudioPlayer />
-              <audio controls src={audioSrc} className="mb-8 mt-4" />
-            </>
+            <audio controls src={audioSrc} className="mb-8 mt-4" />
           )}
 
           <div

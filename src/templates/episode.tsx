@@ -38,18 +38,11 @@ export default function Episode({ pageContext }) {
             <em>{duration}</em>
           </p>
 
-          <div className="z-1000 fixed bottom-0 left-0 m-auto flex w-full items-center bg-[#f2f2f2] ">
-            <button
-              className={`play-pause-button ${isPlaying ? "playing" : ""}`}
-              onClick={togglePlay}
-            />
-            <audio
-              controls
-              src={audioSrc}
-              id="audio-element"
-              className="w-full"
-            />
-          </div>
+          <button
+            className={`play-pause-button ${isPlaying ? "playing" : ""}`}
+            onClick={togglePlay}
+          />
+          <audio controls src={audioSrc} id="audio-element" />
 
           <div
             className="my-12"
