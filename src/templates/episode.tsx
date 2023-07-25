@@ -3,6 +3,9 @@ import Layout from "../components/layout"
 import LayoutSidebar from "../components/layoutSidebar"
 import SEO from "../components/seo"
 import { dutationToString } from "../utils/dutationToString"
+import { useMemo } from "react"
+import { useAudioPlayer } from "../components/AudioProvider"
+import { PlayButton } from "../components/player/PlayButton"
 
 export default function Episode({ pageContext }) {
   const title = pageContext.title
@@ -10,17 +13,17 @@ export default function Episode({ pageContext }) {
   const duration = dutationToString(pageContext.itunes.duration)
   const audioSrc = pageContext.enclosure.url
 
-  const [isPlaying, setIsPlaying] = useState(false)
-
-  const togglePlay = () => {
-    const audioElement = document.getElementById("audio-element")
-    if (isPlaying) {
-      audioElement?.pause()
-    } else {
-      audioElement?.play()
-    }
-    setIsPlaying(!isPlaying)
-  }
+  let audioPlayerData = useMemo(
+    () => ({
+      title: pageContext.title,
+      audio: {
+        src: pageContext.enclosure.url,
+      },
+      link: `/${pageContext.guid}`,
+    }),
+    [pageContext]
+  )
+  let player = useAudioPlayer(audioPlayerData)
 
   return (
     <Layout withLastPodcast={false}>
@@ -38,11 +41,8 @@ export default function Episode({ pageContext }) {
             <em>{duration}</em>
           </p>
 
-          <button
-            className={`play-pause-button ${isPlaying ? "playing" : ""}`}
-            onClick={togglePlay}
-          />
-          <audio controls src={audioSrc} id="audio-element" />
+          <PlayButton player={player} size="large" />
+          {/* <audio controls src={audioSrc} id="audio-element" /> */}
 
           <div
             className="my-12"
