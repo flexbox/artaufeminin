@@ -6,8 +6,11 @@ import { dutationToString } from "../utils/dutationToString"
 import { useMemo } from "react"
 import { useAudioPlayer } from "../components/AudioProvider"
 import { PlayButton } from "../components/player/PlayButton"
+import { AudioPlayer } from "../components/player/AudioPlayer"
+import { parse } from "rss-to-json"
 
 export default function Episode({ pageContext }) {
+  console.log("🚀 ~ file: episode.tsx:13 ~ Episode ~ pageContext:", pageContext)
   const title = pageContext.title
   const description = pageContext.contentSnippet.substring(0, 155)
   const duration = dutationToString(pageContext.itunes.duration)
@@ -18,10 +21,15 @@ export default function Episode({ pageContext }) {
       title: pageContext.title,
       audio: {
         src: pageContext.enclosure.url,
+        type: "audio/mpeg",
       },
       link: `/${pageContext.guid}`,
     }),
     [pageContext]
+  )
+  console.log(
+    "🚀 ~ file: episode.tsx:28 ~ Episode ~ audioPlayerData:",
+    audioPlayerData
   )
   let player = useAudioPlayer(audioPlayerData)
 
@@ -52,6 +60,31 @@ export default function Episode({ pageContext }) {
           <hr className="separator" />
         </article>
       </LayoutSidebar>
+      <div className="fixed inset-x-0 bottom-0 z-10 lg:left-112 xl:left-120">
+        <AudioPlayer />
+      </div>
     </Layout>
   )
+}
+
+export async function getStaticProps({ pageContext }) {
+  let episode = {
+    id: pageContext.guid.toString,
+    title: pageContext.title,
+    description: pageContext.description,
+    audio: pageContext.enclosure.url,
+  }
+
+  if (!episode) {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props: {
+      episode,
+    },
+    revalidate: 10,
+  }
 }

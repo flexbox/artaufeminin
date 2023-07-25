@@ -1,5 +1,10 @@
-import { createContext, useContext, useMemo, useReducer, useRef } from "react"
-import React from "react"
+import React, {
+  createContext,
+  useContext,
+  useMemo,
+  useReducer,
+  useRef,
+} from "react"
 
 const AudioPlayerContext = createContext()
 
@@ -124,7 +129,7 @@ export function useAudioPlayer(data) {
         player.toggle(data)
       },
       get playing() {
-        return player.isPlaying(data)
+        return player.isPlaying(data) //TODO: check why this doesnt work
       },
     }),
     [player, data]

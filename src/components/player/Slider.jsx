@@ -1,5 +1,4 @@
-// @ts-nocheck
-import { useRef } from "react"
+import React, { useRef } from "react"
 import {
   mergeProps,
   useFocusRing,
@@ -9,7 +8,6 @@ import {
 } from "react-aria"
 import { useSliderState } from "react-stately"
 import clsx from "clsx"
-import React from "react"
 
 function parseTime(seconds) {
   let hours = Math.floor(seconds / 3600)
