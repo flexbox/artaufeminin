@@ -6,7 +6,7 @@ import Header from "./header"
 import Instagram from "./instagram"
 import Text from "./text"
 import { AudioProvider } from "./AudioProvider"
-import AudioPlayer from "./player/AudioPlayer"
+import { AudioPlayer } from "./player/AudioPlayer"
 
 interface LayoutProps {
   children: ReactNode
@@ -53,6 +53,9 @@ function Layout({
   return (
     <AudioProvider>
       <div className="bg-gray-50">
+        <div className="">
+          <AudioPlayer />
+        </div>
         <Header />
         <main role="main" className="mt-12 px-4">
           {children}
@@ -72,9 +75,6 @@ function Layout({
           </div>
         )}
         <Footer siteTitle={siteTitle} />
-        <div className="fixed inset-x-0 bottom-0 z-10 lg:left-112 xl:left-120">
-          <AudioPlayer />
-        </div>
       </div>
     </AudioProvider>
   )
