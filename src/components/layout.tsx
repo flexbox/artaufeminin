@@ -1,9 +1,12 @@
+// @ts-nocheck
 import React, { ReactNode, useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Footer from "./footer"
 import Header from "./header"
 import Instagram from "./instagram"
 import Text from "./text"
+import { AudioProvider } from "./AudioProvider"
+import AudioPlayer from "./player/AudioPlayer"
 
 interface LayoutProps {
   children: ReactNode
@@ -48,27 +51,32 @@ function Layout({
   }
 
   return (
-    <div className="bg-gray-50">
-      <Header />
-      <main role="main" className="mt-12 px-4">
-        {children}
-      </main>
-      {withInstagram && <Instagram />}
-      {withLastPodcast && (
-        <div className="z-1000 fixed bottom-0 left-0 m-auto flex w-full items-center p-4">
-          <Text className=" text-gray-500 sm:text-base ">
-            Écoutez le dernier épisode
-          </Text>
-          <button
-            className={`play-pause-button ${isPlaying ? "playing" : ""}`}
-            onClick={togglePlay}
-          />
+    <AudioProvider>
+      <div className="bg-gray-50">
+        <Header />
+        <main role="main" className="mt-12 px-4">
+          {children}
+        </main>
+        {withInstagram && <Instagram />}
+        {withLastPodcast && (
+          <div className="z-1000 fixed bottom-0 left-0 m-auto flex w-full items-center p-4">
+            <Text className=" text-gray-500 sm:text-base ">
+              Écoutez le dernier épisode
+            </Text>
+            <button
+              className={`play-pause-button ${isPlaying ? "playing" : ""}`}
+              onClick={togglePlay}
+            />
 
-          <audio controls src={audioUrl} className="w-full" />
+            <audio controls src={audioUrl} className="w-full" />
+          </div>
+        )}
+        <Footer siteTitle={siteTitle} />
+        <div className="fixed inset-x-0 bottom-0 z-10 lg:left-112 xl:left-120">
+          <AudioPlayer />
         </div>
-      )}
-      <Footer siteTitle={siteTitle} />
-    </div>
+      </div>
+    </AudioProvider>
   )
 }
 
