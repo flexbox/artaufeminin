@@ -75,7 +75,7 @@ export default function Header(): ReactElement {
               </Link>
             </li>
             <li className="py-2 hover:text-black">
-              <Link to="/podcast" activeClassName="text-lime-700">
+              <Link to="/citations" activeClassName="text-lime-700">
                 Citations
               </Link>
             </li>
