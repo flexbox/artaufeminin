@@ -11,6 +11,8 @@ const navigation = {
     { name: "Mon histoire", href: "/about" },
     { name: "Questions fréquentes", href: "/faq" },
     { name: "Presse", href: "/press" },
+    { name: "Citations", href: "/citations" },
+    { name: "Livres", href: "/livres" },
   ],
   podcast: [{ name: "Participer", href: "/start" }],
   social: [
