@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import Layout from "../components/layout"
 import LayoutSidebar from "../components/layoutSidebar"
 import SEO from "../components/seo"
@@ -6,8 +6,7 @@ import { dutationToString } from "../utils/dutationToString"
 import { useMemo } from "react"
 import { useAudioPlayer } from "../components/player/AudioProvider"
 import { PlayButton } from "../components/player/PlayButton"
-import { AudioPlayer } from "../components/player/AudioPlayer"
-import { parse } from "rss-to-json"
+import Text from "../components/text"
 
 export default function Episode({ pageContext }) {
   const title = pageContext.title
@@ -44,8 +43,10 @@ export default function Episode({ pageContext }) {
             <em>{duration}</em>
           </p>
 
-          <PlayButton player={player} size="large" />
-          {/* <audio controls src={audioSrc} id="audio-element" /> */}
+          <div className="flex items-center gap-4">
+            <PlayButton player={player} size="small" />
+            <Text className="text-slate-500 font-merri">Écouter</Text>
+          </div>
 
           <div
             className="my-12"
@@ -55,9 +56,6 @@ export default function Episode({ pageContext }) {
           <hr className="separator" />
         </article>
       </LayoutSidebar>
-      <div className="fixed inset-x-0 bottom-0 z-10 lg:left-112 xl:left-120">
-        <AudioPlayer />
-      </div>
     </Layout>
   )
 }

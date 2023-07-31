@@ -1,6 +1,9 @@
 import { Link } from "gatsby"
-import React from "react"
+import React, { useMemo } from "react"
 import Text from "./text"
+import { useAudioPlayer } from "./player/AudioProvider"
+import { PlayButton } from "./player/PlayButton"
+import { AudioPlayer } from "./player/AudioPlayer"
 
 interface EpisodeItemProps {
   isSummaryTruncate?: boolean
@@ -27,6 +30,19 @@ export default function EpisodeItem({
   withPlayer = true,
   isSummaryTruncate,
 }: EpisodeItemProps) {
+  let audioPlayerData = useMemo(
+    () => ({
+      title: episode.title,
+      audio: {
+        src: episode.enclosure.url,
+        type: "audio/mpeg",
+      },
+      link: `/${episode.guid}`,
+    }),
+    [episode]
+  )
+  let player = useAudioPlayer(audioPlayerData)
+
   const audioSrc = episode.enclosure.url
 
   let summary = episode.itunes.summary
@@ -42,9 +58,6 @@ export default function EpisodeItem({
       >
         <div className="flex-1">
           <Text as="h3Link">{episode.title}</Text>
-          {withPlayer && (
-            <audio controls src={audioSrc} className="mb-8 mt-4" />
-          )}
 
           <div
             className="font-light text-gray-500 "
@@ -59,6 +72,10 @@ export default function EpisodeItem({
           />
         </div>
       </Link>
+      <div className="flex items-center">
+        <PlayButton player={player} size="small" />
+        <Text className="ml-4 text-slate-500 font-merri">Écouter</Text>
+      </div>
       <hr className="separator my-8" />
     </>
   )

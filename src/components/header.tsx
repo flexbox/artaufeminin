@@ -31,19 +31,21 @@ export default function Header(): ReactElement {
           </div>
         </div>
 
-        <div className="m-auto">
+        <div className="m-auto flex justify-center ">
+          <nav className="invisible h-0 sm:h-auto lg:visible">
+            <ul className="my-8 flex text-gray-400">
+              <HeaderLink to="/podcast" title="Podcast" />
+              <HeaderLink to="/articles" title="Articles" />
+            </ul>
+          </nav>
           <Link
-            className="flex justify-center pb-0 pt-6 text-xl font-bold text-gray-700 transition duration-300 ease-in-out hover:text-black sm:text-3xl"
+            className="flex pb-0 pt-6 text-xl font-bold text-gray-700 transition duration-300 ease-in-out hover:text-black sm:text-3xl"
             to={`/`}
           >
             ART <span className="ml-2 italic tracking-tighter">au féminin</span>
           </Link>
-
           <nav className="invisible h-0 sm:h-auto lg:visible">
-            <ul className="my-8 flex justify-center text-gray-400">
-              <HeaderLink to="/podcast" title="Podcast" />
-              <HeaderLink to="/articles" title="Articles" />
-
+            <ul className="my-8 flex text-gray-400">
               <li className="px-4">
                 <a
                   href="mailto:artaufemininlepodcast@gmail.com"
