@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
 
-import { useAudioPlayer } from "../AudioProvider"
+import { useAudioPlayer } from "./AudioProvider"
 import { ForwardButton } from "./ForwardButton"
 import { MuteButton } from "./MuteButton"
 import { PlaybackRateButton } from "./PlaybackRateButton"

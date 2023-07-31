@@ -4,13 +4,12 @@ import LayoutSidebar from "../components/layoutSidebar"
 import SEO from "../components/seo"
 import { dutationToString } from "../utils/dutationToString"
 import { useMemo } from "react"
-import { useAudioPlayer } from "../components/AudioProvider"
+import { useAudioPlayer } from "../components/player/AudioProvider"
 import { PlayButton } from "../components/player/PlayButton"
 import { AudioPlayer } from "../components/player/AudioPlayer"
 import { parse } from "rss-to-json"
 
 export default function Episode({ pageContext }) {
-  console.log("🚀 ~ file: episode.tsx:13 ~ Episode ~ pageContext:", pageContext)
   const title = pageContext.title
   const description = pageContext.contentSnippet.substring(0, 155)
   const duration = dutationToString(pageContext.itunes.duration)
@@ -26,10 +25,6 @@ export default function Episode({ pageContext }) {
       link: `/${pageContext.guid}`,
     }),
     [pageContext]
-  )
-  console.log(
-    "🚀 ~ file: episode.tsx:28 ~ Episode ~ audioPlayerData:",
-    audioPlayerData
   )
   let player = useAudioPlayer(audioPlayerData)
 
