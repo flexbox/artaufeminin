@@ -129,7 +129,7 @@ export function useAudioPlayer(data) {
         player.toggle(data)
       },
       get playing() {
-        return player.isPlaying(data) //TODO: check why this doesnt work
+        return player?.isPlaying(data) //TODO: check why this doesnt work
       },
     }),
     [player, data]
