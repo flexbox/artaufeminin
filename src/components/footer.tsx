@@ -50,6 +50,7 @@ export default function Footer({ siteTitle }: FooterProps) {
     <footer
       aria-labelledby="footer-heading"
       style={{ backgroundColor: "#8ba28f" }}
+      className="pb-24"
     >
       <h2 id="footer-heading" className="sr-only">
         Footer
