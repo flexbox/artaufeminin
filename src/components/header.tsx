@@ -34,7 +34,7 @@ export default function Header(): ReactElement {
         <div className="m-auto flex justify-center ">
           <nav className="invisible h-0 sm:h-auto lg:visible">
             <ul className="my-8 flex text-gray-400">
-              <HeaderLink to="/podcast" title="Podcast" />
+              <HeaderLink to="/podcast" title="Podcasts" />
               <HeaderLink to="/articles" title="Articles" />
             </ul>
           </nav>
@@ -88,7 +88,7 @@ export default function Header(): ReactElement {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Contacter par email
+                    Me contacter
                   </a>
                 </div>
               </div>
