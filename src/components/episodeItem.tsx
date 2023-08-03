@@ -3,7 +3,6 @@ import React, { useMemo } from "react"
 import Text from "./text"
 import { useAudioPlayer } from "./player/AudioProvider"
 import { PlayButton } from "./player/PlayButton"
-import { AudioPlayer } from "./player/AudioPlayer"
 
 interface EpisodeItemProps {
   isSummaryTruncate?: boolean
@@ -27,7 +26,6 @@ interface EpisodeItemProps {
 
 export default function EpisodeItem({
   episode,
-  withPlayer = true,
   isSummaryTruncate,
 }: EpisodeItemProps) {
   let audioPlayerData = useMemo(
@@ -42,8 +40,6 @@ export default function EpisodeItem({
     [episode]
   )
   let player = useAudioPlayer(audioPlayerData)
-
-  const audioSrc = episode.enclosure.url
 
   let summary = episode.itunes.summary
   if (isSummaryTruncate === true) {

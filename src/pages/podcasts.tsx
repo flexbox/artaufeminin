@@ -6,13 +6,13 @@ import SEO from "../components/seo"
 import EpisodeItem from "../components/episodeItem"
 import LayoutSidebar from "../components/layoutSidebar"
 
-const PodcastPage = ({ data }) => {
+const PodcastsPage = ({ data }) => {
   const allEpisodes = data.allAnchorEpisode.nodes
 
   return (
     <Layout>
       <SEO
-        title="Tous les épisodes du podcast sur les femmes artistes "
+        title="Tous les épisodes du podcast sur les femmes artistes."
         description=""
       />
 
@@ -20,7 +20,6 @@ const PodcastPage = ({ data }) => {
         {allEpisodes.map((episode) => {
           return (
             <EpisodeItem
-              withPlayer={false}
               key={episode.id}
               episode={episode}
               isSummaryTruncate={true}
@@ -46,6 +45,6 @@ const episodesQuery = graphql`
 export default () => (
   <StaticQuery
     query={episodesQuery}
-    render={(data) => <PodcastPage data={data} />}
+    render={(data) => <PodcastsPage data={data} />}
   />
 )
