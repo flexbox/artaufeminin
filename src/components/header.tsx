@@ -1,102 +1,120 @@
-import { Link } from "gatsby-link"
 import React, { ReactElement, useState } from "react"
-import Burger from "../components/burger"
-import Cross from "../components/cross"
+import { Dialog } from "@headlessui/react"
+import { Bars3Icon, XMarkIcon, EnvelopeIcon } from "@heroicons/react/24/outline"
+import { Link } from "gatsby"
 
-const HeaderLink = ({ to, title }: { to: string; title: string }) => {
+const navigation = [
+  { name: "Podcasts", href: "/podcasts" },
+  { name: "Articles", href: "/articles" },
+  { name: "Livres", href: "/livres" },
+  { name: "Citations", href: "/citations" },
+]
+
+function LinkEmail() {
+  const email = "artaufemininlepodcast@gmail.com"
+  const subject = "ART au féminin - Contact"
+  const body = `Bonjour,
+
+  Je vous écris aujourd'hui pour vous demander ...`
+
+  const subjectBody = encodeURIComponent(subject)
+  const encodedBody = encodeURIComponent(body)
+  const encodedURL = `mailto:${email}?subject=${subjectBody}&body=${encodedBody}`
+
   return (
-    <li className="px-4">
-      <Link
-        to={to}
-        activeClassName="text-black relative"
-        className="rounded-md px-8 py-4 text-lg font-extrabold hover:bg-white hover:text-gray-600"
-      >
-        <span className="relative">{title}</span>
-      </Link>
-    </li>
+    <a
+      href={encodedURL}
+      className="text-sm font-semibold leading-6 text-gray-900 inline-flex"
+      title="Envoyer un email"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Contact
+      <EnvelopeIcon className="h-6 w-6 text-gray-400 ml-2" aria-hidden="true" />
+    </a>
   )
 }
 
-export default function Header(): ReactElement {
-  const [toggleNav, setToggleNav] = useState<boolean>(false)
+export function Header(): ReactElement {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header>
-      <div>
-        <div className="visible relative lg:hidden">
-          <div className="absolute left-6 top-6">
-            <button className="" onClick={() => setToggleNav(!toggleNav)}>
-              {toggleNav ? <Burger /> : <Cross />}
+    <header className="bg-white">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        aria-label="Global"
+      >
+        <div className="flex flex-1">
+          <div className="hidden lg:flex lg:gap-x-12">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                to={item.href}
+                className="text-sm font-semibold leading-6 text-gray-900"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+          <div className="flex lg:hidden">
+            <button
+              type="button"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+              onClick={() => setMobileMenuOpen(true)}
+            >
+              <span className="sr-only">Ouvrir le menu</span>
+              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
         </div>
-
-        <div className="m-auto">
-          <Link
-            className="flex justify-center pb-0 pt-6 text-xl font-bold text-gray-700 transition duration-300 ease-in-out hover:text-black sm:text-3xl"
-            to={`/`}
-          >
-            ART <span className="ml-2 italic tracking-tighter">au féminin</span>
-          </Link>
-
-          <nav className="invisible h-0 sm:h-auto lg:visible">
-            <ul className="my-8 flex justify-center text-gray-400">
-              <HeaderLink to="/podcast" title="Podcast" />
-              <HeaderLink to="/articles" title="Articles" />
-              <HeaderLink to="/citations" title="Citations" />
-              <HeaderLink to="/livres" title="Livres" />
-
-              <li className="px-4">
-                <a
-                  href="mailto:artaufemininlepodcast@gmail.com"
-                  title="Envoyer un email"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-8 py-4 text-lg font-extrabold hover:text-black"
-                >
-                  Contacter par email
-                </a>
-              </li>
-            </ul>
-          </nav>
+        <Link to="/" className="-m-1.5 p-1.5 text-xl font-bold text-gray-700">
+          <span className="sr-only">ART au féminin</span>
+          ART <span className="italic tracking-tighter">au féminin</span>
+        </Link>
+        <div className="flex flex-1 justify-end">
+          <LinkEmail />
         </div>
-      </div>
-      <div className={`${toggleNav ? `visible flex-col` : `invisible h-0`}`}>
-        <nav className="w-full px-4 text-3xl font-bold text-gray-400">
-          <ul className="nav space-y-4">
-            <li className="py-2 hover:text-black ">
-              <Link to="/articles" activeClassName="text-lime-700">
-                Articles
+      </nav>
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-10" />
+        <Dialog.Panel className="fixed inset-y-0 left-0 z-10 w-full overflow-y-auto bg-white px-6 py-6">
+          <div className="flex items-center justify-between">
+            <div className="flex flex-1">
+              <button
+                type="button"
+                className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span className="sr-only">Close menu</span>
+                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              </button>
+            </div>
+            <a href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">ART au féminin</span>
+              ART <span className="italic tracking-tighter">au féminin</span>
+            </a>
+            <div className="flex flex-1 justify-end">
+              <LinkEmail />
+            </div>
+          </div>
+          <div className="mt-6 space-y-2">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                to={item.href}
+                className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+              >
+                {item.name}
               </Link>
-            </li>
-            <li className="py-2 hover:text-black">
-              <Link to="/podcast" activeClassName="text-lime-700">
-                Épisodes
-              </Link>
-            </li>
-            <li className="py-2 hover:text-black">
-              <Link to="/citations" activeClassName="text-lime-700">
-                Citations
-              </Link>
-            </li>
-            <li className="nav-about  py-2 hover:text-black">
-              <div className="flex-col justify-end text-gray-400">
-                <div className="hover:text-black">
-                  <a
-                    href="mailto:artaufemininlepodcast@gmail.com"
-                    title="Envoyer un email"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Contacter par email
-                  </a>
-                </div>
-              </div>
-            </li>
-          </ul>
-          <hr className="separator" />
-        </nav>
-      </div>
+            ))}
+          </div>
+        </Dialog.Panel>
+      </Dialog>
     </header>
   )
 }
