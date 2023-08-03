@@ -10,7 +10,6 @@ import { StaticImage } from "gatsby-plugin-image"
 import Text from "../components/text"
 
 const IndexPage = ({ data }) => {
-  const siteDescription = data.site.siteMetadata.description
   const allEpisodes = data.allAnchorEpisode.nodes
   const allArticles = data.allPrismicBlogPost.nodes
 
@@ -20,7 +19,7 @@ const IndexPage = ({ data }) => {
 
       <div style={{ maxWidth: "80em", margin: "0 auto" }}>
         <div className="mb-16 mt-16 w-full max-w-6xl md:mb-64 md:w-2/3">
-          <Text as="h2">Épisodes récents sur les artistes femmes</Text>
+          <Text as="h2">Podcasts récents sur les artistes femmes</Text>
           <hr className="separator mb-12 mt-16" />
           {allEpisodes.map((episode) => {
             return (
@@ -31,7 +30,7 @@ const IndexPage = ({ data }) => {
               />
             )
           })}
-          <Link to={"/podcast"}>
+          <Link to={"/podcasts"}>
             <Button variant="outline" size="s">
               Écouter tous les épisodes
             </Button>

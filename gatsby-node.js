@@ -35,7 +35,7 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
   podcats.data.allAnchorEpisode.nodes.forEach((node) => {
     createPage({
-      path: `episodes/${node.guid}`,
+      path: `podcast/${node.guid}`,
       component: episodeTemplate,
       context: {
         ...node,

@@ -1,7 +1,7 @@
-import React, { ReactNode, useMemo, useState } from "react"
+import React, { ReactNode, useMemo } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Footer from "./footer"
-import Header from "./header"
+import { Header } from "./header"
 import Instagram from "./instagram"
 import Text from "./text"
 import { useAudioPlayer } from "./player/AudioProvider"
@@ -41,18 +41,6 @@ function Layout({
   const siteTitle = data.site.siteMetadata.title
   const lastPodcastTitle = data.allAnchorEpisode.nodes[0].title
   const guid = data.allAnchorEpisode.nodes[0].guid
-
-  const [isPlaying, setIsPlaying] = useState(false)
-
-  const togglePlay = () => {
-    const audioElement = document.getElementById("audio-element")
-    if (isPlaying) {
-      audioElement?.pause()
-    } else {
-      audioElement?.play()
-    }
-    setIsPlaying(!isPlaying)
-  }
 
   let audioPlayerData = useMemo(
     () => ({
