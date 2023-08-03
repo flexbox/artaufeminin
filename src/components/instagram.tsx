@@ -13,7 +13,7 @@ export default function Instagram() {
           className="mb-6 h-24 w-24 "
         />
         <Text as="h2" className="mb-4 font-bold">
-          La découverte continue
+          Suivez ART au féminin
         </Text>
         <Text as="h2" className="mb-8">
           sur Instagram

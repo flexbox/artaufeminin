@@ -3,7 +3,6 @@ import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Hero from "../components/hero"
 import EpisodeItem from "../components/episodeItem"
 import ArticleList from "../components/articleListItem"
 import Button from "../components/button"
@@ -11,7 +10,6 @@ import { StaticImage } from "gatsby-plugin-image"
 import Text from "../components/text"
 
 const IndexPage = ({ data }) => {
-  const siteDescription = data.site.siteMetadata.description
   const allEpisodes = data.allAnchorEpisode.nodes
   const allArticles = data.allPrismicBlogPost.nodes
 
@@ -20,28 +18,8 @@ const IndexPage = ({ data }) => {
       <SEO title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia |" />
 
       <div style={{ maxWidth: "80em", margin: "0 auto" }}>
-        <Hero heroTitle={siteDescription}>
-          <div className="mt-12 flex flex-col md:flex-row">
-            <div className="mb-6 mr-4 flex-1 md:flex-initial">
-              <Link to={"/links"}>
-                <Button variant="solid" size="m">
-                  Écouter et s’abonner
-                </Button>
-              </Link>
-            </div>
-            <div className="flex-1 sm:flex-initial">
-              <Button
-                variant="outline"
-                as="icon"
-                size="m"
-                href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152"
-              />
-            </div>
-          </div>
-        </Hero>
-
         <div className="mb-16 mt-16 w-full max-w-6xl md:mb-64 md:w-2/3">
-          <Text as="h2">Épisodes récents sur les artistes femmes</Text>
+          <Text as="h2">Podcasts récents sur les artistes femmes</Text>
           <hr className="separator mb-12 mt-16" />
           {allEpisodes.map((episode) => {
             return (
@@ -52,9 +30,9 @@ const IndexPage = ({ data }) => {
               />
             )
           })}
-          <Link to={"/podcast"}>
+          <Link to={"/podcasts"}>
             <Button variant="outline" size="s">
-              Voir tous les épisodes
+              Écouter tous les épisodes
             </Button>
           </Link>
         </div>

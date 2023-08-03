@@ -1,26 +1,30 @@
-import React, { useState } from "react"
+import React from "react"
 import Layout from "../components/layout"
 import LayoutSidebar from "../components/layoutSidebar"
 import SEO from "../components/seo"
 import { dutationToString } from "../utils/dutationToString"
+import { useMemo } from "react"
+import { useAudioPlayer } from "../components/player/AudioProvider"
+import { PlayButton } from "../components/player/PlayButton"
+import Text from "../components/text"
 
 export default function Episode({ pageContext }) {
   const title = pageContext.title
   const description = pageContext.contentSnippet.substring(0, 155)
   const duration = dutationToString(pageContext.itunes.duration)
-  const audioSrc = pageContext.enclosure.url
 
-  const [isPlaying, setIsPlaying] = useState(false)
-
-  const togglePlay = () => {
-    const audioElement = document.getElementById("audio-element")
-    if (isPlaying) {
-      audioElement?.pause()
-    } else {
-      audioElement?.play()
-    }
-    setIsPlaying(!isPlaying)
-  }
+  let audioPlayerData = useMemo(
+    () => ({
+      title: pageContext.title,
+      audio: {
+        src: pageContext.enclosure.url,
+        type: "audio/mpeg",
+      },
+      link: `/${pageContext.guid}`,
+    }),
+    [pageContext]
+  )
+  let player = useAudioPlayer(audioPlayerData)
 
   return (
     <Layout withLastPodcast={false}>
@@ -38,11 +42,10 @@ export default function Episode({ pageContext }) {
             <em>{duration}</em>
           </p>
 
-          <button
-            className={`play-pause-button ${isPlaying ? "playing" : ""}`}
-            onClick={togglePlay}
-          />
-          <audio controls src={audioSrc} id="audio-element" />
+          <div className="flex items-center gap-4">
+            <PlayButton player={player} size="small" />
+            <Text className="text-slate-500 font-merri">Écouter</Text>
+          </div>
 
           <div
             className="my-12"
@@ -54,4 +57,26 @@ export default function Episode({ pageContext }) {
       </LayoutSidebar>
     </Layout>
   )
+}
+
+export async function getStaticProps({ pageContext }) {
+  let episode = {
+    id: pageContext.guid.toString,
+    title: pageContext.title,
+    description: pageContext.description,
+    audio: pageContext.enclosure.url,
+  }
+
+  if (!episode) {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props: {
+      episode,
+    },
+    revalidate: 10,
+  }
 }

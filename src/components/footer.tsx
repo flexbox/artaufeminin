@@ -11,6 +11,8 @@ const navigation = {
     { name: "Mon histoire", href: "/about" },
     { name: "Questions fréquentes", href: "/faq" },
     { name: "Presse", href: "/press" },
+    { name: "Citations", href: "/citations" },
+    { name: "Livres", href: "/livres" },
   ],
   podcast: [{ name: "Participer", href: "/start" }],
   social: [
@@ -48,6 +50,7 @@ export default function Footer({ siteTitle }: FooterProps) {
     <footer
       aria-labelledby="footer-heading"
       style={{ backgroundColor: "#8ba28f" }}
+      className="pb-24"
     >
       <h2 id="footer-heading" className="sr-only">
         Footer
