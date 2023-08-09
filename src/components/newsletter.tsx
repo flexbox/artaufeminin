@@ -14,7 +14,7 @@ export default function Newsletter(): ReactElement {
 
       <form
         className="mt-4 sm:flex sm:max-w-md"
-        action="https://static.mailerlite.com/webforms/submit/k7i7l5"
+        action="https://dashboard.mailerlite.com/forms/334411/96016714913810040/share"
         data-code="k7i7l5"
         method="post"
         target="_blank"
