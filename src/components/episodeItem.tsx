@@ -49,7 +49,7 @@ export default function EpisodeItem({
   return (
     <>
       <Link
-        to={`/episodes/${episode.guid}`}
+        to={`/podcast/${episode.guid}`}
         className="article-preview flex flex-col hover:no-underline md:flex-row"
       >
         <div className="flex-1">
