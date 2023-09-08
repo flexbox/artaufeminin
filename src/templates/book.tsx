@@ -27,8 +27,10 @@ interface BookProps {
 
 export default function Book(props: BookProps): ReactElement {
   const { data } = props.pageContext.node
+
   const seoTitle = data.title.text
   const seoDescription = data.content.text
+  const richText = data.content.richText
 
   return (
     <Layout>
@@ -39,16 +41,11 @@ export default function Book(props: BookProps): ReactElement {
           <Text as="h1" className="my-24">
             {seoTitle}
           </Text>
-          <div className="prose prose-xl">
-            <p className="font-merri first-letter:float-left first-letter:mr-3 first-letter:mt-2 first-letter:text-7xl first-letter:font-bold first-letter:text-gray-700 first-line:uppercase first-line:tracking-widest">
-              {seoDescription}
-            </p>
-          </div>
         </header>
 
         <article className="prose prose-xl prose-blue">
           <div className="article-content mb-20">
-            <CustomRichText render={data.content.richText} />
+            <CustomRichText render={richText} />
           </div>
           <Tipee />
           <Author />
