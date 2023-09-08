@@ -30,15 +30,11 @@ function BookItem({ book }: { book: BookProps }) {
 
   return (
     <>
-      <div className="book-item">
-        <Link
-          to={`/livre/${slug}`}
-          className="book-item-link hover:no-underline"
-        >
-          <Text as="h3Link">{title}</Text>
-          <p className="book-item-content text-gray-600">{truncatedContent}</p>
-        </Link>
-      </div>
+      <Link to={`/livre/${slug}`} className="hover:no-underline">
+        <Text as="h3Link">{title}</Text>
+        <p className="text-gray-600">{truncatedContent}</p>
+      </Link>
+
       <hr className="separator mb-4 mt-4" />
     </>
   )
