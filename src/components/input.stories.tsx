@@ -1,5 +1,6 @@
+import { Meta, StoryFn } from "@storybook/react"
 import React from "react"
-import { StoryFn, Meta } from "@storybook/react"
+
 import Input from "./input"
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

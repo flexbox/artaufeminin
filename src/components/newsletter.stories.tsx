@@ -1,7 +1,8 @@
+import { Meta, StoryFn } from "@storybook/react"
 import React from "react"
-import { StoryFn, Meta } from "@storybook/react"
-import Newsletter from "./newsletter"
+
 import Button from "./button"
+import Newsletter from "./newsletter"
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

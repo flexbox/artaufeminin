@@ -1,9 +1,10 @@
-import React from "react"
 import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import React from "react"
+
 import ArticleList from "../components/articleListItem"
+import Layout from "../components/layout"
 import LayoutSidebar from "../components/layoutSidebar"
+import SEO from "../components/seo"
 
 interface ArticlesPageProps {
   data: {

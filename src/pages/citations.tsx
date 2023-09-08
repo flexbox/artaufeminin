@@ -1,10 +1,11 @@
-import React from "react"
 import { graphql } from "gatsby"
+import React from "react"
+
 import Layout from "../components/layout"
-import SEO from "../components/seo"
-import QuotationList from "../components/quotationList"
 import LayoutSidebar from "../components/layoutSidebar"
 import { QuotationProps } from "../components/quotation"
+import QuotationList from "../components/quotationList"
+import SEO from "../components/seo"
 
 const QuotationPage = ({
   data,

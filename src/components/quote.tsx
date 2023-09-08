@@ -1,4 +1,5 @@
 import React from "react"
+
 import { QuotationProps } from "./quotation"
 
 export function Quote({ data }: QuotationProps) {

@@ -1,10 +1,11 @@
-import React, { ReactElement } from "react"
-import Layout from "../components/layout"
-import { StaticImage } from "gatsby-plugin-image"
-import SEO from "../components/seo"
-import PressList from "../components/pressList"
-import Text from "../components/text"
 import { graphql } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
+import React, { ReactElement } from "react"
+
+import Layout from "../components/layout"
+import PressList from "../components/pressList"
+import SEO from "../components/seo"
+import Text from "../components/text"
 
 interface PressPageProps {
   data: {

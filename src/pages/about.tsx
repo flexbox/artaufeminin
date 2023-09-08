@@ -1,8 +1,8 @@
 import React from "react"
 
+import Author from "../components/author"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Author from "../components/author"
 import Text from "../components/text"
 
 export default function AboutPage() {

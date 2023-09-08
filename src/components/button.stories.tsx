@@ -1,7 +1,8 @@
+import { Meta, StoryFn } from "@storybook/react"
 import React from "react"
-import { StoryFn, Meta } from "@storybook/react"
-import Button from "./button"
 import "typeface-merriweather"
+
+import Button from "./button"
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

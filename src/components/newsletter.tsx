@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react"
+
 import Button from "./button"
 
 export default function Newsletter(): ReactElement {

@@ -1,8 +1,9 @@
 import { Link } from "gatsby"
 import React, { useMemo } from "react"
-import Text from "./text"
+
 import { useAudioPlayer } from "./player/AudioProvider"
 import { PlayButton } from "./player/PlayButton"
+import Text from "./text"
 
 interface EpisodeItemProps {
   isSummaryTruncate?: boolean
