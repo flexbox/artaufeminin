@@ -1,11 +1,11 @@
-import React, { ReactElement } from "react"
+import kebabCase from "lodash/kebabCase"
 import {
-  RichText as PrismicRichText,
   Elements,
+  RichText as PrismicRichText,
   RichTextBlock,
 } from "prismic-reactjs"
+import React, { ReactElement } from "react"
 
-import kebabCase from "lodash/kebabCase"
 import Text from "./text"
 
 function customHtmlSerializer(type, element, content, children, key) {

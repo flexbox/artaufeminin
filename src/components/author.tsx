@@ -1,6 +1,7 @@
-import React from "react"
-import Text from "./text"
 import { StaticImage } from "gatsby-plugin-image"
+import React from "react"
+
+import Text from "./text"
 
 function Author() {
   return (

@@ -1,12 +1,12 @@
+import { Link, graphql } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 import React from "react"
-import { graphql, Link } from "gatsby"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import EpisodeItem from "../components/episodeItem"
 import ArticleList from "../components/articleListItem"
 import Button from "../components/button"
-import { StaticImage } from "gatsby-plugin-image"
+import EpisodeItem from "../components/episodeItem"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 import Text from "../components/text"
 
 const IndexPage = ({ data }) => {

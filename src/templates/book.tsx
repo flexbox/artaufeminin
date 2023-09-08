@@ -1,11 +1,11 @@
+import { RichTextBlock } from "prismic-reactjs"
 import React, { ReactElement } from "react"
 
+import Author from "../components/author"
+import CustomRichText from "../components/customRichText"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Author from "../components/author"
 import Text from "../components/text"
-import { RichTextBlock } from "prismic-reactjs"
-import CustomRichText from "../components/customRichText"
 import Tipee from "../components/tipee"
 
 interface BookProps {

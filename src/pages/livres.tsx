@@ -1,9 +1,10 @@
-import React from "react"
 import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import React from "react"
+
 import BookList, { BookProps } from "../components/bookListItem"
+import Layout from "../components/layout"
 import LayoutSidebar from "../components/layoutSidebar"
+import SEO from "../components/seo"
 
 interface BooksPageProps {
   data: {

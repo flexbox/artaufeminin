@@ -1,6 +1,7 @@
 import * as React from "react"
-import Text from "./text"
 import { ReactElement } from "react"
+
+import Text from "./text"
 
 interface PressProps {
   uid: string

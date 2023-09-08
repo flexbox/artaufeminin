@@ -1,6 +1,6 @@
-import React, { ReactElement } from "react"
 import { graphql } from "gatsby"
 import { RichText, RichTextBlock } from "prismic-reactjs"
+import React, { ReactElement } from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -14,7 +14,7 @@ interface FaqPageProps {
             question: string
             answer: RichTextBlock[]
           }
-        }
+        },
       ]
     }
   }

@@ -1,7 +1,8 @@
 import { Link } from "gatsby"
+import truncate from "lodash/truncate"
 import { RichText, RichTextBlock } from "prismic-reactjs"
 import React, { ReactElement } from "react"
-import truncate from "lodash/truncate"
+
 import { formatHumanDate } from "../utils/date"
 import Text from "./text"
 

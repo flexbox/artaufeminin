@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react"
+
 import { QuotationListProps } from "./quotation"
 import { Quote } from "./quote"
 

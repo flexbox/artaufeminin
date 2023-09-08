@@ -1,7 +1,7 @@
-import React, { ReactElement, useState } from "react"
 import { Dialog } from "@headlessui/react"
-import { Bars3Icon, XMarkIcon, EnvelopeIcon } from "@heroicons/react/24/outline"
+import { Bars3Icon, EnvelopeIcon, XMarkIcon } from "@heroicons/react/24/outline"
 import { Link } from "gatsby"
+import React, { ReactElement, useState } from "react"
 
 const navigation = [
   { name: "Podcasts", href: "/podcasts" },

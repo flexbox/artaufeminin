@@ -1,14 +1,14 @@
+import { Link } from "gatsby"
+import { RichTextBlock } from "prismic-reactjs"
 import React, { ReactElement } from "react"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
 import Author from "../components/author"
 import CustomRichText from "../components/customRichText"
-import { formatHumanDate } from "../utils/date"
-import { RichTextBlock } from "prismic-reactjs"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 import Text from "../components/text"
-import { Link } from "gatsby"
 import Tipee from "../components/tipee"
+import { formatHumanDate } from "../utils/date"
 
 interface PropsArticle {
   pageContext: {

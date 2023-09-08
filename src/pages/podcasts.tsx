@@ -1,10 +1,10 @@
+import { StaticQuery, graphql } from "gatsby"
 import React from "react"
-import { graphql, StaticQuery } from "gatsby"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
 import EpisodeItem from "../components/episodeItem"
+import Layout from "../components/layout"
 import LayoutSidebar from "../components/layoutSidebar"
+import SEO from "../components/seo"
 
 const PodcastsPage = ({ data }) => {
   const allEpisodes = data.allAnchorEpisode.nodes

@@ -1,6 +1,7 @@
-import React, { ReactElement } from "react"
 import { Link } from "gatsby"
 import truncate from "lodash/truncate"
+import React, { ReactElement } from "react"
+
 import Text from "./text"
 
 export interface BookProps {

@@ -1,12 +1,13 @@
+import { graphql, useStaticQuery } from "gatsby"
 import React, { ReactNode, useMemo } from "react"
-import { useStaticQuery, graphql } from "gatsby"
+
 import Footer from "./footer"
 import { Header } from "./header"
 import Instagram from "./instagram"
-import Text from "./text"
+import { AudioPlayer } from "./player/AudioPlayer"
 import { useAudioPlayer } from "./player/AudioProvider"
 import { PlayButton } from "./player/PlayButton"
-import { AudioPlayer } from "./player/AudioPlayer"
+import Text from "./text"
 
 interface LayoutProps {
   children: ReactNode

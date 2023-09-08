@@ -1,6 +1,7 @@
-import React, { ReactElement } from "react"
 import { graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import React, { ReactElement } from "react"
+
 import SEO from "../components/seo"
 import Text from "../components/text"
 
