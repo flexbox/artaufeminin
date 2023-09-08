@@ -3,22 +3,29 @@ import { Link } from "gatsby"
 import truncate from "lodash/truncate"
 import Text from "./text"
 
-interface BookProps {
-  title: string
-  content: string
+export interface BookProps {
   uid: string
+  data: {
+    title: {
+      text: string
+    }
+    content: {
+      text: string
+    }
+  }
 }
 
 interface BookListItemProps {
   allBooks: BookProps[]
 }
 
-function BookItem({ book }: { book: BookProps }): ReactElement {
-  const { title, content } = book
+function BookItem({ book }: { book: BookProps }) {
+  const slug = book.uid
+  const title = book.data.title.text
+  const content = book.data.content.text
   const truncatedContent = truncate(content, {
     length: 190,
   })
-  const slug = book.uid
 
   return (
     <>
