@@ -2,7 +2,7 @@ import { Link, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import React from "react"
 
-import ArticleList from "../components/articleListItem"
+import { ArticleList } from "../components/article-list"
 import Button from "../components/button"
 import EpisodeItem from "../components/episodeItem"
 import Layout from "../components/layout"
