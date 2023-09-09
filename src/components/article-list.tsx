@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import truncate from "lodash/truncate"
 import { RichText, RichTextBlock } from "prismic-reactjs"
-import React, { ReactElement } from "react"
+import React from "react"
 
 import { formatHumanDate } from "../utils/date"
 import Text from "./text"
@@ -26,7 +26,7 @@ interface ArticleListItemProps {
   allArticles: ArticleProps[]
 }
 
-function ArticleItem({ article }: { article: ArticleProps }): ReactElement {
+function ArticleItem({ article }: { article: ArticleProps }) {
   const slug = article.uid
   const thumbnailUrl = article.data.image.url
   const date = formatHumanDate(article.data.date)
@@ -63,9 +63,7 @@ function ArticleItem({ article }: { article: ArticleProps }): ReactElement {
   )
 }
 
-export default function ArticleListItem({
-  allArticles,
-}: ArticleListItemProps): ReactElement {
+export function ArticleList({ allArticles }: ArticleListItemProps) {
   return (
     <>
       {allArticles.map((article) => {
