@@ -1,4 +1,4 @@
-import { StaticQuery, graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 
 import EpisodeItem from "../components/episodeItem"
@@ -31,20 +31,17 @@ const PodcastsPage = ({ data }) => {
   )
 }
 
-const episodesQuery = graphql`
-  query {
-    allAnchorEpisode(sort: { isoDate: DESC }) {
-      nodes {
-        isoDate
-        ...AnchorEpisodeFragment
+export default function PodcastQuery() {
+  const data = useStaticQuery(graphql`
+    query {
+      allAnchorEpisode(sort: { isoDate: DESC }) {
+        nodes {
+          isoDate
+          ...AnchorEpisodeFragment
+        }
       }
     }
-  }
-`
+  `)
 
-export default () => (
-  <StaticQuery
-    query={episodesQuery}
-    render={(data) => <PodcastsPage data={data} />}
-  />
-)
+  return <PodcastsPage data={data} />
+}
