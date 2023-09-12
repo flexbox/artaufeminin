@@ -20,10 +20,7 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
   return (
     <Layout withInstagram={false}>
       <SEO title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia" />
-
-      <LayoutSidebar withPodcast={false}>
-        <ArticleList allArticles={articles} />
-      </LayoutSidebar>
+      <ArticleList allArticles={articles} />
     </Layout>
   )
 }

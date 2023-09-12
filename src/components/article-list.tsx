@@ -40,35 +40,34 @@ function ArticleItem({ article }: { article: ArticleProps }) {
     <>
       <Link
         to={`/article/${slug}`}
-        className="article-preview hover:no-underline"
+        className="article-preview hover:no-underline w-full "
       >
         <div className="my-6 flex flex-col md:flex-row ">
-          <div className="flex-1">
+          <div className="flex-col">
+            <div className="img-article m-auto h-48 mb-4">
+              <div
+                className="img duration-300 ease-in-out m-auto bg-cover bg-center"
+                style={{ backgroundImage: `url(${thumbnailUrl})` }}
+              ></div>
+            </div>
             <Text as="h3Link">{title}</Text>
             <Text as="p">{descriptionTruncated}</Text>
             <Text as="p" className="italic text-gray-400">
               Publié {date}
             </Text>
           </div>
-          <div className="img-parent flex-shrink-0 px-3 ">
-            <div
-              className="img bg-cover bg-center duration-300 ease-in-out"
-              style={{ backgroundImage: `url(${thumbnailUrl})` }}
-            ></div>
-          </div>
         </div>
       </Link>
-      <hr className="separator mb-12" />
     </>
   )
 }
 
 export function ArticleList({ allArticles }: ArticleListItemProps) {
   return (
-    <>
+    <div className="grid grid-cols-3 gap-8 w-2/3 m-auto">
       {allArticles.map((article) => {
         return <ArticleItem article={article} key={article.uid} />
       })}
-    </>
+    </div>
   )
 }
