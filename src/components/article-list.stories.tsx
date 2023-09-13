@@ -1,65 +1,41 @@
-import { Meta, StoryFn, storiesOf } from "@storybook/react"
+import { storiesOf } from "@storybook/react"
 import React from "react"
 
-import { ArticleList, ArticleProps } from "./article-list"
+import { ArticleList } from "./article-list"
 
-export default {
-  title: "Example/ArticleList",
-  component: ArticleList,
-} as Meta<typeof ArticleList>
-
-const allArticles: ArticleProps[] = [
+const allArticles = [
   {
-    uid: "article1",
+    uid: "example-article-1",
     data: {
       title: {
-        richText: [{ type: "paragraph", text: "Article 1 Title" }],
+        richText: [{ text: "Example Article 1" }],
       },
       description: {
-        richText: [{ type: "paragraph", text: "Article 1 Description" }],
+        richText: [{ text: "This is an example article." }],
       },
-      date: "2023-09-13",
+      date: "2021-01-01",
       image: {
-        url: "article1.jpg",
+        url: "https://example.com/image.jpg",
       },
     },
   },
   {
-    uid: "article2",
+    uid: "example-article-2",
     data: {
       title: {
-        richText: [{ type: "paragraph", text: "Article 2 Title" }],
+        richText: [{ text: "Example Article 2" }],
       },
       description: {
-        richText: [{ type: "paragraph", text: "Article 2 Description" }],
+        richText: [{ text: "This is another example article." }],
       },
-      date: "2023-09-14",
+      date: "2021-01-02",
       image: {
-        url: "article2.jpg",
-      },
-    },
-  },
-  {
-    uid: "article3",
-    data: {
-      title: {
-        richText: [{ type: "paragraph", text: "Article 3 Title" }],
-      },
-      description: {
-        richText: [{ type: "paragraph", text: "Article 3 Description" }],
-      },
-      date: "2023-09-15",
-      image: {
-        url: "article3.jpg",
+        url: "https://example.com/image2.jpg",
       },
     },
   },
 ]
 
-const Template: StoryFn<typeof ArticleList> = (args) => {
-  return <ArticleList allArticles={allArticles} />
-}
-
-export const Primary = {
-  render: Template,
-}
+storiesOf("ArticleList", module).add("default", () => (
+  <ArticleList allArticles={allArticles} />
+))
