@@ -6,7 +6,7 @@ import React from "react"
 import { formatHumanDate } from "../utils/date"
 import Text from "./text"
 
-interface ArticleProps {
+export interface ArticleProps {
   uid: string
   data: {
     title: {
