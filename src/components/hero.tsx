@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import React from "react"
 
 import Button from "./button"
+import HeroCard from "./heroCard"
 import Text from "./text"
 
 type Props = {
@@ -16,53 +17,34 @@ export default function Hero({ allEpisodes }: Props) {
   return (
     <div className="h-screen my-auto -mb-32 md:-mb-48 w-3/4 m-auto">
       <div className="flex-col md:flex md:flex-row gap-4 h-2/3 overflow-hidden">
-        <div className="flex-1 mb-4 md:mb-0 h-52 md:h-full">
-          <Link to={`/podcast/${allEpisodes[0].guid}`}>
-            <div
-              className={imgStyle}
-              style={{
-                backgroundImage: `url(${allEpisodes[0].itunes.image})`,
-              }}
-            >
-              <Text as="h3" className={textStyle}>
-                {allEpisodes[0].title}
-              </Text>
-            </div>
-          </Link>
-        </div>
+        <HeroCard
+          heroLink={`/podcast/${allEpisodes[0].guid}`}
+          imageUrl={allEpisodes[0].itunes.image}
+          heroTitle={allEpisodes[0].title}
+          size={"lg"}
+          text={"primary"}
+          image={"primary"}
+        />
         <div className="flex-1 flex flex-col gap-4 overflow-hidden">
-          <div className="bg-cover bg-center h-52 md:h-1/2 ">
-            <Link to={`/podcast/${allEpisodes[1].guid}`}>
-              <div
-                className={imgStyle}
-                style={{
-                  backgroundImage: `url(${allEpisodes[1].itunes.image})`,
-                }}
-              >
-                <Text as="h3" className={textStyle}>
-                  {allEpisodes[1].title}
-                </Text>
-              </div>
-            </Link>
-          </div>
-
-          <div className="bg-cover bg-center h-52 md:h-1/2 overflow-hidden">
-            <Link to={`/podcast/${allEpisodes[2].guid}`}>
-              <div
-                className={imgStyle}
-                style={{
-                  backgroundImage: `url(${allEpisodes[2].itunes.image})`,
-                }}
-              >
-                <Text as="h3" className={textStyle}>
-                  {allEpisodes[2].title}
-                </Text>
-              </div>
-            </Link>
-          </div>
+          <HeroCard
+            heroLink={`/podcast/${allEpisodes[1].guid}`}
+            imageUrl={allEpisodes[1].itunes.image}
+            heroTitle={allEpisodes[1].title}
+            size={"md"}
+            text={"primary"}
+            image={"primary"}
+          />
+          <HeroCard
+            heroLink={`/podcast/${allEpisodes[2].guid}`}
+            imageUrl={allEpisodes[2].itunes.image}
+            heroTitle={allEpisodes[2].title}
+            size={"md"}
+            text={"primary"}
+            image={"primary"}
+          />
         </div>
       </div>
-      <div className=" mt-28 md:mt-8 justify-end flex">
+      <div className=" mt-12 md:mt-8 justify-end flex">
         <Link to={"/podcasts"}>
           <Button variant="outline" size="s">
             Écouter tous les épisodes
