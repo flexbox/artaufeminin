@@ -1,18 +1,29 @@
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
-import Helmet from "react-helmet"
 
-function SEO({
-  description,
-  lang,
-  meta,
+export function Head({
   title,
+  metaDescription,
 }: {
-  description: string
-  lang: any
-  meta: any
   title: string
+  metaDescription: string
 }) {
+  return (
+    <>
+      <title>{title}</title>
+      <meta name="description" content={metaDescription} />
+      <meta
+        name="google-site-verification"
+        content="_I5e7rtsxD_MXi3RnD2AsbiQopSHnXHQ_eEAKQYuLPk"
+      />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:type" content="website" />
+    </>
+  )
+}
+
+function SEO({ description, title }: { description: string; title: string }) {
   const { site } = useStaticQuery(graphql`
     query {
       site {
@@ -24,40 +35,8 @@ function SEO({
       }
     }
   `)
-
   const metaDescription = description || site.siteMetadata.description
-
-  return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          name: `google-site-verification`,
-          content: `_I5e7rtsxD_MXi3RnD2AsbiQopSHnXHQ_eEAKQYuLPk`,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-      ].concat(meta)}
-    />
-  )
+  return <Head title={title} metaDescription={metaDescription} />
 }
 
 SEO.defaultProps = {
