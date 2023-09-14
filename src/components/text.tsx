@@ -8,6 +8,7 @@ interface TextProps extends HTMLAttributes<HTMLHeadingElement> {
     | "h2"
     | "h2about"
     | "h2episode"
+    | "h2Link"
     | "h3"
     | "h3Link"
     | "p"
@@ -66,6 +67,16 @@ export default function Text({
       <h3 {...props} className={`mt-2 text-lg ${className}`}>
         {children}
       </h3>
+    )
+  }
+  if (as === "h2Link") {
+    return (
+      <h2
+        {...props}
+        className={`mb-4 text-md font-bold text-blue-500 ${className}`}
+      >
+        {children}
+      </h2>
     )
   }
   if (as === "h3Link") {
