@@ -27,6 +27,13 @@
   display: inline-block;
   cursor: pointer;
 }
+.article-image {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 .article-preview:hover .img,
 .article-preview:focus .img {
   transform: scale(1.1);

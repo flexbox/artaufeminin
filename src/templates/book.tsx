@@ -2,7 +2,7 @@ import { RichTextBlock } from "prismic-reactjs"
 import React, { ReactElement } from "react"
 
 import Author from "../components/author"
-import CustomRichText from "../components/customRichText"
+import { CustomRichText } from "../components/custom-rich-text"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Text from "../components/text"

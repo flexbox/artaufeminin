@@ -2,7 +2,7 @@ import { Link, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import React from "react"
 
-import ArticleList from "../components/articleListItem"
+import { ArticleList } from "../components/article-list"
 import Button from "../components/button"
 import EpisodeItem from "../components/episodeItem"
 import Layout from "../components/layout"
@@ -40,7 +40,7 @@ const IndexPage = ({ data }) => {
         <div className="mb-16 w-full max-w-6xl md:mb-64 md:w-2/3">
           <Text as="h2">Articles récents</Text>
           <hr className="separator mt-16 " />
-          <ArticleList allArticles={allArticles} />
+          <ArticleList allArticles={allArticles} isRow />
           <Link to={"/articles"}>
             <Button variant="outline" size="s">
               Lire tous les articles

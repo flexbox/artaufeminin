@@ -38,7 +38,7 @@ interface Props {
   render: RichTextBlock[]
 }
 
-export default function RichText({ render }: Props): ReactElement {
+export function CustomRichText({ render }: Props): ReactElement {
   return (
     <PrismicRichText render={render} htmlSerializer={customHtmlSerializer} />
   )

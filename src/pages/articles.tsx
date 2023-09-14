@@ -1,10 +1,11 @@
 import { graphql } from "gatsby"
 import React from "react"
 
-import ArticleList from "../components/articleListItem"
+import { ArticleList } from "../components/article-list"
 import Layout from "../components/layout"
 import LayoutSidebar from "../components/layoutSidebar"
 import SEO from "../components/seo"
+import Text from "../components/text"
 
 interface ArticlesPageProps {
   data: {
@@ -20,10 +21,10 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
   return (
     <Layout withInstagram={false}>
       <SEO title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia" />
-
-      <LayoutSidebar withPodcast={false}>
-        <ArticleList allArticles={articles} />
-      </LayoutSidebar>
+      <Text as="h1" className="w-2/3 m-auto">
+        L’histoire des femmes dans le monde artistique
+      </Text>
+      <ArticleList allArticles={articles} />
     </Layout>
   )
 }
