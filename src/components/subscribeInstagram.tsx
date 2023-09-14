@@ -18,6 +18,7 @@ export default function SubscribeInstagram({}: Props): ReactElement {
           variant="outline"
           href="https://www.instagram.com/artaufeminin/"
           as="a"
+          size={"xs"}
         >
           @artaufeminin
         </Button>

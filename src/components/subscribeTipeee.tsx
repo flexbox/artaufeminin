@@ -17,6 +17,7 @@ export default function SubscribeTipeee(): ReactElement {
           variant="outline"
           href="https://fr.tipeee.com/art-au-feminin"
           as="a"
+          size={"s"}
         >
           Soutenir sur tipeee
         </Button>
