@@ -50,7 +50,9 @@ export function Header(): ReactElement {
               <Link
                 key={item.name}
                 to={item.href}
-                className="text-sm font-semibold leading-6 text-gray-900"
+                className="text-sm font-semibold leading-6 text-gray-400 hover:text-gray-900"
+                activeClassName="text-gray-900"
+                partiallyActive={true}
               >
                 {item.name}
               </Link>

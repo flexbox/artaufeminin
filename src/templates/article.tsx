@@ -84,7 +84,6 @@ const OtherArticleLink = ({ uid, imgUrl, title }: NextPrevProps) => {
 export default function Article(props: PropsArticle): ReactElement {
   const { data } = props.pageContext.node
 
-  const datePublished = formatHumanDate(data.date)
   const imageHero = data.image
   const seoTitle = data.title.text
   const seoDescription = data.description.text
