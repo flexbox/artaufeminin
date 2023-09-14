@@ -3,7 +3,6 @@ import React from "react"
 
 import { ArticleList } from "../components/article-list"
 import Layout from "../components/layout"
-import LayoutSidebar from "../components/layoutSidebar"
 import SEO from "../components/seo"
 import Text from "../components/text"
 
@@ -22,7 +21,7 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
     <Layout withInstagram={false}>
       <SEO title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia" />
       <Text as="h1" className="w-2/3 m-auto">
-        L’histoire des femmes dans le monde artistique
+        Articles artistes femmes
       </Text>
       <ArticleList allArticles={articles} />
     </Layout>

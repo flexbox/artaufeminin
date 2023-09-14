@@ -5,6 +5,7 @@ import React from "react"
 import { ArticleList } from "../components/article-list"
 import Button from "../components/button"
 import EpisodeItem from "../components/episodeItem"
+import Hero from "../components/hero"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Text from "../components/text"
@@ -12,31 +13,16 @@ import Text from "../components/text"
 const IndexPage = ({ data }) => {
   const allEpisodes = data.allAnchorEpisode.nodes
   const allArticles = data.allPrismicBlogPost.nodes
+  const img1 = allEpisodes[0].itunes.image
 
   return (
     <Layout withInstagram={true}>
       <SEO title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia |" />
-
+      <Text as="h1" className="w-3/4 m-auto my-4">
+        Podcasts récents sur les artistes femmes
+      </Text>
+      <Hero allEpisodes={allEpisodes} />
       <div style={{ maxWidth: "80em", margin: "0 auto" }}>
-        <div className="mb-16 mt-16 w-full max-w-6xl md:mb-64 md:w-2/3">
-          <Text as="h2">Podcasts récents sur les artistes femmes</Text>
-          <hr className="separator mb-12 mt-16" />
-          {allEpisodes.map((episode) => {
-            return (
-              <EpisodeItem
-                key={episode.id}
-                episode={episode}
-                isSummaryTruncate={true}
-              />
-            )
-          })}
-          <Link to={"/podcasts"}>
-            <Button variant="outline" size="s">
-              Écouter tous les épisodes
-            </Button>
-          </Link>
-        </div>
-
         <div className="mb-16 w-full max-w-6xl md:mb-64 md:w-2/3">
           <Text as="h2">Articles récents</Text>
           <hr className="separator mt-16 " />
