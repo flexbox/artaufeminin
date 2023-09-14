@@ -66,7 +66,7 @@ const IndexPage = ({ data }) => {
 
           <Button
             variant="outline"
-            size="l"
+            size="s"
             as="a"
             href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152"
           >
