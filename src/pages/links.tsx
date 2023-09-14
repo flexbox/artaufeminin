@@ -119,25 +119,33 @@ export default function LinksPage({}: Props): ReactElement {
         </div>
         <p className="mb-8 text-center text-gray-400">@artaufeminin</p>
         <div className="mb-12">
-          <Text as="h2">Soutenir ART au féminin</Text>
+          <Text as="h2" variant={"h2"}>
+            Soutenir ART au féminin
+          </Text>
           {allSponsorPlatforms.map((platform) => {
             return <LinkButton platform={platform} />
           })}
         </div>
         <div className="mb-12">
-          <Text as="h2">Écouter le podcast</Text>
+          <Text as="h2" variant={"h2"}>
+            Écouter le podcast
+          </Text>
           {allPodcastPlatforms.map((platform) => {
             return <LinkButton platform={platform} />
           })}
         </div>
         <div className="mb-12">
-          <Text as="h2">Les coulisses de l’émission</Text>
+          <Text as="h2" variant={"h2"}>
+            Les coulisses de l’émission
+          </Text>
           {allSocialLinks.map((platform) => {
             return <LinkButton platform={platform} />
           })}
         </div>
         <div className="mb-12">
-          <Text as="h2">ART au féminin le site</Text>
+          <Text as="h2" variant={"h2"}>
+            ART au féminin le site
+          </Text>
           {allMoreLinks.map((platform) => {
             return <LinkButton platform={platform} />
           })}
