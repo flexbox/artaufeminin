@@ -15,8 +15,10 @@ export default function AboutPage() {
 
       <article className="m-auto max-w-2xl">
         <div>
-          <Text as="h2about">Mon histoire</Text>
-          <Text as="pAbout">
+          <Text as="h2" variant={"h2about"}>
+            Mon histoire
+          </Text>
+          <Text as="p" variant={"pAbout"}>
             Pour ma part, je vous propose de revenir sur certaines périodes de
             l’histoire de l’art, plus particulièrement sur{" "}
             <strong className="font-extrabold">
@@ -25,7 +27,7 @@ export default function AboutPage() {
             .
           </Text>
 
-          <Text as="pAbout">
+          <Text as="p" variant={"pAbout"}>
             Avec ART au féminin, j’invite des directrices, conservatrices de
             musées, des historiennes de l’art… à nous parler de femmes artistes.
             Et ainsi, revenir sur l’histoire et les oeuvres de ces femmes qui
@@ -33,7 +35,7 @@ export default function AboutPage() {
             oubliées.
           </Text>
 
-          <Text as="pAbout">
+          <Text as="p" variant={"pAbout"}>
             J’invite aussi des{" "}
             <strong className="font-extrabold">
               femmes artistes d’aujourd’hui
@@ -43,7 +45,7 @@ export default function AboutPage() {
           </Text>
 
           <blockquote className="m-auto -mx-52 mb-12 items-center py-12 text-center">
-            <Text as="h2about">
+            <Text as="h2" variant={"h2about"}>
               Nous commencerons par discuter les points de vue pris sur la femme
               par la biologie, la psychanalyse, le matérialisme historique. Nous
               essaierons de monter ensuite positivement comment la réalité
@@ -55,19 +57,21 @@ export default function AboutPage() {
               de la sphère qui leur a été jusqu’a présent assignée, elles
               prétendent participer au mitsein humain
             </Text>
-            <Text as="h2about">
+            <Text as="h2" variant={"h2about"}>
               <cite>—Simone de Beauvoir</cite>
             </Text>
           </blockquote>
 
-          <Text as="pAbout">
+          <Text as="p" variant={"pAbout"}>
             ART au féminin, c’est des podcasts, mais pas que. Vous y trouverez
             des articles et le partage de certaines lectures.
           </Text>
 
-          <Text as="h2about">Pourquoi ?</Text>
+          <Text as="h2" variant={"h2about"}>
+            Pourquoi ?
+          </Text>
 
-          <Text as="pAbout">
+          <Text as="p" variant={"pAbout"}>
             <ul className="list-inside list-disc leading-relaxed">
               <li>
                 Car je suis une passionnée d’art, une amoureuse du partage.
@@ -81,7 +85,7 @@ export default function AboutPage() {
               <li>Car va va nous enrichir culturellement. </li>
             </ul>
           </Text>
-          <Text as="pAbout">
+          <Text as="p" variant={"pAbout"}>
             Ici je vous propose de retracer l’histoire des femmes artistes !
           </Text>
         </div>

@@ -24,7 +24,9 @@ const IndexPage = ({ data }) => {
       <Hero allEpisodes={allEpisodes} />
       <div style={{ maxWidth: "80em", margin: "0 auto" }}>
         <div className="mb-16 w-full max-w-6xl md:mb-64 md:w-2/3">
-          <Text as="h2">Articles récents</Text>
+          <Text as="h2" variant={"h2"}>
+            Articles récents
+          </Text>
           <hr className="separator mt-16 " />
           <ArticleList allArticles={allArticles} isRow />
           <Link to={"/articles"}>
@@ -35,8 +37,10 @@ const IndexPage = ({ data }) => {
         </div>
 
         <div className="mb-12 max-w-6xl">
-          <Text as="h2">Ce que les auditeurs en disent</Text>
-          <Text as="p">
+          <Text as="h2" variant={"h2"}>
+            Ce que les auditeurs en disent
+          </Text>
+          <Text as="p" variant={"p"}>
             ⭐ Moyenne de 5/5 étoiles sur{" "}
             <a
               href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152#see-all/reviews"
@@ -52,8 +56,10 @@ const IndexPage = ({ data }) => {
             alt="5 étoiles pour ART au feminin sur Apple podcast"
             className="mb-6"
           />
-          <Text as="h2">Laissez moi une évaluation</Text>
-          <Text as="p">
+          <Text as="h2" variant={"h2"}>
+            Laissez moi une évaluation
+          </Text>
+          <Text as="p" variant={"p"}>
             Si vous aimez l’émission, la meilleure façon de la soutenir est de
             me laisser une évaluation sur Apple Podcast.
           </Text>

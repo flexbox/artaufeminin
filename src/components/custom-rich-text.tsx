@@ -11,7 +11,7 @@ import Text from "./text"
 function customHtmlSerializer(type, element, content, children, key) {
   if (type === Elements.heading2) {
     return (
-      <Text as="h2" key={key} id={kebabCase(children)}>
+      <Text as="h2" variant="h2" key={key} id={kebabCase(children)}>
         {children}
       </Text>
     )
