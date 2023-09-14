@@ -34,20 +34,19 @@ export const HeroCard: React.FC<HeroCardProps> = ({
   heroTitle,
   ...rest
 }) => {
-  const textStyle =
-    "text-white bg-black items-end flex  mb-6 mx-auto p-2 w-5/6 text-left"
-  const imgStyle =
-    "bg-cover bg-center h-full ease-in-out transition-all duration-300 flex items-end bg-no-repeat hover:scale-105 overflow-hidden"
   return (
     <div className={heroCardVariants({ className, size })}>
       <Link to={heroLink}>
         <div
-          className={imgStyle}
+          className="bg-cover bg-center h-full ease-in-out transition-all duration-300 flex items-end bg-no-repeat hover:scale-105 overflow-hidden"
           style={{
             backgroundImage: `url(${imageUrl})`,
           }}
         >
-          <Text as="h3" className={textStyle}>
+          <Text
+            as="h3"
+            className="text-white bg-black items-end flex  mb-6 mx-auto p-2 w-5/6 text-left"
+          >
             {heroTitle}
           </Text>
         </div>
