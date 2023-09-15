@@ -18,7 +18,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout withInstagram={true}>
       <SEO title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia |" />
-      <Text as="h1" className="w-3/4 m-auto my-4">
+      <Text as="h1" variant="h1" className="w-3/4 m-auto my-4">
         Podcasts récents sur les artistes femmes
       </Text>
       <Hero allEpisodes={allEpisodes} />
