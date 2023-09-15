@@ -13,8 +13,9 @@ export default function Subscribe(): ReactElement {
           <Fragment key={platform.name}>
             <Button
               variant="ghost"
-              as="iconpod"
-              size="s"
+              isIconpod
+              as="a"
+              size="sm"
               href={platform.url}
               url={platform.imageUrl}
               alt={`ART au feminin sur ${platform.name}`}

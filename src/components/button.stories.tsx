@@ -32,8 +32,8 @@ const TemplateSizes: StoryFn<typeof Button> = (args) => {
   return (
     <>
       <Button size="s">Small</Button>
-      <Button size="m">Medium</Button>
-      <Button size="l">Large</Button>
+      <Button size="sm">Medium</Button>
+      <Button size="lg">Large</Button>
     </>
   )
 }
@@ -44,13 +44,13 @@ const TemplateSmallGhost: StoryFn<typeof Button> = (args) => {
   return <Button variant="outline">Small</Button>
 }
 const TemplateApplePodcast: StoryFn<typeof Button> = (args) => {
-  return <Button variant="outline" as="icon" href="http://www.google.com" />
+  return <Button variant="outline" isIcon href="http://www.google.com" />
 }
 const TemplatePodcast: StoryFn<typeof Button> = (args) => {
   return (
     <Button
       variant="ghost"
-      as="iconpod"
+      isIconpod
       href="http://www.google.com"
       key="spotify"
       url="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/spotify.svg"

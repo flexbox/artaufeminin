@@ -47,19 +47,18 @@ function ArticleItem({
   return (
     <>
       {isRow ? (
-        <Link
-          to={`/article/${slug}`}
-          className="article-preview hover:no-underline"
-        >
+        <Link to={`/article/${slug}`} className="article-preview">
           <div className="my-6 flex flex-col md:flex-row ">
             <div className="flex-1">
-              <Text as="h2Link">{title}</Text>
+              <Text as="h2" variant="h3Link">
+                {title}
+              </Text>
               <Text as="p">{descriptionTruncated}</Text>
               <Text as="p" className="italic text-gray-400">
                 Publié {date}
               </Text>
             </div>
-            <div className="img-parent flex-shrink-0 px-3 ">
+            <div className="img-parent flex-shrink-0 overflow-hidden">
               <div
                 className="img bg-cover bg-center duration-300 ease-in-out"
                 style={{ backgroundImage: `url(${thumbnailUrl})` }}
@@ -68,10 +67,7 @@ function ArticleItem({
           </div>
         </Link>
       ) : (
-        <Link
-          to={`/article/${slug}`}
-          className="article-preview hover:no-underline w-full "
-        >
+        <Link to={`/article/${slug}`} className="article-preview w-full ">
           <div className="my-6 flex flex-col md:flex-row ">
             <div className="flex-col">
               <div className="article-image m-auto h-48 mb-4">
@@ -80,7 +76,9 @@ function ArticleItem({
                   style={{ backgroundImage: `url(${thumbnailUrl})` }}
                 ></div>
               </div>
-              <Text as="h2Link">{title}</Text>
+              <Text as="h2" variant="h3Link">
+                {title}
+              </Text>
               <Text as="p">{descriptionTruncated}</Text>
               <Text as="p" className="italic text-gray-400">
                 Publié {date}

@@ -15,7 +15,7 @@ function Author() {
         />
       </div>
       <div className="flex-8 ml-4">
-        <Text as="p" className="mt-2 font-merri font-semibold">
+        <Text as="p" variant={"p"} className="mt-2 font-merri font-semibold">
           Bonjour je suis Aldjia créatrice et animatrice de ce podcast. Je suis
           également l'autrice de ce blog, ravie de vous rencontrer !
         </Text>

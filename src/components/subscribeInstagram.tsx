@@ -10,7 +10,7 @@ export default function SubscribeInstagram({}: Props): ReactElement {
   return (
     <Card title="Suivre sur Instagram">
       <div className="">
-        <Text as="p">
+        <Text as="p" variant={"p"}>
           Pour encore plus d'ART au féminin. Suivez-moi ! Au plaisir d'échanger
           avec vous.
         </Text>
@@ -18,6 +18,7 @@ export default function SubscribeInstagram({}: Props): ReactElement {
           variant="outline"
           href="https://www.instagram.com/artaufeminin/"
           as="a"
+          size={"xs"}
         >
           @artaufeminin
         </Button>

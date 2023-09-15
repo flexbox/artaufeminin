@@ -26,7 +26,7 @@ const PressItem = ({ pressItem }: { pressItem: PressProps }) => {
   return (
     <ul className="py-2">
       <li className="flex py-4 leading-6">
-        <Text as="h3">
+        <Text as="h3" variant={"h3"}>
           <a
             href={pressItem.data.url.url}
             className="mb-4 text-lg text-blue-500"
