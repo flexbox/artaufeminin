@@ -5,10 +5,8 @@ import React, { ReactElement } from "react"
 import Author from "../components/author"
 import { CustomRichText } from "../components/custom-rich-text"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import Text from "../components/text"
 import Tipee from "../components/tipee"
-import { formatHumanDate } from "../utils/date"
 
 interface PropsArticle {
   pageContext: {
@@ -81,6 +79,28 @@ const OtherArticleLink = ({ uid, imgUrl, title }: NextPrevProps) => {
   )
 }
 
+function Head({
+  title,
+  metaDescription,
+}: {
+  title: string
+  metaDescription: string
+}) {
+  return (
+    <>
+      <title>{title}</title>
+      <meta name="description" content={metaDescription} />
+      <meta
+        name="google-site-verification"
+        content="_I5e7rtsxD_MXi3RnD2AsbiQopSHnXHQ_eEAKQYuLPk"
+      />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:type" content="website" />
+    </>
+  )
+}
+
 export default function Article(props: PropsArticle): ReactElement {
   const { data } = props.pageContext.node
 
@@ -98,7 +118,7 @@ export default function Article(props: PropsArticle): ReactElement {
 
   return (
     <Layout>
-      <SEO title={seoTitle} description={seoDescription} />
+      <Head title={seoTitle} metaDescription={seoDescription} />
 
       <div className="m-auto max-w-3xl">
         <header>

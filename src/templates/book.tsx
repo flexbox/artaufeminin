@@ -25,6 +25,28 @@ interface BookProps {
   }
 }
 
+function Head({
+  title,
+  metaDescription,
+}: {
+  title: string
+  metaDescription: string
+}) {
+  return (
+    <>
+      <title>{title}</title>
+      <meta name="description" content={metaDescription} />
+      <meta
+        name="google-site-verification"
+        content="_I5e7rtsxD_MXi3RnD2AsbiQopSHnXHQ_eEAKQYuLPk"
+      />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:type" content="website" />
+    </>
+  )
+}
+
 export default function Book(props: BookProps): ReactElement {
   const { data } = props.pageContext.node
 
@@ -34,7 +56,7 @@ export default function Book(props: BookProps): ReactElement {
 
   return (
     <Layout>
-      <SEO title={seoTitle} description={seoDescription} />
+      <Head title={seoTitle} metaDescription={seoDescription} />
 
       <div className="m-auto max-w-3xl">
         <header>
