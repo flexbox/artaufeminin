@@ -13,10 +13,10 @@ export default function Instagram() {
           alt="Logo podcast ART au feminin"
           className="mb-6 h-24 w-24 "
         />
-        <Text as="h2" className="mb-4 font-bold">
+        <Text as="h2" variant={"h2"} className="mb-4 font-bold">
           Suivez ART au féminin
         </Text>
-        <Text as="h2" className="mb-8">
+        <Text as="h2" variant={"h2"} className="mb-8">
           sur Instagram
         </Text>
         <Button

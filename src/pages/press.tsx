@@ -71,17 +71,17 @@ export default function pressPage({ data }: PressPageProps): ReactElement {
         description="Le podcast nouvelle génération qui nous raconte l'histoire des femmes artistes d'hier et d'aujoud'hui"
       />
       <div className="m-auto max-w-2xl">
-        <Text as="h1" className="mb-4">
+        <Text as="h1" variant={"h1"} className="mb-4">
           Presse
         </Text>
-        <Text as="p" className="">
+        <Text as="p" variant={"p"}>
           Contact presse : artaufemininlepodcast@gmail.com
         </Text>
         <PressLogoList />
         <PressList allPress={press} />
       </div>
 
-      <Text as="h2" className="my-8 text-center">
+      <Text as="h2" variant={"h2"} className="my-8 text-center">
         Logos
       </Text>
       <div className="m-auto text-center">SVG</div>

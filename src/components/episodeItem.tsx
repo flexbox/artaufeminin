@@ -54,7 +54,9 @@ export default function EpisodeItem({
         className="article-preview flex flex-col hover:no-underline md:flex-row"
       >
         <div className="flex-1">
-          <Text as="h3Link">{episode.title}</Text>
+          <Text as="h3" variant={"h3Link"}>
+            {episode.title}
+          </Text>
 
           <div
             className="font-light text-gray-500 "

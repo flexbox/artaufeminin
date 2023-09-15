@@ -102,7 +102,7 @@ export default function Article(props: PropsArticle): ReactElement {
 
       <div className="m-auto max-w-3xl">
         <header>
-          <Text as="h1" className="my-24">
+          <Text as="h1" variant={"h1"} className="my-24">
             {seoTitle}
           </Text>
           <div className="prose prose-xl">
@@ -132,7 +132,7 @@ export default function Article(props: PropsArticle): ReactElement {
           <Author />
         </article>
 
-        <Text as="h2" className="mb-12">
+        <Text as="h2" variant={"h2"} className="mb-12">
           Autres articles
         </Text>
         <hr className="separator" />

@@ -68,7 +68,9 @@ function Layout({
           <div className="flex bg-slate-200 items-center p-4 rounded-3xl">
             <PlayButton player={player} size="small" />
 
-            <Text className="ml-4 font-merri">{lastPodcastTitle}</Text>
+            <Text variant={"default"} className="ml-4 font-merri">
+              {lastPodcastTitle}
+            </Text>
           </div>
         </div>
       )}

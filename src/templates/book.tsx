@@ -38,7 +38,7 @@ export default function Book(props: BookProps): ReactElement {
 
       <div className="m-auto max-w-3xl">
         <header>
-          <Text as="h1" className="my-24">
+          <Text as="h1" variant={"h1"} className="my-24">
             {seoTitle}
           </Text>
         </header>
