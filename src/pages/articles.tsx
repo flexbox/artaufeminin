@@ -41,7 +41,7 @@ export const Head = () => {
   return (
     <SEO
       title="Parcourez notre collection d'articles sur les artistes féminines à travers l'histoire."
-      description="Découvrez l'inspiration et la créativité des femmes artistes sur 'Art au Féminin'. Explorez leurs œuvres exceptionnelles, leurs parcours uniques et leurs contributions inestimables à l'art. Plongez dans l'univers captivant des artistes au féminin."
+      description="Découvrez l'inspiration et la créativité des femmes artistes sur ART au féminin. Explorez leurs œuvres exceptionnelles, leurs parcours uniques et leurs contributions inestimables à l'art. Plongez dans l'univers captivant des artistes au féminin."
     />
   )
 }
