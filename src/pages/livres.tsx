@@ -19,8 +19,6 @@ const BooksPage = ({ data }: BooksPageProps) => {
 
   return (
     <Layout withInstagram={false}>
-      <SEO title="Critiques de livres" />
-
       <LayoutSidebar withPodcast={false}>
         <BookList allBooks={allBooks} />
       </LayoutSidebar>
@@ -45,5 +43,14 @@ export const query = graphql`
     }
   }
 `
+
+export const Head = () => {
+  return (
+    <SEO
+      title="Parcourez notre collection de livres sur les femmes artistes et leur contribution à l'art."
+      description="Découvrez des critiques littéraires exceptionnelles sur notre site ART au féminin. Plongez dans l'univers captivant des livres écrits par des femmes, où la créativité et la voix féminine sont mises en lumière"
+    />
+  )
+}
 
 export default BooksPage

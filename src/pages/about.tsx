@@ -8,11 +8,6 @@ import Text from "../components/text"
 export default function AboutPage() {
   return (
     <Layout>
-      <SEO
-        title="À propos"
-        description="à l’origine du projet, une question simple : combien existe-t-il de femme artistes dans les musées. La réponse est difficile à trouver voire impossible sans recherches approfondies que vous pourrez découvrir en écoutant le podcast."
-      />
-
       <article className="m-auto max-w-2xl">
         <div>
           <Text as="h2" variant={"h2about"}>
@@ -95,5 +90,14 @@ export default function AboutPage() {
         </div>
       </article>
     </Layout>
+  )
+}
+
+export const Head = () => {
+  return (
+    <SEO
+      title="À propos: découvrez qui je suis et les projets chez ART au féminin."
+      description="à l’origine du projet, une question simple : combien existe-t-il de femme artistes dans les musées. La réponse est difficile à trouver voire impossible sans recherches approfondies que vous pourrez découvrir en écoutant le podcast."
+    />
   )
 }

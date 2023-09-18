@@ -19,7 +19,6 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
 
   return (
     <Layout withInstagram={false}>
-      <SEO title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia" />
       <Text as="h1" className="w-2/3 m-auto">
         Articles artistes femmes
       </Text>
@@ -37,5 +36,14 @@ export const query = graphql`
     }
   }
 `
+
+export const Head = () => {
+  return (
+    <SEO
+      title="Parcourez notre collection d'articles sur les artistes féminines à travers l'histoire."
+      description="Découvrez l'inspiration et la créativité des femmes artistes sur ART au féminin. Explorez leurs œuvres exceptionnelles, leurs parcours uniques et leurs contributions inestimables à l'art. Plongez dans l'univers captivant des artistes au féminin."
+    />
+  )
+}
 
 export default ArticlesPage

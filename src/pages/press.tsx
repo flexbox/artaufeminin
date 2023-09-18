@@ -66,10 +66,6 @@ export default function pressPage({ data }: PressPageProps): ReactElement {
   const press = data.allPrismicPress.nodes
   return (
     <Layout>
-      <SEO
-        title="Espace Presse"
-        description="Le podcast nouvelle génération qui nous raconte l'histoire des femmes artistes d'hier et d'aujoud'hui"
-      />
       <div className="m-auto max-w-2xl">
         <Text as="h1" variant={"h1"} className="mb-4">
           Presse
@@ -137,6 +133,15 @@ export default function pressPage({ data }: PressPageProps): ReactElement {
         </li>
       </ul>
     </Layout>
+  )
+}
+
+export const Head = () => {
+  return (
+    <SEO
+      title="Espace Presse"
+      description="Le podcast nouvelle génération qui nous raconte l'histoire des femmes artistes d'hier et d'aujoud'hui"
+    />
   )
 }
 
