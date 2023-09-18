@@ -47,7 +47,7 @@ function ArticleItem({
   return (
     <>
       {isRow ? (
-        <Link to={`/article/${slug}`} className="article-preview">
+        <Link to={`/articles/${slug}`} className="article-preview">
           <div className="my-6 flex flex-col md:flex-row ">
             <div className="flex-1">
               <Text as="h2" variant="h3Link">
@@ -67,7 +67,7 @@ function ArticleItem({
           </div>
         </Link>
       ) : (
-        <Link to={`/article/${slug}`} className="article-preview w-full ">
+        <Link to={`/articles/${slug}`} className="article-preview w-full ">
           <div className="my-6 flex flex-col md:flex-row ">
             <div className="flex-col">
               <div className="article-image m-auto h-48 mb-4">

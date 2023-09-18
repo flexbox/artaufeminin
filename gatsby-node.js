@@ -35,7 +35,7 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
   podcats.data.allAnchorEpisode.nodes.forEach((node) => {
     createPage({
-      path: `podcast/${node.guid}`,
+      path: `podcasts/${node.guid}`,
       component: episodeTemplate,
       context: {
         ...node,
@@ -98,7 +98,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   articles.data.allPrismicBlogPost.edges.forEach((edge) => {
     createPage({
-      path: `article/${edge.node.uid}`,
+      path: `articles/${edge.node.uid}`,
       component: articleTemplate,
       context: {
         ...edge,

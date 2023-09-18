@@ -67,7 +67,7 @@ interface NextPrevProps {
 const OtherArticleLink = ({ uid, imgUrl, title }: NextPrevProps) => {
   return (
     <Link
-      to={`/article/${uid}`}
+      to={`/articles/${uid}`}
       className="mb-8 flex text-blue-500 hover:underline"
     >
       <section className="flex flex-row items-center text-left">
