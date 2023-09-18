@@ -29,8 +29,6 @@ export default function Episode({ pageContext }) {
 
   return (
     <Layout withLastPodcast={false}>
-      <SEO title={`Podcast ${title}`} description={description} />
-
       <LayoutSidebar>
         <article className="prose prose-blue text-gray-500">
           <h1 className="text-gray-700">{title}</h1>
@@ -80,4 +78,10 @@ export async function getStaticProps({ pageContext }) {
     },
     revalidate: 10,
   }
+}
+
+export const Head = ({ pageContext }) => {
+  const title = pageContext.title
+  const description = pageContext.contentSnippet.substring(0, 155)
+  return <SEO title={`Podcast ${title}`} description={description} />
 }

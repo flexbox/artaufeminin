@@ -11,11 +11,6 @@ const PodcastsPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO
-        title="Tous les épisodes du podcast sur les femmes artistes."
-        description=""
-      />
-
       <LayoutSidebar>
         {allEpisodes.map((episode) => {
           return (
@@ -28,6 +23,15 @@ const PodcastsPage = ({ data }) => {
         })}
       </LayoutSidebar>
     </Layout>
+  )
+}
+
+export const Head = () => {
+  return (
+    <SEO
+      title="Tous les épisodes du podcast sur les femmes artistes."
+      description=""
+    />
   )
 }
 

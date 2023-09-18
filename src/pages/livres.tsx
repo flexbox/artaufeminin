@@ -19,8 +19,6 @@ const BooksPage = ({ data }: BooksPageProps) => {
 
   return (
     <Layout withInstagram={false}>
-      <SEO title="Critiques de livres" />
-
       <LayoutSidebar withPodcast={false}>
         <BookList allBooks={allBooks} />
       </LayoutSidebar>
@@ -45,5 +43,9 @@ export const query = graphql`
     }
   }
 `
+
+export const Head = () => {
+  return <SEO title="Critiques de livres" />
+}
 
 export default BooksPage

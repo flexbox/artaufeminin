@@ -6,7 +6,6 @@ import SEO from "../components/seo"
 export default function NotFoundPage(): ReactElement {
   return (
     <Layout>
-      <SEO title="404: Not Found" />
       <div className="mx-auto max-w-7xl">
         <div className="my-32">
           <h1>Ohoh. Il n'y a rien à voir ici.</h1>
@@ -15,4 +14,8 @@ export default function NotFoundPage(): ReactElement {
       </div>
     </Layout>
   )
+}
+
+export const Head = () => {
+  return <SEO title="404: Not Found" />
 }

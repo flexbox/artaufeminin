@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 
-export function Head({
+export function SeoHead({
   title,
   metaDescription,
 }: {
@@ -36,7 +36,7 @@ function SEO({ description, title }: { description: string; title: string }) {
     }
   `)
   const metaDescription = description || site.siteMetadata.description
-  return <Head title={title} metaDescription={metaDescription} />
+  return <SeoHead title={title} metaDescription={metaDescription} />
 }
 
 SEO.defaultProps = {

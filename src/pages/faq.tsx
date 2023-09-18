@@ -35,10 +35,6 @@ export default function FaqPage({ data }: FaqPageProps): ReactElement {
 
   return (
     <Layout>
-      <SEO
-        title="Questions fréquentes"
-        description="Conseils et réponses sur le podcast."
-      />
       <article className="prose m-auto">
         <div>
           <h1>Questions fréquentes</h1>
@@ -70,3 +66,12 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export const Head = () => {
+  return (
+    <SEO
+      title="Questions fréquentes"
+      description="Conseils et réponses sur le podcast."
+    />
+  )
+}
