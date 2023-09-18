@@ -134,7 +134,10 @@ export const indexPageQuery = graphql`
 `
 export const Head = () => {
   return (
-    <SEO title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia |" />
+    <SEO
+      title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia"
+      description="Bienvenue sur 'Art au Féminin', votre porte d'entrée dans le monde captivant des femmes artistes qui ont laissé leur empreinte dans l'histoire de l'art. Explorez notre riche collection d'œuvres, de biographies inspirantes et d'analyses approfondies dédiées à ces artistes visionnaires. Plongez dans un voyage artistique à travers les époques et les continents, découvrez leurs réalisations extraordinaires, et laissez-vous inspirer par la créativité intemporelle des femmes artistes. 'Art au Féminin' célèbre la contribution inestimable des femmes à l'art, une exploration artistique comme aucune autre."
+    />
   )
 }
 

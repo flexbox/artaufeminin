@@ -154,8 +154,7 @@ export default function Article(props: PropsArticle): ReactElement {
 }
 
 export const Head = (props: PropsArticle) => {
-  const { data } = props.pageContext.node
-  const seoTitle = data.title.text
-  const seoDescription = data.description.text
+  const { text: seoTitle } = props.pageContext.node.data.title
+  const { text: seoDescription } = props.pageContext.node.data.description
   return <SEO title={seoTitle} description={seoDescription} />
 }

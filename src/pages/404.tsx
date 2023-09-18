@@ -17,5 +17,10 @@ export default function NotFoundPage(): ReactElement {
 }
 
 export const Head = () => {
-  return <SEO title="404: Not Found" />
+  return (
+    <SEO
+      title="404: Not Found"
+      description="Découvrez l'univers de l'art sur 'Art au Féminin'. Bien que cette page puisse être une impasse, nos trésors artistiques vous attendent juste au coin de la rue. Explorez notre collection diversifiée et laissez la créativité guider votre parcours."
+    />
+  )
 }

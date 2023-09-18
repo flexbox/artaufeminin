@@ -154,7 +154,7 @@ export default function LinksPage({}: Props): ReactElement {
 export const Head = () => {
   return (
     <SEO
-      title="Liens"
+      title="Découvrez les sites Web, les organisations et les ressources que nous recommandons pour en savoir plus sur les femmes artistes."
       description="Retrouvez toujours plus de contenu sur ART au feminin,sur Instagram, sur Facebook, sur Spotify, sur Deezer, sur Anchor, sur Google Podcasts, sur Apple Podcasts, sur Tipeee, sur le site internet, sur les articles."
     />
   )
