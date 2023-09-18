@@ -98,8 +98,6 @@ export default function Article(props: PropsArticle): ReactElement {
 
   return (
     <Layout>
-      <SEO title={seoTitle} description={seoDescription} />
-
       <div className="m-auto max-w-3xl">
         <header>
           <Text as="h1" variant={"h1"} className="my-24">
@@ -153,4 +151,10 @@ export default function Article(props: PropsArticle): ReactElement {
       </div>
     </Layout>
   )
+}
+
+export const Head = (props: PropsArticle) => {
+  const { text: seoTitle } = props.pageContext.node.data.title
+  const { text: seoDescription } = props.pageContext.node.data.description
+  return <SEO title={seoTitle} description={seoDescription} />
 }

@@ -16,8 +16,6 @@ const QuotationPage = ({
 
   return (
     <Layout withInstagram={false}>
-      <SEO title="Citation courte femme artistes" />
-
       <LayoutSidebar withPodcast={false}>
         <QuotationList allQuotation={quotation} />
       </LayoutSidebar>
@@ -38,5 +36,12 @@ export const query = graphql`
     }
   }
 `
-
+export const Head = () => {
+  return (
+    <SEO
+      title="Découvrez les citations inspirantes des femmes artistes célèbres."
+      description="Découvrez l'inspiration à travers les mots des femmes artistes sur ART au féminin. Explorez notre collection de citations qui capturent la créativité, la passion et la perspective unique des artistes au féminin. Plongez dans l'essence de l'art au féminin à travers ces paroles inspirantes"
+    />
+  )
+}
 export default QuotationPage

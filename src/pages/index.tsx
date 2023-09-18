@@ -4,7 +4,6 @@ import React from "react"
 
 import { ArticleList } from "../components/article-list"
 import Button from "../components/button"
-import EpisodeItem from "../components/episodeItem"
 import Hero from "../components/hero"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -13,11 +12,9 @@ import Text from "../components/text"
 const IndexPage = ({ data }) => {
   const allEpisodes = data.allAnchorEpisode.nodes
   const allArticles = data.allPrismicBlogPost.nodes
-  const img1 = allEpisodes[0].itunes.image
 
   return (
     <Layout withInstagram={true}>
-      <SEO title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia |" />
       <Text as="h1" variant="h1" className="w-3/4 m-auto my-4">
         Podcasts récents sur les artistes femmes
       </Text>
@@ -133,5 +130,13 @@ export const indexPageQuery = graphql`
     }
   }
 `
+export const Head = () => {
+  return (
+    <SEO
+      title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia"
+      description="Bienvenue sur ART au féminin, votre porte d'entrée dans le monde captivant des femmes artistes qui ont laissé leur empreinte dans l'histoire de l'art. Explorez notre riche collection d'œuvres, de biographies inspirantes et d'analyses approfondies dédiées à ces artistes visionnaires. Plongez dans un voyage artistique à travers les époques et les continents, découvrez leurs réalisations extraordinaires, et laissez-vous inspirer par la créativité intemporelle des femmes artistes. ART au féminin célèbre la contribution inestimable des femmes à l'art, une exploration artistique comme aucune autre."
+    />
+  )
+}
 
 export default IndexPage
