@@ -77,7 +77,7 @@ module.exports = {
           })
         },
         serialize: ({ path, last_publication_date, pubDate }) => {
-          if (path.startsWith("/article/")) {
+          if (path.startsWith("/articles/")) {
             return {
               url: `${siteUrl}${path}`,
               lastmod: last_publication_date,

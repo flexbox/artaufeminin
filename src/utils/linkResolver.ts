@@ -1,7 +1,7 @@
 exports.linkResolver = (doc) => {
   // URL for a blogpost type
   if (doc.type === "article") {
-    return `/article/${doc.uid}`
+    return `/articles/${doc.uid}`
   }
 
   // URL for a page type
