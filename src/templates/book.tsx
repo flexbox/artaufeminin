@@ -54,8 +54,7 @@ export default function Book(props: BookProps): ReactElement {
 }
 
 export const Head = (props: BookProps) => {
-  const { data } = props.pageContext.node
-  const seoTitle = data.title.text
-  const seoDescription = data.content.text
+  const { text: seoTitle } = props.pageContext.node.data.title
+  const { text: seoDescription } = props.pageContext.node.data.content
   return <SEO title={seoTitle} description={seoDescription} />
 }

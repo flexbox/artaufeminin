@@ -70,7 +70,7 @@ export const pageQuery = graphql`
 export const Head = () => {
   return (
     <SEO
-      title="Questions fréquentes"
+      title="Trouvez des réponses à vos questions les plus fréquentes sur le podcast artaufeminin."
       description="Conseils et réponses sur le podcast."
     />
   )

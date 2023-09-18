@@ -45,7 +45,12 @@ export const query = graphql`
 `
 
 export const Head = () => {
-  return <SEO title="Critiques de livres" />
+  return (
+    <SEO
+      title="Parcourez notre collection de livres sur les femmes artistes et leur contribution à l'art."
+      description="Découvrez des critiques littéraires exceptionnelles sur notre site 'Art au Féminin'. Plongez dans l'univers captivant des livres écrits par des femmes, où la créativité et la voix féminine sont mises en lumière"
+    />
+  )
 }
 
 export default BooksPage
