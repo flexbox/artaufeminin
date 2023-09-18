@@ -96,7 +96,7 @@ export default function AboutPage() {
 export const Head = () => {
   return (
     <SEO
-      title="À propos: découvrez qui je suis et les projets chez artaufeminin."
+      title="À propos: découvrez qui je suis et les projets chez ART au féminin."
       description="à l’origine du projet, une question simple : combien existe-t-il de femme artistes dans les musées. La réponse est difficile à trouver voire impossible sans recherches approfondies que vous pourrez découvrir en écoutant le podcast."
     />
   )
