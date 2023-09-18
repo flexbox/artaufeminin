@@ -34,8 +34,6 @@ export default function Book(props: BookProps): ReactElement {
 
   return (
     <Layout>
-      <SEO title={seoTitle} description={seoDescription} />
-
       <div className="m-auto max-w-3xl">
         <header>
           <Text as="h1" variant={"h1"} className="my-24">
@@ -53,4 +51,11 @@ export default function Book(props: BookProps): ReactElement {
       </div>
     </Layout>
   )
+}
+
+export const Head = (props: BookProps) => {
+  const { data } = props.pageContext.node
+  const seoTitle = data.title.text
+  const seoDescription = data.content.text
+  return <SEO title={seoTitle} description={seoDescription} />
 }

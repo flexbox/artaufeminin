@@ -19,7 +19,6 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
 
   return (
     <Layout withInstagram={false}>
-      <SEO title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia" />
       <Text as="h1" className="w-2/3 m-auto">
         Articles artistes femmes
       </Text>
@@ -37,5 +36,11 @@ export const query = graphql`
     }
   }
 `
+
+export const Head = () => {
+  return (
+    <SEO title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia" />
+  )
+}
 
 export default ArticlesPage

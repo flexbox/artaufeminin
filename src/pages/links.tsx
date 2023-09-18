@@ -104,10 +104,6 @@ function LinkButton({ platform }: LinkButtonProps) {
 export default function LinksPage({}: Props): ReactElement {
   return (
     <div className="h-full p-8">
-      <SEO
-        title="Liens"
-        description="Retrouvez toujours plus de contenu sur ART au feminin,sur Instagram, sur Facebook, sur Spotify, sur Deezer, sur Anchor, sur Google Podcasts, sur Apple Podcasts, sur Tipeee, sur le site internet, sur les articles."
-      />
       <div className="m-auto max-w-xl">
         <div className="mb-8 flex justify-center">
           <StaticImage
@@ -152,6 +148,15 @@ export default function LinksPage({}: Props): ReactElement {
         </div>
       </div>
     </div>
+  )
+}
+
+export const Head = () => {
+  return (
+    <SEO
+      title="Liens"
+      description="Retrouvez toujours plus de contenu sur ART au feminin,sur Instagram, sur Facebook, sur Spotify, sur Deezer, sur Anchor, sur Google Podcasts, sur Apple Podcasts, sur Tipeee, sur le site internet, sur les articles."
+    />
   )
 }
 

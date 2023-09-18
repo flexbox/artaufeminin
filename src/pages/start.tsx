@@ -8,7 +8,6 @@ interface Props {}
 export default function StartPage({}: Props): ReactElement {
   return (
     <Layout>
-      <SEO title="Présentez vous" />
       <div className="post-content">
         <div className="post-content-body">
           <iframe
@@ -21,4 +20,8 @@ export default function StartPage({}: Props): ReactElement {
       </div>
     </Layout>
   )
+}
+
+export const Head = () => {
+  return <SEO title="Présentez vous" />
 }

@@ -16,8 +16,6 @@ const QuotationPage = ({
 
   return (
     <Layout withInstagram={false}>
-      <SEO title="Citation courte femme artistes" />
-
       <LayoutSidebar withPodcast={false}>
         <QuotationList allQuotation={quotation} />
       </LayoutSidebar>
@@ -38,5 +36,7 @@ export const query = graphql`
     }
   }
 `
-
+export const Head = () => {
+  return <SEO title="Citation courtes de femme artistes" />
+}
 export default QuotationPage
