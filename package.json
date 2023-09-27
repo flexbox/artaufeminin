@@ -1,6 +1,5 @@
 {
   "name": "artaufeminin",
-  "private": false,
   "description": "A podcast landing page",
   "author": "David Leuliette <z2qdm0yrm@mozmail.com>",
   "scripts": {
@@ -37,8 +36,8 @@
     "gatsby-source-anchor": "^0.5.1",
     "gatsby-source-filesystem": "^5.12.0",
     "gatsby-source-prismic": "6.0.1",
-    "git-cz": "^4.9.0",
     "gatsby-transformer-sharp": "^5.12.0",
+    "git-cz": "^4.9.0",
     "postcss": "^8.4.29",
     "prismic-reactjs": "^1.3.4",
     "react": "^18.2.0",
