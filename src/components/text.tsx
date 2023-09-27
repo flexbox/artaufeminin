@@ -56,7 +56,7 @@ export const TextVariants = cva(["primary"], {
 
 export interface TextProps
   extends React.HTMLAttributes<HTMLDivElement>,
-  VariantProps<typeof TextVariants> {
+    VariantProps<typeof TextVariants> {
   children: React.ReactNode
   as?: React.ElementType
   variant?: string
