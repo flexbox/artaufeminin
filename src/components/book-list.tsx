@@ -32,7 +32,7 @@ function BookItem({ book }: { book: BookProps }) {
     <>
       <div className="book-item">
         <Link
-          to={`/livre/${slug}`}
+          to={`/livres/${slug}`}
           className="book-item-link hover:no-underline"
         >
           <Text as="h3" variant={"h3Link"}>

@@ -9,7 +9,8 @@ exports.onPostBuild = ({ reporter }) => {
 
 // Create blog pages dynamically
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
+
   const episodeTemplate = path.resolve(`src/templates/episode.tsx`)
   const podcats = await graphql(`
     query {
@@ -34,6 +35,13 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
   podcats.data.allAnchorEpisode.nodes.forEach((node) => {
+    // Redirect old url to new url needs to be before `createPage`
+    createRedirect({
+      fromPath: `/podcast/${node.guid}`,
+      toPath: `/podcasts/${node.guid}`,
+      isPermanent: true,
+    })
+
     createPage({
       path: `podcasts/${node.guid}`,
       component: episodeTemplate,
@@ -97,6 +105,13 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   articles.data.allPrismicBlogPost.edges.forEach((edge) => {
+    // Redirect old url to new url needs to be before `createPage`
+    createRedirect({
+      fromPath: `/article/${edge.node.uid}`,
+      toPath: `/articles/${edge.node.uid}`,
+      isPermanent: true,
+    })
+
     createPage({
       path: `articles/${edge.node.uid}`,
       component: articleTemplate,
@@ -129,8 +144,15 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   books.data.allPrismicBookReview.edges.forEach((edge) => {
+    // Redirect old url to new url needs to be before `createPage`
+    createRedirect({
+      fromPath: `/livre/${edge.node.uid}`,
+      toPath: `/livres/${edge.node.uid}`,
+      isPermanent: true,
+    })
+
     createPage({
-      path: `livre/${edge.node.uid}`,
+      path: `livres/${edge.node.uid}`,
       component: bookTemplate,
       context: {
         ...edge,
