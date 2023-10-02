@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from "react"
+import React, { ReactNode } from "react"
 
 import Text from "./text"
 
@@ -7,7 +7,7 @@ interface CardProps {
   children: ReactNode
 }
 
-export default function Card({ title, children }: CardProps): ReactElement {
+export default function Card({ title, children }: CardProps) {
   return (
     <div className="mb-12 rounded-md bg-white px-4 py-6 drop-shadow-md">
       <div className="mb-6">
