@@ -3,7 +3,7 @@
   margin-right: auto;
 }
 
-.article-preview:hover h3 {
+.article-preview:hover h2 {
   text-decoration-line: underline;
   text-underline-offset: 4px;
 }

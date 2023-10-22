@@ -3,13 +3,12 @@ import React from "react"
 
 import Button from "./button"
 import HeroCard from "./heroCard"
-import Text from "./text"
 
-type Props = {
+type HeroProps = {
   allEpisodes: any
 }
 
-export default function Hero({ allEpisodes }: Props) {
+export function Hero({ allEpisodes }: HeroProps) {
   return (
     <div className="h-screen my-auto -mb-32 md:-mb-48 w-3/4 m-auto">
       <div className="flex-col md:flex md:flex-row gap-4 h-2/3 overflow-hidden">

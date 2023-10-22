@@ -8,7 +8,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Text from "../components/text"
 import Tipee from "../components/tipee"
-import { formatHumanDate } from "../utils/date"
 
 interface PropsArticle {
   pageContext: {
