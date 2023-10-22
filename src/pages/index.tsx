@@ -4,7 +4,7 @@ import React from "react"
 
 import { ArticleList } from "../components/article-list"
 import Button from "../components/button"
-import Hero from "../components/hero"
+import { Hero } from "../components/hero"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Text from "../components/text"
@@ -15,14 +15,14 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout withInstagram={true}>
-      <Text as="h1" variant="h1" className="w-3/4 m-auto my-4">
-        Podcasts récents sur les artistes femmes
+      <Text as="h1" variant="h3" className="w-3/4 m-auto my-4">
+        Podcasts sur les artistes femmes
       </Text>
       <Hero allEpisodes={allEpisodes} />
       <div style={{ maxWidth: "80em", margin: "0 auto" }}>
         <div className="mb-16 w-full max-w-6xl md:mb-64 md:w-2/3">
           <Text as="h2" variant={"h2"}>
-            Articles récents
+            Articles femmes artistes
           </Text>
           <hr className="separator mt-16 " />
           <ArticleList allArticles={allArticles} isRow />

@@ -44,4 +44,5 @@ export const Head = () => {
     />
   )
 }
+
 export default QuotationPage
