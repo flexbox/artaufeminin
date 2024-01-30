@@ -12,12 +12,12 @@ const QuotationPage = ({
 }: {
   data: { allPrismicQuotation: { nodes: QuotationProps[] } }
 }) => {
-  const quotation = data.allPrismicQuotation.nodes
+  const quotations = data.allPrismicQuotation.nodes
 
   return (
     <Layout withInstagram={false}>
       <LayoutSidebar withPodcast={false}>
-        <QuotationList allQuotation={quotation} />
+        <QuotationList allQuotation={quotations} />
       </LayoutSidebar>
     </Layout>
   )
@@ -25,7 +25,7 @@ const QuotationPage = ({
 
 export const query = graphql`
   query {
-    allPrismicQuotation {
+    allPrismicQuotation(sort: { last_publication_date: DESC }) {
       nodes {
         id
         data {
