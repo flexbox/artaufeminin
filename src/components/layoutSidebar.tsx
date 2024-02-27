@@ -1,12 +1,12 @@
-import React, { ReactElement } from "react"
+import React, { ReactElement } from 'react';
 
-import Subscribe from "./subscribe"
-import SubscribeInstagram from "./subscribeInstagram"
-import SubscribeTipeee from "./subscribeTipeee"
+import Subscribe from './subscribe';
+import SubscribeInstagram from './subscribeInstagram';
+import SubscribeTipeee from './subscribeTipeee';
 
 interface LayoutSidebarProps {
-  withPodcast?: boolean
-  children: any
+  withPodcast?: boolean;
+  children: any;
 }
 
 export default function LayoutSidebar({
@@ -14,7 +14,7 @@ export default function LayoutSidebar({
   children,
 }: LayoutSidebarProps): ReactElement {
   return (
-    <div style={{ maxWidth: "80em", margin: "0 auto" }}>
+    <div style={{ maxWidth: '80em', margin: '0 auto' }}>
       <div className="gap-12 lg:grid lg:grid-cols-12">
         <div className="md:col-span-4">
           {withPodcast && <Subscribe />}
@@ -29,5 +29,5 @@ export default function LayoutSidebar({
         <div className="md:col-span-8">{children}</div>
       </div>
     </div>
-  )
+  );
 }

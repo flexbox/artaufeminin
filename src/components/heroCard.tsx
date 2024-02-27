@@ -1,29 +1,29 @@
-import { ArrowRightIcon } from "@heroicons/react/20/solid"
-import { type VariantProps, cva } from "class-variance-authority"
-import { Link } from "gatsby"
-import React from "react"
+import { ArrowRightIcon } from '@heroicons/react/20/solid';
+import { type VariantProps, cva } from 'class-variance-authority';
+import { Link } from 'gatsby';
+import React from 'react';
 
-import Text from "./text"
+import Text from './text';
 
-export const heroCardVariants = cva(["primary"], {
+export const heroCardVariants = cva(['primary'], {
   variants: {
     size: {
-      md: ["bg-cover", "bg-center", "h-52", "md:h-1/2", "overflow-hidden"],
-      lg: ["flex-1", "mb-4", "md:mb-0", "h-52", "md:h-full", "overflow-hidden"],
+      md: ['bg-cover', 'bg-center', 'h-52', 'md:h-1/2', 'overflow-hidden'],
+      lg: ['flex-1', 'mb-4', 'md:mb-0', 'h-52', 'md:h-full', 'overflow-hidden'],
     },
   },
 
   defaultVariants: {
-    size: "lg",
+    size: 'lg',
   },
-})
+});
 
 export interface HeroCardProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof heroCardVariants> {
-  heroLink: string
-  imageUrl: string
-  heroTitle: string
+  heroLink: string;
+  imageUrl: string;
+  heroTitle: string;
 }
 
 export const HeroCard = ({
@@ -49,7 +49,7 @@ export const HeroCard = ({
         </Text>
       </div>
     </Link>
-  )
-}
+  );
+};
 
-export default HeroCard
+export default HeroCard;

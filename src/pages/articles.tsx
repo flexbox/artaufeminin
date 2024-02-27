@@ -1,21 +1,21 @@
-import { graphql } from "gatsby"
-import React from "react"
+import { graphql } from 'gatsby';
+import React from 'react';
 
-import { ArticleList } from "../components/article-list"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Text from "../components/text"
+import { ArticleList } from '../components/article-list';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import Text from '../components/text';
 
 interface ArticlesPageProps {
   data: {
     allPrismicBlogPost: {
-      nodes: [] // it should be something like PrismicBlogPost[] insteead of a simple []
-    }
-  }
+      nodes: []; // it should be something like PrismicBlogPost[] insteead of a simple []
+    };
+  };
 }
 
 const ArticlesPage = ({ data }: ArticlesPageProps) => {
-  const articles = data.allPrismicBlogPost.nodes
+  const articles = data.allPrismicBlogPost.nodes;
 
   return (
     <Layout withInstagram={false}>
@@ -24,8 +24,8 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
       </Text>
       <ArticleList allArticles={articles} />
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query allBlogPosts {
@@ -35,7 +35,7 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
 export const Head = () => {
   return (
@@ -43,7 +43,7 @@ export const Head = () => {
       title="Parcourez notre collection d'articles sur les artistes féminines à travers l'histoire."
       description="Découvrez l'inspiration et la créativité des femmes artistes sur ART au féminin. Explorez leurs œuvres exceptionnelles, leurs parcours uniques et leurs contributions inestimables à l'art. Plongez dans l'univers captivant des artistes au féminin."
     />
-  )
-}
+  );
+};
 
-export default ArticlesPage
+export default ArticlesPage;

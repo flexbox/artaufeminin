@@ -1,25 +1,29 @@
-import { Dialog } from "@headlessui/react"
-import { Bars3Icon, EnvelopeIcon, XMarkIcon } from "@heroicons/react/24/outline"
-import { Link } from "gatsby"
-import React, { ReactElement, useState } from "react"
+import { Dialog } from '@headlessui/react';
+import {
+  Bars3Icon,
+  EnvelopeIcon,
+  XMarkIcon,
+} from '@heroicons/react/24/outline';
+import { Link } from 'gatsby';
+import React, { ReactElement, useState } from 'react';
 
 const navigation = [
-  { name: "Podcasts", href: "/podcasts" },
-  { name: "Articles", href: "/articles" },
-  { name: "Livres", href: "/livres" },
-  { name: "Citations", href: "/citations" },
-]
+  { name: 'Podcasts', href: '/podcasts' },
+  { name: 'Articles', href: '/articles' },
+  { name: 'Livres', href: '/livres' },
+  { name: 'Citations', href: '/citations' },
+];
 
 function LinkEmail() {
-  const email = "artaufemininlepodcast@gmail.com"
-  const subject = "ART au féminin - Contact"
+  const email = 'artaufemininlepodcast@gmail.com';
+  const subject = 'ART au féminin - Contact';
   const body = `Bonjour,
 
-  Je vous écris aujourd'hui pour vous demander ...`
+  Je vous écris aujourd'hui pour vous demander ...`;
 
-  const subjectBody = encodeURIComponent(subject)
-  const encodedBody = encodeURIComponent(body)
-  const encodedURL = `mailto:${email}?subject=${subjectBody}&body=${encodedBody}`
+  const subjectBody = encodeURIComponent(subject);
+  const encodedBody = encodeURIComponent(body);
+  const encodedURL = `mailto:${email}?subject=${subjectBody}&body=${encodedBody}`;
 
   return (
     <a
@@ -32,11 +36,11 @@ function LinkEmail() {
       Contact
       <EnvelopeIcon className="h-6 w-6 text-gray-400 ml-2" aria-hidden="true" />
     </a>
-  )
+  );
 }
 
 export function Header(): ReactElement {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="bg-white">
@@ -118,5 +122,5 @@ export function Header(): ReactElement {
         </Dialog.Panel>
       </Dialog>
     </header>
-  )
+  );
 }

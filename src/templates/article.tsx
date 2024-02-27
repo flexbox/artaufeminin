@@ -1,66 +1,66 @@
-import { Link } from "gatsby"
-import { RichTextBlock } from "prismic-reactjs"
-import React, { ReactElement } from "react"
+import { Link } from 'gatsby';
+import { RichTextBlock } from 'prismic-reactjs';
+import React, { ReactElement } from 'react';
 
-import Author from "../components/author"
-import { CustomRichText } from "../components/custom-rich-text"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Text from "../components/text"
-import Tipee from "../components/tipee"
+import Author from '../components/author';
+import { CustomRichText } from '../components/custom-rich-text';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import Text from '../components/text';
+import Tipee from '../components/tipee';
 
 interface PropsArticle {
   pageContext: {
     next: {
-      uid: string
+      uid: string;
       data: {
         title: {
-          text: string
-        }
+          text: string;
+        };
         image: {
-          url: string
-        }
-      }
-    }
+          url: string;
+        };
+      };
+    };
     previous: {
-      uid: string
+      uid: string;
       data: {
         image: {
-          url: string
-        }
+          url: string;
+        };
         title: {
-          text: string
-        }
-      }
-    }
+          text: string;
+        };
+      };
+    };
     node: {
-      uid: string
+      uid: string;
       data: {
         title: {
-          text: string
-        }
+          text: string;
+        };
         description: {
-          text: string
-        }
+          text: string;
+        };
         content: {
-          richText: RichTextBlock[]
-        }
-        date: string
+          richText: RichTextBlock[];
+        };
+        date: string;
         image: {
-          url: string
-          alt: string
-          copyright: string
-          gatsbyImageData: any
-        }
-      }
-    }
-  }
+          url: string;
+          alt: string;
+          copyright: string;
+          gatsbyImageData: any;
+        };
+      };
+    };
+  };
 }
 
 interface NextPrevProps {
-  uid: string
-  imgUrl: string
-  title: string
+  uid: string;
+  imgUrl: string;
+  title: string;
 }
 
 const OtherArticleLink = ({ uid, imgUrl, title }: NextPrevProps) => {
@@ -77,29 +77,29 @@ const OtherArticleLink = ({ uid, imgUrl, title }: NextPrevProps) => {
         <div className="p-4">{title}</div>
       </section>
     </Link>
-  )
-}
+  );
+};
 
 export default function Article(props: PropsArticle): ReactElement {
-  const { data } = props.pageContext.node
+  const { data } = props.pageContext.node;
 
-  const imageHero = data.image
-  const seoTitle = data.title.text
-  const seoDescription = data.description.text
-  const next = props.pageContext.next
-  const previous = props.pageContext.previous
-  const nextUid = props.pageContext.next?.uid
-  const nextImgUrl = props.pageContext.next?.data.image.url
-  const nextTitle = props.pageContext.next?.data.title.text
-  const previousImgUrl = props.pageContext.previous?.data.image.url
-  const previousTitle = props.pageContext.previous?.data.title.text
-  const previousUid = props.pageContext.previous?.uid
+  const imageHero = data.image;
+  const seoTitle = data.title.text;
+  const seoDescription = data.description.text;
+  const next = props.pageContext.next;
+  const previous = props.pageContext.previous;
+  const nextUid = props.pageContext.next?.uid;
+  const nextImgUrl = props.pageContext.next?.data.image.url;
+  const nextTitle = props.pageContext.next?.data.title.text;
+  const previousImgUrl = props.pageContext.previous?.data.image.url;
+  const previousTitle = props.pageContext.previous?.data.title.text;
+  const previousUid = props.pageContext.previous?.uid;
 
   return (
     <Layout>
       <div className="m-auto max-w-3xl">
         <header>
-          <Text as="h1" variant={"h1"} className="my-24">
+          <Text as="h1" variant={'h1'} className="my-24">
             {seoTitle}
           </Text>
           <div className="prose prose-xl">
@@ -115,7 +115,7 @@ export default function Article(props: PropsArticle): ReactElement {
               <figure>
                 <img src={imageHero.url} alt={imageHero.alt} />
                 <figcaption className="mt-8">
-                  {imageHero.alt}{" "}
+                  {imageHero.alt}{' '}
                   {imageHero.copyright && `© ${imageHero.copyright}`}
                 </figcaption>
               </figure>
@@ -129,7 +129,7 @@ export default function Article(props: PropsArticle): ReactElement {
           <Author />
         </article>
 
-        <Text as="h2" variant={"h2"} className="mb-12">
+        <Text as="h2" variant={'h2'} className="mb-12">
           Autres articles
         </Text>
         <hr className="separator" />
@@ -149,11 +149,11 @@ export default function Article(props: PropsArticle): ReactElement {
         )}
       </div>
     </Layout>
-  )
+  );
 }
 
 export const Head = (props: PropsArticle) => {
-  const { text: seoTitle } = props.pageContext.node.data.title
-  const { text: seoDescription } = props.pageContext.node.data.description
-  return <SEO title={seoTitle} description={seoDescription} />
-}
+  const { text: seoTitle } = props.pageContext.node.data.title;
+  const { text: seoDescription } = props.pageContext.node.data.description;
+  return <SEO title={seoTitle} description={seoDescription} />;
+};

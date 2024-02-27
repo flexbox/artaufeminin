@@ -1,48 +1,48 @@
-import { is } from "date-fns/locale"
-import { Link } from "gatsby"
-import truncate from "lodash/truncate"
-import { RichText, RichTextBlock } from "prismic-reactjs"
-import React from "react"
+import { is } from 'date-fns/locale';
+import { Link } from 'gatsby';
+import truncate from 'lodash/truncate';
+import { RichText, RichTextBlock } from 'prismic-reactjs';
+import React from 'react';
 
-import { formatHumanDate } from "../utils/date"
-import Text from "./text"
+import { formatHumanDate } from '../utils/date';
+import Text from './text';
 
 interface ArticleProps {
-  uid: string
+  uid: string;
   data: {
     title: {
-      richText: RichTextBlock[]
-    }
+      richText: RichTextBlock[];
+    };
     description: {
-      richText: RichTextBlock[]
-    }
-    date: string
+      richText: RichTextBlock[];
+    };
+    date: string;
     image: {
-      url: string
-    }
-  }
+      url: string;
+    };
+  };
 }
 
 interface ArticleListItemProps {
-  allArticles: ArticleProps[]
-  isRow?: boolean
+  allArticles: ArticleProps[];
+  isRow?: boolean;
 }
 
 function ArticleItem({
   article,
   isRow = false,
 }: {
-  article: ArticleProps
-  isRow?: boolean
+  article: ArticleProps;
+  isRow?: boolean;
 }) {
-  const slug = article.uid
-  const thumbnailUrl = article.data.image.url
-  const date = formatHumanDate(article.data.date)
-  const title = RichText.asText(article.data.title.richText)
-  const description = RichText.asText(article.data.description.richText)
+  const slug = article.uid;
+  const thumbnailUrl = article.data.image.url;
+  const date = formatHumanDate(article.data.date);
+  const title = RichText.asText(article.data.title.richText);
+  const description = RichText.asText(article.data.description.richText);
   const descriptionTruncated = truncate(description, {
     length: 190,
-  })
+  });
 
   return (
     <>
@@ -88,21 +88,21 @@ function ArticleItem({
         </Link>
       )}
     </>
-  )
+  );
 }
 
 export function ArticleList({ allArticles, isRow }: ArticleListItemProps) {
   return isRow ? (
     <>
       {allArticles.map((article) => {
-        return <ArticleItem article={article} key={article.uid} isRow />
+        return <ArticleItem article={article} key={article.uid} isRow />;
       })}
     </>
   ) : (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-2/3 m-auto">
       {allArticles.map((article) => {
-        return <ArticleItem article={article} key={article.uid} />
+        return <ArticleItem article={article} key={article.uid} />;
       })}
     </div>
-  )
+  );
 }

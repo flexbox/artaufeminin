@@ -1,50 +1,50 @@
-import { Link } from "gatsby"
-import React, { useMemo } from "react"
+import { Link } from 'gatsby';
+import React, { useMemo } from 'react';
 
-import { useAudioPlayer } from "./player/AudioProvider"
-import { PlayButton } from "./player/PlayButton"
-import Text from "./text"
+import { useAudioPlayer } from './player/AudioProvider';
+import { PlayButton } from './player/PlayButton';
+import Text from './text';
 
 interface EpisodeItemProps {
-  isSummaryTruncate?: boolean
-  withPlayer?: boolean
+  isSummaryTruncate?: boolean;
+  withPlayer?: boolean;
   episode: {
-    guid: string
-    link: string
-    title: string
+    guid: string;
+    link: string;
+    title: string;
     itunes: {
-      summary: string
-      image: string
-      episode: string
-      season: string
-      duration: string
-    }
+      summary: string;
+      image: string;
+      episode: string;
+      season: string;
+      duration: string;
+    };
     enclosure: {
-      url: string
-    }
-  }
+      url: string;
+    };
+  };
 }
 
 export default function EpisodeItem({
   episode,
   isSummaryTruncate,
 }: EpisodeItemProps) {
-  let audioPlayerData = useMemo(
+  const audioPlayerData = useMemo(
     () => ({
       title: episode.title,
       audio: {
         src: episode.enclosure.url,
-        type: "audio/mpeg",
+        type: 'audio/mpeg',
       },
       link: `/${episode.guid}`,
     }),
-    [episode]
-  )
-  let player = useAudioPlayer(audioPlayerData)
+    [episode],
+  );
+  const player = useAudioPlayer(audioPlayerData);
 
-  let summary = episode.itunes.summary
+  let summary = episode.itunes.summary;
   if (isSummaryTruncate === true) {
-    summary = `${episode.itunes.summary.substring(0, 250)}…`
+    summary = `${episode.itunes.summary.substring(0, 250)}…`;
   }
 
   return (
@@ -54,7 +54,7 @@ export default function EpisodeItem({
         className="article-preview flex flex-col hover:no-underline md:flex-row"
       >
         <div className="flex-1">
-          <Text as="h3" variant={"h3Link"}>
+          <Text as="h3" variant={'h3Link'}>
             {episode.title}
           </Text>
 
@@ -77,5 +77,5 @@ export default function EpisodeItem({
       </div>
       <hr className="separator my-8" />
     </>
-  )
+  );
 }

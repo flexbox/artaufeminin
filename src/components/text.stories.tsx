@@ -1,32 +1,32 @@
-import React from "react"
+import React from 'react';
 
-import Hr from "./hr"
-import Text from "./text"
+import Hr from './hr';
+import Text from './text';
 
 export default {
-  title: "Typography/Text",
-}
+  title: 'Typography/Text',
+};
 
 export const TextStory = () => {
   return (
     <div>
       <div className="mb-10">
-        <Text as="h1" variant={"h1"}>
+        <Text as="h1" variant={'h1'}>
           h1 - Pourquoi n'y a-t-il pas eu de grands artistes femmes ?
         </Text>
-        <Text as="h2" variant={"h2"}>
+        <Text as="h2" variant={'h2'}>
           h2 - Pourquoi n'y a-t-il pas eu de grands artistes femmes ?
         </Text>
-        <Text as="h2" variant={"h2about"}>
+        <Text as="h2" variant={'h2about'}>
           h2about - Pourquoi n'y a-t-il pas eu de grands artistes femmes ?
         </Text>
-        <Text as="h2" variant={"h2episode"}>
+        <Text as="h2" variant={'h2episode'}>
           h2episode - Pourquoi n'y a-t-il pas eu de grands artistes femmes ?
         </Text>
-        <Text as="h3" variant={"h3"}>
+        <Text as="h3" variant={'h3'}>
           h3 - Pourquoi n'y a-t-il pas eu de grands artistes femmes ?
         </Text>
-        <Text as="h3" variant={"h3Link"}>
+        <Text as="h3" variant={'h3Link'}>
           h3Link - Pourquoi n'y a-t-il pas eu de grands artistes femmes ?
         </Text>
       </div>
@@ -34,19 +34,19 @@ export const TextStory = () => {
         <Hr />
       </div>
       <div className="mb-10">
-        <Text as="p" variant={"p"}>
+        <Text as="p" variant={'p'}>
           Avant de devenir historienne de l’art, professeure d’université,
           théoricienne de l’art, … Elle obtient en 1951 un baccalauréat en
           philosophie tout en se formant aux études grecques et d’histoire de
           l’art.
         </Text>
-        <Text as="p" variant={"pAbout"}>
+        <Text as="p" variant={'pAbout'}>
           pAbout Avant de devenir historienne de l’art, professeure
           d’université, théoricienne de l’art, … Elle obtient en 1951 un
           baccalauréat en philosophie tout en se formant aux études grecques et
           d’histoire de l’art.
         </Text>
-        <Text as="p" variant={"pEpisode"}>
+        <Text as="p" variant={'pEpisode'}>
           pEpisode Avant de devenir historienne de l’art, professeure
           d’université, théoricienne de l’art, … Elle obtient en 1951 un
           baccalauréat en philosophie tout en se formant aux études grecques et
@@ -62,5 +62,5 @@ export const TextStory = () => {
         </p>
       </div>
     </div>
-  )
-}
+  );
+};

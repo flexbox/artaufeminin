@@ -1,10 +1,10 @@
-import React from "react"
+import React from 'react';
 
-import { Quote } from "./quote"
+import { Quote } from './quote';
 
 export default {
-  title: "Typography/Quote",
-}
+  title: 'Typography/Quote',
+};
 
 export const QuoteStory = () => {
   return (
@@ -23,11 +23,11 @@ export const QuoteStory = () => {
       <Quote
         id="12345"
         data={{
-          author: "Stacey Gillian Abe",
+          author: 'Stacey Gillian Abe',
           quotation:
             "Mes concepts naissent plus ou moins d'un contexte personnel et sont ensuite gonflés hors de proportion, rétrécis, déformés ou désintégrés à partir desquels les significations et interprétations possibles sont déplacées... Je crois personnellement que nous sommes des êtres spirituels et qu'il n'existe pas de distinction stricte et rapide entre le monde spirituel et physique (ou matériel) et une vie orientée vers un être intérieur.",
         }}
       />
     </div>
-  )
-}
+  );
+};

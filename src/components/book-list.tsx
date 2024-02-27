@@ -1,32 +1,32 @@
-import { Link } from "gatsby"
-import truncate from "lodash/truncate"
-import React, { ReactElement } from "react"
+import { Link } from 'gatsby';
+import truncate from 'lodash/truncate';
+import React, { ReactElement } from 'react';
 
-import Text from "./text"
+import Text from './text';
 
 export interface BookProps {
-  uid: string
+  uid: string;
   data: {
     title: {
-      text: string
-    }
+      text: string;
+    };
     content: {
-      text: string
-    }
-  }
+      text: string;
+    };
+  };
 }
 
 interface BookListItemProps {
-  allBooks: BookProps[]
+  allBooks: BookProps[];
 }
 
 function BookItem({ book }: { book: BookProps }) {
-  const slug = book.uid
-  const title = book.data.title.text
-  const content = book.data.content.text
+  const slug = book.uid;
+  const title = book.data.title.text;
+  const content = book.data.content.text;
   const truncatedContent = truncate(content, {
     length: 190,
-  })
+  });
 
   return (
     <>
@@ -35,7 +35,7 @@ function BookItem({ book }: { book: BookProps }) {
           to={`/livres/${slug}`}
           className="book-item-link hover:no-underline"
         >
-          <Text as="h3" variant={"h3Link"}>
+          <Text as="h3" variant={'h3Link'}>
             {title}
           </Text>
           <p className="book-item-content text-gray-600">{truncatedContent}</p>
@@ -43,7 +43,7 @@ function BookItem({ book }: { book: BookProps }) {
       </div>
       <hr className="separator mb-4 mt-4" />
     </>
-  )
+  );
 }
 
 export default function BookList({
@@ -55,5 +55,5 @@ export default function BookList({
         <BookItem book={book} key={index} />
       ))}
     </>
-  )
+  );
 }

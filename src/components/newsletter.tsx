@@ -1,6 +1,6 @@
-import React, { ReactElement } from "react"
+import React, { ReactElement } from 'react';
 
-import Button from "./button"
+import Button from './button';
 
 export default function Newsletter(): ReactElement {
   return (
@@ -48,5 +48,5 @@ export default function Newsletter(): ReactElement {
         </div>
       </form>
     </>
-  )
+  );
 }

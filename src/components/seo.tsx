@@ -1,12 +1,12 @@
-import { graphql, useStaticQuery } from "gatsby"
-import React from "react"
+import { graphql, useStaticQuery } from 'gatsby';
+import React from 'react';
 
 export function SeoHead({
   title,
   metaDescription,
 }: {
-  title: string
-  metaDescription: string
+  title: string;
+  metaDescription: string;
 }) {
   return (
     <>
@@ -20,7 +20,7 @@ export function SeoHead({
       <meta property="og:description" content={metaDescription} />
       <meta property="og:type" content="website" />
     </>
-  )
+  );
 }
 
 function SEO({ description, title }: { description: string; title: string }) {
@@ -34,9 +34,9 @@ function SEO({ description, title }: { description: string; title: string }) {
         }
       }
     }
-  `)
-  const metaDescription = description || site.siteMetadata.description
-  return <SeoHead title={title} metaDescription={metaDescription} />
+  `);
+  const metaDescription = description || site.siteMetadata.description;
+  return <SeoHead title={title} metaDescription={metaDescription} />;
 }
 
 SEO.defaultProps = {
@@ -44,6 +44,6 @@ SEO.defaultProps = {
   meta: [],
   keywords: [],
   description: ``,
-}
+};
 
-export default SEO
+export default SEO;

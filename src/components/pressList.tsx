@@ -1,32 +1,32 @@
-import * as React from "react"
-import { ReactElement } from "react"
+import * as React from 'react';
+import { ReactElement } from 'react';
 
-import Text from "./text"
+import Text from './text';
 
 interface PressProps {
-  uid: string
+  uid: string;
   data: {
     description: {
-      text: string
-    }
+      text: string;
+    };
     sitename: {
-      text: string
-    }
+      text: string;
+    };
     url: {
-      url: string
-    }
-  }
+      url: string;
+    };
+  };
 }
 
 interface PressItemProps {
-  allPress: PressProps[]
+  allPress: PressProps[];
 }
 
 const PressItem = ({ pressItem }: { pressItem: PressProps }) => {
   return (
     <ul className="py-2">
       <li className="flex py-4 leading-6">
-        <Text as="h3" variant={"h3"}>
+        <Text as="h3" variant={'h3'}>
           <a
             href={pressItem.data.url.url}
             className="mb-4 text-lg text-blue-500"
@@ -37,15 +37,15 @@ const PressItem = ({ pressItem }: { pressItem: PressProps }) => {
         </Text>
       </li>
     </ul>
-  )
-}
+  );
+};
 
 export default function PressList({ allPress }: PressItemProps): ReactElement {
   return (
     <>
       {allPress.map((pressItem) => {
-        return <PressItem pressItem={pressItem} key={pressItem.uid} />
+        return <PressItem pressItem={pressItem} key={pressItem.uid} />;
       })}
     </>
-  )
+  );
 }

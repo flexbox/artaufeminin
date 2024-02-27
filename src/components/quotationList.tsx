@@ -1,7 +1,7 @@
-import React, { ReactElement } from "react"
+import React, { ReactElement } from 'react';
 
-import { QuotationListProps } from "./quotation"
-import { Quote } from "./quote"
+import { QuotationListProps } from './quotation';
+import { Quote } from './quote';
 
 export default function QuotationList({
   allQuotation,
@@ -9,8 +9,8 @@ export default function QuotationList({
   return (
     <>
       {allQuotation.map((quotation) => {
-        return <Quote data={quotation.data} key={quotation.id} />
+        return <Quote data={quotation.data} key={quotation.id} />;
       })}
     </>
-  )
+  );
 }

@@ -1,20 +1,20 @@
-import { Meta, StoryFn } from "@storybook/react"
-import React from "react"
+import { Meta, StoryFn } from '@storybook/react';
+import React from 'react';
 
-import Button from "./button"
-import Card from "./card"
+import Button from './button';
+import Card from './card';
 
 export default {
-  title: "Example/Card",
+  title: 'Example/Card',
   component: Card,
   argTypes: {
-    backgroundColor: { control: "color" },
+    backgroundColor: { control: 'color' },
   },
-} as Meta<typeof Card>
+} as Meta<typeof Card>;
 
 const Template: StoryFn<typeof Card> = (args) => {
-  return <Card title="Je suis un titre">HEY</Card>
-}
+  return <Card title="Je suis un titre">HEY</Card>;
+};
 
 const TemplateCard2: StoryFn<typeof Card> = (args) => {
   return (
@@ -26,12 +26,12 @@ const TemplateCard2: StoryFn<typeof Card> = (args) => {
         </div>
       </Card>
     </>
-  )
-}
+  );
+};
 
 export const Primary = {
   render: Template,
-}
+};
 export const CardButton = {
   render: TemplateCard2,
-}
+};
