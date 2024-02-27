@@ -35,13 +35,13 @@ export default function Newsletter(): ReactElement {
           type="email"
           data-inputmask=""
           name="fields[email]"
-          className="w-full min-w-0 appearance-none rounded-md border border-gray-300 bg-white px-4 py-2 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-blue-500 focus:placeholder-gray-400 focus:outline-none focus:ring-blue-500"
+          className="w-full min-w-0 appearance-none rounded-md border border-gray-300 bg-white px-4 py-2 text-base text-gray-900 shadow-sm placeholder:text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-blue-500 focus:placeholder:text-gray-400"
           placeholder="Entrez votre adresse email"
         />
         <input type="hidden" name="ml-submit" value="1" />
         <input type="hidden" name="anticsrf" value="true" />
 
-        <div className="mt-3 rounded-md sm:ml-3 sm:mt-0 sm:flex-shrink-0">
+        <div className="mt-3 rounded-md sm:ml-3 sm:mt-0 sm:shrink-0">
           <Button type="submit" variant="news" style={{ minHeight: 48 }}>
             Je m'inscris
           </Button>

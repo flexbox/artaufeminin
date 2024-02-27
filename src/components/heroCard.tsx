@@ -36,14 +36,14 @@ export const HeroCard = ({
   return (
     <Link to={heroLink} className={heroCardVariants({ className, size })}>
       <div
-        className="bg-cover bg-center h-full ease-in-out transition-all duration-300 flex items-end bg-no-repeat hover:scale-105 overflow-hidden bg-gray-200"
+        className="flex h-full items-end overflow-hidden bg-gray-200 bg-cover bg-center bg-no-repeat transition-all duration-300 ease-in-out hover:scale-105"
         style={{
           backgroundImage: `url(${imageUrl})`,
         }}
       >
         <Text
           as="h3"
-          className="text-white bg-black items-end flex mb-6 mx-auto p-2 w-5/6 text-left"
+          className="mx-auto mb-6 flex w-5/6 items-end bg-black p-2 text-left text-white"
         >
           {heroTitle}
         </Text>

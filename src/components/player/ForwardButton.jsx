@@ -34,7 +34,7 @@ export function ForwardButton({ player, amount = 10 }) {
       aria-label={`Fast-forward ${amount} seconds`}
     >
       <div className="absolute -inset-4 -left-2 md:hidden" />
-      <ForwardIcon className="h-6 w-6 stroke-slate-500 group-hover:stroke-slate-700" />
+      <ForwardIcon className="size-6 stroke-slate-500 group-hover:stroke-slate-700" />
     </button>
   );
 }

@@ -11,7 +11,7 @@ import { dutationToString } from '../utils/dutationToString';
 
 export default function Episode({ pageContext }) {
   const title = pageContext.title;
-  const description = pageContext.contentSnippet.substring(0, 155);
+  // const description = pageContext.contentSnippet.substring(0, 155);
   const duration = dutationToString(pageContext.itunes.duration);
 
   const audioPlayerData = useMemo(
@@ -43,7 +43,7 @@ export default function Episode({ pageContext }) {
 
           <div className="flex items-center gap-4">
             <PlayButton player={player} size="small" />
-            <Text className="text-slate-500 font-merri">Écouter</Text>
+            <Text className="font-merri text-slate-500">Écouter</Text>
           </div>
 
           <div

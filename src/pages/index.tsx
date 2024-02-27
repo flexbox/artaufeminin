@@ -15,7 +15,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout withInstagram={true}>
-      <Text as="h1" variant="h3" className="w-3/4 m-auto my-4">
+      <Text as="h1" variant="h3" className="m-auto my-4 w-3/4">
         Podcasts sur les artistes femmes
       </Text>
       <Hero allEpisodes={allEpisodes} />

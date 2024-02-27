@@ -63,9 +63,9 @@ export default function EpisodeItem({
             dangerouslySetInnerHTML={{ __html: summary }}
           />
         </div>
-        <div className="hidden flex-shrink-0 px-3 sm:flex">
+        <div className="hidden shrink-0 px-3 sm:flex">
           <img
-            className="mt-2 h-48 w-48"
+            className="mt-2 size-48"
             src={episode.itunes.image}
             alt={`ART au feminin S${episode.itunes.season} E${episode.itunes.episode}`}
           />
@@ -73,7 +73,7 @@ export default function EpisodeItem({
       </Link>
       <div className="flex items-center">
         <PlayButton player={player} size="small" />
-        <Text className="ml-4 text-slate-500 font-merri">Écouter</Text>
+        <Text className="ml-4 font-merri text-slate-500">Écouter</Text>
       </div>
       <hr className="separator my-8" />
     </>

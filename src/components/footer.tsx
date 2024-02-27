@@ -109,7 +109,7 @@ export default function Footer({ siteTitle }: FooterProps) {
                 className="text-white hover:text-black"
               >
                 <span className="sr-only">{item.name}</span>
-                <item.icon className="h-6 w-6" aria-hidden="true" />
+                <item.icon className="size-6" aria-hidden="true" />
               </a>
             ))}
           </div>

@@ -1,7 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react';
 import React from 'react';
 
-import Button from './button';
 import Newsletter from './newsletter';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -15,7 +14,7 @@ export default {
 } as Meta<typeof Newsletter>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: StoryFn<typeof Newsletter> = (args) => {
+const Template: StoryFn<typeof Newsletter> = () => {
   return (
     <>
       <Newsletter />

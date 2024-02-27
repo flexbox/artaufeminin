@@ -19,7 +19,7 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
 
   return (
     <Layout withInstagram={false}>
-      <Text as="h1" className="w-2/3 m-auto">
+      <Text as="h1" className="m-auto w-2/3">
         Articles artistes femmes
       </Text>
       <ArticleList allArticles={articles} />

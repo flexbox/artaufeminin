@@ -15,7 +15,7 @@ export default {
 } as Meta<typeof Button>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: StoryFn<typeof Button> = (args) => {
+const Template: StoryFn<typeof Button> = () => {
   return (
     <>
       <Button>Hello</Button>
@@ -25,10 +25,10 @@ const Template: StoryFn<typeof Button> = (args) => {
     </>
   );
 };
-const TemplateDefault: StoryFn<typeof Button> = (args) => {
+const TemplateDefault: StoryFn<typeof Button> = () => {
   return <Button variant="outline">Default</Button>;
 };
-const TemplateSizes: StoryFn<typeof Button> = (args) => {
+const TemplateSizes: StoryFn<typeof Button> = () => {
   return (
     <>
       <Button size="s">Small</Button>
@@ -37,16 +37,16 @@ const TemplateSizes: StoryFn<typeof Button> = (args) => {
     </>
   );
 };
-const TemplateDefaultGhost: StoryFn<typeof Button> = (args) => {
+const TemplateDefaultGhost: StoryFn<typeof Button> = () => {
   return <Button variant="outline">Default</Button>;
 };
-const TemplateSmallGhost: StoryFn<typeof Button> = (args) => {
+const TemplateSmallGhost: StoryFn<typeof Button> = () => {
   return <Button variant="outline">Small</Button>;
 };
-const TemplateApplePodcast: StoryFn<typeof Button> = (args) => {
+const TemplateApplePodcast: StoryFn<typeof Button> = () => {
   return <Button variant="outline" isIcon href="http://www.google.com" />;
 };
-const TemplatePodcast: StoryFn<typeof Button> = (args) => {
+const TemplatePodcast: StoryFn<typeof Button> = () => {
   return (
     <Button
       variant="ghost"
@@ -60,7 +60,7 @@ const TemplatePodcast: StoryFn<typeof Button> = (args) => {
     </Button>
   );
 };
-const TemplateAhrefButton: StoryFn<typeof Button> = (args) => {
+const TemplateAhrefButton: StoryFn<typeof Button> = () => {
   return (
     <Button variant="outline" as="a" href="http://www.google.com">
       Href
@@ -88,4 +88,7 @@ export const apple = {
 };
 export const pod = {
   render: TemplatePodcast,
+};
+export const DefaultGhost = {
+  render: TemplateDefaultGhost,
 };

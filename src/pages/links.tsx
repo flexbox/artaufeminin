@@ -93,7 +93,7 @@ function LinkButton({ platform }: LinkButtonProps) {
         <img
           src={platform.imageUrl}
           alt={`ART au feminin sur ${platform.name}`}
-          className="mr-4 h-12 w-12"
+          className="mr-4 size-12"
         />
         <div className="m-auto min-w-full sm:pl-4">{platform.name}</div>
       </div>

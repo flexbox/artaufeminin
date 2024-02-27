@@ -11,7 +11,7 @@ export default function Instagram() {
         <StaticImage
           src="../images/instagram/logoInstagram.png"
           alt="Logo podcast ART au feminin"
-          className="mb-6 h-24 w-24 "
+          className="mb-6 size-24 "
         />
         <Text as="h2" variant="h2" className="mb-4 font-bold ">
           Suivez ART <em className="italic tracking-tighter">au féminin</em>

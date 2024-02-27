@@ -41,7 +41,7 @@ export function MuteButton({ player }) {
       <div className="absolute -inset-4 md:hidden" />
       <MuteIcon
         muted={player.muted}
-        className="h-6 w-6 fill-slate-500 stroke-slate-500 group-hover:fill-slate-700 group-hover:stroke-slate-700"
+        className="size-6 fill-slate-500 stroke-slate-500 group-hover:fill-slate-700 group-hover:stroke-slate-700"
       />
     </button>
   );

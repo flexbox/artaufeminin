@@ -41,7 +41,7 @@ function BookItem({ book }: { book: BookProps }) {
           <p className="book-item-content text-gray-600">{truncatedContent}</p>
         </Link>
       </div>
-      <hr className="separator mb-4 mt-4" />
+      <hr className="separator my-4" />
     </>
   );
 }

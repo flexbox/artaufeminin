@@ -113,7 +113,7 @@ export const Button: React.FC<ButtonProps> = ({
         className={`${classNamesDefault} hover:text-blue-500`}
       >
         <div className="flex items-center">
-          <img src={url} alt={alt} className="mr-4 h-10 w-10" />
+          <img src={url} alt={alt} className="mr-4 size-10" />
           {children}
         </div>
       </Element>

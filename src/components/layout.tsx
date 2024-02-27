@@ -65,7 +65,7 @@ function Layout({
       {withInstagram && <Instagram />}
       {withLastPodcast && (
         <div className="z-1000 fixed bottom-0 left-0 m-auto flex w-full items-center p-4">
-          <div className="flex bg-slate-200 items-center p-4 rounded-3xl">
+          <div className="flex items-center rounded-3xl bg-slate-200 p-4">
             <PlayButton player={player} size="small" />
 
             <Text variant={'default'} className="ml-4 font-merri">
@@ -74,7 +74,7 @@ function Layout({
           </div>
         </div>
       )}
-      <div className="fixed inset-x-0 bottom-0 z-10 lg:left-112 xl:left-120">
+      <div className="lg:left-112 xl:left-120 fixed inset-x-0 bottom-0 z-10">
         <AudioPlayer />
       </div>
       <Footer siteTitle={siteTitle} />

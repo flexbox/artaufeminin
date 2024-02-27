@@ -72,7 +72,7 @@ const OtherArticleLink = ({ uid, imgUrl, title }: NextPrevProps) => {
       <section className="flex flex-row items-center text-left">
         <div
           style={{ backgroundImage: `url(${imgUrl})` }}
-          className="h-24 w-24 bg-cover bg-center bg-no-repeat sm:h-32 sm:w-32"
+          className="size-24 bg-cover bg-center bg-no-repeat sm:size-32"
         />
         <div className="p-4">{title}</div>
       </section>

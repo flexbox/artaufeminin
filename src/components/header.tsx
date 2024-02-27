@@ -28,13 +28,13 @@ function LinkEmail() {
   return (
     <a
       href={encodedURL}
-      className="text-sm font-semibold leading-6 text-gray-900 inline-flex"
+      className="inline-flex text-sm font-semibold leading-6 text-gray-900"
       title="Envoyer un email"
       target="_blank"
       rel="noopener noreferrer"
     >
       Contact
-      <EnvelopeIcon className="h-6 w-6 text-gray-400 ml-2" aria-hidden="true" />
+      <EnvelopeIcon className="ml-2 size-6 text-gray-400" aria-hidden="true" />
     </a>
   );
 }
@@ -69,7 +69,7 @@ export function Header(): ReactElement {
               onClick={() => setMobileMenuOpen(true)}
             >
               <span className="sr-only">Ouvrir le menu</span>
-              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+              <Bars3Icon className="size-6" aria-hidden="true" />
             </button>
           </div>
         </div>
@@ -88,7 +88,7 @@ export function Header(): ReactElement {
         onClose={setMobileMenuOpen}
       >
         <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 left-0 z-10 w-full overflow-y-auto bg-white px-6 py-6">
+        <Dialog.Panel className="fixed inset-y-0 left-0 z-10 w-full overflow-y-auto bg-white p-6">
           <div className="flex items-center justify-between">
             <div className="flex flex-1">
               <button
@@ -97,7 +97,7 @@ export function Header(): ReactElement {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <span className="sr-only">Close menu</span>
-                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                <XMarkIcon className="size-6" aria-hidden="true" />
               </button>
             </div>
             <a href="#" className="-m-1.5 p-1.5">
