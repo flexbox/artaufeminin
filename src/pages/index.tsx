@@ -1,32 +1,32 @@
-import { Link, graphql } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-import React from "react"
+import { Link, graphql } from 'gatsby';
+import { StaticImage } from 'gatsby-plugin-image';
+import React from 'react';
 
-import { ArticleList } from "../components/article-list"
-import Button from "../components/button"
-import { Hero } from "../components/hero"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Text from "../components/text"
+import { ArticleList } from '../components/article-list';
+import Button from '../components/button';
+import { Hero } from '../components/hero';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import Text from '../components/text';
 
 const IndexPage = ({ data }) => {
-  const allEpisodes = data.allAnchorEpisode.nodes
-  const allArticles = data.allPrismicBlogPost.nodes
+  const allEpisodes = data.allAnchorEpisode.nodes;
+  const allArticles = data.allPrismicBlogPost.nodes;
 
   return (
     <Layout withInstagram={true}>
-      <Text as="h1" variant="h3" className="w-3/4 m-auto my-4">
+      <Text as="h1" variant="h3" className="m-auto my-4 w-3/4">
         Podcasts sur les artistes femmes
       </Text>
       <Hero allEpisodes={allEpisodes} />
-      <div style={{ maxWidth: "80em", margin: "0 auto" }}>
+      <div style={{ maxWidth: '80em', margin: '0 auto' }}>
         <div className="mb-16 w-full max-w-6xl md:mb-64 md:w-2/3">
-          <Text as="h2" variant={"h2"}>
+          <Text as="h2" variant={'h2'}>
             Articles femmes artistes
           </Text>
           <hr className="separator mt-16 " />
           <ArticleList allArticles={allArticles} isRow />
-          <Link to={"/articles"}>
+          <Link to={'/articles'}>
             <Button variant="outline" size="s">
               Lire tous les articles
             </Button>
@@ -34,11 +34,11 @@ const IndexPage = ({ data }) => {
         </div>
 
         <div className="mb-12 max-w-6xl">
-          <Text as="h2" variant={"h2"}>
+          <Text as="h2" variant={'h2'}>
             Ce que les auditeurs en disent
           </Text>
-          <Text as="p" variant={"p"}>
-            ⭐ Moyenne de 5/5 étoiles sur{" "}
+          <Text as="p" variant={'p'}>
+            ⭐ Moyenne de 5/5 étoiles sur{' '}
             <a
               href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152#see-all/reviews"
               target="_blank"
@@ -53,10 +53,10 @@ const IndexPage = ({ data }) => {
             alt="5 étoiles pour ART au feminin sur Apple podcast"
             className="mb-6"
           />
-          <Text as="h2" variant={"h2"}>
+          <Text as="h2" variant={'h2'}>
             Laissez moi une évaluation
           </Text>
-          <Text as="p" variant={"p"}>
+          <Text as="p" variant={'p'}>
             Si vous aimez l’émission, la meilleure façon de la soutenir est de
             me laisser une évaluation sur Apple Podcast.
           </Text>
@@ -72,8 +72,8 @@ const IndexPage = ({ data }) => {
         </div>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
 export const indexPageQuery = graphql`
   {
@@ -129,14 +129,14 @@ export const indexPageQuery = graphql`
       url
     }
   }
-`
+`;
 export const Head = () => {
   return (
     <SEO
       title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia"
       description="Bienvenue sur ART au féminin, votre porte d'entrée dans le monde captivant des femmes artistes qui ont laissé leur empreinte dans l'histoire de l'art. Explorez notre riche collection d'œuvres, de biographies inspirantes et d'analyses approfondies dédiées à ces artistes visionnaires. Plongez dans un voyage artistique à travers les époques et les continents, découvrez leurs réalisations extraordinaires, et laissez-vous inspirer par la créativité intemporelle des femmes artistes. ART au féminin célèbre la contribution inestimable des femmes à l'art, une exploration artistique comme aucune autre."
     />
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;

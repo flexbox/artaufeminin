@@ -1,12 +1,12 @@
-import kebabCase from "lodash/kebabCase"
+import kebabCase from 'lodash/kebabCase';
 import {
   Elements,
   RichText as PrismicRichText,
   RichTextBlock,
-} from "prismic-reactjs"
-import React, { ReactElement } from "react"
+} from 'prismic-reactjs';
+import React, { ReactElement } from 'react';
 
-import Text from "./text"
+import Text from './text';
 
 function customHtmlSerializer(type, element, content, children, key) {
   if (type === Elements.heading2) {
@@ -14,10 +14,10 @@ function customHtmlSerializer(type, element, content, children, key) {
       <Text as="h2" variant="h2" key={key} id={kebabCase(children)}>
         {children}
       </Text>
-    )
+    );
   }
   if (type === Elements.image) {
-    const { url, alt, copyright } = element
+    const { url, alt, copyright } = element;
 
     return (
       <figure className="my-32 overflow-hidden bg-white">
@@ -28,18 +28,18 @@ function customHtmlSerializer(type, element, content, children, key) {
           </figcaption>
         </div>
       </figure>
-    )
+    );
   }
 
-  return null // Returning null makes the serializer fallback to its default behavior
+  return null; // Returning null makes the serializer fallback to its default behavior
 }
 
 interface Props {
-  render: RichTextBlock[]
+  render: RichTextBlock[];
 }
 
 export function CustomRichText({ render }: Props): ReactElement {
   return (
     <PrismicRichText render={render} htmlSerializer={customHtmlSerializer} />
-  )
+  );
 }

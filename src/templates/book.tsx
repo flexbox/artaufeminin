@@ -1,42 +1,41 @@
-import { RichTextBlock } from "prismic-reactjs"
-import React, { ReactElement } from "react"
+import { RichTextBlock } from 'prismic-reactjs';
+import React, { ReactElement } from 'react';
 
-import Author from "../components/author"
-import { CustomRichText } from "../components/custom-rich-text"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Text from "../components/text"
-import Tipee from "../components/tipee"
+import Author from '../components/author';
+import { CustomRichText } from '../components/custom-rich-text';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import Text from '../components/text';
+import Tipee from '../components/tipee';
 
 interface BookProps {
   pageContext: {
     node: {
-      uid: string
+      uid: string;
       data: {
         title: {
-          text: string
-        }
+          text: string;
+        };
         content: {
-          text: string
-          richText: RichTextBlock[]
-        }
-      }
-    }
-  }
+          text: string;
+          richText: RichTextBlock[];
+        };
+      };
+    };
+  };
 }
 
 export default function Book(props: BookProps): ReactElement {
-  const { data } = props.pageContext.node
+  const { data } = props.pageContext.node;
 
-  const seoTitle = data.title.text
-  const seoDescription = data.content.text
-  const richText = data.content.richText
+  const seoTitle = data.title.text;
+  const richText = data.content.richText;
 
   return (
     <Layout>
       <div className="m-auto max-w-3xl">
         <header>
-          <Text as="h1" variant={"h1"} className="my-24">
+          <Text as="h1" variant={'h1'} className="my-24">
             {seoTitle}
           </Text>
         </header>
@@ -50,11 +49,11 @@ export default function Book(props: BookProps): ReactElement {
         </article>
       </div>
     </Layout>
-  )
+  );
 }
 
 export const Head = (props: BookProps) => {
-  const { text: seoTitle } = props.pageContext.node.data.title
-  const { text: seoDescription } = props.pageContext.node.data.content
-  return <SEO title={seoTitle} description={seoDescription} />
-}
+  const { text: seoTitle } = props.pageContext.node.data.title;
+  const { text: seoDescription } = props.pageContext.node.data.content;
+  return <SEO title={seoTitle} description={seoDescription} />;
+};

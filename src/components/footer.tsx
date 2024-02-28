@@ -1,25 +1,25 @@
-import { Link } from "gatsby"
-import React from "react"
+import { Link } from 'gatsby';
+import React from 'react';
 
-import Newsletter from "./newsletter"
+import Newsletter from './newsletter';
 
 interface FooterProps {
-  siteTitle: string
+  siteTitle: string;
 }
 
 const navigation = {
   about: [
-    { name: "Mon histoire", href: "/about" },
-    { name: "Questions fréquentes", href: "/faq" },
-    { name: "Presse", href: "/press" },
-    { name: "Citations", href: "/citations" },
-    { name: "Livres", href: "/livres" },
+    { name: 'Mon histoire', href: '/about' },
+    { name: 'Questions fréquentes', href: '/faq' },
+    { name: 'Presse', href: '/press' },
+    { name: 'Citations', href: '/citations' },
+    { name: 'Livres', href: '/livres' },
   ],
-  podcast: [{ name: "Participer", href: "/start" }],
+  podcast: [{ name: 'Participer', href: '/start' }],
   social: [
     {
-      name: "Facebook",
-      href: "https://www.facebook.com/podcastart",
+      name: 'Facebook',
+      href: 'https://www.facebook.com/podcastart',
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -31,8 +31,8 @@ const navigation = {
       ),
     },
     {
-      name: "Instagram",
-      href: "https://instagram.com/artaufeminin",
+      name: 'Instagram',
+      href: 'https://instagram.com/artaufeminin',
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -44,13 +44,13 @@ const navigation = {
       ),
     },
   ],
-}
+};
 
 export default function Footer({ siteTitle }: FooterProps) {
   return (
     <footer
       aria-labelledby="footer-heading"
-      style={{ backgroundColor: "#8ba28f" }}
+      style={{ backgroundColor: '#8ba28f' }}
       className="pb-24"
     >
       <h2 id="footer-heading" className="sr-only">
@@ -109,17 +109,17 @@ export default function Footer({ siteTitle }: FooterProps) {
                 className="text-white hover:text-black"
               >
                 <span className="sr-only">{item.name}</span>
-                <item.icon className="h-6 w-6" aria-hidden="true" />
+                <item.icon className="size-6" aria-hidden="true" />
               </a>
             ))}
           </div>
           <p className="mt-8 text-base text-gray-200 md:order-1 md:mt-0">
-            &copy; {new Date().getFullYear()}{" "}
-            <span className="font-merri font-bold text-white">{siteTitle}</span>{" "}
+            &copy; {new Date().getFullYear()}{' '}
+            <span className="font-merri font-bold text-white">{siteTitle}</span>{' '}
             All rights reserved.
           </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

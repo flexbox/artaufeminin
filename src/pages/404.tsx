@@ -1,7 +1,7 @@
-import React, { ReactElement } from "react"
+import React, { ReactElement } from 'react';
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
 export default function NotFoundPage(): ReactElement {
   return (
@@ -13,7 +13,7 @@ export default function NotFoundPage(): ReactElement {
         </div>
       </div>
     </Layout>
-  )
+  );
 }
 
 export const Head = () => {
@@ -22,5 +22,5 @@ export const Head = () => {
       title="404: Not Found"
       description="Découvrez l'univers de l'art sur ART au féminin. Bien que cette page puisse être une impasse, nos trésors artistiques vous attendent juste au coin de la rue. Explorez notre collection diversifiée et laissez la créativité guider votre parcours."
     />
-  )
-}
+  );
+};

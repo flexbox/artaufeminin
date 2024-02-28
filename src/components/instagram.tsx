@@ -1,8 +1,8 @@
-import { StaticImage } from "gatsby-plugin-image"
-import React from "react"
+import { StaticImage } from 'gatsby-plugin-image';
+import React from 'react';
 
-import Button from "./button"
-import Text from "./text"
+import Button from './button';
+import Text from './text';
 
 export default function Instagram() {
   return (
@@ -11,7 +11,7 @@ export default function Instagram() {
         <StaticImage
           src="../images/instagram/logoInstagram.png"
           alt="Logo podcast ART au feminin"
-          className="mb-6 h-24 w-24 "
+          className="mb-6 size-24 "
         />
         <Text as="h2" variant="h2" className="mb-4 font-bold ">
           Suivez ART <em className="italic tracking-tighter">au féminin</em>
@@ -23,7 +23,7 @@ export default function Instagram() {
           variant="outline"
           as="a"
           size="s"
-          href={"https://instagram.com/artaufeminin"}
+          href={'https://instagram.com/artaufeminin'}
           alt={`ART au feminin sur Instagram`}
         >
           @artaufeminin sur Instagram
@@ -44,8 +44,9 @@ export default function Instagram() {
           </a>
           <a
             href="https://www.instagram.com/p/CXn1qGQoqxx/"
-            target={"_blank"}
+            target={'_blank'}
             className="m-auto my-4 lg:bg-gray-100 "
+            rel="noreferrer"
           >
             <StaticImage
               src="../images/instagram/2.jpg"
@@ -56,8 +57,9 @@ export default function Instagram() {
 
           <a
             href="https://www.instagram.com/p/CXnzlQ0IK8N/"
-            target={"_blank"}
+            target={'_blank'}
             className="m-auto my-4 lg:bg-gray-100 "
+            rel="noreferrer"
           >
             <StaticImage
               src="../images/instagram/3.jpg"
@@ -69,8 +71,9 @@ export default function Instagram() {
         <div className="flex w-1/3 flex-col justify-center md:w-1/4">
           <a
             href="https://www.instagram.com/p/CNRxx8QIXJ5/"
-            target={"_blank"}
+            target={'_blank'}
             className="m-auto my-4 lg:bg-gray-100 "
+            rel="noreferrer"
           >
             <StaticImage
               src="../images/instagram/4.jpg"
@@ -81,8 +84,9 @@ export default function Instagram() {
 
           <a
             href="https://www.instagram.com/p/CNRxx8QIXJ5/"
-            target={"_blank"}
+            target={'_blank'}
             className="m-auto my-4 lg:bg-gray-100 "
+            rel="noreferrer"
           >
             <StaticImage
               src="../images/instagram/5.jpg"
@@ -94,8 +98,9 @@ export default function Instagram() {
         <div className="flex w-1/3 flex-col md:w-1/4">
           <a
             href="https://www.instagram.com/p/Cay36_bgT3k/"
-            target={"_blank"}
+            target={'_blank'}
             className="m-auto my-4 lg:bg-gray-100 "
+            rel="noreferrer"
           >
             <StaticImage
               src="../images/instagram/6.jpg"
@@ -105,8 +110,9 @@ export default function Instagram() {
           </a>
           <a
             href="https://www.instagram.com/p/Cay17dkAKME/"
-            target={"_blank"}
+            target={'_blank'}
             className="m-auto my-4 lg:bg-gray-100 "
+            rel="noreferrer"
           >
             <StaticImage
               src="../images/instagram/7.jpg"
@@ -116,8 +122,9 @@ export default function Instagram() {
           </a>
           <a
             href="https://www.instagram.com/p/Cay14ynA6Gr/"
-            target={"_blank"}
+            target={'_blank'}
             className="m-auto my-4 lg:bg-gray-100 "
+            rel="noreferrer"
           >
             <StaticImage
               src="../images/instagram/8.jpg"
@@ -128,5 +135,5 @@ export default function Instagram() {
         </div>
       </div>
     </div>
-  )
+  );
 }

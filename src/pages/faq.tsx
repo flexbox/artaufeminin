@@ -1,9 +1,9 @@
-import { graphql } from "gatsby"
-import { RichText, RichTextBlock } from "prismic-reactjs"
-import React, { ReactElement } from "react"
+import { graphql } from 'gatsby';
+import { RichText, RichTextBlock } from 'prismic-reactjs';
+import React, { ReactElement } from 'react';
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
 interface FaqPageProps {
   data: {
@@ -11,13 +11,13 @@ interface FaqPageProps {
       nodes: [
         {
           data: {
-            question: string
-            answer: RichTextBlock[]
-          }
+            question: string;
+            answer: RichTextBlock[];
+          };
         },
-      ]
-    }
-  }
+      ];
+    };
+  };
 }
 
 function QuestionItem({ question }): ReactElement {
@@ -27,11 +27,11 @@ function QuestionItem({ question }): ReactElement {
       <div>{RichText.render(question.data.answer.richText)}</div>
       <hr className="separator" />
     </>
-  )
+  );
 }
 
 export default function FaqPage({ data }: FaqPageProps): ReactElement {
-  const questions = data.allPrismicFaq.nodes
+  const questions = data.allPrismicFaq.nodes;
 
   return (
     <Layout>
@@ -41,12 +41,12 @@ export default function FaqPage({ data }: FaqPageProps): ReactElement {
         </div>
         <div>
           {questions.map((question, index) => {
-            return <QuestionItem key={index} question={question} />
+            return <QuestionItem key={index} question={question} />;
           })}
         </div>
       </article>
     </Layout>
-  )
+  );
 }
 
 export const pageQuery = graphql`
@@ -65,7 +65,7 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
 
 export const Head = () => {
   return (
@@ -73,5 +73,5 @@ export const Head = () => {
       title="Trouvez des réponses à vos questions les plus fréquentes sur le podcast ART au féminin."
       description="Conseils et réponses sur le podcast."
     />
-  )
-}
+  );
+};

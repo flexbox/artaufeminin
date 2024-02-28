@@ -1,9 +1,9 @@
-import React from "react"
+import React from 'react';
 
-import { QuotationProps } from "./quotation"
+import { QuotationProps } from './quotation';
 
 export function Quote({ data }: QuotationProps) {
-  const { author, quotation } = data
+  const { author, quotation } = data;
 
   return (
     <blockquote className="quote relative mb-32 mt-12 p-4 text-2xl italic text-gray-600">
@@ -19,5 +19,5 @@ export function Quote({ data }: QuotationProps) {
         </cite>
       )}
     </blockquote>
-  )
+  );
 }

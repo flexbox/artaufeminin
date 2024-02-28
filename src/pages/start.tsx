@@ -1,7 +1,7 @@
-import React, { ReactElement } from "react"
+import React, { ReactElement } from 'react';
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
 interface Props {}
 
@@ -19,9 +19,9 @@ export default function StartPage({}: Props): ReactElement {
         </div>
       </div>
     </Layout>
-  )
+  );
 }
 
 export const Head = () => {
-  return <SEO title="Présentez vous" />
-}
+  return <SEO title="Présentez vous" />;
+};

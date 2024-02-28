@@ -1,18 +1,18 @@
-import { graphql } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-import React, { ReactElement } from "react"
+import { graphql } from 'gatsby';
+import { StaticImage } from 'gatsby-plugin-image';
+import React, { ReactElement } from 'react';
 
-import Layout from "../components/layout"
-import PressList from "../components/pressList"
-import SEO from "../components/seo"
-import Text from "../components/text"
+import Layout from '../components/layout';
+import PressList from '../components/pressList';
+import SEO from '../components/seo';
+import Text from '../components/text';
 
 interface PressPageProps {
   data: {
     allPrismicPress: {
-      nodes: []
-    }
-  }
+      nodes: [];
+    };
+  };
 }
 
 const PressLogoList = () => (
@@ -60,24 +60,24 @@ const PressLogoList = () => (
       />
     </li>
   </ul>
-)
+);
 
 export default function pressPage({ data }: PressPageProps): ReactElement {
-  const press = data.allPrismicPress.nodes
+  const press = data.allPrismicPress.nodes;
   return (
     <Layout>
       <div className="m-auto max-w-2xl">
-        <Text as="h1" variant={"h1"} className="mb-4">
+        <Text as="h1" variant={'h1'} className="mb-4">
           Presse
         </Text>
-        <Text as="p" variant={"p"}>
+        <Text as="p" variant={'p'}>
           Contact presse : artaufemininlepodcast@gmail.com
         </Text>
         <PressLogoList />
         <PressList allPress={press} />
       </div>
 
-      <Text as="h2" variant={"h2"} className="my-8 text-center">
+      <Text as="h2" variant={'h2'} className="my-8 text-center">
         Logos
       </Text>
       <div className="m-auto text-center">SVG</div>
@@ -133,7 +133,7 @@ export default function pressPage({ data }: PressPageProps): ReactElement {
         </li>
       </ul>
     </Layout>
-  )
+  );
 }
 
 export const Head = () => {
@@ -142,8 +142,8 @@ export const Head = () => {
       title="Espace Presse"
       description="Le podcast nouvelle génération qui nous raconte l'histoire des femmes artistes d'hier et d'aujoud'hui"
     />
-  )
-}
+  );
+};
 
 export const pressQuery = graphql`
   query allPress {
@@ -163,4 +163,4 @@ export const pressQuery = graphql`
       }
     }
   }
-`
+`;

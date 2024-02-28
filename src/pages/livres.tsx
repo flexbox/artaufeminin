@@ -1,21 +1,21 @@
-import { graphql } from "gatsby"
-import React from "react"
+import { graphql } from 'gatsby';
+import React from 'react';
 
-import BookList, { BookProps } from "../components/book-list"
-import Layout from "../components/layout"
-import LayoutSidebar from "../components/layoutSidebar"
-import SEO from "../components/seo"
+import BookList, { BookProps } from '../components/book-list';
+import Layout from '../components/layout';
+import LayoutSidebar from '../components/layoutSidebar';
+import SEO from '../components/seo';
 
 interface BooksPageProps {
   data: {
     allPrismicBookReview: {
-      nodes: BookProps[]
-    }
-  }
+      nodes: BookProps[];
+    };
+  };
 }
 
 const BooksPage = ({ data }: BooksPageProps) => {
-  const allBooks = data.allPrismicBookReview.nodes
+  const allBooks = data.allPrismicBookReview.nodes;
 
   return (
     <Layout withInstagram={false}>
@@ -23,8 +23,8 @@ const BooksPage = ({ data }: BooksPageProps) => {
         <BookList allBooks={allBooks} />
       </LayoutSidebar>
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query {
@@ -42,7 +42,7 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
 export const Head = () => {
   return (
@@ -50,7 +50,7 @@ export const Head = () => {
       title="Parcourez notre collection de livres sur les femmes artistes et leur contribution à l'art."
       description="Découvrez des critiques littéraires exceptionnelles sur notre site ART au féminin. Plongez dans l'univers captivant des livres écrits par des femmes, où la créativité et la voix féminine sont mises en lumière"
     />
-  )
-}
+  );
+};
 
-export default BooksPage
+export default BooksPage;

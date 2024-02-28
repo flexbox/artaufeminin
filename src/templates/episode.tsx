@@ -1,31 +1,30 @@
-import React from "react"
-import { useMemo } from "react"
+import React from 'react';
+import { useMemo } from 'react';
 
-import Layout from "../components/layout"
-import LayoutSidebar from "../components/layoutSidebar"
-import { useAudioPlayer } from "../components/player/AudioProvider"
-import { PlayButton } from "../components/player/PlayButton"
-import SEO from "../components/seo"
-import Text from "../components/text"
-import { dutationToString } from "../utils/dutationToString"
+import Layout from '../components/layout';
+import LayoutSidebar from '../components/layoutSidebar';
+import { useAudioPlayer } from '../components/player/AudioProvider';
+import { PlayButton } from '../components/player/PlayButton';
+import SEO from '../components/seo';
+import Text from '../components/text';
+import { dutationToString } from '../utils/dutationToString';
 
 export default function Episode({ pageContext }) {
-  const title = pageContext.title
-  const description = pageContext.contentSnippet.substring(0, 155)
-  const duration = dutationToString(pageContext.itunes.duration)
+  const title = pageContext.title;
+  const duration = dutationToString(pageContext.itunes.duration);
 
-  let audioPlayerData = useMemo(
+  const audioPlayerData = useMemo(
     () => ({
       title: pageContext.title,
       audio: {
         src: pageContext.enclosure.url,
-        type: "audio/mpeg",
+        type: 'audio/mpeg',
       },
       link: `/${pageContext.guid}`,
     }),
     [pageContext]
-  )
-  let player = useAudioPlayer(audioPlayerData)
+  );
+  const player = useAudioPlayer(audioPlayerData);
 
   return (
     <Layout withLastPodcast={false}>
@@ -43,7 +42,7 @@ export default function Episode({ pageContext }) {
 
           <div className="flex items-center gap-4">
             <PlayButton player={player} size="small" />
-            <Text className="text-slate-500 font-merri">Écouter</Text>
+            <Text className="font-merri text-slate-500">Écouter</Text>
           </div>
 
           <div
@@ -55,21 +54,21 @@ export default function Episode({ pageContext }) {
         </article>
       </LayoutSidebar>
     </Layout>
-  )
+  );
 }
 
 export async function getStaticProps({ pageContext }) {
-  let episode = {
+  const episode = {
     id: pageContext.guid.toString,
     title: pageContext.title,
     description: pageContext.description,
     audio: pageContext.enclosure.url,
-  }
+  };
 
   if (!episode) {
     return {
       notFound: true,
-    }
+    };
   }
 
   return {
@@ -77,11 +76,11 @@ export async function getStaticProps({ pageContext }) {
       episode,
     },
     revalidate: 10,
-  }
+  };
 }
 
 export const Head = ({ pageContext }) => {
-  const title = pageContext.title
-  const description = pageContext.contentSnippet.substring(0, 155)
-  return <SEO title={`Podcast ${title}`} description={description} />
-}
+  const title = pageContext.title;
+  const description = pageContext.contentSnippet.substring(0, 155);
+  return <SEO title={`Podcast ${title}`} description={description} />;
+};
