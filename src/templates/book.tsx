@@ -29,7 +29,6 @@ export default function Book(props: BookProps): ReactElement {
   const { data } = props.pageContext.node;
 
   const seoTitle = data.title.text;
-  // const seoDescription = data.content.text;
   const richText = data.content.richText;
 
   return (
