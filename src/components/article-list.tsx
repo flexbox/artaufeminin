@@ -3,7 +3,7 @@ import truncate from 'lodash/truncate';
 import { RichText, RichTextBlock } from 'prismic-reactjs';
 import React from 'react';
 
-import { formatHumanDate } from '../utils/date';
+import { formatHumanDate, splitDate } from '../utils/date';
 import Text from './text';
 
 interface ArticleProps {
@@ -20,6 +20,7 @@ interface ArticleProps {
       url: string;
     };
   };
+  first_publication_date: string;
 }
 
 interface ArticleListItemProps {
@@ -36,7 +37,16 @@ function ArticleItem({
 }) {
   const slug = article.uid;
   const thumbnailUrl = article.data.image.url;
-  const date = formatHumanDate(article.data.date);
+  const articleDate = formatHumanDate(article.data.date);
+  const publishDate = formatHumanDate(
+    splitDate(article.first_publication_date),
+  );
+  let date;
+  if (articleDate !== 'jeudi 1 janvier 1970') {
+    date = articleDate;
+  } else {
+    date = publishDate;
+  }
   const title = RichText.asText(article.data.title.richText);
   const description = RichText.asText(article.data.description.richText);
   const descriptionTruncated = truncate(description, {

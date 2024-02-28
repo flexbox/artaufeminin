@@ -32,6 +32,7 @@ export const query = graphql`
     allPrismicBlogPost(sort: { first_publication_date: DESC }) {
       nodes {
         ...PrismicBlogPostFragment
+        first_publication_date
       }
     }
   }
