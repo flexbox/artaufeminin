@@ -6,11 +6,16 @@ export function formatHumanDate(date: string) {
 }
 
 export function splitDate(date: string) {
-  const indexT = date.indexOf('T');
+  if (typeof date === 'string' && date) {
+    const indexT = date.indexOf('T');
 
-  if (indexT !== -1) {
-    return date.substring(0, indexT);
+    if (indexT !== -1) {
+      return date.substring(0, indexT);
+    } else {
+      return date;
+    }
   } else {
-    return date;
+    console.error('splitDate a été appelé avec un argument non valide:', date);
+    return null;
   }
 }
