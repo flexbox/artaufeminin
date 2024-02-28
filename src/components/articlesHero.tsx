@@ -3,10 +3,22 @@ import React from 'react';
 
 import Button from './button';
 import HeroCard from './heroCard';
-import { RichText } from 'prismic-reactjs';
+import { RichText, RichTextBlock } from 'prismic-reactjs';
 
 type ArticlesHeroProps = {
-  allArticles: any;
+  allArticles: [
+    {
+      uid: string;
+      data: {
+        image: {
+          url: string;
+        };
+        title: {
+          richText: RichTextBlock[];
+        };
+      };
+    },
+  ];
 };
 
 export function ArticlesHero({ allArticles }: ArticlesHeroProps) {
