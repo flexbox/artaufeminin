@@ -8,6 +8,7 @@ import { Hero } from '../components/hero';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Text from '../components/text';
+import { ArticlesHero } from '../components/articlesHero';
 
 const IndexPage = ({ data }) => {
   const allEpisodes = data.allAnchorEpisode.nodes;
@@ -19,21 +20,15 @@ const IndexPage = ({ data }) => {
         Podcasts sur les artistes femmes
       </Text>
       <Hero allEpisodes={allEpisodes} />
+      <div className="m-auto w-3/4">
+        <hr className="separator m-auto my-4" />
+      </div>
+      <Text as="h2" variant="h2" className="m-auto my-4 w-3/4">
+        Articles femmes artistes
+      </Text>
+      <ArticlesHero allArticles={allArticles} />
       <div style={{ maxWidth: '80em', margin: '0 auto' }}>
-        <div className="mb-16 w-full max-w-6xl md:mb-64 md:w-2/3">
-          <Text as="h2" variant={'h2'}>
-            Articles femmes artistes
-          </Text>
-          <hr className="separator mt-16 " />
-          <ArticleList allArticles={allArticles} isRow />
-          <Link to={'/articles'}>
-            <Button variant="outline" size="s">
-              Lire tous les articles
-            </Button>
-          </Link>
-        </div>
-
-        <div className="mb-12 max-w-6xl">
+        <div className="my-12 max-w-6xl">
           <Text as="h2" variant={'h2'}>
             Ce que les auditeurs en disent
           </Text>

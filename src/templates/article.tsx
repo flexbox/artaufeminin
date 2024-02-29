@@ -111,7 +111,7 @@ export default function Article(props: PropsArticle): ReactElement {
 
         <article className="prose prose-xl prose-blue">
           {imageHero && (
-            <div className="article-content m-auto -mx-96 mb-10 text-center">
+            <div className="article-content m-auto max-w-full md:max-w-none  md:-mx-96 mb-10 text-center">
               <figure>
                 <img src={imageHero.url} alt={imageHero.alt} />
                 <figcaption className="mt-8">
