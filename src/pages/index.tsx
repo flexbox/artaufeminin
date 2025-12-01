@@ -16,9 +16,14 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout withInstagram={true}>
-      <Text as="h1" variant="h3" className="m-auto my-4 w-3/4">
+      <Text
+        as="h1"
+        variant="h3"
+        className="m-auto my-6 w-3/4 text-3xl md:text-4xl font-bold text-black"
+      >
         Podcasts sur les artistes femmes
       </Text>
+
       <Hero allEpisodes={allEpisodes} />
       <div className="m-auto w-3/4">
         <hr className="separator m-auto my-4" />
