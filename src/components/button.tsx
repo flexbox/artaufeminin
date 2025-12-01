@@ -88,6 +88,7 @@ export const buttonVariants = cva(['primary'], {
   },
 });
 
+
 export interface ButtonProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof buttonVariants> {

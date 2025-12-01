@@ -42,14 +42,16 @@ export function Hero({ allEpisodes }: HeroProps) {
         </div>
       </div>
 
-      <div className="mt-12 flex justify-end md:mt-8">
-        <Link to="/podcasts">
-          <Button variant="outlineDark" size="s">
-            Écouter tous les épisodes
-          </Button>
-        </Link>
+      <div className="mt-12 flex justify-end">
+        <Button
+          as="a"
+          href="/podcasts"
+          variant="outlineDark"
+          size="s"
+        >
+          Écouter tous les épisodes
+        </Button>
       </div>
     </div>
   );
 }
-
