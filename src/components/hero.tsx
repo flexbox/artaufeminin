@@ -10,7 +10,11 @@ type HeroProps = {
 
 export function Hero({ allEpisodes }: HeroProps) {
   if (!allEpisodes || allEpisodes.length < 3) {
-    return null;
+    return (
+      <div className="m-auto my-12 w-3/4 text-center text-gray-600">
+        <p>Aucun épisode disponible pour le moment.</p>
+      </div>
+    );
   }
 
   return (
@@ -37,13 +41,10 @@ export function Hero({ allEpisodes }: HeroProps) {
           />
         </div>
       </div>
+
       <div className="mt-12 flex justify-end md:mt-8">
         <Link to="/podcasts">
-          <Button
-            variant="outline"
-            size="s"
-            className="border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white transition"
-          >
+          <Button variant="outlineDark" size="s">
             Écouter tous les épisodes
           </Button>
         </Link>
