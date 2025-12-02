@@ -3,6 +3,7 @@ import React from 'react';
 
 import Button from './button';
 import HeroCard from './heroCard';
+import Text from './text';
 
 type HeroProps = {
   allEpisodes: any;
@@ -10,12 +11,14 @@ type HeroProps = {
 
 export function Hero({ allEpisodes }: HeroProps) {
   if (!allEpisodes || allEpisodes.length < 3) {
-    return (
-      <div className="m-auto my-12 w-3/4 text-center text-gray-600">
-        <p>Aucun épisode disponible pour le moment.</p>
-      </div>
-    );
-  }
+  return (
+    <div className="m-auto my-12 w-3/4 text-center">
+      <Text as="p" variant="p" className="text-gray-600">
+        Aucun épisode disponible pour le moment.
+      </Text>
+    </div>
+  );
+}
 
   return (
     <div className="m-auto -mb-32 h-screen w-3/4 md:-mb-48">
