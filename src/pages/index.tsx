@@ -21,16 +21,21 @@ const IndexPage = ({ data }) => {
         variant="h3"
         className="m-auto my-6 w-3/4 text-3xl md:text-4xl font-bold text-black"
       >
-        Podcasts sur les artistes femmes
+        Podcasts sur les femmes artistes et l'histoire de l'art
       </Text>
 
       <Hero allEpisodes={allEpisodes} />
       <div className="m-auto w-3/4">
         <hr className="separator m-auto my-4" />
       </div>
-      <Text as="h2" variant="h2" className="m-auto my-4 w-3/4">
-        Articles femmes artistes
+      <Text
+        as="h1"
+        variant="h3"
+        className="m-auto my-6 w-3/4 text-3xl md:text-4xl font-bold text-black"
+      >
+        Articles sur les femmes artistes
       </Text>
+
       <ArticlesHero allArticles={allArticles} />
       <div style={{ maxWidth: '80em', margin: '0 auto' }}>
         <div className="my-12 max-w-6xl">
