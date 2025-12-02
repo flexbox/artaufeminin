@@ -59,6 +59,20 @@ export const buttonVariants = cva(['primary'], {
         'py-4',
         'px-8',
       ],
+      outlineDark: [
+        'font-semibold',
+        'rounded-lg',
+        'leading-none',
+        'no-underline',
+        'border-2',
+        'border-solid',
+        'border-gray-900',
+        'text-gray-900',
+        'm-0',
+        'hover:border-gray-900',
+        'hover:bg-gray-900',
+        'hover:text-white',
+      ],
     },
     size: {
       xs: ['p-2'],
@@ -73,6 +87,7 @@ export const buttonVariants = cva(['primary'], {
     size: 'md',
   },
 });
+
 
 export interface ButtonProps
   extends React.HTMLAttributes<HTMLDivElement>,
