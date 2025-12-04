@@ -37,45 +37,31 @@ const IndexPage = ({ data }) => {
       </Text>
 
       <ArticlesHero allArticles={allArticles} />
-      <div style={{ maxWidth: '80em', margin: '0 auto' }}>
-        <div className="my-12 max-w-6xl">
-          <Text as="h2" variant={'h2'}>
-            Ce que les auditeurs en disent
-          </Text>
-          <Text as="p" variant={'p'}>
-            ⭐ Moyenne de 5/5 étoiles sur{' '}
-            <a
-              href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152#see-all/reviews"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Apple Podcast
-            </a>
-            .
-          </Text>
-          <StaticImage
-            src="../images/reviews.png"
-            alt="5 étoiles pour ART au feminin sur Apple podcast"
-            className="mb-6"
-          />
-          <Text as="h2" variant={'h2'}>
-            Laissez moi une évaluation
-          </Text>
-          <Text as="p" variant={'p'}>
-            Si vous aimez l’émission, la meilleure façon de la soutenir est de
-            me laisser une évaluation sur Apple Podcast.
-          </Text>
+      <section className="m-auto my-16 w-11/12 max-w-3xl text-center">
+        <Text
+          as="h3"
+          variant="h2"
+          className="mb-3 text-2xl md:text-3xl font-bold text-black"
+        >
+          Soutenez ART au féminin en lui laissant une évaluation
+        </Text>
 
-          <Button
-            variant="outline"
-            size="s"
-            as="a"
-            href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152"
-          >
-            Cliquez ici pour 5 ⭐ sur Apple Podcast
-          </Button>
-        </div>
-      </div>
+        <Text as="p" variant="p" className="mb-6 text-gray-700 text-sm md:text-base">
+          Si vous aimez l’émission, la meilleure façon de la soutenir est de patager autour de vous et de lui
+          laisser une évaluation sur Apple Podcast.
+        </Text>
+
+        <Button
+          as="a"
+          href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152"
+          variant="outlineDark"
+          size="s"
+          className="mx-auto"
+        >
+          Cliquez ici pour 5 ⭐ sur Apple Podcast
+        </Button>
+      </section>
+
     </Layout>
   );
 };
