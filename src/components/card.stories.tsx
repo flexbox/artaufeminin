@@ -1,22 +1,18 @@
-import { Meta, StoryFn } from '@storybook/react';
 import React from 'react';
 
 import Button from './button';
 import Card from './card';
 
 export default {
-  title: 'Example/Card',
+  title: 'Card',
   component: Card,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as Meta<typeof Card>;
+};
 
-const Template: StoryFn<typeof Card> = (args) => {
+export const Default = () => {
   return <Card title="Je suis un titre">HEY</Card>;
 };
 
-const TemplateCard2: StoryFn<typeof Card> = (args) => {
+export const CardButton = () => {
   return (
     <>
       <Card title="Je suis un titre">
@@ -27,11 +23,4 @@ const TemplateCard2: StoryFn<typeof Card> = (args) => {
       </Card>
     </>
   );
-};
-
-export const Primary = {
-  render: Template,
-};
-export const CardButton = {
-  render: TemplateCard2,
 };
