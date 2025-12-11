@@ -26,7 +26,14 @@ export const buttonVariants = cva(
           'w-full',
           'hover:bg-blue-600',
         ],
-        ghost: ['flex', 'text-black', 'text-base', 'py-4', 'px-8'],
+        ghost: [
+          'flex',
+          'text-gray-900',
+          'text-base',
+          'py-4',
+          'px-8',
+          'hover:bg-gray-100',
+        ],
       },
       size: {
         xs: ['p-2'],
@@ -51,8 +58,8 @@ export interface ButtonProps
   href?: string;
   target?: string;
   rel?: string;
-  isIconpod?: boolean;
-  isIcon?: boolean;
+  withIconPodcast?: boolean;
+  withIcon?: boolean;
   url?: string;
   alt?: string;
   type?: string;
@@ -64,34 +71,32 @@ export const Button: React.FC<ButtonProps> = ({
   variant,
   children,
   size,
-  isIconpod = false,
-  isIcon = false,
+  withIconPodcast = false,
+  withIcon = false,
   url,
   alt,
   type,
   ...rest
 }) => {
-  const classNamesVariant = 'text-white m-4 text-xs';
-  if (isIconpod) {
+  if (withIconPodcast) {
     return (
       <Element
         {...rest}
         target="_blank"
         rel="noopener noreferrer"
-        className={classNamesVariant}
+        className={`${buttonVariants({ variant, size, className })} flex items-center`}
       >
-        <div className="flex items-center">
-          <img src={url} alt={alt} className="mr-4 size-10" />
-          {children}
-        </div>
+        <img src={url} alt={alt} className="mr-4 size-10 rounded-full" />
+        {children}
       </Element>
     );
   }
-  if (isIcon) {
+
+  if (withIcon) {
     return (
       <Element {...rest} target="_blank" rel="noopener noreferrer">
         <ApplePodcastIcon
-          className={classNamesVariant}
+          className={buttonVariants({ variant, size, className })}
           {...rest}
           style={{ height: 57 }}
         />

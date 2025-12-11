@@ -35,12 +35,6 @@ export const allPodcastPlatforms = [
       'https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/deezer.svg',
   },
   {
-    name: 'Google podcasts',
-    url: 'https://podcasts.google.com/?feed=aHR0cHM6Ly9hbmNob3IuZm0vcy85NDgzZGY4L3BvZGNhc3QvcnNz',
-    imageUrl:
-      'https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/google_podcasts.svg',
-  },
-  {
     name: 'Spotify',
     url: 'https://open.spotify.com/show/18f84r0ic2PUenYvBRr2Ps',
     imageUrl:

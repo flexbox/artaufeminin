@@ -34,14 +34,14 @@ export const Sizes = () => {
 };
 
 export const WithIcon = () => {
-  return <Button variant="outline" isIcon href="http://www.google.com" />;
+  return <Button variant="outline" withIcon href="http://www.google.com" />;
 };
 
 export const Podcast = () => {
   return (
     <Button
       variant="ghost"
-      isIconpod
+      withIconPodcast
       href="http://www.google.com"
       key="spotify"
       url="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/spotify.svg"

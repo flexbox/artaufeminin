@@ -33,13 +33,6 @@ const PressLogoList = () => (
     </li>
     <li>
       <StaticImage
-        src="../images/logo-google-podcast.png"
-        alt="Logo Google Podcast"
-        placeholder="blurred"
-      />
-    </li>
-    <li>
-      <StaticImage
         src="../images/logo-cultea.png"
         alt="Logo Cultea"
         placeholder="blurred"

@@ -15,13 +15,13 @@ export function Header(): ReactElement {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white border-b border-gray-200">
+    <header className="border-b border-gray-200 bg-white">
       {/* BARRE PRINCIPALE */}
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8 lg:py-5">
+      <div className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8 lg:py-5">
         {/* Logo à gauche */}
         <Link
           to="/"
-          className="text-3xl lg:text-5xl font-extrabold tracking-tight text-gray-900"
+          className="text-3xl font-extrabold tracking-tight text-gray-900 lg:text-5xl"
         >
           ART <span className="italic tracking-tighter">au féminin</span>
         </Link>
@@ -40,7 +40,7 @@ export function Header(): ReactElement {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="rounded-full border border-gray-900 px-4 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-gray-900 hover:bg-gray-900 hover:text-white transition"
+                  className="rounded-full border border-gray-900 px-4 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-gray-900 transition hover:bg-gray-900 hover:text-white"
                 >
                   {item.name}
                 </a>
@@ -51,7 +51,7 @@ export function Header(): ReactElement {
               <Link
                 key={item.name}
                 to={item.href}
-                className="text-gray-900 hover:underline transition-colors"
+                className="text-gray-900 transition-colors hover:underline"
                 activeClassName="underline"
                 partiallyActive={true}
               >
