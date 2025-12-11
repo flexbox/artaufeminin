@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 
 import Subscribe from './subscribe';
 import SubscribeInstagram from './subscribeInstagram';
@@ -12,7 +12,7 @@ interface LayoutSidebarProps {
 export default function LayoutSidebar({
   withPodcast = true,
   children,
-}: LayoutSidebarProps): ReactElement {
+}: LayoutSidebarProps) {
   return (
     <div style={{ maxWidth: '80em', margin: '0 auto' }}>
       <div className="gap-12 lg:grid lg:grid-cols-12">
