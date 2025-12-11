@@ -1,7 +1,11 @@
-import { storiesOf } from '@storybook/react';
 import React from 'react';
 
 import { ArticleList } from './article-list';
+
+export default {
+  title: 'ArticleList',
+  component: ArticleList,
+};
 
 const allArticles = [
   {
@@ -36,6 +40,4 @@ const allArticles = [
   },
 ];
 
-storiesOf('ArticleList', module).add('default', () => (
-  <ArticleList allArticles={allArticles} />
-));
+export const Default = () => <ArticleList allArticles={allArticles} />;

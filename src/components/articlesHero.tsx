@@ -59,16 +59,10 @@ export function ArticlesHero({ allArticles }: ArticlesHeroProps) {
       </div>
 
       <div className="mt-12 flex justify-end md:mt-8">
-        <Button
-          as="a"
-          href="/articles"
-          variant="outlineDark"
-          size="s"
-        >
+        <Button as="a" href="/articles" variant="outline" size="s">
           Lire tous les articles
         </Button>
       </div>
     </div>
   );
 }
-

@@ -1,8 +1,7 @@
 import { Link, graphql } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
+
 import React from 'react';
 
-import { ArticleList } from '../components/article-list';
 import Button from '../components/button';
 import { Hero } from '../components/hero';
 import Layout from '../components/layout';
@@ -46,22 +45,26 @@ const IndexPage = ({ data }) => {
           Soutenez ART au féminin en lui laissant une évaluation
         </Text>
 
-        <Text as="p" variant="p" className="mb-6 text-gray-700 text-sm md:text-base">
-          Si vous aimez l’émission, la meilleure façon de la soutenir est de patager autour de vous et de lui
-          laisser une évaluation sur Apple Podcast.
+        <Text
+          as="p"
+          variant="p"
+          className="mb-6 text-gray-700 text-sm md:text-base"
+        >
+          Si vous aimez l’émission, la meilleure façon de la soutenir est de
+          patager autour de vous et de lui laisser une évaluation sur Apple
+          Podcast.
         </Text>
 
         <Button
           as="a"
           href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152"
-          variant="outlineDark"
+          variant="outline"
           size="s"
           className="mx-auto"
         >
           Cliquez ici pour 5 ⭐ sur Apple Podcast
         </Button>
       </section>
-
     </Layout>
   );
 };

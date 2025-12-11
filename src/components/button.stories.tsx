@@ -1,21 +1,18 @@
-import { Meta, StoryFn } from '@storybook/react';
 import React from 'react';
 import 'typeface-merriweather';
 
 import Button from './button';
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Example/Button',
+  title: 'Button',
   component: Button,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as Meta<typeof Button>;
+};
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: StoryFn<typeof Button> = () => {
+export const Default = () => {
+  return <Button variant="outline">Default</Button>;
+};
+
+export const Variants = () => {
   return (
     <>
       <Button>Hello</Button>
@@ -25,10 +22,8 @@ const Template: StoryFn<typeof Button> = () => {
     </>
   );
 };
-const TemplateDefault: StoryFn<typeof Button> = () => {
-  return <Button variant="outline">Default</Button>;
-};
-const TemplateSizes: StoryFn<typeof Button> = () => {
+
+export const Sizes = () => {
   return (
     <>
       <Button size="s">Small</Button>
@@ -37,16 +32,12 @@ const TemplateSizes: StoryFn<typeof Button> = () => {
     </>
   );
 };
-const TemplateDefaultGhost: StoryFn<typeof Button> = () => {
-  return <Button variant="outline">Default</Button>;
-};
-const TemplateSmallGhost: StoryFn<typeof Button> = () => {
-  return <Button variant="outline">Small</Button>;
-};
-const TemplateApplePodcast: StoryFn<typeof Button> = () => {
+
+export const WithIcon = () => {
   return <Button variant="outline" isIcon href="http://www.google.com" />;
 };
-const TemplatePodcast: StoryFn<typeof Button> = () => {
+
+export const Podcast = () => {
   return (
     <Button
       variant="ghost"
@@ -60,35 +51,11 @@ const TemplatePodcast: StoryFn<typeof Button> = () => {
     </Button>
   );
 };
-const TemplateAhrefButton: StoryFn<typeof Button> = () => {
+
+export const AhrefButton = () => {
   return (
     <Button variant="outline" as="a" href="http://www.google.com">
       Href
     </Button>
   );
-};
-
-export const Primary = {
-  render: Template,
-};
-export const Default = {
-  render: TemplateDefault,
-};
-export const Large = {
-  render: TemplateSizes,
-};
-export const SmallGhost = {
-  render: TemplateSmallGhost,
-};
-export const Ahref = {
-  render: TemplateAhrefButton,
-};
-export const apple = {
-  render: TemplateApplePodcast,
-};
-export const pod = {
-  render: TemplatePodcast,
-};
-export const DefaultGhost = {
-  render: TemplateDefaultGhost,
 };
