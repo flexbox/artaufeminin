@@ -13,6 +13,7 @@ const navigation = {
     { name: 'Articles', href: '/articles' },
     { name: 'Livres & chroniques', href: '/livres' },
     { name: 'Citations', href: '/citations' },
+    { name: 'Galerie 3D', href: '/galerie' },
   ],
   podcast: [
     { name: 'Toutes les plateformes', href: '/links' },
