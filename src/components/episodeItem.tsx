@@ -59,7 +59,7 @@ export default function EpisodeItem({
           </Text>
 
           <div
-            className="font-light text-gray-500 "
+            className="font-light text-stone-500"
             dangerouslySetInnerHTML={{ __html: summary }}
           />
         </div>
@@ -73,7 +73,7 @@ export default function EpisodeItem({
       </Link>
       <div className="flex items-center">
         <PlayButton player={player} size="small" />
-        <Text className="ml-4 font-merri text-slate-500">Écouter</Text>
+        <Text className="ml-4 text-sm font-semibold uppercase tracking-widest text-clay-500">Écouter</Text>
       </div>
       <hr className="separator my-8" />
     </>

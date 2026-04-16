@@ -8,12 +8,8 @@ import Text from './text';
 type Article = {
   uid: string;
   data: {
-    image: {
-      url: string;
-    };
-    title: {
-      richText: RichTextBlock[];
-    };
+    image: { url: string };
+    title: { richText: RichTextBlock[] };
   };
 };
 
@@ -22,11 +18,10 @@ type ArticlesHeroProps = {
 };
 
 export function ArticlesHero({ allArticles }: ArticlesHeroProps) {
-  // Empty state si on n'a pas assez d'articles
   if (!allArticles || allArticles.length < 3) {
     return (
       <div className="m-auto my-12 w-3/4 text-center">
-        <Text as="p" variant="p" className="text-gray-600">
+        <Text as="p" variant="p" className="text-stone-500">
           Aucun article disponible pour le moment.
         </Text>
       </div>
@@ -34,32 +29,40 @@ export function ArticlesHero({ allArticles }: ArticlesHeroProps) {
   }
 
   return (
-    <div className="m-auto -mb-32 h-screen w-3/4 md:-mb-48">
-      <div className="h-2/3 flex-col gap-4 overflow-hidden md:flex md:flex-row">
-        <HeroCard
-          heroLink={`/articles/${allArticles[0].uid}`}
-          imageUrl={allArticles[0].data.image.url}
-          heroTitle={RichText.asText(allArticles[0].data.title.richText)}
-          size="lg"
-        />
-        <div className="flex flex-1 flex-col gap-4 overflow-hidden">
+    <div className="m-auto w-3/4">
+      <div className="flex flex-col gap-3 md:flex-row">
+
+        {/* Grande carte */}
+        <div className="h-72 md:h-[520px] md:flex-[2]">
           <HeroCard
-            heroLink={`/articles/${allArticles[1].uid}`}
-            imageUrl={allArticles[1].data.image.url}
-            heroTitle={RichText.asText(allArticles[1].data.title.richText)}
-            size="md"
-          />
-          <HeroCard
-            heroLink={`/articles/${allArticles[2].uid}`}
-            imageUrl={allArticles[2].data.image.url}
-            heroTitle={RichText.asText(allArticles[2].data.title.richText)}
-            size="md"
+            heroLink={`/articles/${allArticles[0].uid}`}
+            imageUrl={allArticles[0].data.image.url}
+            heroTitle={RichText.asText(allArticles[0].data.title.richText)}
           />
         </div>
+
+        {/* Deux petites cartes empilées */}
+        <div className="flex flex-col gap-3 md:flex-1">
+          <div className="h-48 md:h-[254px]">
+            <HeroCard
+              heroLink={`/articles/${allArticles[1].uid}`}
+              imageUrl={allArticles[1].data.image.url}
+              heroTitle={RichText.asText(allArticles[1].data.title.richText)}
+            />
+          </div>
+          <div className="h-48 md:h-[254px]">
+            <HeroCard
+              heroLink={`/articles/${allArticles[2].uid}`}
+              imageUrl={allArticles[2].data.image.url}
+              heroTitle={RichText.asText(allArticles[2].data.title.richText)}
+            />
+          </div>
+        </div>
+
       </div>
 
-      <div className="mt-12 flex justify-end md:mt-8">
-        <Button as="a" href="/articles" variant="outline" size="s">
+      <div className="mt-6 flex justify-end">
+        <Button as="a" href="/articles" variant="outlineDark" size="s">
           Lire tous les articles
         </Button>
       </div>

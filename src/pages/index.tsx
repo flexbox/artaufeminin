@@ -1,5 +1,4 @@
 import { Link, graphql } from 'gatsby';
-
 import React from 'react';
 
 import Button from '../components/button';
@@ -12,59 +11,134 @@ import { ArticlesHero } from '../components/articlesHero';
 const IndexPage = ({ data }) => {
   const allEpisodes = data.allAnchorEpisode.nodes;
   const allArticles = data.allPrismicBlogPost.nodes;
+  const latestEpisode = allEpisodes[0];
 
   return (
     <Layout withInstagram={true}>
-      <Text
-        as="h1"
-        variant="h3"
-        className="m-auto my-6 w-3/4 text-3xl md:text-4xl font-bold text-black"
-      >
-        Podcasts sur les femmes artistes et l'histoire de l'art
-      </Text>
+
+      {/* ── HERO ─────────────────────────────────────────────────── */}
+      <section className="-mx-4 -mt-12 overflow-hidden border-b border-clay-200 bg-cream-100">
+        <div className="mx-auto max-w-7xl px-6 py-20 lg:flex lg:items-center lg:gap-20 lg:px-16 lg:py-32">
+
+          {/* Texte éditorial */}
+          <div className="flex-1 text-center lg:text-left">
+            <p className="mb-5 text-xs font-semibold uppercase tracking-widest text-clay-500">
+              Un podcast par Aldjia Boughias
+            </p>
+            <h1 className="font-display text-5xl font-semibold leading-[1.1] tracking-tight text-stone-900 sm:text-6xl lg:text-[5rem]">
+              Les femmes artistes<br />
+              <span className="italic font-light">qui ont façonné</span><br />
+              l'histoire de l'art
+            </h1>
+            <p className="mx-auto mt-6 max-w-md text-base leading-relaxed text-stone-500 lg:mx-0 lg:text-lg">
+              Un podcast pour redécouvrir les créatrices qui ont marqué l'art à travers les siècles. Trop souvent oubliées — enfin racontées.
+            </p>
+            <div className="mt-10 flex flex-col items-center gap-5 sm:flex-row lg:justify-start justify-center">
+              <Button as="a" href="/podcasts" variant="outlineDark" size="sm">
+                Écouter les podcasts
+              </Button>
+              <Link
+                to="/articles"
+                className="text-sm font-semibold uppercase tracking-widest text-stone-400 hover:text-clay-500 transition-colors"
+              >
+                Lire les articles →
+              </Link>
+            </div>
+          </div>
+
+          {/* Pochette du dernier épisode */}
+          {latestEpisode && (
+            <div className="mt-16 flex justify-center lg:mt-0 lg:flex-shrink-0">
+              <div className="relative">
+                {/* Cadres décoratifs décalés */}
+                <div className="absolute -right-5 -top-5 h-full w-full rounded border border-clay-300/70" />
+                <div className="absolute -right-10 -top-10 h-full w-full rounded border border-clay-200/50" />
+
+                <Link to={`/podcasts/${latestEpisode.guid}`} className="block">
+                  <img
+                    src={latestEpisode.itunes.image}
+                    alt={latestEpisode.title}
+                    className="relative w-56 rounded shadow-2xl lg:w-72 aspect-square object-cover"
+                  />
+                </Link>
+
+                {/* Info épisode sous la pochette */}
+                <div className="mt-5 text-center lg:text-left">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-clay-500">
+                    Dernier épisode · S{latestEpisode.itunes.season} E{latestEpisode.itunes.episode}
+                  </p>
+                  <p className="mt-1 font-display text-sm font-medium leading-snug text-stone-600 max-w-xs">
+                    {latestEpisode.title}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* ── PODCASTS ─────────────────────────────────────────────── */}
+      <section className="m-auto mb-4 mt-20 w-3/4">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-clay-500">
+          Derniers épisodes
+        </p>
+        <Text
+          as="h2"
+          variant="h1"
+          className="mb-8 text-4xl leading-tight md:text-5xl"
+        >
+          Podcasts sur les femmes artistes
+        </Text>
+      </section>
 
       <Hero allEpisodes={allEpisodes} />
+
       <div className="m-auto w-3/4">
         <hr className="separator m-auto my-4" />
       </div>
-      <Text
-        as="h1"
-        variant="h3"
-        className="m-auto my-6 w-3/4 text-3xl md:text-4xl font-bold text-black"
-      >
-        Articles sur les femmes artistes
-      </Text>
+
+      {/* ── ARTICLES ─────────────────────────────────────────────── */}
+      <section className="m-auto mb-4 w-3/4">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-clay-500">
+          Derniers articles
+        </p>
+        <Text
+          as="h2"
+          variant="h1"
+          className="mb-8 text-4xl leading-tight md:text-5xl"
+        >
+          Articles sur les femmes artistes
+        </Text>
+      </section>
 
       <ArticlesHero allArticles={allArticles} />
-      <section className="m-auto my-16 w-11/12 max-w-3xl text-center">
+
+      {/* ── CTA APPLE PODCAST ────────────────────────────────────── */}
+      <section className="m-auto my-24 w-11/12 max-w-2xl text-center">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-clay-500">
+          Soutenez le podcast
+        </p>
         <Text
           as="h3"
           variant="h2"
-          className="mb-3 text-2xl md:text-3xl font-bold text-black"
+          className="mb-4 text-2xl leading-snug md:text-3xl"
         >
-          Soutenez ART au féminin en lui laissant une évaluation
+          Vous aimez le podcast ?
         </Text>
-
-        <Text
-          as="p"
-          variant="p"
-          className="mb-6 text-gray-700 text-sm md:text-base"
-        >
-          Si vous aimez l’émission, la meilleure façon de la soutenir est de
-          patager autour de vous et de lui laisser une évaluation sur Apple
-          Podcast.
+        <Text as="p" variant="p" className="mb-8 text-stone-500">
+          La meilleure façon de soutenir ART au féminin est de laisser une évaluation sur Apple Podcasts. Cela prend une minute et aide énormément.
         </Text>
-
         <Button
           as="a"
           href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152"
-          variant="outline"
+          variant="outlineDark"
           size="s"
           className="mx-auto"
         >
-          Cliquez ici pour 5 ⭐ sur Apple Podcast
+          Laisser 5 ⭐ sur Apple Podcasts
         </Button>
       </section>
+
     </Layout>
   );
 };
@@ -124,11 +198,12 @@ export const indexPageQuery = graphql`
     }
   }
 `;
+
 export const Head = () => {
   return (
     <SEO
-      title="Un podcast sur l’histoire des femmes dans le monde artistique présenté par Aldjia"
-      description="Bienvenue sur ART au féminin, votre porte d'entrée dans le monde captivant des femmes artistes qui ont laissé leur empreinte dans l'histoire de l'art. Explorez notre riche collection d'œuvres, de biographies inspirantes et d'analyses approfondies dédiées à ces artistes visionnaires. Plongez dans un voyage artistique à travers les époques et les continents, découvrez leurs réalisations extraordinaires, et laissez-vous inspirer par la créativité intemporelle des femmes artistes. ART au féminin célèbre la contribution inestimable des femmes à l'art, une exploration artistique comme aucune autre."
+      title="ART au féminin — Le podcast sur les femmes artistes et l'histoire de l'art"
+      description="Un podcast présenté par Aldjia Boughias pour redécouvrir les femmes artistes qui ont marqué l'histoire de l'art. Épisodes, portraits et articles à écouter et à lire."
     />
   );
 };

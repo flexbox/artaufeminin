@@ -8,7 +8,7 @@ interface FooterProps {
 }
 
 const navigation = {
-  about: [
+  explorer: [
     { name: 'Mon histoire', href: '/about' },
     { name: 'Questions fréquentes', href: '/faq' },
     { name: 'Presse', href: '/press' },
@@ -17,19 +17,6 @@ const navigation = {
   ],
   podcast: [{ name: 'Participer', href: '/start' }],
   social: [
-    {
-      name: 'Facebook',
-      href: 'https://www.facebook.com/podcastart',
-      icon: (props) => (
-        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-          <path
-            fillRule="evenodd"
-            d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-            clipRule="evenodd"
-          />
-        </svg>
-      ),
-    },
     {
       name: 'Instagram',
       href: 'https://instagram.com/artaufeminin',
@@ -43,82 +30,128 @@ const navigation = {
         </svg>
       ),
     },
+    {
+      name: 'Facebook',
+      href: 'https://www.facebook.com/podcastart',
+      icon: (props) => (
+        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+          <path
+            fillRule="evenodd"
+            d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+            clipRule="evenodd"
+          />
+        </svg>
+      ),
+    },
   ],
 };
 
 export default function Footer({ siteTitle }: FooterProps) {
   return (
-    <footer
-      aria-labelledby="footer-heading"
-      style={{ backgroundColor: '#8ba28f' }}
-      className="pb-24"
-    >
-      <h2 id="footer-heading" className="sr-only">
-        Footer
-      </h2>
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          <div className="grid grid-cols-2 gap-8 xl:col-span-2">
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm font-bold uppercase tracking-wider text-white">
-                  À propos
-                </h3>
-                <ul role="list" className="mt-4 space-y-4">
-                  {navigation.about.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        to={item.href}
-                        className="text-base text-white hover:text-gray-900"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-6 sm:mt-0 ">
-                <h3 className="text-sm font-bold uppercase tracking-wider text-white">
-                  Le podcast
-                </h3>
-                <ul role="list" className="mt-4 space-y-4">
-                  {navigation.podcast.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        to={item.href}
-                        className="text-base text-white hover:text-gray-900"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+    <footer aria-labelledby="footer-heading" className="pb-24" style={{ backgroundColor: '#8ba28f' }}>
+      <h2 id="footer-heading" className="sr-only">Footer</h2>
+
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+
+        {/* ── Zone marque ────────────────────────────────────── */}
+        <div className="border-b border-white/20 py-14 lg:py-20">
+          <div className="lg:flex lg:items-end lg:justify-between">
+            <div>
+              <Link to="/" className="group inline-block">
+                <span className="font-display text-4xl font-semibold tracking-tight text-white lg:text-5xl">
+                  ART{' '}
+                  <span className="italic font-light text-white/70 group-hover:text-clay-300 transition-colors">
+                    au féminin
+                  </span>
+                </span>
+              </Link>
+              <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/70">
+                Un podcast par Aldjia Boughias — célébrer les femmes artistes qui ont façonné l'histoire de l'art.
+              </p>
+            </div>
+
+            {/* Réseaux sociaux */}
+            <div className="mt-8 flex items-center gap-5 lg:mt-0">
+              {navigation.social.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex size-10 items-center justify-center rounded-full border border-white/30 text-white/80 transition-all hover:border-white hover:text-white"
+                >
+                  <span className="sr-only">{item.name}</span>
+                  <item.icon className="size-4" aria-hidden="true" />
+                </a>
+              ))}
             </div>
           </div>
-          <div className="mt-8 xl:mt-0">
+        </div>
+
+        {/* ── Zone navigation + newsletter ───────────────────── */}
+        <div className="py-14 lg:grid lg:grid-cols-3 lg:gap-16">
+
+          {/* Explorer */}
+          <div>
+            <h3 className="text-xs font-bold uppercase tracking-widest text-white/70">
+              Explorer
+            </h3>
+            <ul role="list" className="mt-5 space-y-3">
+              {navigation.explorer.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    to={item.href}
+                    className="text-sm text-white/90 transition-colors hover:text-white"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Le podcast */}
+          <div className="mt-10 lg:mt-0">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-white/70">
+              Le podcast
+            </h3>
+            <ul role="list" className="mt-5 space-y-3">
+              {navigation.podcast.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    to={item.href}
+                    className="text-sm text-white/90 transition-colors hover:text-white"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <a
+                  href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-white/90 transition-colors hover:text-white"
+                >
+                  Apple Podcasts
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Newsletter */}
+          <div className="mt-10 lg:mt-0">
             <Newsletter />
           </div>
         </div>
-        <div className="mt-8 pt-8 md:flex md:items-center md:justify-between">
-          <div className="flex space-x-6 md:order-2">
-            {navigation.social.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-white hover:text-black"
-              >
-                <span className="sr-only">{item.name}</span>
-                <item.icon className="size-6" aria-hidden="true" />
-              </a>
-            ))}
-          </div>
-          <p className="mt-8 text-base text-gray-200 md:order-1 md:mt-0">
-            &copy; {new Date().getFullYear()}{' '}
-            <span className="font-merri font-bold text-white">{siteTitle}</span>{' '}
-            All rights reserved.
+
+        {/* ── Bas de page ─────────────────────────────────────── */}
+        <div className="border-t border-white/20 py-8">
+          <p className="text-xs text-white/60">
+            &copy; {new Date().getFullYear()} {siteTitle} — Tous droits réservés.
           </p>
         </div>
+
       </div>
     </footer>
   );

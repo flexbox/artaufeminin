@@ -63,7 +63,7 @@ function ArticleItem({
                 {title}
               </Text>
               <Text as="p">{descriptionTruncated}</Text>
-              <Text as="p" className="italic text-gray-400">
+              <Text as="p" className="italic text-stone-400">
                 Publié {date}
               </Text>
             </div>
@@ -89,7 +89,7 @@ function ArticleItem({
                 {title}
               </Text>
               <Text as="p">{descriptionTruncated}</Text>
-              <Text as="p" className="italic text-gray-400">
+              <Text as="p" className="italic text-stone-400">
                 Publié {date}
               </Text>
             </div>

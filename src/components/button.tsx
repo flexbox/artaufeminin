@@ -34,6 +34,17 @@ export const buttonVariants = cva(
           'px-8',
           'hover:bg-gray-100',
         ],
+        outlineDark: [
+          'rounded-full',
+          'border',
+          'border-solid',
+          'border-clay-500',
+          'text-clay-500',
+          'transition-colors',
+          'duration-200',
+          'hover:bg-clay-500',
+          'hover:text-white',
+        ],
       },
       size: {
         xs: ['p-2'],
@@ -109,7 +120,6 @@ export const Button: React.FC<ButtonProps> = ({
     <Element
       {...rest}
       className={buttonVariants({ variant, size, className })}
-      {...rest}
     >
       {children}
     </Element>
