@@ -113,6 +113,84 @@ const IndexPage = ({ data }) => {
 
       <ArticlesHero allArticles={allArticles} />
 
+      {/* ── GALERIE 3D ───────────────────────────────────────────── */}
+      <section className="-mx-4 my-24 overflow-hidden bg-stone-900">
+        <div className="mx-auto max-w-7xl px-6 py-20 lg:flex lg:items-center lg:gap-20 lg:px-16 lg:py-28">
+
+          {/* Texte */}
+          <div className="flex-1">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-clay-300">
+              Bientôt disponible · Première exposition
+            </p>
+            <h2 className="font-display text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-6xl">
+              Galerie{' '}
+              <span className="italic font-light text-clay-300">ART au féminin</span>
+            </h2>
+            <p className="mt-4 font-display text-2xl font-light italic text-stone-300 md:text-3xl">
+              « Sororité »
+            </p>
+            <p className="mt-6 max-w-md text-base leading-relaxed text-stone-400">
+              Une galerie d'art immersive en 3D dédiée aux femmes artistes.
+              La première exposition réunit une vingtaine d'artistes autour du thème de
+              la sororité — ce lien puissant entre femmes qui traverse l'histoire de l'art.
+            </p>
+            <div className="mt-10 flex flex-wrap items-center gap-5">
+              <span className="inline-flex items-center gap-2 rounded-full border border-clay-500/50 bg-clay-500/10 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-clay-300">
+                ✦ Exposition virtuelle en préparation
+              </span>
+            </div>
+          </div>
+
+          {/* Visuel décoratif */}
+          <div className="mt-16 flex-shrink-0 lg:mt-0">
+            <div className="relative flex items-center justify-center">
+              {/* Cercles concentriques évoquant l'espace 3D */}
+              <div className="absolute size-72 rounded-full border border-white/5" />
+              <div className="absolute size-56 rounded-full border border-white/8" />
+              <div className="absolute size-40 rounded-full border border-clay-500/20" />
+
+              {/* Centre */}
+              <div className="relative flex size-28 items-center justify-center rounded-full border border-clay-500/40 bg-stone-800">
+                <span className="font-display text-4xl font-light italic text-clay-300">
+                  ✦
+                </span>
+              </div>
+
+              {/* Points orbitaux représentant les ~20 artistes */}
+              {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => {
+                const angle = (i / 8) * 360;
+                const rad = (angle * Math.PI) / 180;
+                const r = 110;
+                const x = Math.cos(rad) * r;
+                const y = Math.sin(rad) * r;
+                return (
+                  <div
+                    key={i}
+                    className="absolute size-2 rounded-full bg-clay-400/60"
+                    style={{ transform: `translate(${x}px, ${y}px)` }}
+                  />
+                );
+              })}
+              {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((i) => {
+                const angle = (i / 12) * 360 + 15;
+                const rad = (angle * Math.PI) / 180;
+                const r = 140;
+                const x = Math.cos(rad) * r;
+                const y = Math.sin(rad) * r;
+                return (
+                  <div
+                    key={i}
+                    className="absolute size-1.5 rounded-full bg-stone-500/60"
+                    style={{ transform: `translate(${x}px, ${y}px)` }}
+                  />
+                );
+              })}
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       {/* ── CTA APPLE PODCAST ────────────────────────────────────── */}
       <section className="m-auto my-24 w-11/12 max-w-2xl text-center">
         <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-clay-500">
