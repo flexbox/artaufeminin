@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 
 import Button from '../components/button';
+import { ContentCard } from '../components/content-card';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
@@ -259,37 +260,57 @@ export default function DesignSystemPage(): ReactElement {
       <Section title="Cards">
         <div className="space-y-10">
 
-          {/* Card épisode / article — grille */}
+          {/* ContentCard — composant partagé podcast + article */}
           <div>
-            <p className="mb-6 text-sm font-semibold text-stone-600">
-              Card épisode / article — grille 3 colonnes
+            <p className="mb-2 text-sm font-semibold text-stone-600">
+              <code className="rounded bg-cream-200 px-1 py-0.5 text-xs font-mono">ContentCard</code> — composant partagé, utilisé sur <code className="rounded bg-cream-200 px-1 py-0.5 text-xs font-mono">/podcasts</code> et <code className="rounded bg-cream-200 px-1 py-0.5 text-xs font-mono">/articles</code>
+            </p>
+            <p className="mb-6 text-xs text-stone-400">
+              Seul le slot <code className="font-mono">action</code> varie : PlayButton pour les épisodes, lien texte pour les articles.
             </p>
             <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
-              {[1, 2, 3].map((i) => (
-                <article key={i} className="group flex flex-col">
-                  <div className="block overflow-hidden rounded-sm">
-                    <div className="aspect-square overflow-hidden bg-stone-100">
-                      <div className="h-full w-full bg-gradient-to-br from-cream-200 to-clay-200 transition-transform duration-500 group-hover:scale-105" />
-                    </div>
-                  </div>
-                  <div className="mt-4 flex flex-1 flex-col">
-                    <p className="text-xs font-semibold uppercase tracking-widest text-clay-500">
-                      Saison 3 · Épisode {i}
-                    </p>
-                    <h3 className="mt-2 font-display text-xl font-semibold leading-snug text-stone-900 transition-colors hover:text-clay-500">
-                      Titre de l'épisode ou de l'article
-                    </h3>
-                    <p className="mt-2 flex-1 text-sm leading-relaxed text-stone-500">
-                      Courte description tronquée à 140 caractères pour donner envie de lire ou d'écouter…
-                    </p>
-                    <div className="mt-4">
-                      <span className="text-xs font-semibold uppercase tracking-widest text-clay-500">
-                        Lire l'article →
-                      </span>
-                    </div>
-                  </div>
-                </article>
-              ))}
+              {/* Variante épisode */}
+              <ContentCard
+                href="#"
+                imageUrl="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=400&h=400&fit=crop"
+                imageAlt="Exemple épisode"
+                meta="Saison 3 · Épisode 12 · 42 min"
+                title="Georgia O'Keeffe, peintre de l'espace américain"
+                description="Des grandes fleurs aux paysages du Nouveau-Mexique, découvrez l'univers singulier de cette artiste majeure…"
+                action={
+                  <span className="text-xs font-semibold uppercase tracking-widest text-clay-500">
+                    ▶ Écouter
+                  </span>
+                }
+              />
+              {/* Variante article */}
+              <ContentCard
+                href="#"
+                imageUrl="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=400&h=400&fit=crop"
+                imageAlt="Exemple article"
+                meta="lundi 14 avril 2025"
+                title="Camille Claudel, sculpteure dans l'ombre de Rodin"
+                description="Son œuvre reste méconnue malgré son génie. Retour sur le parcours d'une artiste brisée par son époque…"
+                action={
+                  <span className="text-xs font-semibold uppercase tracking-widest text-clay-500">
+                    Lire l'article →
+                  </span>
+                }
+              />
+              {/* Variante sans image */}
+              <ContentCard
+                href="#"
+                imageUrl="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=400&h=400&fit=crop"
+                imageAlt="Exemple"
+                meta="Saison 2 · Épisode 5"
+                title="Frida Kahlo, l'art comme autobiographie"
+                description="Entre douleur et couleur, Frida Kahlo a transformé sa vie en œuvre. Un épisode incontournable…"
+                action={
+                  <span className="text-xs font-semibold uppercase tracking-widest text-clay-500">
+                    ▶ Écouter
+                  </span>
+                }
+              />
             </div>
           </div>
 
