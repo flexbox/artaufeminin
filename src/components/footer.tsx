@@ -8,19 +8,30 @@ interface FooterProps {
 }
 
 const navigation = {
-  explorer: [
+  contenu: [
+    { name: 'Podcasts', href: '/podcasts' },
+    { name: 'Articles', href: '/articles' },
+    { name: 'Livres & chroniques', href: '/livres' },
+    { name: 'Citations', href: '/citations' },
+  ],
+  podcast: [
+    { name: 'Toutes les plateformes', href: '/links' },
+    { name: 'Apple Podcasts', href: 'https://podcasts.apple.com/us/podcast/art-au-feminin/id1493131152', external: true },
+    { name: 'Spotify', href: 'https://open.spotify.com/show/18f84r0ic2PUenYvBRr2Ps', external: true },
+    { name: 'Deezer', href: 'https://www.deezer.com/us/show/2157592', external: true },
+    { name: 'Participer', href: '/start' },
+  ],
+  apropos: [
     { name: 'Mon histoire', href: '/about' },
     { name: 'Questions fréquentes', href: '/faq' },
     { name: 'Presse', href: '/press' },
-    { name: 'Citations', href: '/citations' },
-    { name: 'Livres', href: '/livres' },
+    { name: 'Nous soutenir', href: 'https://fr.tipeee.com/art-au-feminin', external: true },
   ],
-  podcast: [{ name: 'Participer', href: '/start' }],
   social: [
     {
       name: 'Instagram',
       href: 'https://instagram.com/artaufeminin',
-      icon: (props) => (
+      icon: (props: React.SVGProps<SVGSVGElement>) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
             fillRule="evenodd"
@@ -33,7 +44,7 @@ const navigation = {
     {
       name: 'Facebook',
       href: 'https://www.facebook.com/podcastart',
-      icon: (props) => (
+      icon: (props: React.SVGProps<SVGSVGElement>) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
             fillRule="evenodd"
@@ -60,7 +71,7 @@ export default function Footer({ siteTitle }: FooterProps) {
               <Link to="/" className="group inline-block">
                 <span className="font-display text-4xl font-semibold tracking-tight text-white lg:text-5xl">
                   ART{' '}
-                  <span className="italic font-light text-white/70 group-hover:text-clay-300 transition-colors">
+                  <span className="italic font-light text-white/70 transition-colors group-hover:text-clay-300">
                     au féminin
                   </span>
                 </span>
@@ -89,15 +100,15 @@ export default function Footer({ siteTitle }: FooterProps) {
         </div>
 
         {/* ── Zone navigation + newsletter ───────────────────── */}
-        <div className="py-14 lg:grid lg:grid-cols-3 lg:gap-16">
+        <div className="py-14 lg:grid lg:grid-cols-4 lg:gap-10">
 
-          {/* Explorer */}
+          {/* Contenu */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-widest text-white/70">
-              Explorer
+              Contenu
             </h3>
             <ul role="list" className="mt-5 space-y-3">
-              {navigation.explorer.map((item) => (
+              {navigation.contenu.map((item) => (
                 <li key={item.name}>
                   <Link
                     to={item.href}
@@ -118,24 +129,55 @@ export default function Footer({ siteTitle }: FooterProps) {
             <ul role="list" className="mt-5 space-y-3">
               {navigation.podcast.map((item) => (
                 <li key={item.name}>
-                  <Link
-                    to={item.href}
-                    className="text-sm text-white/90 transition-colors hover:text-white"
-                  >
-                    {item.name}
-                  </Link>
+                  {'external' in item && item.external ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-white/90 transition-colors hover:text-white"
+                    >
+                      {item.name}
+                    </a>
+                  ) : (
+                    <Link
+                      to={item.href}
+                      className="text-sm text-white/90 transition-colors hover:text-white"
+                    >
+                      {item.name}
+                    </Link>
+                  )}
                 </li>
               ))}
-              <li>
-                <a
-                  href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-white/90 transition-colors hover:text-white"
-                >
-                  Apple Podcasts
-                </a>
-              </li>
+            </ul>
+          </div>
+
+          {/* À propos */}
+          <div className="mt-10 lg:mt-0">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-white/70">
+              À propos
+            </h3>
+            <ul role="list" className="mt-5 space-y-3">
+              {navigation.apropos.map((item) => (
+                <li key={item.name}>
+                  {'external' in item && item.external ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-white/90 transition-colors hover:text-white"
+                    >
+                      {item.name}
+                    </a>
+                  ) : (
+                    <Link
+                      to={item.href}
+                      className="text-sm text-white/90 transition-colors hover:text-white"
+                    >
+                      {item.name}
+                    </Link>
+                  )}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -146,9 +188,20 @@ export default function Footer({ siteTitle }: FooterProps) {
         </div>
 
         {/* ── Bas de page ─────────────────────────────────────── */}
-        <div className="border-t border-white/20 py-8">
+        <div className="border-t border-white/20 py-8 lg:flex lg:items-center lg:justify-between">
           <p className="text-xs text-white/60">
             &copy; {new Date().getFullYear()} {siteTitle} — Tous droits réservés.
+          </p>
+          <p className="mt-2 text-xs text-white/40 lg:mt-0">
+            Fait avec passion par{' '}
+            <a
+              href="https://aldjia.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/60 hover:text-white transition-colors"
+            >
+              Aldjia Boughias
+            </a>
           </p>
         </div>
 
