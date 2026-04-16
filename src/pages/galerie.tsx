@@ -1,13 +1,40 @@
 import { Link } from 'gatsby';
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 
 import SEO from '../components/seo';
 
 export default function GaleriePage(): ReactElement {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus('loading');
+
+    try {
+      const body = new FormData();
+      body.append('fields[email]', email);
+      body.append('ml-submit', '1');
+      body.append('anticsrf', 'true');
+
+      const res = await fetch(
+        'https://assets.mailerlite.com/jsonp/334411/forms/96016714913810040/subscribe',
+        { method: 'POST', body }
+      );
+      const json = await res.json();
+
+      if (json.success) {
+        setStatus('success');
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+  }
+
   return (
     <div className="min-h-screen bg-stone-950 text-white">
-
-      {/* ── SQUEEZE PAGE — zéro navigation, objectif unique : l'email ── */}
 
       <main className="mx-auto max-w-xl px-6 py-20 lg:py-28">
 
@@ -27,9 +54,8 @@ export default function GaleriePage(): ReactElement {
           Je prépare une galerie d'art immersive en 3D autour du thème de la <strong className="text-stone-300 font-medium">Sororité</strong> — une vingtaine de femmes artistes réunies dans un espace numérique unique.
         </p>
 
-        {/* Lead magnet — ce qu'ils reçoivent */}
+        {/* Lead magnet */}
         <div className="mt-12 rounded-sm border border-clay-700/50 bg-stone-900 p-8">
-
           <p className="mb-1 text-xs font-bold uppercase tracking-widest text-clay-400">
             Votre cadeau gratuit
           </p>
@@ -56,38 +82,47 @@ export default function GaleriePage(): ReactElement {
           </ul>
         </div>
 
-        {/* Formulaire */}
-        <form
-          action="https://assets.mailerlite.com/jsonp/334411/forms/96016714913810040/subscribe"
-          method="post"
-          target="_blank"
-          className="mt-8"
-        >
-          <input type="hidden" name="ml-submit" value="1" />
-          <input type="hidden" name="anticsrf" value="true" />
-
-          <div className="flex flex-col gap-3">
-            <input
-              type="email"
-              name="fields[email]"
-              autoComplete="email"
-              required
-              aria-required="true"
-              placeholder="votre@email.fr"
-              className="w-full rounded-sm border border-stone-700 bg-stone-800 px-5 py-4 text-sm text-white placeholder:text-stone-500 focus:border-clay-500 focus:outline-none transition-colors"
-            />
-            <button
-              type="submit"
-              className="w-full rounded-sm bg-clay-500 px-6 py-4 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-clay-700"
-            >
-              Oui, je veux découvrir les artistes en avant-première →
-            </button>
+        {/* Formulaire / confirmation */}
+        {status === 'success' ? (
+          <div className="mt-8 rounded-sm border border-clay-700/50 bg-stone-900 p-8 text-center">
+            <p className="font-display text-2xl font-semibold text-clay-300">✦ Merci !</p>
+            <p className="mt-3 text-sm leading-relaxed text-stone-400">
+              Votre inscription est confirmée. Vous recevrez le catalogue et la date d'ouverture en avant-première.
+            </p>
           </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="mt-8">
+            <div className="flex flex-col gap-3">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                autoComplete="email"
+                required
+                aria-required="true"
+                placeholder="votre@email.fr"
+                className="w-full rounded-sm border border-stone-700 bg-stone-800 px-5 py-4 text-sm text-white placeholder:text-stone-500 focus:border-clay-500 focus:outline-none transition-colors"
+              />
+              <button
+                type="submit"
+                disabled={status === 'loading'}
+                className="w-full rounded-sm bg-clay-500 px-6 py-4 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-clay-700 disabled:opacity-60"
+              >
+                {status === 'loading' ? 'Inscription en cours…' : 'Oui, je veux découvrir les artistes en avant-première →'}
+              </button>
+            </div>
 
-          <p className="mt-4 text-center text-xs text-stone-600">
-            Pas de spam · Désabonnement à tout moment · Par Aldjia Boughias
-          </p>
-        </form>
+            {status === 'error' && (
+              <p className="mt-3 text-center text-xs text-red-400">
+                Une erreur s'est produite. Veuillez réessayer.
+              </p>
+            )}
+
+            <p className="mt-4 text-center text-xs text-stone-600">
+              Pas de spam · Désabonnement à tout moment · Par Aldjia Boughias
+            </p>
+          </form>
+        )}
 
       </main>
 
@@ -104,6 +139,6 @@ export default function GaleriePage(): ReactElement {
 export const Head = () => (
   <SEO
     title="Galerie ART au féminin — Découvrez les artistes en avant-première"
-    description="Une galerie d'art immersive en 3D dédiée aux femmes artistes. Première exposition : Sororité, ~20 artistes. Recevez 3 portraits exclusifs d'artistes en vous inscrivant."
+    description="Une galerie d'art immersive en 3D dédiée aux femmes artistes. Première exposition : Sororité, ~20 artistes. Recevez le catalogue complet en vous inscrivant."
   />
 );
