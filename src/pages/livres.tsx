@@ -3,7 +3,6 @@ import React from 'react';
 
 import BookList, { BookProps } from '../components/book-list';
 import Layout from '../components/layout';
-import LayoutSidebar from '../components/layoutSidebar';
 import SEO from '../components/seo';
 
 interface BooksPageProps {
@@ -19,9 +18,20 @@ const BooksPage = ({ data }: BooksPageProps) => {
 
   return (
     <Layout withInstagram={false}>
-      <LayoutSidebar withPodcast={false}>
-        <BookList allBooks={allBooks} />
-      </LayoutSidebar>
+      {/* En-tête */}
+      <section className="m-auto mb-10 mt-8 w-3/4">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-clay-500">
+          Bibliothèque
+        </p>
+        <h1 className="font-display text-4xl font-semibold leading-tight text-stone-900 md:text-5xl">
+          Livres sur les femmes artistes
+        </h1>
+        <p className="mt-4 max-w-xl text-base leading-relaxed text-stone-500">
+          Une sélection de lectures pour explorer l'histoire des femmes dans l'art — biographies, essais, monographies.
+        </p>
+      </section>
+
+      <BookList allBooks={allBooks} />
     </Layout>
   );
 };
@@ -47,8 +57,8 @@ export const query = graphql`
 export const Head = () => {
   return (
     <SEO
-      title="Parcourez notre collection de livres sur les femmes artistes et leur contribution à l'art."
-      description="Découvrez des critiques littéraires exceptionnelles sur notre site ART au féminin. Plongez dans l'univers captivant des livres écrits par des femmes, où la créativité et la voix féminine sont mises en lumière"
+      title="Livres sur les femmes artistes — ART au féminin"
+      description="Une sélection de livres pour explorer l'histoire des femmes dans l'art — biographies, essais, monographies, critiques littéraires."
     />
   );
 };
