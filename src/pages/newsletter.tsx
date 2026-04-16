@@ -19,8 +19,9 @@ export default function NewsletterPage(): ReactElement {
             <span className="italic font-light">dans votre boîte mail</span>
           </h1>
           <p className="mx-auto mt-6 max-w-md text-base leading-relaxed text-stone-500">
-            Recevez les nouveaux épisodes, articles et chroniques de livres
-            directement par email. Pas de spam — uniquement du contenu sur les femmes artistes.
+            Recevez les nouveaux épisodes, articles, chroniques de livres et les
+            actualités de la Galerie ART au féminin directement par email.
+            Pas de spam — uniquement du contenu sur les femmes artistes.
           </p>
         </div>
       </section>
@@ -83,7 +84,7 @@ export default function NewsletterPage(): ReactElement {
         <p className="mb-6 text-center text-xs font-semibold uppercase tracking-widest text-clay-500">
           Au programme
         </p>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
             {
               icon: '🎙',
@@ -100,6 +101,11 @@ export default function NewsletterPage(): ReactElement {
               label: 'Les chroniques',
               desc: 'Des sélections de livres pour explorer l\'histoire de l\'art au féminin.',
             },
+            {
+              icon: '🏛',
+              label: 'La Galerie 3D',
+              desc: 'Les coulisses et actualités de la Galerie ART au féminin en avant-première.',
+            },
           ].map(({ icon, label, desc }) => (
             <div
               key={label}
@@ -112,6 +118,64 @@ export default function NewsletterPage(): ReactElement {
               <p className="text-sm leading-relaxed text-stone-500">{desc}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ── GALERIE ──────────────────────────────────────────────── */}
+      <section className="-mx-4 my-16 bg-stone-900 py-16">
+        <div className="mx-auto max-w-3xl px-6 lg:flex lg:items-center lg:gap-16 lg:px-0">
+
+          {/* Visuel orbital */}
+          <div className="mb-10 flex justify-center lg:mb-0 lg:shrink-0">
+            <div className="relative flex size-48 items-center justify-center">
+              <div className="absolute size-48 rounded-full border border-white/5" />
+              <div className="absolute size-36 rounded-full border border-white/8" />
+              <div className="absolute size-24 rounded-full border border-clay-500/20" />
+              <div className="relative flex size-16 items-center justify-center rounded-full border border-clay-500/40 bg-stone-800">
+                <span className="font-display text-2xl font-light italic text-clay-300">✦</span>
+              </div>
+              {[0,1,2,3,4,5,6,7].map((i) => {
+                const angle = (i / 8) * 360;
+                const rad = (angle * Math.PI) / 180;
+                const x = Math.cos(rad) * 70;
+                const y = Math.sin(rad) * 70;
+                return (
+                  <div
+                    key={i}
+                    className="absolute size-1.5 rounded-full bg-clay-400/60"
+                    style={{ transform: `translate(${x}px, ${y}px)` }}
+                  />
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Texte */}
+          <div>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-clay-300">
+              Bientôt · Première exposition
+            </p>
+            <h2 className="font-display text-3xl font-semibold leading-tight text-white md:text-4xl">
+              Galerie{' '}
+              <span className="italic font-light text-clay-300">ART au féminin</span>
+            </h2>
+            <p className="mt-2 font-display text-xl font-light italic text-stone-400">
+              « Sororité »
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-stone-400">
+              Une galerie d'art immersive en 3D dédiée aux femmes artistes.
+              La première exposition réunit une vingtaine d'artistes autour du
+              thème de la sororité. Abonnez-vous pour recevoir toutes les
+              actualités en avant-première — date d'ouverture, artistes invitées,
+              coulisses du projet.
+            </p>
+            <div className="mt-6">
+              <span className="inline-flex items-center gap-2 rounded-full border border-clay-500/40 bg-clay-500/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-clay-300">
+                ✦ En préparation — restez informée
+              </span>
+            </div>
+          </div>
+
         </div>
       </section>
 
