@@ -23,6 +23,7 @@ const navigation = {
   ],
   apropos: [
     { name: 'Mon histoire', href: '/about' },
+    { name: 'Newsletter', href: '/newsletter' },
     { name: 'Questions fréquentes', href: '/faq' },
     { name: 'Presse', href: '/press' },
     { name: 'Nous soutenir', href: 'https://fr.tipeee.com/art-au-feminin', external: true },
