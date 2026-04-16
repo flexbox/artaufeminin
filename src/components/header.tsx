@@ -8,6 +8,7 @@ const navigation = [
   { name: 'Articles', href: '/articles' },
   { name: 'Livres', href: '/livres' },
   { name: 'Citations', href: '/citations' },
+  { name: 'Galerie', href: '/galerie' },
   { name: 'Contact', href: 'mailto:artaufemininlepodcast@gmail.com', isExternal: true },
 ];
 

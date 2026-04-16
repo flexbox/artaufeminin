@@ -135,9 +135,12 @@ const IndexPage = ({ data }) => {
               la sororité — ce lien puissant entre femmes qui traverse l'histoire de l'art.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-5">
-              <span className="inline-flex items-center gap-2 rounded-full border border-clay-500/50 bg-clay-500/10 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-clay-300">
-                ✦ Exposition virtuelle en préparation
-              </span>
+              <a
+                href="/galerie"
+                className="inline-flex items-center gap-2 rounded-full border border-clay-500/50 bg-clay-500/10 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-clay-300 transition-colors hover:bg-clay-500/20"
+              >
+                ✦ Découvrir la galerie →
+              </a>
             </div>
           </div>
 
