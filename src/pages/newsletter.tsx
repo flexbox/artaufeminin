@@ -1,10 +1,32 @@
 import { Link } from 'gatsby';
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
 export default function NewsletterPage(): ReactElement {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus('loading');
+    try {
+      const body = new FormData();
+      body.append('fields[email]', email);
+      body.append('ml-submit', '1');
+      body.append('anticsrf', 'true');
+      const res = await fetch(
+        'https://assets.mailerlite.com/jsonp/334411/forms/96016714913810040/subscribe',
+        { method: 'POST', body }
+      );
+      const json = await res.json();
+      setStatus(json.success ? 'success' : 'error');
+    } catch {
+      setStatus('error');
+    }
+  }
+
   return (
     <Layout withInstagram={false}>
 
@@ -28,16 +50,7 @@ export default function NewsletterPage(): ReactElement {
 
       {/* ── FORMULAIRE ───────────────────────────────────────────── */}
       <section className="mx-auto max-w-xl px-6 py-16 lg:px-0">
-        <form
-          action="https://assets.mailerlite.com/jsonp/334411/forms/96016714913810040/subscribe"
-          data-code=""
-          method="post"
-          target="_blank"
-          className="rounded-sm border border-clay-200 bg-cream-50 p-8"
-        >
-          <input type="hidden" name="ml-submit" value="1" />
-          <input type="hidden" name="anticsrf" value="true" />
-
+        <div className="rounded-sm border border-clay-200 bg-cream-50 p-8">
           <h2 className="mb-1 font-display text-2xl font-semibold text-stone-900">
             S'abonner gratuitement
           </h2>
@@ -45,38 +58,55 @@ export default function NewsletterPage(): ReactElement {
             Rejoignez les abonnées qui reçoivent la newsletter d'ART au féminin.
           </p>
 
-          <div className="space-y-4">
-            <div>
-              <label
-                htmlFor="email"
-                className="mb-2 block text-xs font-semibold uppercase tracking-widest text-stone-600"
-              >
-                Adresse email
-              </label>
-              <input
-                id="email"
-                type="email"
-                name="fields[email]"
-                autoComplete="email"
-                required
-                aria-required="true"
-                placeholder="votre@email.fr"
-                className="w-full rounded-sm border border-clay-200 bg-white px-4 py-3 text-sm text-stone-900 placeholder:text-stone-400 focus:border-clay-500 focus:outline-none transition-colors"
-              />
+          {status === 'success' ? (
+            <div className="rounded-sm border border-clay-200 bg-cream-100 px-6 py-8 text-center">
+              <p className="font-display text-xl font-semibold text-clay-500">Merci !</p>
+              <p className="mt-2 text-sm leading-relaxed text-stone-500">
+                Votre inscription est confirmée. À très vite dans votre boîte mail !
+              </p>
             </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label
+                  htmlFor="email"
+                  className="mb-2 block text-xs font-semibold uppercase tracking-widest text-stone-600"
+                >
+                  Adresse email
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  autoComplete="email"
+                  required
+                  aria-required="true"
+                  placeholder="votre@email.fr"
+                  className="w-full rounded-sm border border-clay-200 bg-white px-4 py-3 text-sm text-stone-900 placeholder:text-stone-400 focus:border-clay-500 focus:outline-none transition-colors"
+                />
+              </div>
 
-            <button
-              type="submit"
-              className="w-full rounded-sm bg-clay-500 px-6 py-3 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-clay-700"
-            >
-              Je m'abonne →
-            </button>
-          </div>
+              <button
+                type="submit"
+                disabled={status === 'loading'}
+                className="w-full rounded-sm bg-clay-500 px-6 py-3 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-clay-700 disabled:opacity-60"
+              >
+                {status === 'loading' ? 'Inscription en cours…' : "Je m'abonne →"}
+              </button>
 
-          <p className="mt-5 text-center text-xs text-stone-400">
-            Désabonnement possible à tout moment · Aucun spam
-          </p>
-        </form>
+              {status === 'error' && (
+                <p className="text-center text-xs text-red-500">
+                  Une erreur s'est produite. Veuillez réessayer.
+                </p>
+              )}
+
+              <p className="text-center text-xs text-stone-400">
+                Désabonnement possible à tout moment · Aucun spam
+              </p>
+            </form>
+          )}
+        </div>
       </section>
 
       {/* ── CE QUE VOUS RECEVREZ ─────────────────────────────────── */}
