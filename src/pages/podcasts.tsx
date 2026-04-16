@@ -1,6 +1,7 @@
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import React, { useMemo } from 'react';
 
+import { ContentCard } from '../components/content-card';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Text from '../components/text';
@@ -18,52 +19,35 @@ function EpisodeCard({ episode }: { episode: any }) {
   );
   const player = useAudioPlayer(audioPlayerData);
 
-  // Supprimer les balises HTML du résumé
   const plainSummary = episode.itunes.summary
     ? episode.itunes.summary.replace(/<[^>]*>/g, '').substring(0, 140) + '…'
     : '';
 
+  const meta = [
+    `Saison ${episode.itunes.season}`,
+    `Épisode ${episode.itunes.episode}`,
+    episode.itunes.duration,
+  ]
+    .filter(Boolean)
+    .join(' · ');
+
   return (
-    <article className="group flex flex-col">
-      {/* Pochette */}
-      <Link
-        to={`/podcasts/${episode.guid}`}
-        className="block overflow-hidden rounded-sm"
-      >
-        <div className="aspect-square overflow-hidden bg-stone-100">
-          <img
-            src={episode.itunes.image}
-            alt={episode.title}
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-        </div>
-      </Link>
-
-      {/* Contenu */}
-      <div className="mt-4 flex flex-1 flex-col">
-        <p className="text-xs font-semibold uppercase tracking-widest text-clay-500">
-          Saison {episode.itunes.season} · Épisode {episode.itunes.episode}
-          {episode.itunes.duration && ` · ${episode.itunes.duration}`}
-        </p>
-
-        <Link to={`/podcasts/${episode.guid}`}>
-          <h2 className="mt-2 font-display text-xl font-semibold leading-snug text-stone-900 transition-colors hover:text-clay-500">
-            {episode.title}
-          </h2>
-        </Link>
-
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-stone-500">
-          {plainSummary}
-        </p>
-
-        <div className="mt-4 flex items-center gap-3">
+    <ContentCard
+      href={`/podcasts/${episode.guid}`}
+      imageUrl={episode.itunes.image}
+      imageAlt={episode.title}
+      meta={meta}
+      title={episode.title}
+      description={plainSummary}
+      action={
+        <div className="flex items-center gap-3">
           <PlayButton player={player} size="small" />
           <span className="text-xs font-semibold uppercase tracking-widest text-clay-500">
             Écouter
           </span>
         </div>
-      </div>
-    </article>
+      }
+    />
   );
 }
 
