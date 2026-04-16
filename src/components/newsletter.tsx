@@ -1,20 +1,17 @@
 import React, { ReactElement } from 'react';
 
-import Button from './button';
-
 export default function Newsletter(): ReactElement {
   return (
-    <>
-      <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
-        Inscrivez-vous à ma newsletter
+    <div>
+      <h3 className="text-xs font-bold uppercase tracking-widest text-white/50">
+        Newsletter
       </h3>
-      <p className="mt-4 text-base text-gray-200">
-        Recevez la liste des podcasts et des articles publiés directement par
-        email.
+      <p className="mt-4 font-display text-xl font-light italic text-white/90 leading-snug">
+        Recevez les épisodes et articles directement par email.
       </p>
 
       <form
-        className="mt-4 sm:flex sm:max-w-md"
+        className="mt-6"
         action="https://assets.mailerlite.com/jsonp/334411/forms/96016714913810040/subscribe"
         data-code=""
         method="post"
@@ -26,27 +23,27 @@ export default function Newsletter(): ReactElement {
           Adresse email
         </label>
 
-        <input
-          id="emailAddress"
-          autoComplete="email"
-          required
-          aria-label="email"
-          aria-required="true"
-          type="email"
-          data-inputmask=""
-          name="fields[email]"
-          className="w-full min-w-0 appearance-none rounded-md border border-gray-300 bg-white px-4 py-2 text-base text-gray-900 shadow-sm placeholder:text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-blue-500 focus:placeholder:text-gray-400"
-          placeholder="Entrez votre adresse email"
-        />
-        <input type="hidden" name="ml-submit" value="1" />
-        <input type="hidden" name="anticsrf" value="true" />
-
-        <div className="mt-3 rounded-md sm:ml-3 sm:mt-0 sm:shrink-0">
-          <Button type="submit" variant="news" style={{ minHeight: 48 }}>
-            Je m'inscris
-          </Button>
+        <div className="flex gap-0">
+          <input
+            id="emailAddress"
+            autoComplete="email"
+            required
+            aria-label="email"
+            aria-required="true"
+            type="email"
+            data-inputmask=""
+            name="fields[email]"
+            className="min-w-0 flex-1 rounded-l-full border border-white/30 bg-white/20 px-5 py-3 text-sm text-white placeholder:text-white/60 focus:bg-white/30 focus:outline-none transition-colors"
+            placeholder="votre@email.fr"
+          />
+          <button
+            type="submit"
+            className="rounded-r-full border border-white/20 border-l-0 bg-clay-500 px-5 py-3 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-clay-700"
+          >
+            →
+          </button>
         </div>
       </form>
-    </>
+    </div>
   );
 }

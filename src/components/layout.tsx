@@ -57,7 +57,7 @@ function Layout({
   const player = useAudioPlayer(audioPlayerData);
 
   return (
-    <div className="bg-gray-50">
+    <div className="bg-cream-100">
       <Header />
       <main role="main" className="mt-12 px-4">
         {children}
