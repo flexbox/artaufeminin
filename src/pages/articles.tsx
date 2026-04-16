@@ -4,12 +4,11 @@ import React from 'react';
 import { ArticleList } from '../components/article-list';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import Text from '../components/text';
 
 interface ArticlesPageProps {
   data: {
     allPrismicBlogPost: {
-      nodes: []; // it should be something like PrismicBlogPost[] insteead of a simple []
+      nodes: [];
     };
   };
 }
@@ -19,9 +18,16 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
 
   return (
     <Layout withInstagram={false}>
-      <Text as="h1" className="m-auto w-2/3">
-        Articles artistes femmes
-      </Text>
+      {/* En-tête */}
+      <section className="m-auto mb-10 mt-8 w-3/4">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-clay-500">
+          Tous les articles
+        </p>
+        <h1 className="font-display text-4xl font-semibold leading-tight text-stone-900 md:text-5xl">
+          Articles sur les femmes artistes
+        </h1>
+      </section>
+
       <ArticleList allArticles={articles} />
     </Layout>
   );
@@ -41,8 +47,8 @@ export const query = graphql`
 export const Head = () => {
   return (
     <SEO
-      title="Parcourez notre collection d'articles sur les artistes féminines à travers l'histoire."
-      description="Découvrez l'inspiration et la créativité des femmes artistes sur ART au féminin. Explorez leurs œuvres exceptionnelles, leurs parcours uniques et leurs contributions inestimables à l'art. Plongez dans l'univers captivant des artistes au féminin."
+      title="Articles sur les femmes artistes — ART au féminin"
+      description="Découvrez l'inspiration et la créativité des femmes artistes sur ART au féminin. Explorez leurs œuvres exceptionnelles, leurs parcours uniques et leurs contributions inestimables à l'histoire de l'art."
     />
   );
 };
