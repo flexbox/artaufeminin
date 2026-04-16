@@ -35,7 +35,7 @@ export default function Book(props: BookProps): ReactElement {
       <div className="border-b border-clay-200 pb-10 pt-16">
         <div className="mx-auto max-w-3xl px-6 lg:px-0">
           <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-clay-500">
-            Critique littéraire
+            Chronique
           </p>
           <h1 className="font-display text-4xl font-semibold leading-tight text-stone-900 md:text-5xl lg:text-6xl">
             {seoTitle}
@@ -81,7 +81,7 @@ export default function Book(props: BookProps): ReactElement {
             Mécénat
           </p>
           <h2 className="mb-3 font-display text-xl font-semibold text-stone-900">
-            Vous avez aimé cette critique ?
+            Vous avez aimé cette chronique ?
           </h2>
           <p className="mb-5 text-sm leading-relaxed text-stone-500">
             Si ce contenu vous a plu, vous pouvez soutenir ART au féminin sur Tipeee.
