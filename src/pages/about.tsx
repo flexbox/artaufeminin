@@ -16,6 +16,9 @@ export default function AboutPage() {
         <h1 className="font-display text-4xl font-semibold leading-tight text-stone-900 md:text-5xl">
           Aldjia Boughias
         </h1>
+        <p className="mt-3 font-display text-xl font-light italic text-stone-500">
+          Développeuse web orientée art et culture · Fondatrice d'ART au féminin
+        </p>
       </section>
 
       {/* ── PORTRAIT + INTRO ─────────────────────────────────────── */}
@@ -27,7 +30,7 @@ export default function AboutPage() {
             <div className="overflow-hidden rounded-sm">
               <StaticImage
                 src="../images/profile-picture.jpg"
-                alt="Aldjia Boughias — créatrice d'ART au féminin"
+                alt="Aldjia Boughias — fondatrice du podcast ART au féminin"
                 width={320}
                 height={400}
                 className="w-full object-cover object-top"
@@ -38,7 +41,7 @@ export default function AboutPage() {
                 Lille, France
               </p>
               <p className="mt-1 text-sm text-stone-600">
-                Passionnée d'art · Beaux-Arts · Développeuse web
+                Développeuse web · Art &amp; culture · Podcast
               </p>
             </div>
           </div>
@@ -46,28 +49,31 @@ export default function AboutPage() {
           {/* Texte */}
           <div className="flex-1 space-y-6">
             <p className="font-display text-2xl font-light italic leading-relaxed text-stone-700">
-              Je suis Aldjia, créatrice et animatrice du podcast ART au féminin.
-              Formée aux Beaux-Arts et au développement web, je mets mes deux passions
-              au service d'un même projet : rendre visibles les femmes artistes.
+              Je suis Aldjia Boughias, développeuse web spécialisée dans le secteur
+              de l'art et de la culture, et fondatrice du podcast ART au féminin.
             </p>
             <p className="text-base leading-relaxed text-stone-600">
-              Avec ART au féminin, je vous propose de revenir sur certaines périodes
-              de l'histoire de l'art — plus particulièrement sur l'histoire des
-              <strong className="font-semibold text-stone-800"> femmes artistes</strong>.
-              J'invite des directrices de musées, des conservatrices, des historiennes
-              de l'art à nous parler de ces femmes qui ont marqué l'histoire mais
-              ont été, pour la plupart, oubliées.
+              J'ai créé ART au féminin par <strong className="font-semibold text-stone-800">passion pour l'histoire de l'art</strong>,
+              mais aussi pour continuer d'apprendre et partager ce que je découvrais.
+              Un projet né d'une curiosité simple : combien de femmes artistes
+              connaît-on vraiment ? La réponse m'a poussée à aller plus loin.
+            </p>
+            <p className="text-base leading-relaxed text-stone-600">
+              Avec ce podcast sur les <strong className="font-semibold text-stone-800">femmes artistes</strong>,
+              j'invite des directrices de musées, des conservatrices et des
+              historiennes de l'art à nous parler de ces femmes qui ont marqué
+              l'histoire mais ont été, pour la plupart, oubliées.
             </p>
             <p className="text-base leading-relaxed text-stone-600">
               J'invite aussi des{' '}
               <strong className="font-semibold text-stone-800">femmes artistes d'aujourd'hui</strong>{' '}
-              à témoigner de leur parcours, de leur travail, et à donner leur point
-              de vue sur la place des femmes dans le monde de l'art.
+              à témoigner de leur parcours, de leur travail et de leur regard
+              sur la place des femmes dans le monde de l'art contemporain.
             </p>
             <p className="text-base leading-relaxed text-stone-600">
-              ART au féminin, c'est des podcasts, des articles, des chroniques de
-              livres et des citations — tout ce qui permet de retracer et de célébrer
-              l'histoire des femmes artistes.
+              ART au féminin, c'est un podcast, des articles, des chroniques de
+              livres et des citations — tout ce qui permet de retracer et de
+              célébrer l'<strong className="font-semibold text-stone-800">histoire des femmes dans l'art</strong>.
             </p>
           </div>
         </div>
@@ -86,13 +92,13 @@ export default function AboutPage() {
             <p className="font-display text-xl font-light italic leading-relaxed text-stone-700 md:text-2xl">
               Nous commencerons par discuter les points de vue pris sur la femme
               par la biologie, la psychanalyse, le matérialisme historique. Nous
-              essaierons de monter ensuite positivement comment la réalité féminine
+              essaierons de montrer ensuite positivement comment la réalité féminine
               s'est constituée, pourquoi la femme a été définie comme l'Autre et
               quelles en ont été les conséquences du point de vue des hommes.
             </p>
             <footer className="mt-6">
               <cite className="text-xs font-semibold uppercase tracking-widest text-clay-500 not-italic">
-                — Simone de Beauvoir
+                — Simone de Beauvoir, Le Deuxième Sexe
               </cite>
             </footer>
           </blockquote>
@@ -105,20 +111,20 @@ export default function AboutPage() {
 
           <div>
             <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-clay-500">
-              Pourquoi ce podcast ?
+              Pourquoi ce podcast sur les femmes artistes ?
             </p>
             <h2 className="mb-6 font-display text-3xl font-semibold leading-snug text-stone-900">
-              Parce que le monde regorge de femmes artistes talentueuses.
+              Apprendre, partager et rendre visibles celles que l'histoire a trop souvent ignorées.
             </h2>
           </div>
 
           <ul className="space-y-4">
             {[
-              "Car je suis passionnée d'art et amoureuse du partage.",
-              "Car on entend trop souvent parler d'hommes artistes, et beaucoup trop peu de femmes.",
-              "Car le monde regorge de femmes artistes talentueuses.",
-              "Car on n'en parle jamais assez.",
-              "Car cela nous enrichit culturellement.",
+              "Par passion pour l'art et l'envie de continuer à apprendre.",
+              "Pour partager des découvertes qui méritent d'être connues de tous.",
+              "Parce qu'on parle trop peu des femmes artistes dans les musées et les livres d'histoire.",
+              "Parce que le monde regorge de femmes artistes talentueuses dont les noms ont été effacés.",
+              "Parce que connaître leur histoire nous enrichit culturellement et nous inspire.",
             ].map((reason) => (
               <li key={reason} className="flex items-start gap-3">
                 <span className="mt-1 size-1.5 shrink-0 rounded-full bg-clay-500" />
@@ -131,6 +137,28 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ── CE QUE VOUS TROUVEREZ ────────────────────────────────── */}
+      <section className="m-auto mb-16 w-3/4">
+        <p className="mb-6 text-xs font-semibold uppercase tracking-widest text-clay-500">
+          Sur ART au féminin
+        </p>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { label: 'Podcast', desc: "Des épisodes sur les femmes artistes qui ont marqué l'histoire de l'art." },
+            { label: 'Articles', desc: "Des textes approfondis pour explorer leurs œuvres et leurs parcours." },
+            { label: 'Chroniques', desc: "Des sélections de livres pour aller encore plus loin dans vos lectures." },
+            { label: 'Citations', desc: "Des paroles de femmes artistes qui traversent le temps." },
+          ].map(({ label, desc }) => (
+            <div key={label} className="rounded-sm border border-clay-200 bg-cream-50 p-5">
+              <p className="mb-2 text-xs font-bold uppercase tracking-widest text-clay-500">
+                {label}
+              </p>
+              <p className="text-sm leading-relaxed text-stone-600">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ── CTA ──────────────────────────────────────────────────── */}
       <section className="m-auto mb-20 w-3/4">
         <div className="flex flex-col gap-4 rounded-sm border border-clay-200 bg-cream-50 p-8 sm:flex-row sm:items-center sm:justify-between">
@@ -139,7 +167,7 @@ export default function AboutPage() {
               Commencer l'aventure
             </p>
             <p className="font-display text-xl font-semibold text-stone-900">
-              Écoutez le premier épisode
+              Écoutez le podcast ART au féminin
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -166,8 +194,8 @@ export default function AboutPage() {
 export const Head = () => {
   return (
     <SEO
-      title="Mon histoire — Aldjia Boughias, créatrice d'ART au féminin"
-      description="Je suis Aldjia Boughias, créatrice du podcast ART au féminin. Formée aux Beaux-Arts, je mets ma passion de l'art au service de la visibilité des femmes artistes."
+      title="Aldjia Boughias — Fondatrice du podcast ART au féminin"
+      description="Je suis Aldjia Boughias, développeuse web et fondatrice du podcast ART au féminin. Un projet né de ma passion pour l'histoire de l'art et l'envie de rendre visibles les femmes artistes oubliées."
     />
   );
 };
