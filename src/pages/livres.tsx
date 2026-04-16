@@ -27,7 +27,7 @@ const BooksPage = ({ data }: BooksPageProps) => {
           Livres sur les femmes artistes
         </h1>
         <p className="mt-4 max-w-xl text-base leading-relaxed text-stone-500">
-          Une sélection de lectures pour explorer l'histoire des femmes dans l'art — biographies, essais, monographies.
+          Une sélection de chroniques pour explorer l'histoire des femmes dans l'art — biographies, essais, monographies.
         </p>
       </section>
 
@@ -58,7 +58,7 @@ export const Head = () => {
   return (
     <SEO
       title="Livres sur les femmes artistes — ART au féminin"
-      description="Une sélection de livres pour explorer l'histoire des femmes dans l'art — biographies, essais, monographies, critiques littéraires."
+      description="Une sélection de chroniques pour explorer l'histoire des femmes dans l'art — biographies, essais, monographies."
     />
   );
 };
