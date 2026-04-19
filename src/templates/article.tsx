@@ -160,8 +160,7 @@ export default function Article(props: PropsArticle): ReactElement {
               À propos de l'autrice
             </p>
             <p className="text-sm leading-relaxed text-stone-600">
-              Bonjour, je suis Aldjia, créatrice et animatrice du podcast ART au féminin.
-              Je suis également l'autrice de ce blog — ravie de vous rencontrer !
+              Aldjia Boughias — développeuse web orientée art et culture, exploratrice de l'histoire de l'art le reste du temps. J'ai créé ART au féminin pour donner aux femmes artistes la place qu'elles méritent dans notre mémoire collective.
             </p>
           </div>
         </section>
