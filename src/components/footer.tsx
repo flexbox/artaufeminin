@@ -23,7 +23,7 @@ const navigation = {
     { name: 'Participer', href: '/start' },
   ],
   apropos: [
-    { name: 'Mon histoire', href: '/about' },
+    { name: 'À propos', href: '/about' },
     { name: 'Newsletter', href: '/newsletter' },
     { name: 'Questions fréquentes', href: '/faq' },
     { name: 'Presse', href: '/press' },
