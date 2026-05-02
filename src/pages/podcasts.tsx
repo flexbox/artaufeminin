@@ -1,6 +1,8 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import React, { useMemo } from 'react';
 
+import { FeaturedCard } from '../components/featured-card';
+import { stripHtml } from '../utils/html';
 import { ContentCard } from '../components/content-card';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -19,7 +21,7 @@ function EpisodeCard({ episode }: { episode: any }) {
   const player = useAudioPlayer(audioPlayerData);
 
   const plainSummary = episode.itunes.summary
-    ? episode.itunes.summary.replace(/<[^>]*>/g, '').substring(0, 140) + '…'
+    ? stripHtml(episode.itunes.summary).substring(0, 140) + '…'
     : '';
 
   const meta = [
@@ -52,10 +54,14 @@ function EpisodeCard({ episode }: { episode: any }) {
 
 const PodcastsPage = ({ data }) => {
   const allEpisodes = data.allAnchorEpisode.nodes;
+  const featured = allEpisodes[0];
+  const rest = allEpisodes.slice(1);
 
   return (
     <Layout>
-      <section className="m-auto mb-10 mt-8 w-3/4 border-b border-neutral-200 pb-8">
+
+      {/* ── EN-TÊTE ───────────────────────────────────────────────── */}
+      <section className="mx-auto mb-10 mt-8 w-11/12 max-w-7xl border-b border-neutral-200 pb-8">
         <p className="mb-2 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
           Tous les Épisodes
         </p>
@@ -64,23 +70,63 @@ const PodcastsPage = ({ data }) => {
         </h1>
       </section>
 
-      <div className="m-auto mb-20 grid w-3/4 grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
-        {allEpisodes.map((episode) => (
-          <EpisodeCard key={episode.id} episode={episode} />
-        ))}
-      </div>
+      {/* ── DERNIER ÉPISODE — grande card featured ────────────────── */}
+      {featured && (
+        <section className="mx-auto mb-16 w-11/12 max-w-7xl">
+          <div className="mb-8 flex items-baseline justify-between border-b border-neutral-200 pb-4">
+            <span className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-900">
+              Dernier Épisode
+            </span>
+          </div>
+          <FeaturedCard
+            href={`/podcasts/${featured.guid}`}
+            imageUrl={featured.itunes.image}
+            imageAlt={featured.title}
+            label={`Saison ${featured.itunes.season} · Épisode ${featured.itunes.episode}`}
+            title={featured.title}
+            description={
+              featured.itunes.summary
+                ? stripHtml(featured.itunes.summary).substring(0, 300) + '…'
+                : undefined
+            }
+            cta={
+              <Link
+                to={`/podcasts/${featured.guid}`}
+                className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+              >
+                Écouter l'Épisode →
+              </Link>
+            }
+          />
+        </section>
+      )}
+
+      {/* ── TOUS LES ÉPISODES ─────────────────────────────────────── */}
+      {rest.length > 0 && (
+        <section className="mx-auto mb-20 w-11/12 max-w-7xl">
+          <div className="mb-8 flex items-baseline border-b border-neutral-200 pb-4">
+            <span className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-900">
+              Tous les Épisodes
+            </span>
+          </div>
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+            {rest.map((episode) => (
+              <EpisodeCard key={episode.id} episode={episode} />
+            ))}
+          </div>
+        </section>
+      )}
+
     </Layout>
   );
 };
 
-export const Head = () => {
-  return (
-    <SEO
-      title="Tous les Épisodes — ART AU FÉMININ, le podcast sur les femmes artistes"
-      description="Écoutez tous les épisodes du podcast ART AU FÉMININ, présenté par Aldjia Boughias. Des récits captivants sur les femmes artistes qui ont marqué l'Histoire de l'Art."
-    />
-  );
-};
+export const Head = () => (
+  <SEO
+    title="Tous les Épisodes — ART AU FÉMININ, le podcast sur les femmes artistes"
+    description="Écoutez tous les épisodes du podcast ART AU FÉMININ, présenté par Aldjia Boughias. Des récits captivants sur les femmes artistes qui ont marqué l'Histoire de l'Art."
+  />
+);
 
 export default function PodcastQuery() {
   const data = useStaticQuery(graphql`

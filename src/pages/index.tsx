@@ -2,115 +2,14 @@ import { Link, graphql } from 'gatsby';
 import { RichText } from 'prismic-reactjs';
 import React from 'react';
 
+import { ContentCard } from '../components/content-card';
+import { FeaturedCard } from '../components/featured-card';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import { stripHtml } from '../utils/html';
 
 import heroImage from '../images/instagram/votre-image.jpg';
 
-/* ─── Grande card featured (image gauche + texte droite) ────────── */
-function FeaturedItem({
-  href,
-  imageUrl,
-  imageAlt,
-  label,
-  title,
-  description,
-  cta,
-  imageRight = false,
-}: {
-  href: string;
-  imageUrl: string;
-  imageAlt: string;
-  label: string;
-  title: string;
-  description?: string;
-  cta: string;
-  imageRight?: boolean;
-}) {
-  const image = (
-    <Link to={href} className="block overflow-hidden bg-neutral-100">
-      <img
-        src={imageUrl}
-        alt={imageAlt}
-        className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-        style={{ aspectRatio: '16/9', minHeight: 320 }}
-      />
-    </Link>
-  );
-
-  const text = (
-    <div className={`flex flex-col justify-end border-t border-neutral-200 pt-6 lg:border-t-0 lg:px-10 lg:pb-8 lg:pt-0 ${imageRight ? 'lg:border-r' : 'lg:border-l'}`}>
-      <p className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
-        {label}
-      </p>
-      <Link to={href}>
-        <h3 className="mt-3 font-display text-2xl font-light leading-snug text-neutral-900 transition-colors group-hover:text-neutral-500 lg:text-3xl xl:text-4xl">
-          {title}
-        </h3>
-      </Link>
-      {description && (
-        <p className="mt-4 text-sm font-light leading-relaxed text-neutral-400 line-clamp-5">
-          {description}
-        </p>
-      )}
-      <Link
-        to={href}
-        className="mt-6 inline-block text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
-      >
-        {cta} →
-      </Link>
-    </div>
-  );
-
-  return (
-    <article className={`group grid grid-cols-1 ${imageRight ? 'lg:grid-cols-[2fr_3fr]' : 'lg:grid-cols-[3fr_2fr]'}`}>
-      {imageRight ? text : image}
-      {imageRight ? image : text}
-    </article>
-  );
-}
-
-/* ─── Petite card (grille secondaire) ──────────────────────────── */
-function ContentItem({
-  href,
-  imageUrl,
-  imageAlt,
-  label,
-  title,
-  detail,
-}: {
-  href: string;
-  imageUrl: string;
-  imageAlt: string;
-  label: string;
-  title: string;
-  detail?: string;
-}) {
-  return (
-    <article className="group">
-      <Link to={href} className="block overflow-hidden bg-neutral-100">
-        <img
-          src={imageUrl}
-          alt={imageAlt}
-          className="w-full aspect-video object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-        />
-      </Link>
-      <div className="mt-3 border-t border-neutral-200 pt-3">
-        <p className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
-          {label}
-        </p>
-        <Link to={href}>
-          <h3 className="mt-1.5 font-display text-base font-light leading-snug text-neutral-900 transition-colors group-hover:text-neutral-500 lg:text-lg">
-            {title}
-          </h3>
-        </Link>
-        {detail && (
-          <p className="mt-1 text-[0.6rem] font-light text-neutral-400">{detail}</p>
-        )}
-      </div>
-    </article>
-  );
-}
 
 /* ─── Page ──────────────────────────────────────────────────────── */
 const IndexPage = ({ data }) => {
@@ -193,7 +92,7 @@ const IndexPage = ({ data }) => {
 
         {/* Grande card featured — dernier épisode */}
         {allEpisodes[0] && (
-          <FeaturedItem
+          <FeaturedCard
             href={`/podcasts/${allEpisodes[0].guid}`}
             imageUrl={allEpisodes[0].itunes.image}
             imageAlt={allEpisodes[0].title}
@@ -201,10 +100,17 @@ const IndexPage = ({ data }) => {
             title={allEpisodes[0].title}
             description={
               allEpisodes[0].itunes.summary
-                ? allEpisodes[0].itunes.summary.replace(/<[^>]*>/g, '').substring(0, 240) + '…'
+                ? stripHtml(allEpisodes[0].itunes.summary).substring(0, 240) + '…'
                 : undefined
             }
-            cta="Écouter l'Épisode"
+            cta={
+              <Link
+                to={`/podcasts/${allEpisodes[0].guid}`}
+                className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+              >
+                Écouter l'Épisode →
+              </Link>
+            }
           />
         )}
 
@@ -212,14 +118,26 @@ const IndexPage = ({ data }) => {
         {allEpisodes.length > 1 && (
           <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-10 border-t border-neutral-200 pt-10 sm:grid-cols-2 lg:grid-cols-3">
             {allEpisodes.slice(1).map((episode: any) => (
-              <ContentItem
+              <ContentCard
                 key={episode.guid}
                 href={`/podcasts/${episode.guid}`}
                 imageUrl={episode.itunes.image}
                 imageAlt={episode.title}
-                label={`Saison ${episode.itunes.season} · Épisode ${episode.itunes.episode}`}
+                meta={`Saison ${episode.itunes.season} · Épisode ${episode.itunes.episode}`}
                 title={episode.title}
-                detail={episode.itunes.duration || undefined}
+                description={
+                  episode.itunes.summary
+                    ? stripHtml(episode.itunes.summary).substring(0, 120) + '…'
+                    : ''
+                }
+                action={
+                  <Link
+                    to={`/podcasts/${episode.guid}`}
+                    className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+                  >
+                    Écouter →
+                  </Link>
+                }
               />
             ))}
           </div>
@@ -252,15 +170,22 @@ const IndexPage = ({ data }) => {
             ? RichText.asText(art.data.description.richText)
             : undefined;
           return (
-            <FeaturedItem
+            <FeaturedCard
               href={`/articles/${art.uid}`}
               imageUrl={art.data.image.url}
               imageAlt={art.data.image.alt || title}
               label="Article · À la Une"
               title={title}
               description={description ? description.substring(0, 240) + '…' : undefined}
-              cta="Lire l'Article"
               imageRight
+              cta={
+                <Link
+                  to={`/articles/${art.uid}`}
+                  className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+                >
+                  Lire l'Article →
+                </Link>
+              }
             />
           );
         })()}
@@ -270,14 +195,26 @@ const IndexPage = ({ data }) => {
           <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-10 border-t border-neutral-200 pt-10 sm:grid-cols-2 lg:grid-cols-3">
             {allArticles.slice(1).map((article: any) => {
               const title = RichText.asText(article.data.title.richText);
+              const description = article.data.description?.richText
+                ? RichText.asText(article.data.description.richText).substring(0, 120) + '…'
+                : '';
               return (
-                <ContentItem
+                <ContentCard
                   key={article.uid}
                   href={`/articles/${article.uid}`}
                   imageUrl={article.data.image.url}
                   imageAlt={article.data.image.alt || title}
-                  label="Article"
+                  meta="Article"
                   title={title}
+                  description={description}
+                  action={
+                    <Link
+                      to={`/articles/${article.uid}`}
+                      className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+                    >
+                      Lire →
+                    </Link>
+                  }
                 />
               );
             })}
