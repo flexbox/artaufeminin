@@ -1,9 +1,7 @@
 import React from 'react';
 import { RichText, RichTextBlock } from 'prismic-reactjs';
 
-import Button from './button';
 import HeroCard from './heroCard';
-import Text from './text';
 
 type Article = {
   uid: string;
@@ -21,50 +19,34 @@ export function ArticlesHero({ allArticles }: ArticlesHeroProps) {
   if (!allArticles || allArticles.length < 3) {
     return (
       <div className="m-auto my-12 w-3/4 text-center">
-        <Text as="p" variant="p" className="text-stone-500">
+        <p className="text-sm font-light text-neutral-400">
           Aucun article disponible pour le moment.
-        </Text>
+        </p>
       </div>
     );
   }
 
   return (
     <div className="m-auto w-3/4">
-      <div className="flex flex-col gap-3 md:flex-row">
-
-        {/* Grande carte */}
-        <div className="h-72 md:h-[520px] md:flex-[2]">
+      <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
+        {allArticles.slice(0, 3).map((article) => (
           <HeroCard
-            heroLink={`/articles/${allArticles[0].uid}`}
-            imageUrl={allArticles[0].data.image.url}
-            heroTitle={RichText.asText(allArticles[0].data.title.richText)}
+            key={article.uid}
+            heroLink={`/articles/${article.uid}`}
+            imageUrl={article.data.image.url}
+            heroTitle={RichText.asText(article.data.title.richText)}
+            subtitle="Article"
           />
-        </div>
-
-        {/* Deux petites cartes empilées */}
-        <div className="flex flex-col gap-3 md:flex-1">
-          <div className="h-48 md:h-[254px]">
-            <HeroCard
-              heroLink={`/articles/${allArticles[1].uid}`}
-              imageUrl={allArticles[1].data.image.url}
-              heroTitle={RichText.asText(allArticles[1].data.title.richText)}
-            />
-          </div>
-          <div className="h-48 md:h-[254px]">
-            <HeroCard
-              heroLink={`/articles/${allArticles[2].uid}`}
-              imageUrl={allArticles[2].data.image.url}
-              heroTitle={RichText.asText(allArticles[2].data.title.richText)}
-            />
-          </div>
-        </div>
-
+        ))}
       </div>
 
-      <div className="mt-6 flex justify-end">
-        <Button as="a" href="/articles" variant="outlineDark" size="s">
-          Lire tous les articles
-        </Button>
+      <div className="mt-12 flex justify-end border-t border-neutral-200 pt-6">
+        <a
+          href="/articles"
+          className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-neutral-400 transition-colors hover:text-neutral-900"
+        >
+          Lire tous les articles →
+        </a>
       </div>
     </div>
   );

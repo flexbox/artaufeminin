@@ -57,9 +57,9 @@ function Layout({
   const player = useAudioPlayer(audioPlayerData);
 
   return (
-    <div className="bg-cream-100">
+    <div className="bg-white">
       <Header />
-      <main role="main" className="mt-12 px-4">
+      <main role="main" className="px-4">
         {children}
       </main>
       {withInstagram && <Instagram />}

@@ -5,20 +5,29 @@ export interface HeroCardProps {
   heroLink: string;
   imageUrl: string;
   heroTitle: string;
+  subtitle?: string;
 }
 
-export const HeroCard = ({ imageUrl, heroLink, heroTitle }: HeroCardProps) => {
+export const HeroCard = ({ imageUrl, heroLink, heroTitle, subtitle }: HeroCardProps) => {
   return (
-    <Link to={heroLink} className="group relative block h-full overflow-hidden rounded-sm">
-      <img
-        src={imageUrl}
-        alt={heroTitle}
-        className="h-full w-full object-cover object-top transition-transform duration-500 ease-in-out group-hover:scale-105"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
-      <h3 className="absolute bottom-0 left-0 right-0 p-5 font-display text-base font-semibold leading-snug text-white drop-shadow-sm md:text-lg">
-        {heroTitle}
-      </h3>
+    <Link to={heroLink} className="group block">
+      <div className="overflow-hidden bg-neutral-100">
+        <img
+          src={imageUrl}
+          alt={heroTitle}
+          className="w-full aspect-square object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+        />
+      </div>
+      <div className="mt-3 space-y-1.5">
+        {subtitle && (
+          <p className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+            {subtitle}
+          </p>
+        )}
+        <h3 className="font-display text-base font-light leading-snug text-neutral-900 transition-colors group-hover:text-neutral-500 md:text-[1.05rem]">
+          {heroTitle}
+        </h3>
+      </div>
     </Link>
   );
 };

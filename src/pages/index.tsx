@@ -1,223 +1,336 @@
 import { Link, graphql } from 'gatsby';
+import { RichText } from 'prismic-reactjs';
 import React from 'react';
 
-import Button from '../components/button';
-import { Hero } from '../components/hero';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import Text from '../components/text';
-import { ArticlesHero } from '../components/articlesHero';
 
+import heroImage from '../images/instagram/votre-image.jpg';
+
+/* ─── Grande card featured (image gauche + texte droite) ────────── */
+function FeaturedItem({
+  href,
+  imageUrl,
+  imageAlt,
+  label,
+  title,
+  description,
+  cta,
+  imageRight = false,
+}: {
+  href: string;
+  imageUrl: string;
+  imageAlt: string;
+  label: string;
+  title: string;
+  description?: string;
+  cta: string;
+  imageRight?: boolean;
+}) {
+  const image = (
+    <Link to={href} className="block overflow-hidden bg-neutral-100">
+      <img
+        src={imageUrl}
+        alt={imageAlt}
+        className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+        style={{ aspectRatio: '16/9', minHeight: 320 }}
+      />
+    </Link>
+  );
+
+  const text = (
+    <div className={`flex flex-col justify-end border-t border-neutral-200 pt-6 lg:border-t-0 lg:px-10 lg:pb-8 lg:pt-0 ${imageRight ? 'lg:border-r' : 'lg:border-l'}`}>
+      <p className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        {label}
+      </p>
+      <Link to={href}>
+        <h3 className="mt-3 font-display text-2xl font-light leading-snug text-neutral-900 transition-colors group-hover:text-neutral-500 lg:text-3xl xl:text-4xl">
+          {title}
+        </h3>
+      </Link>
+      {description && (
+        <p className="mt-4 text-sm font-light leading-relaxed text-neutral-400 line-clamp-5">
+          {description}
+        </p>
+      )}
+      <Link
+        to={href}
+        className="mt-6 inline-block text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+      >
+        {cta} →
+      </Link>
+    </div>
+  );
+
+  return (
+    <article className={`group grid grid-cols-1 ${imageRight ? 'lg:grid-cols-[2fr_3fr]' : 'lg:grid-cols-[3fr_2fr]'}`}>
+      {imageRight ? text : image}
+      {imageRight ? image : text}
+    </article>
+  );
+}
+
+/* ─── Petite card (grille secondaire) ──────────────────────────── */
+function ContentItem({
+  href,
+  imageUrl,
+  imageAlt,
+  label,
+  title,
+  detail,
+}: {
+  href: string;
+  imageUrl: string;
+  imageAlt: string;
+  label: string;
+  title: string;
+  detail?: string;
+}) {
+  return (
+    <article className="group">
+      <Link to={href} className="block overflow-hidden bg-neutral-100">
+        <img
+          src={imageUrl}
+          alt={imageAlt}
+          className="w-full aspect-video object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+        />
+      </Link>
+      <div className="mt-3 border-t border-neutral-200 pt-3">
+        <p className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          {label}
+        </p>
+        <Link to={href}>
+          <h3 className="mt-1.5 font-display text-base font-light leading-snug text-neutral-900 transition-colors group-hover:text-neutral-500 lg:text-lg">
+            {title}
+          </h3>
+        </Link>
+        {detail && (
+          <p className="mt-1 text-[0.6rem] font-light text-neutral-400">{detail}</p>
+        )}
+      </div>
+    </article>
+  );
+}
+
+/* ─── Page ──────────────────────────────────────────────────────── */
 const IndexPage = ({ data }) => {
   const allEpisodes = data.allAnchorEpisode.nodes;
   const allArticles = data.allPrismicBlogPost.nodes;
   const latestEpisode = allEpisodes[0];
 
   return (
-    <Layout withInstagram={true}>
+    <Layout withInstagram={false}>
 
-      {/* ── HERO ─────────────────────────────────────────────────── */}
-      <section className="-mx-4 -mt-12 overflow-hidden border-b border-clay-200 bg-cream-100">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:flex lg:items-center lg:gap-20 lg:px-16 lg:py-32">
+      {/* ── HERO — image plein cadre + strip "Now Open" ─────────── */}
+      <section className="-mx-4">
 
-          {/* Texte éditorial */}
-          <div className="flex-1 text-center lg:text-left">
-            <p className="mb-5 text-xs font-semibold uppercase tracking-widest text-clay-500">
-              Un podcast par Aldjia Boughias
+        {/* Image pleine hauteur */}
+        <div
+          className="relative w-full overflow-hidden bg-neutral-100"
+          style={{ height: '85vh', minHeight: 520 }}
+        >
+          <img
+            src={heroImage}
+            alt="ART AU FÉMININ"
+            className="h-full w-full object-cover object-[center_30%]"
+          />
+          {/* Gradient + phrase d'accroche */}
+          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+            <p className="mb-5 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-white/50">
+              Art au Féminin
             </p>
-            <h1 className="font-display text-5xl font-semibold leading-[1.1] tracking-tight text-stone-900 sm:text-6xl lg:text-[5rem]">
-              Les femmes artistes<br />
-              <span className="italic font-light">qui ont façonné</span><br />
-              l'histoire de l'art
-            </h1>
-            <p className="mx-auto mt-6 max-w-md text-base leading-relaxed text-stone-500 lg:mx-0 lg:text-lg">
-              Un podcast pour redécouvrir les créatrices qui ont marqué l'art à travers les siècles. Trop souvent oubliées — enfin racontées.
+            <h2 className="max-w-3xl font-display text-4xl font-light leading-tight text-white lg:text-6xl xl:text-7xl">
+              Elles ont créé,{' '}
+              <span className="italic">l'Histoire les a oubliées.</span>
+            </h2>
+            <p className="mt-6 max-w-lg text-base font-light leading-relaxed text-white/60">
+              Un podcast pour redécouvrir les femmes artistes qui ont façonné l'Art — de l'Antiquité à aujourd'hui.
             </p>
-            <div className="mt-10 flex flex-col items-center gap-5 sm:flex-row lg:justify-start justify-center">
-              <Button as="a" href="/podcasts" variant="outlineDark" size="sm">
-                Écouter les podcasts
-              </Button>
+          </div>
+        </div>
+
+        {/* Strip "Now Open" — titre de l'épisode sur une seule ligne */}
+        {latestEpisode && (
+          <div className="border-b border-neutral-200 bg-white">
+            <div className="mx-auto flex max-w-7xl items-center gap-6 px-6 py-5 lg:px-16">
+              <span className="shrink-0 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+                Dernier Épisode
+              </span>
+              <span className="hidden h-3 w-px shrink-0 bg-neutral-200 sm:block" />
+              <span className="flex-1 truncate font-display text-sm font-light text-neutral-900 lg:text-base">
+                {latestEpisode.title}
+              </span>
+              <span className="hidden shrink-0 text-[0.6rem] font-light text-neutral-400 sm:block">
+                Saison {latestEpisode.itunes.season} · Épisode {latestEpisode.itunes.episode}
+              </span>
               <Link
-                to="/articles"
-                className="text-sm font-semibold uppercase tracking-widest text-stone-400 hover:text-clay-500 transition-colors"
+                to={`/podcasts/${latestEpisode.guid}`}
+                className="shrink-0 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
               >
-                Lire les articles →
+                Écouter →
               </Link>
             </div>
           </div>
+        )}
+      </section>
 
-          {/* Pochette du dernier épisode */}
-          {latestEpisode && (
-            <div className="mt-16 flex justify-center lg:mt-0 lg:flex-shrink-0">
-              <div className="relative">
-                {/* Cadres décoratifs décalés */}
-                <div className="absolute -right-5 -top-5 h-full w-full rounded border border-clay-300/70" />
-                <div className="absolute -right-10 -top-10 h-full w-full rounded border border-clay-200/50" />
+      {/* ── ÉPISODES ─────────────────────────────────────────────── */}
+      <section className="mx-auto mt-16 w-11/12 max-w-7xl">
 
-                <Link to={`/podcasts/${latestEpisode.guid}`} className="block">
-                  <img
-                    src={latestEpisode.itunes.image}
-                    alt={latestEpisode.title}
-                    className="relative w-56 rounded shadow-2xl lg:w-72 aspect-square object-cover"
-                  />
-                </Link>
-
-                {/* Info épisode sous la pochette */}
-                <div className="mt-5 text-center lg:text-left">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-clay-500">
-                    Dernier épisode · S{latestEpisode.itunes.season} E{latestEpisode.itunes.episode}
-                  </p>
-                  <p className="mt-1 font-display text-sm font-medium leading-snug text-stone-600 max-w-xs">
-                    {latestEpisode.title}
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
+        {/* En-tête de section */}
+        <div className="mb-10 flex items-baseline justify-between border-b border-neutral-200 pb-4">
+          <span className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-900">
+            Épisodes
+          </span>
+          <Link
+            to="/podcasts"
+            className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+          >
+            Voir Tous →
+          </Link>
         </div>
+
+        {/* Grande card featured — dernier épisode */}
+        {allEpisodes[0] && (
+          <FeaturedItem
+            href={`/podcasts/${allEpisodes[0].guid}`}
+            imageUrl={allEpisodes[0].itunes.image}
+            imageAlt={allEpisodes[0].title}
+            label={`Saison ${allEpisodes[0].itunes.season} · Épisode ${allEpisodes[0].itunes.episode}`}
+            title={allEpisodes[0].title}
+            description={
+              allEpisodes[0].itunes.summary
+                ? allEpisodes[0].itunes.summary.replace(/<[^>]*>/g, '').substring(0, 240) + '…'
+                : undefined
+            }
+            cta="Écouter l'Épisode"
+          />
+        )}
+
+        {/* Grille des épisodes suivants */}
+        {allEpisodes.length > 1 && (
+          <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-10 border-t border-neutral-200 pt-10 sm:grid-cols-2 lg:grid-cols-3">
+            {allEpisodes.slice(1).map((episode: any) => (
+              <ContentItem
+                key={episode.guid}
+                href={`/podcasts/${episode.guid}`}
+                imageUrl={episode.itunes.image}
+                imageAlt={episode.title}
+                label={`Saison ${episode.itunes.season} · Épisode ${episode.itunes.episode}`}
+                title={episode.title}
+                detail={episode.itunes.duration || undefined}
+              />
+            ))}
+          </div>
+        )}
       </section>
 
-      {/* ── PODCASTS ─────────────────────────────────────────────── */}
-      <section className="m-auto mb-4 mt-20 w-3/4">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-clay-500">
-          Derniers épisodes
-        </p>
-        <Text
-          as="h2"
-          variant="h1"
-          className="mb-8 text-4xl leading-tight md:text-5xl"
-        >
-          Podcasts sur les femmes artistes
-        </Text>
-      </section>
-
-      <Hero allEpisodes={allEpisodes} />
-
-      <div className="m-auto w-3/4">
-        <hr className="separator m-auto my-4" />
-      </div>
+      {/* ── SÉPARATEUR ───────────────────────────────────────────── */}
+      <div className="mx-auto my-20 w-11/12 max-w-7xl border-t border-neutral-200" />
 
       {/* ── ARTICLES ─────────────────────────────────────────────── */}
-      <section className="m-auto mb-4 w-3/4">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-clay-500">
-          Derniers articles
-        </p>
-        <Text
-          as="h2"
-          variant="h1"
-          className="mb-8 text-4xl leading-tight md:text-5xl"
-        >
-          Articles sur les femmes artistes
-        </Text>
+      <section className="mx-auto w-11/12 max-w-7xl">
+
+        <div className="mb-10 flex items-baseline justify-between border-b border-neutral-200 pb-4">
+          <span className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-900">
+            Articles
+          </span>
+          <Link
+            to="/articles"
+            className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+          >
+            Voir Tous →
+          </Link>
+        </div>
+
+        {/* Grande card featured — dernier article */}
+        {allArticles[0] && (() => {
+          const art = allArticles[0];
+          const title = RichText.asText(art.data.title.richText);
+          const description = art.data.description?.richText
+            ? RichText.asText(art.data.description.richText)
+            : undefined;
+          return (
+            <FeaturedItem
+              href={`/articles/${art.uid}`}
+              imageUrl={art.data.image.url}
+              imageAlt={art.data.image.alt || title}
+              label="Article · À la Une"
+              title={title}
+              description={description ? description.substring(0, 240) + '…' : undefined}
+              cta="Lire l'Article"
+              imageRight
+            />
+          );
+        })()}
+
+        {/* Grille des articles suivants */}
+        {allArticles.length > 1 && (
+          <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-10 border-t border-neutral-200 pt-10 sm:grid-cols-2 lg:grid-cols-3">
+            {allArticles.slice(1).map((article: any) => {
+              const title = RichText.asText(article.data.title.richText);
+              return (
+                <ContentItem
+                  key={article.uid}
+                  href={`/articles/${article.uid}`}
+                  imageUrl={article.data.image.url}
+                  imageAlt={article.data.image.alt || title}
+                  label="Article"
+                  title={title}
+                />
+              );
+            })}
+          </div>
+        )}
       </section>
 
-      <ArticlesHero allArticles={allArticles} />
-
-      {/* ── GALERIE 3D ───────────────────────────────────────────── */}
-      <section className="-mx-4 my-24 overflow-hidden bg-stone-900">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:flex lg:items-center lg:gap-20 lg:px-16 lg:py-28">
-
-          {/* Texte */}
-          <div className="flex-1">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-clay-300">
-              Bientôt disponible · Première exposition
+      {/* ── GALERIE ───────────────────────────────────────────────── */}
+      <section className="-mx-4 mt-24 border-t border-neutral-200 bg-neutral-950">
+        <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 py-16 lg:flex-row lg:items-end lg:justify-between lg:px-16 lg:py-20">
+          <div className="max-w-lg">
+            <p className="mb-3 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-white/40">
+              Bientôt Disponible · Première Exposition
             </p>
-            <h2 className="font-display text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-6xl">
-              Galerie{' '}
-              <span className="italic font-light text-clay-300">ART au féminin</span>
+            <h2 className="font-display text-4xl font-light leading-tight text-white lg:text-5xl">
+              Galerie ART AU FÉMININ
             </h2>
-            <p className="mt-4 font-display text-2xl font-light italic text-stone-300 md:text-3xl">
+            <p className="mt-2 font-display text-xl font-light italic text-white/40">
               « Sororité »
             </p>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-stone-400">
-              Une galerie d'art immersive en 3D dédiée aux femmes artistes.
-              La première exposition réunit une vingtaine d'artistes autour du thème de
-              la sororité — ce lien puissant entre femmes qui traverse l'histoire de l'art.
+            <p className="mt-5 text-sm font-light leading-relaxed text-white/50">
+              Une galerie d'Art immersive en 3D dédiée aux femmes artistes.
+              La première exposition réunit une vingtaine d'artistes autour du thème
+              de la Sororité — ce lien puissant entre femmes qui traverse l'Histoire de l'Art.
             </p>
-            <div className="mt-10 flex flex-wrap items-center gap-5">
-              <a
-                href="/galerie"
-                className="inline-flex items-center gap-2 rounded-full border border-clay-500/50 bg-clay-500/10 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-clay-300 transition-colors hover:bg-clay-500/20"
-              >
-                ✦ Découvrir la galerie →
-              </a>
-            </div>
           </div>
-
-          {/* Visuel décoratif */}
-          <div className="mt-16 flex-shrink-0 lg:mt-0">
-            <div className="relative flex items-center justify-center">
-              {/* Cercles concentriques évoquant l'espace 3D */}
-              <div className="absolute size-72 rounded-full border border-white/5" />
-              <div className="absolute size-56 rounded-full border border-white/8" />
-              <div className="absolute size-40 rounded-full border border-clay-500/20" />
-
-              {/* Centre */}
-              <div className="relative flex size-28 items-center justify-center rounded-full border border-clay-500/40 bg-stone-800">
-                <span className="font-display text-4xl font-light italic text-clay-300">
-                  ✦
-                </span>
-              </div>
-
-              {/* Points orbitaux représentant les ~20 artistes */}
-              {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => {
-                const angle = (i / 8) * 360;
-                const rad = (angle * Math.PI) / 180;
-                const r = 110;
-                const x = Math.cos(rad) * r;
-                const y = Math.sin(rad) * r;
-                return (
-                  <div
-                    key={i}
-                    className="absolute size-2 rounded-full bg-clay-400/60"
-                    style={{ transform: `translate(${x}px, ${y}px)` }}
-                  />
-                );
-              })}
-              {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((i) => {
-                const angle = (i / 12) * 360 + 15;
-                const rad = (angle * Math.PI) / 180;
-                const r = 140;
-                const x = Math.cos(rad) * r;
-                const y = Math.sin(rad) * r;
-                return (
-                  <div
-                    key={i}
-                    className="absolute size-1.5 rounded-full bg-stone-500/60"
-                    style={{ transform: `translate(${x}px, ${y}px)` }}
-                  />
-                );
-              })}
-            </div>
-          </div>
-
+          <a
+            href="/galerie"
+            className="shrink-0 border border-white/20 px-6 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white/50 transition-colors hover:border-white/60 hover:text-white"
+          >
+            Découvrir la Galerie →
+          </a>
         </div>
       </section>
 
-      {/* ── CTA APPLE PODCAST ────────────────────────────────────── */}
-      <section className="m-auto my-24 w-11/12 max-w-2xl text-center">
-        <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-clay-500">
-          Soutenez le podcast
-        </p>
-        <Text
-          as="h3"
-          variant="h2"
-          className="mb-4 text-2xl leading-snug md:text-3xl"
-        >
-          Vous aimez le podcast ?
-        </Text>
-        <Text as="p" variant="p" className="mb-8 text-stone-500">
-          La meilleure façon de soutenir ART au féminin est de laisser une évaluation sur Apple Podcasts. Cela prend une minute et aide énormément.
-        </Text>
-        <Button
-          as="a"
-          href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152"
-          variant="outlineDark"
-          size="s"
-          className="mx-auto"
-        >
-          Laisser 5 ⭐ sur Apple Podcasts
-        </Button>
+      {/* ── APPLE PODCASTS ────────────────────────────────────────── */}
+      <section className="mx-auto my-20 w-11/12 max-w-7xl">
+        <div className="flex flex-col gap-6 border-t border-neutral-200 pt-10 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+              Soutenez le Podcast
+            </p>
+            <p className="mt-2 font-display text-2xl font-light text-neutral-900">
+              Vous aimez ART AU FÉMININ ?
+            </p>
+          </div>
+          <a
+            href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152"
+            className="shrink-0 border border-neutral-300 px-6 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
+          >
+            Laisser 5 ★ sur Apple Podcasts
+          </a>
+        </div>
       </section>
 
     </Layout>
@@ -231,12 +344,12 @@ export const indexPageQuery = graphql`
         description
       }
     }
-    allAnchorEpisode(limit: 3) {
+    allAnchorEpisode(limit: 4) {
       nodes {
         ...AnchorEpisodeFragment
       }
     }
-    allPrismicBlogPost(limit: 3, sort: { first_publication_date: DESC }) {
+    allPrismicBlogPost(limit: 4, sort: { first_publication_date: DESC }) {
       nodes {
         ...PrismicBlogPostFragment
       }
@@ -247,12 +360,8 @@ export const indexPageQuery = graphql`
     uid
     data {
       date
-      title {
-        richText
-      }
-      description {
-        richText
-      }
+      title { richText }
+      description { richText }
       image {
         alt
         copyright
@@ -280,13 +389,11 @@ export const indexPageQuery = graphql`
   }
 `;
 
-export const Head = () => {
-  return (
-    <SEO
-      title="ART au féminin — Le podcast sur les femmes artistes et l'histoire de l'art"
-      description="Un podcast présenté par Aldjia Boughias pour redécouvrir les femmes artistes qui ont marqué l'histoire de l'art. Épisodes, portraits et articles à écouter et à lire."
-    />
-  );
-};
+export const Head = () => (
+  <SEO
+    title="ART AU FÉMININ — Le podcast sur les femmes artistes et l'Histoire de l'Art"
+    description="Un podcast présenté par Aldjia Boughias pour redécouvrir les femmes artistes qui ont marqué l'Histoire de l'Art. Épisodes, portraits et articles à écouter et à lire."
+  />
+);
 
 export default IndexPage;

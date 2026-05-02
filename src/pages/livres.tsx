@@ -18,16 +18,15 @@ const BooksPage = ({ data }: BooksPageProps) => {
 
   return (
     <Layout withInstagram={false}>
-      {/* En-tête */}
-      <section className="m-auto mb-10 mt-8 w-3/4">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-clay-500">
+      <section className="m-auto mb-10 mt-8 w-3/4 border-b border-neutral-200 pb-8">
+        <p className="mb-2 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
           Bibliothèque
         </p>
-        <h1 className="font-display text-4xl font-semibold leading-tight text-stone-900 md:text-5xl">
-          Livres sur les femmes artistes
+        <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl">
+          Livres sur les Femmes Artistes
         </h1>
-        <p className="mt-4 max-w-xl text-base leading-relaxed text-stone-500">
-          Une sélection de chroniques pour explorer l'histoire des femmes dans l'art — biographies, essais, monographies.
+        <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-neutral-500">
+          Une sélection de chroniques pour explorer l'Histoire des femmes dans l'Art — biographies, essais, monographies.
         </p>
       </section>
 
@@ -42,12 +41,8 @@ export const query = graphql`
       nodes {
         uid
         data {
-          title {
-            text
-          }
-          content {
-            text
-          }
+          title { text }
+          content { text }
         }
       }
     }
@@ -57,8 +52,8 @@ export const query = graphql`
 export const Head = () => {
   return (
     <SEO
-      title="Livres sur les femmes artistes — ART au féminin"
-      description="Une sélection de chroniques pour explorer l'histoire des femmes dans l'art — biographies, essais, monographies."
+      title="Livres sur les Femmes Artistes — ART AU FÉMININ"
+      description="Une sélection de chroniques pour explorer l'Histoire des femmes dans l'Art — biographies, essais, monographies."
     />
   );
 };

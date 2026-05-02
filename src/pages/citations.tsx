@@ -15,16 +15,15 @@ const QuotationPage = ({
 
   return (
     <Layout withInstagram={false}>
-      {/* En-tête */}
-      <section className="m-auto mb-12 mt-8 w-3/4">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-clay-500">
+      <section className="m-auto mb-12 mt-8 w-3/4 border-b border-neutral-200 pb-8">
+        <p className="mb-2 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
           Inspiration
         </p>
-        <h1 className="font-display text-4xl font-semibold leading-tight text-stone-900 md:text-5xl">
-          Citations de femmes artistes
+        <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl">
+          Citations de Femmes Artistes
         </h1>
-        <p className="mt-4 max-w-xl text-base leading-relaxed text-stone-500">
-          Des paroles qui traversent le temps — ce que les femmes artistes ont dit de l'art, de la création et de leur vie.
+        <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-neutral-500">
+          Des paroles qui traversent le temps — ce que les femmes artistes ont dit de l'Art, de la création et de leur vie.
         </p>
       </section>
 
@@ -50,8 +49,8 @@ export const query = graphql`
 export const Head = () => {
   return (
     <SEO
-      title="Citations de femmes artistes — ART au féminin"
-      description="Des paroles inspirantes qui traversent le temps — ce que les femmes artistes ont dit de l'art, de la création et de leur vie."
+      title="Citations de Femmes Artistes — ART AU FÉMININ"
+      description="Des paroles inspirantes qui traversent le temps — ce que les femmes artistes ont dit de l'Art, de la création et de leur vie."
     />
   );
 };

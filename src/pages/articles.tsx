@@ -18,13 +18,12 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
 
   return (
     <Layout withInstagram={false}>
-      {/* En-tête */}
-      <section className="m-auto mb-10 mt-8 w-3/4">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-clay-500">
-          Tous les articles
+      <section className="m-auto mb-10 mt-8 w-3/4 border-b border-neutral-200 pb-8">
+        <p className="mb-2 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          Tous les Articles
         </p>
-        <h1 className="font-display text-4xl font-semibold leading-tight text-stone-900 md:text-5xl">
-          Articles sur les femmes artistes
+        <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl">
+          Articles sur les Femmes Artistes
         </h1>
       </section>
 
@@ -47,8 +46,8 @@ export const query = graphql`
 export const Head = () => {
   return (
     <SEO
-      title="Articles sur les femmes artistes — ART au féminin"
-      description="Découvrez l'inspiration et la créativité des femmes artistes sur ART au féminin. Explorez leurs œuvres exceptionnelles, leurs parcours uniques et leurs contributions inestimables à l'histoire de l'art."
+      title="Articles sur les Femmes Artistes — ART AU FÉMININ"
+      description="Découvrez l'inspiration et la créativité des femmes artistes sur ART AU FÉMININ. Explorez leurs œuvres exceptionnelles, leurs parcours uniques et leurs contributions inestimables à l'Histoire de l'Art."
     />
   );
 };
