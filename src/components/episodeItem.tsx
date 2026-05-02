@@ -3,6 +3,7 @@ import React, { useMemo } from 'react';
 
 import { useAudioPlayer } from './player/AudioProvider';
 import { PlayButton } from './player/PlayButton';
+import { stripHtml } from '../utils/html';
 import Text from './text';
 
 interface EpisodeItemProps {
@@ -42,9 +43,9 @@ export default function EpisodeItem({
   );
   const player = useAudioPlayer(audioPlayerData);
 
-  let summary = episode.itunes.summary;
+  let summary = episode.itunes.summary ? stripHtml(episode.itunes.summary) : '';
   if (isSummaryTruncate === true) {
-    summary = `${episode.itunes.summary.substring(0, 250)}…`;
+    summary = `${summary.substring(0, 250)}…`;
   }
 
   return (

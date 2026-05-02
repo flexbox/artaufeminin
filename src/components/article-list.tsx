@@ -85,7 +85,7 @@ export function ArticleList({ allArticles, isRow }: ArticleListItemProps) {
   }
 
   return (
-    <div className="m-auto mb-20 grid w-3/4 grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
       {allArticles.map((article) => {
         const title = RichText.asText(article.data.title.richText);
         const description = RichText.asText(article.data.description.richText);
