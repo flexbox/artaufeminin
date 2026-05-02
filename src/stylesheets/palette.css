@@ -1,26 +1,25 @@
 :root {
-  /* Warm editorial palette */
-  --color-primary: #9d6b53;
-  --color-base: #1c1917;
-  --color-border: #e8ddd8;
-  --color-bg: #faf7f2;
+  --color-primary: #3d3d3d;
+  --color-base: #0a0a0a;
+  --color-border: #e0e0de;
+  --color-bg: #f6f6f5;
   --color-white: #ffffff;
 
-  --cream-50: #fdfcfa;
-  --cream-100: #faf7f2;
-  --cream-200: #f3ece3;
-  --cream-300: #e9ddd4;
+  --cream-50: #ffffff;
+  --cream-100: #f6f6f5;
+  --cream-200: #ededec;
+  --cream-300: #e0e0de;
 
-  --clay-100: #f5ede8;
-  --clay-200: #e8c5b4;
-  --clay-300: #d4a090;
-  --clay-500: #9d6b53;
-  --clay-700: #6b3d2a;
+  --clay-100: #f0f0ef;
+  --clay-200: #d4d4d3;
+  --clay-300: #a8a8a7;
+  --clay-500: #3d3d3d;
+  --clay-700: #0a0a0a;
 
-  --sage-300: #b5c9b8;
-  --sage-500: #8ba28f;
-  --sage-700: #5f7d64;
+  --sage-300: #c8c8c7;
+  --sage-500: #6b6b6a;
+  --sage-700: #3d3d3c;
 
-  --gold-300: #e4cc9a;
-  --gold-500: #c9a96e;
+  --gold-300: #d4d4d3;
+  --gold-500: #a8a8a7;
 }

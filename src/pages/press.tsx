@@ -14,46 +14,36 @@ interface PressPageProps {
   };
 }
 
-const mediaLogos = [
-  { src: '../images/logo-panthere-premiere.png', alt: 'Panthère Première' },
-  { src: '../images/logo-podtail.png', alt: 'Podtail' },
-  { src: '../images/logo-cultea.png', alt: 'Cultea' },
-  { src: '../images/logo-francetv.png', alt: 'France Info' },
-  { src: '../images/logo-amylee.png', alt: 'Amylee' },
-];
-
 export default function PressPage({ data }: PressPageProps): ReactElement {
   const press = data.allPrismicPress.nodes;
 
   return (
     <Layout withInstagram={false}>
 
-      {/* En-tête */}
-      <section className="m-auto mb-12 mt-8 w-3/4">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-clay-500">
+      <section className="m-auto mb-12 mt-8 w-3/4 border-b border-neutral-200 pb-8">
+        <p className="mb-2 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
           Médias
         </p>
-        <h1 className="font-display text-4xl font-semibold leading-tight text-stone-900 md:text-5xl">
-          Espace presse
+        <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl">
+          Espace Presse
         </h1>
-        <p className="mt-4 max-w-xl text-base leading-relaxed text-stone-500">
-          ART au féminin dans les médias. Pour toute demande presse ou partenariat,
+        <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-neutral-500">
+          ART AU FÉMININ dans les médias. Pour toute demande presse ou partenariat,
           contactez-nous par email.
         </p>
         <a
           href="mailto:artaufemininlepodcast@gmail.com"
-          className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-clay-500 transition-colors hover:text-clay-700"
+          className="mt-4 inline-flex items-center gap-2 text-sm font-light text-neutral-500 transition-colors hover:text-neutral-900"
         >
           artaufemininlepodcast@gmail.com →
         </a>
       </section>
 
-      {/* Logos médias */}
       <section className="m-auto mb-16 w-3/4">
-        <p className="mb-6 text-xs font-semibold uppercase tracking-widest text-clay-500">
-          Ils en parlent
+        <p className="mb-6 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          Ils en Parlent
         </p>
-        <div className="flex flex-wrap items-center justify-start gap-8 rounded-sm border border-clay-200 bg-cream-50 p-8">
+        <div className="flex flex-wrap items-center justify-start gap-8 border border-neutral-200 bg-neutral-50 p-8">
           <StaticImage src="../images/logo-panthere-premiere.png" alt="Panthère Première" placeholder="blurred" height={40} />
           <StaticImage src="../images/logo-podtail.png" alt="Podtail" placeholder="blurred" height={40} />
           <StaticImage src="../images/logo-cultea.png" alt="Cultea" placeholder="blurred" height={40} />
@@ -62,48 +52,40 @@ export default function PressPage({ data }: PressPageProps): ReactElement {
         </div>
       </section>
 
-      {/* Articles de presse */}
       {press.length > 0 && (
         <section className="m-auto mb-16 w-3/4">
-          <p className="mb-6 text-xs font-semibold uppercase tracking-widest text-clay-500">
-            Articles &amp; mentions
+          <p className="mb-6 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+            Articles &amp; Mentions
           </p>
           <PressList allPress={press} />
         </section>
       )}
 
-      {/* Kit presse — logos téléchargeables */}
       <section className="m-auto mb-20 w-3/4">
-        <p className="mb-6 text-xs font-semibold uppercase tracking-widest text-clay-500">
-          Kit presse — logos
+        <p className="mb-6 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          Kit Presse — Logos
         </p>
-        <div className="rounded-sm border border-clay-200 bg-cream-50 p-8">
-          <p className="mb-6 text-sm leading-relaxed text-stone-500">
+        <div className="border border-neutral-200 p-8">
+          <p className="mb-6 text-sm font-light leading-relaxed text-neutral-500">
             Formats SVG et PNG disponibles ci-dessous pour toute utilisation presse.
           </p>
 
           <div className="mb-8">
-            <p className="mb-4 text-xs font-semibold text-stone-400 uppercase tracking-widest">SVG</p>
+            <p className="mb-4 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">SVG</p>
             <div className="flex flex-wrap items-center gap-8">
-              <StaticImage src="../images/logo/logo-black.svg" alt="Logo Noir ART au féminin" width={160} />
-              <div className="rounded-sm bg-stone-800 p-4">
-                <StaticImage src="../images/logo/logo-white.svg" alt="Logo Blanc ART au féminin" width={160} />
-              </div>
-              <div className="rounded-sm bg-sage-500 p-4">
-                <StaticImage src="../images/logo/logo-green.svg" alt="Logo Vert ART au féminin" width={160} />
+              <StaticImage src="../images/logo/logo-black.svg" alt="Logo Noir ART AU FÉMININ" width={160} />
+              <div className="bg-neutral-900 p-4">
+                <StaticImage src="../images/logo/logo-white.svg" alt="Logo Blanc ART AU FÉMININ" width={160} />
               </div>
             </div>
           </div>
 
           <div>
-            <p className="mb-4 text-xs font-semibold text-stone-400 uppercase tracking-widest">PNG</p>
+            <p className="mb-4 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">PNG</p>
             <div className="flex flex-wrap items-center gap-8">
-              <StaticImage src="../images/logo/logo-black.png" alt="Logo Noir ART au féminin" width={160} />
-              <div className="rounded-sm bg-stone-800 p-4">
-                <StaticImage src="../images/logo/logo-white.png" alt="Logo Blanc ART au féminin" width={160} />
-              </div>
-              <div className="rounded-sm bg-sage-500 p-4">
-                <StaticImage src="../images/logo/logo-green.png" alt="Logo Vert ART au féminin" width={160} />
+              <StaticImage src="../images/logo/logo-black.png" alt="Logo Noir ART AU FÉMININ" width={160} />
+              <div className="bg-neutral-900 p-4">
+                <StaticImage src="../images/logo/logo-white.png" alt="Logo Blanc ART AU FÉMININ" width={160} />
               </div>
             </div>
           </div>
@@ -116,8 +98,8 @@ export default function PressPage({ data }: PressPageProps): ReactElement {
 
 export const Head = () => (
   <SEO
-    title="Espace presse — ART au féminin"
-    description="ART au féminin dans les médias. Kit presse, logos et contact pour toute demande de partenariat ou couverture presse."
+    title="Espace Presse — ART AU FÉMININ"
+    description="ART AU FÉMININ dans les médias. Kit presse, logos et contact pour toute demande de partenariat ou couverture presse."
   />
 );
 

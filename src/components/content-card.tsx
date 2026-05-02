@@ -22,30 +22,28 @@ export function ContentCard({
 }: ContentCardProps) {
   return (
     <article className="group flex flex-col">
-      {/* Image */}
-      <Link to={href} className="block overflow-hidden rounded-sm">
-        <div className="aspect-square overflow-hidden bg-stone-100">
+      <Link to={href} className="block overflow-hidden bg-neutral-100">
+        <div className="aspect-square overflow-hidden">
           <img
             src={imageUrl}
             alt={imageAlt}
-            className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+            className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]"
           />
         </div>
       </Link>
 
-      {/* Contenu */}
-      <div className="mt-4 flex flex-1 flex-col">
-        <p className="text-xs font-semibold uppercase tracking-widest text-clay-500">
+      <div className="mt-3 flex flex-1 flex-col">
+        <p className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
           {meta}
         </p>
 
         <Link to={href}>
-          <h2 className="mt-2 font-display text-xl font-semibold leading-snug text-stone-900 transition-colors hover:text-clay-500">
+          <h2 className="mt-2 font-display text-base font-light leading-snug text-neutral-900 transition-colors group-hover:text-neutral-500 md:text-[1.05rem]">
             {title}
           </h2>
         </Link>
 
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-stone-500">
+        <p className="mt-2 flex-1 text-sm font-light leading-relaxed text-neutral-400">
           {description}
         </p>
 

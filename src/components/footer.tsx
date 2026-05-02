@@ -61,29 +61,25 @@ const navigation = {
 
 export default function Footer({ siteTitle }: FooterProps) {
   return (
-    <footer aria-labelledby="footer-heading" className="pb-24" style={{ backgroundColor: '#8ba28f' }}>
+    <footer aria-labelledby="footer-heading" className="bg-neutral-900 pb-24">
       <h2 id="footer-heading" className="sr-only">Footer</h2>
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
         {/* ── Zone marque ────────────────────────────────────── */}
-        <div className="border-b border-white/20 py-14 lg:py-20">
+        <div className="border-b border-white/10 py-14 lg:py-20">
           <div className="lg:flex lg:items-end lg:justify-between">
             <div>
               <Link to="/" className="group inline-block">
-                <span className="font-display text-4xl font-semibold tracking-tight text-white lg:text-5xl">
-                  ART{' '}
-                  <span className="italic font-light text-white/70 transition-colors group-hover:text-clay-300">
-                    au féminin
-                  </span>
+                <span className="font-display text-4xl font-light tracking-tight text-white lg:text-5xl">
+                  ART AU FÉMININ
                 </span>
               </Link>
-              <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/70">
+              <p className="mt-4 max-w-sm text-sm font-light leading-relaxed text-white/40">
                 Un podcast par Aldjia Boughias — célébrer les femmes artistes qui ont façonné l'histoire de l'art.
               </p>
             </div>
 
-            {/* Réseaux sociaux */}
             <div className="mt-8 flex items-center gap-5 lg:mt-0">
               {navigation.social.map((item) => (
                 <a
@@ -91,7 +87,7 @@ export default function Footer({ siteTitle }: FooterProps) {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex size-10 items-center justify-center rounded-full border border-white/30 text-white/80 transition-all hover:border-white hover:text-white"
+                  className="flex size-9 items-center justify-center border border-white/20 text-white/40 transition-all hover:border-white/60 hover:text-white/80"
                 >
                   <span className="sr-only">{item.name}</span>
                   <item.icon className="size-4" aria-hidden="true" />
@@ -104,17 +100,16 @@ export default function Footer({ siteTitle }: FooterProps) {
         {/* ── Zone navigation + newsletter ───────────────────── */}
         <div className="py-14 lg:grid lg:grid-cols-4 lg:gap-10">
 
-          {/* Contenu */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-widest text-white/70">
+            <h3 className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-white/30">
               Contenu
             </h3>
-            <ul role="list" className="mt-5 space-y-3">
+            <ul role="list" className="mt-6 space-y-3">
               {navigation.contenu.map((item) => (
                 <li key={item.name}>
                   <Link
                     to={item.href}
-                    className="text-sm text-white/90 transition-colors hover:text-white"
+                    className="text-sm font-light text-white/60 transition-colors hover:text-white"
                   >
                     {item.name}
                   </Link>
@@ -123,12 +118,11 @@ export default function Footer({ siteTitle }: FooterProps) {
             </ul>
           </div>
 
-          {/* Le podcast */}
           <div className="mt-10 lg:mt-0">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-white/70">
+            <h3 className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-white/30">
               Le podcast
             </h3>
-            <ul role="list" className="mt-5 space-y-3">
+            <ul role="list" className="mt-6 space-y-3">
               {navigation.podcast.map((item) => (
                 <li key={item.name}>
                   {'external' in item && item.external ? (
@@ -136,14 +130,14 @@ export default function Footer({ siteTitle }: FooterProps) {
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-white/90 transition-colors hover:text-white"
+                      className="text-sm font-light text-white/60 transition-colors hover:text-white"
                     >
                       {item.name}
                     </a>
                   ) : (
                     <Link
                       to={item.href}
-                      className="text-sm text-white/90 transition-colors hover:text-white"
+                      className="text-sm font-light text-white/60 transition-colors hover:text-white"
                     >
                       {item.name}
                     </Link>
@@ -153,12 +147,11 @@ export default function Footer({ siteTitle }: FooterProps) {
             </ul>
           </div>
 
-          {/* À propos */}
           <div className="mt-10 lg:mt-0">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-white/70">
+            <h3 className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-white/30">
               À propos
             </h3>
-            <ul role="list" className="mt-5 space-y-3">
+            <ul role="list" className="mt-6 space-y-3">
               {navigation.apropos.map((item) => (
                 <li key={item.name}>
                   {'external' in item && item.external ? (
@@ -166,14 +159,14 @@ export default function Footer({ siteTitle }: FooterProps) {
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-white/90 transition-colors hover:text-white"
+                      className="text-sm font-light text-white/60 transition-colors hover:text-white"
                     >
                       {item.name}
                     </a>
                   ) : (
                     <Link
                       to={item.href}
-                      className="text-sm text-white/90 transition-colors hover:text-white"
+                      className="text-sm font-light text-white/60 transition-colors hover:text-white"
                     >
                       {item.name}
                     </Link>
@@ -183,24 +176,23 @@ export default function Footer({ siteTitle }: FooterProps) {
             </ul>
           </div>
 
-          {/* Newsletter */}
           <div className="mt-10 lg:mt-0">
             <Newsletter />
           </div>
         </div>
 
         {/* ── Bas de page ─────────────────────────────────────── */}
-        <div className="border-t border-white/20 py-8 lg:flex lg:items-center lg:justify-between">
-          <p className="text-xs text-white/60">
+        <div className="border-t border-white/10 py-8 lg:flex lg:items-center lg:justify-between">
+          <p className="text-xs font-light text-white/30">
             &copy; {new Date().getFullYear()} {siteTitle} — Tous droits réservés.
           </p>
-          <p className="mt-2 text-xs text-white/40 lg:mt-0">
+          <p className="mt-2 text-xs font-light text-white/20 lg:mt-0">
             Fait avec passion par{' '}
             <a
               href="https://aldjia.dev"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/60 hover:text-white transition-colors"
+              className="text-white/40 transition-colors hover:text-white/70"
             >
               Aldjia Boughias
             </a>

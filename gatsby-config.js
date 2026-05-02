@@ -11,7 +11,11 @@ module.exports = {
     {
       resolve: "gatsby-plugin-google-fonts",
       options: {
-        fonts: ["Merriweather"],
+        fonts: [
+          "Cormorant Garamond:300,300i,400,400i,500",
+          "Inter:300,400,500",
+        ],
+        display: 'swap',
       },
     },
     {

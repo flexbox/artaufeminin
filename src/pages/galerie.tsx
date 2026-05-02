@@ -34,36 +34,32 @@ export default function GaleriePage(): ReactElement {
   }
 
   return (
-    <div className="min-h-screen bg-stone-950 text-white">
+    <div className="min-h-screen bg-neutral-950 text-white">
 
       <main className="mx-auto max-w-xl px-6 py-20 lg:py-28">
 
-        {/* Eyebrow */}
-        <p className="mb-6 text-center text-xs font-semibold uppercase tracking-widest text-clay-400">
-          Galerie ART au féminin · Exposition « Sororité »
+        <p className="mb-6 text-center text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-white/30">
+          Galerie ART AU FÉMININ · Exposition « Sororité »
         </p>
 
-        {/* Titre principal */}
-        <h1 className="text-center font-display text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
-          Découvrez les artistes{' '}
-          <span className="italic font-light text-clay-300">avant tout le monde</span>
+        <h1 className="text-center font-display text-4xl font-light leading-tight text-white sm:text-5xl lg:text-6xl">
+          Découvrez les Artistes{' '}
+          <span className="italic">avant tout le monde</span>
         </h1>
 
-        {/* Sous-titre */}
-        <p className="mx-auto mt-6 max-w-md text-center text-base leading-relaxed text-stone-400">
-          Je prépare une galerie d'art immersive en 3D autour du thème de la <strong className="text-stone-300 font-medium">Sororité</strong> — une vingtaine de femmes artistes réunies dans un espace numérique unique.
+        <p className="mx-auto mt-6 max-w-md text-center text-sm font-light leading-relaxed text-white/40">
+          Je prépare une galerie d'Art immersive en 3D autour du thème de la <strong className="text-white/60 font-normal">Sororité</strong> — une vingtaine de femmes artistes réunies dans un espace numérique unique.
         </p>
 
-        {/* Lead magnet */}
-        <div className="mt-12 rounded-sm border border-clay-700/50 bg-stone-900 p-8">
-          <p className="mb-1 text-xs font-bold uppercase tracking-widest text-clay-400">
-            Votre cadeau gratuit
+        <div className="mt-12 border border-white/10 bg-neutral-900 p-8">
+          <p className="mb-1 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-white/30">
+            Votre Cadeau Gratuit
           </p>
-          <h2 className="font-display text-2xl font-semibold text-white lg:text-3xl">
-            Le catalogue complet{' '}
-            <span className="italic font-light text-clay-300">de l'exposition</span>
+          <h2 className="font-display text-2xl font-light text-white lg:text-3xl">
+            Le Catalogue Complet{' '}
+            <span className="italic font-light text-white/50">de l'Exposition</span>
           </h2>
-          <p className="mt-3 text-sm leading-relaxed text-stone-400">
+          <p className="mt-3 text-sm font-light leading-relaxed text-white/40">
             En laissant votre email, vous recevez en avant-première le catalogue de l'exposition — toutes les artistes, leur univers, leur œuvre, et ce qui les relie autour du thème de la Sororité.
           </p>
 
@@ -74,19 +70,18 @@ export default function GaleriePage(): ReactElement {
               "Les coulisses de la création de l'exposition 3D",
               "Un accès VIP dès le jour J — avant le grand public",
             ].map((item) => (
-              <li key={item} className="flex items-start gap-3 text-sm text-stone-300">
-                <span className="mt-0.5 shrink-0 text-clay-400">✦</span>
+              <li key={item} className="flex items-start gap-3 text-sm font-light text-white/40">
+                <span className="mt-0.5 shrink-0 text-white/20">—</span>
                 {item}
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Formulaire / confirmation */}
         {status === 'success' ? (
-          <div className="mt-8 rounded-sm border border-clay-700/50 bg-stone-900 p-8 text-center">
-            <p className="font-display text-2xl font-semibold text-clay-300">✦ Merci !</p>
-            <p className="mt-3 text-sm leading-relaxed text-stone-400">
+          <div className="mt-8 border border-white/10 bg-neutral-900 p-8 text-center">
+            <p className="font-display text-2xl font-light text-white">Merci !</p>
+            <p className="mt-3 text-sm font-light leading-relaxed text-white/40">
               Votre inscription est confirmée. Vous recevrez le catalogue et la date d'ouverture en avant-première.
             </p>
           </div>
@@ -101,12 +96,12 @@ export default function GaleriePage(): ReactElement {
                 required
                 aria-required="true"
                 placeholder="votre@email.fr"
-                className="w-full rounded-sm border border-stone-700 bg-stone-800 px-5 py-4 text-sm text-white placeholder:text-stone-500 focus:border-clay-500 focus:outline-none transition-colors"
+                className="w-full border border-white/10 bg-white/5 px-5 py-4 text-sm text-white placeholder:text-white/20 focus:border-white/30 focus:outline-none transition-colors"
               />
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="w-full rounded-sm bg-clay-500 px-6 py-4 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-clay-700 disabled:opacity-60"
+                className="w-full border border-white/20 bg-white/10 px-6 py-4 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white/70 transition-colors hover:bg-white/20 hover:text-white disabled:opacity-60"
               >
                 {status === 'loading' ? 'Inscription en cours…' : 'Oui, je veux découvrir les artistes en avant-première →'}
               </button>
@@ -118,7 +113,7 @@ export default function GaleriePage(): ReactElement {
               </p>
             )}
 
-            <p className="mt-4 text-center text-xs text-stone-600">
+            <p className="mt-4 text-center text-xs font-light text-white/20">
               Pas de spam · Désabonnement à tout moment · Par Aldjia Boughias
             </p>
           </form>
@@ -127,7 +122,7 @@ export default function GaleriePage(): ReactElement {
       </main>
 
       <footer className="pb-10 text-center">
-        <Link to="/" className="text-xs text-stone-700 transition-colors hover:text-stone-500">
+        <Link to="/" className="text-xs font-light text-white/20 transition-colors hover:text-white/50">
           Revenir au site →
         </Link>
       </footer>
@@ -138,7 +133,7 @@ export default function GaleriePage(): ReactElement {
 
 export const Head = () => (
   <SEO
-    title="Galerie ART au féminin — Découvrez les artistes en avant-première"
-    description="Une galerie d'art immersive en 3D dédiée aux femmes artistes. Première exposition : Sororité, ~20 artistes. Recevez le catalogue complet en vous inscrivant."
+    title="Galerie ART AU FÉMININ — Découvrez les Artistes en avant-première"
+    description="Une galerie d'Art immersive en 3D dédiée aux femmes artistes. Première exposition : Sororité, ~20 artistes. Recevez le catalogue complet en vous inscrivant."
   />
 );
