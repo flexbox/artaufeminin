@@ -22,7 +22,7 @@ export function ContentCard({
 }: ContentCardProps) {
   return (
     <article className="group flex flex-col">
-      <Link to={href} className="block overflow-hidden bg-neutral-100">
+      <Link to={href} tabIndex={-1} aria-hidden="true" className="block overflow-hidden bg-neutral-100">
         <div className="aspect-square overflow-hidden">
           <img
             src={imageUrl}
@@ -33,7 +33,7 @@ export function ContentCard({
       </Link>
 
       <div className="mt-3 flex flex-1 flex-col">
-        <p className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
           {meta}
         </p>
 

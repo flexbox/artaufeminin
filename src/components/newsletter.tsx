@@ -53,9 +53,10 @@ export default function Newsletter(): ReactElement {
             <button
               type="submit"
               disabled={status === 'loading'}
+              aria-label={status === 'loading' ? 'Envoi en cours…' : "S'inscrire à la newsletter"}
               className="rounded-r-full border border-white/20 border-l-0 bg-clay-500 px-5 py-3 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-clay-700 disabled:opacity-60"
             >
-              {status === 'loading' ? '…' : '→'}
+              <span aria-hidden="true">{status === 'loading' ? '…' : '→'}</span>
             </button>
           </div>
           {status === 'error' && (

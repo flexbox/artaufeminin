@@ -14,7 +14,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6 py-20 lg:flex lg:items-center lg:gap-20 lg:px-16 lg:py-28">
 
           <div className="flex-1">
-            <p className="mb-3 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
               À Propos
             </p>
             <h1 className="font-display text-5xl font-light leading-tight text-neutral-900 md:text-6xl lg:text-7xl">
@@ -32,7 +32,7 @@ export default function AboutPage() {
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 to="/podcasts"
-                className="border border-neutral-300 px-6 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-neutral-700 transition-colors hover:border-neutral-900 hover:text-neutral-900"
+                className="border border-neutral-300 px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-700 transition-colors hover:border-neutral-900 hover:text-neutral-900"
               >
                 Écouter le Podcast
               </Link>
@@ -40,9 +40,10 @@ export default function AboutPage() {
                 href="https://aldjia.dev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border border-neutral-200 px-6 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-neutral-400 transition-colors hover:border-neutral-500 hover:text-neutral-700"
+                aria-label="Visiter aldjia.dev (ouvre un nouvel onglet)"
+                className="border border-neutral-200 px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400 transition-colors hover:border-neutral-500 hover:text-neutral-700"
               >
-                aldjia.dev →
+                aldjia.dev <span aria-hidden="true">→</span>
               </a>
             </div>
           </div>
@@ -66,7 +67,7 @@ export default function AboutPage() {
 
       {/* ── MON HISTOIRE ─────────────────────────────────────────── */}
       <section className="m-auto my-20 w-3/4 max-w-3xl">
-        <p className="mb-4 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
           Mon Histoire
         </p>
         <div className="space-y-6">
@@ -111,7 +112,7 @@ export default function AboutPage() {
               quelles en ont été les conséquences du point de vue des hommes.
             </p>
             <footer className="mt-6">
-              <cite className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400 not-italic">
+              <cite className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 not-italic">
                 — Simone de Beauvoir, Le Deuxième Sexe
               </cite>
             </footer>
@@ -123,7 +124,7 @@ export default function AboutPage() {
       <section className="m-auto my-20 w-3/4">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
           <div>
-            <p className="mb-3 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
               Pourquoi ce Podcast ?
             </p>
             <h2 className="font-display text-3xl font-light leading-snug text-neutral-900 md:text-4xl">
@@ -149,7 +150,7 @@ export default function AboutPage() {
 
       {/* ── CE QUE VOUS TROUVEREZ ────────────────────────────────── */}
       <section className="m-auto mb-20 w-3/4">
-        <p className="mb-6 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
           Sur ART AU FÉMININ
         </p>
         <div className="grid grid-cols-1 gap-px bg-neutral-200 border border-neutral-200 sm:grid-cols-2 lg:grid-cols-4">
@@ -164,7 +165,7 @@ export default function AboutPage() {
               to={href}
               className="group bg-white p-6 transition-colors hover:bg-neutral-50"
             >
-              <p className="mb-2 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors group-hover:text-neutral-700">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors group-hover:text-neutral-700">
                 {label}
               </p>
               <p className="text-sm font-light leading-relaxed text-neutral-500">{desc}</p>
@@ -176,7 +177,7 @@ export default function AboutPage() {
       {/* ── RÉSEAUX SOCIAUX ──────────────────────────────────────── */}
       <section className="-mx-4 border-t border-neutral-200 bg-neutral-50 py-16">
         <div className="mx-auto max-w-3xl px-6 text-center lg:px-0">
-          <p className="mb-2 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
             Suivre ART AU FÉMININ
           </p>
           <h2 className="mb-8 font-display text-3xl font-light text-neutral-900">
@@ -194,7 +195,7 @@ export default function AboutPage() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border border-neutral-300 px-5 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
+                className="border border-neutral-300 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
               >
                 {name}
               </a>

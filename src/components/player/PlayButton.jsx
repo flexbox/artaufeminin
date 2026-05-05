@@ -26,11 +26,11 @@ export function PlayButton({ player, size = 'large' }) {
     <button
       type="button"
       className={clsx(
-        'group relative flex shrink-0 items-center justify-center rounded-full bg-slate-700 hover:bg-slate-900 focus:outline-none focus:ring-slate-700',
+        'group relative flex shrink-0 items-center justify-center rounded-full bg-slate-700 hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-700 focus-visible:ring-offset-2',
         {
-          large: 'h-18 w-18 focus:ring focus:ring-offset-4',
-          medium: 'h-14 w-14 focus:ring-2 focus:ring-offset-2',
-          small: 'h-10 w-10 focus:ring-2 focus:ring-offset-2',
+          large: 'h-18 w-18 focus-visible:ring-offset-4',
+          medium: 'h-14 w-14',
+          small: 'h-10 w-10',
         }[size],
       )}
       onClick={player.toggle}

@@ -24,19 +24,19 @@ export default function NotFoundPage(): ReactElement {
         <div className="mt-10 flex flex-wrap justify-center gap-3">
           <Link
             to="/"
-            className="border border-neutral-900 bg-neutral-900 px-6 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-neutral-700"
+            className="border border-neutral-900 bg-neutral-900 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-neutral-700"
           >
             Accueil
           </Link>
           <Link
             to="/podcasts"
-            className="border border-neutral-300 px-6 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
+            className="border border-neutral-300 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
           >
             Les Podcasts
           </Link>
           <Link
             to="/articles"
-            className="border border-neutral-200 px-6 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-neutral-400 transition-colors hover:border-neutral-500 hover:text-neutral-700"
+            className="border border-neutral-200 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400 transition-colors hover:border-neutral-500 hover:text-neutral-700"
           >
             Les Articles
           </Link>

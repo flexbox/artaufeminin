@@ -42,7 +42,7 @@ export default function Episode({ pageContext }) {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 px-6 pb-10 lg:px-0">
           <div className="mx-auto max-w-3xl">
-            <p className="mb-3 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-white/60">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
               Saison {season} · Épisode {episode}
               {duration && <span> · {duration}</span>}
             </p>
@@ -60,7 +60,7 @@ export default function Episode({ pageContext }) {
         <div className="flex items-center gap-5 border-b border-neutral-200 py-8">
           <PlayButton player={player} size="medium" />
           <div>
-            <p className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
               Écouter l'Épisode
             </p>
             {duration && (
@@ -91,7 +91,7 @@ export default function Episode({ pageContext }) {
             />
           </div>
           <div>
-            <p className="mb-1 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+            <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
               Présenté par
             </p>
             <p className="text-sm font-light leading-relaxed text-neutral-500">
@@ -102,7 +102,7 @@ export default function Episode({ pageContext }) {
 
         {/* Mécénat */}
         <section className="my-10 border border-neutral-200 p-6">
-          <p className="mb-1 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
             Mécénat
           </p>
           <h2 className="mb-3 font-display text-xl font-light text-neutral-900">
@@ -116,7 +116,8 @@ export default function Episode({ pageContext }) {
             href="https://fr.tipeee.com/art-au-feminin"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block border border-neutral-300 px-5 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
+            aria-label="Soutenir ART AU FÉMININ sur Tipeee (ouvre un nouvel onglet)"
+            className="inline-block border border-neutral-300 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
           >
             Soutenir sur Tipeee
           </a>
@@ -127,7 +128,7 @@ export default function Episode({ pageContext }) {
 
       {/* ── ÉCOUTER SUR LES PLATEFORMES ──────────────────────────── */}
       <div className="mx-auto mb-20 max-w-3xl px-6 lg:px-0">
-        <p className="mb-6 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
           Écouter sur
         </p>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">

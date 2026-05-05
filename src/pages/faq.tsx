@@ -28,9 +28,9 @@ function QuestionItem({ question, defaultOpen = false }: { question: FaqPageProp
         onClick={() => setOpen(!open)}
         aria-expanded={open}
       >
-        <h2 className="font-display text-lg font-light leading-snug text-neutral-900">
+        <span className="font-display text-lg font-light leading-snug text-neutral-900">
           {question.data.question.text}
-        </h2>
+        </span>
         <span
           className="mt-0.5 shrink-0 text-neutral-400 transition-transform duration-200 text-lg"
           style={{ transform: open ? 'rotate(45deg)' : 'rotate(0deg)' }}
@@ -55,7 +55,7 @@ export default function FaqPage({ data }: FaqPageProps): ReactElement {
     <Layout withInstagram={false}>
 
       <section className="m-auto mb-12 mt-8 w-3/4">
-        <p className="mb-2 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
           Aide
         </p>
         <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl">
@@ -76,7 +76,7 @@ export default function FaqPage({ data }: FaqPageProps): ReactElement {
       <section className="m-auto mb-20 w-3/4">
         <div className="flex flex-col gap-4 border border-neutral-200 p-8 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="mb-1 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+            <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
               Vous ne trouvez pas votre réponse ?
             </p>
             <p className="font-display text-xl font-light text-neutral-900">
@@ -85,9 +85,9 @@ export default function FaqPage({ data }: FaqPageProps): ReactElement {
           </div>
           <a
             href="mailto:artaufemininlepodcast@gmail.com"
-            className="inline-block border border-neutral-300 px-5 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
+            className="inline-block border border-neutral-300 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
           >
-            Envoyer un Email →
+            Envoyer un Email <span aria-hidden="true">→</span>
           </a>
         </div>
       </section>

@@ -58,8 +58,14 @@ function Layout({
 
   return (
     <div className="bg-white">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[9999] focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-neutral-900 focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-neutral-900"
+      >
+        Passer au contenu principal
+      </a>
       <Header />
-      <main role="main" className="px-4">
+      <main id="main-content" role="main" className="px-4">
         {children}
       </main>
       {withInstagram && <Instagram />}

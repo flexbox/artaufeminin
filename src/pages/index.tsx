@@ -21,7 +21,10 @@ const IndexPage = ({ data }) => {
     <Layout withInstagram={false}>
 
       {/* ── HERO — image plein cadre + strip "Now Open" ─────────── */}
-      <section className="-mx-4">
+      <section className="-mx-4" aria-labelledby="hero-heading">
+        <h1 id="hero-heading" className="sr-only">
+          ART AU FÉMININ — Le podcast sur les femmes artistes et l'Histoire de l'Art
+        </h1>
 
         {/* Image pleine hauteur */}
         <div
@@ -36,7 +39,7 @@ const IndexPage = ({ data }) => {
           {/* Gradient + phrase d'accroche */}
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-            <p className="mb-5 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-white/50">
+            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
               Art au Féminin
             </p>
             <h2 className="max-w-3xl font-display text-4xl font-light leading-tight text-white lg:text-6xl xl:text-7xl">
@@ -53,21 +56,22 @@ const IndexPage = ({ data }) => {
         {latestEpisode && (
           <div className="border-b border-neutral-200 bg-white">
             <div className="mx-auto flex max-w-7xl items-center gap-6 px-6 py-5 lg:px-16">
-              <span className="shrink-0 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+              <span className="shrink-0 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
                 Dernier Épisode
               </span>
               <span className="hidden h-3 w-px shrink-0 bg-neutral-200 sm:block" />
               <span className="flex-1 truncate font-display text-sm font-light text-neutral-900 lg:text-base">
                 {latestEpisode.title}
               </span>
-              <span className="hidden shrink-0 text-[0.6rem] font-light text-neutral-400 sm:block">
+              <span className="hidden shrink-0 text-xs font-light text-neutral-400 sm:block">
                 Saison {latestEpisode.itunes.season} · Épisode {latestEpisode.itunes.episode}
               </span>
               <Link
                 to={`/podcasts/${latestEpisode.guid}`}
-                className="shrink-0 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+                aria-label={`Écouter : ${latestEpisode.title}`}
+                className="shrink-0 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
               >
-                Écouter →
+                Écouter <span aria-hidden="true">→</span>
               </Link>
             </div>
           </div>
@@ -75,18 +79,19 @@ const IndexPage = ({ data }) => {
       </section>
 
       {/* ── ÉPISODES ─────────────────────────────────────────────── */}
-      <section className="mx-auto mt-16 w-11/12 max-w-7xl">
+      <section className="mx-auto mt-16 w-11/12 max-w-7xl" aria-labelledby="section-episodes">
 
         {/* En-tête de section */}
         <div className="mb-10 flex items-baseline justify-between border-b border-neutral-200 pb-4">
-          <span className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-900">
+          <h2 id="section-episodes" className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
             Épisodes
-          </span>
+          </h2>
           <Link
             to="/podcasts"
-            className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+            aria-label="Voir tous les épisodes"
+            className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
           >
-            Voir Tous →
+            Voir Tous <span aria-hidden="true">→</span>
           </Link>
         </div>
 
@@ -106,9 +111,10 @@ const IndexPage = ({ data }) => {
             cta={
               <Link
                 to={`/podcasts/${allEpisodes[0].guid}`}
-                className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+                aria-label={`Écouter l'épisode : ${allEpisodes[0].title}`}
+                className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
               >
-                Écouter l'Épisode →
+                Écouter l'Épisode <span aria-hidden="true">→</span>
               </Link>
             }
           />
@@ -133,9 +139,10 @@ const IndexPage = ({ data }) => {
                 action={
                   <Link
                     to={`/podcasts/${episode.guid}`}
-                    className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+                    aria-label={`Écouter : ${episode.title}`}
+                    className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
                   >
-                    Écouter →
+                    Écouter <span aria-hidden="true">→</span>
                   </Link>
                 }
               />
@@ -148,17 +155,18 @@ const IndexPage = ({ data }) => {
       <div className="mx-auto my-20 w-11/12 max-w-7xl border-t border-neutral-200" />
 
       {/* ── ARTICLES ─────────────────────────────────────────────── */}
-      <section className="mx-auto w-11/12 max-w-7xl">
+      <section className="mx-auto w-11/12 max-w-7xl" aria-labelledby="section-articles">
 
         <div className="mb-10 flex items-baseline justify-between border-b border-neutral-200 pb-4">
-          <span className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-900">
+          <h2 id="section-articles" className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
             Articles
-          </span>
+          </h2>
           <Link
             to="/articles"
-            className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+            aria-label="Voir tous les articles"
+            className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
           >
-            Voir Tous →
+            Voir Tous <span aria-hidden="true">→</span>
           </Link>
         </div>
 
@@ -181,9 +189,10 @@ const IndexPage = ({ data }) => {
               cta={
                 <Link
                   to={`/articles/${art.uid}`}
-                  className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+                  aria-label={`Lire l'article : ${title}`}
+                  className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
                 >
-                  Lire l'Article →
+                  Lire l'Article <span aria-hidden="true">→</span>
                 </Link>
               }
             />
@@ -210,9 +219,10 @@ const IndexPage = ({ data }) => {
                   action={
                     <Link
                       to={`/articles/${article.uid}`}
-                      className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+                      aria-label={`Lire : ${title}`}
+                      className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
                     >
-                      Lire →
+                      Lire <span aria-hidden="true">→</span>
                     </Link>
                   }
                 />
@@ -226,7 +236,7 @@ const IndexPage = ({ data }) => {
       <section className="-mx-4 mt-24 border-t border-neutral-200 bg-neutral-950">
         <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 py-16 lg:flex-row lg:items-end lg:justify-between lg:px-16 lg:py-20">
           <div className="max-w-lg">
-            <p className="mb-3 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-white/40">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/40">
               Bientôt Disponible · Première Exposition
             </p>
             <h2 className="font-display text-4xl font-light leading-tight text-white lg:text-5xl">
@@ -243,9 +253,10 @@ const IndexPage = ({ data }) => {
           </div>
           <a
             href="/galerie"
-            className="shrink-0 border border-white/20 px-6 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white/50 transition-colors hover:border-white/60 hover:text-white"
+            aria-label="Découvrir la Galerie ART AU FÉMININ"
+            className="shrink-0 border border-white/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/50 transition-colors hover:border-white/60 hover:text-white"
           >
-            Découvrir la Galerie →
+            Découvrir la Galerie <span aria-hidden="true">→</span>
           </a>
         </div>
       </section>
@@ -254,7 +265,7 @@ const IndexPage = ({ data }) => {
       <section className="mx-auto my-20 w-11/12 max-w-7xl">
         <div className="flex flex-col gap-6 border-t border-neutral-200 pt-10 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
               Soutenez le Podcast
             </p>
             <p className="mt-2 font-display text-2xl font-light text-neutral-900">
@@ -263,7 +274,7 @@ const IndexPage = ({ data }) => {
           </div>
           <a
             href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152"
-            className="shrink-0 border border-neutral-300 px-6 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
+            className="shrink-0 border border-neutral-300 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
           >
             Laisser 5 ★ sur Apple Podcasts
           </a>

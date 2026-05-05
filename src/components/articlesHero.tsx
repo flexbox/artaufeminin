@@ -43,7 +43,7 @@ export function ArticlesHero({ allArticles }: ArticlesHeroProps) {
       <div className="mt-12 flex justify-end border-t border-neutral-200 pt-6">
         <a
           href="/articles"
-          className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-neutral-400 transition-colors hover:text-neutral-900"
+          className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400 transition-colors hover:text-neutral-900"
         >
           Lire tous les articles →
         </a>
