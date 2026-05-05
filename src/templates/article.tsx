@@ -95,7 +95,7 @@ export default function Article(props: PropsArticle): ReactElement {
 
           <div className="absolute bottom-0 left-0 right-0 px-6 pb-10 lg:px-0">
             <div className="mx-auto max-w-3xl">
-              <p className="mb-3 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-white/60">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
                 Article
               </p>
               <h1 className="font-display text-3xl font-light leading-tight text-white md:text-4xl lg:text-5xl">
@@ -111,7 +111,7 @@ export default function Article(props: PropsArticle): ReactElement {
 
         {!imageHero?.url && (
           <header className="py-16">
-            <p className="mb-3 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
               Article
             </p>
             <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl lg:text-6xl">
@@ -150,7 +150,7 @@ export default function Article(props: PropsArticle): ReactElement {
             />
           </div>
           <div>
-            <p className="mb-1 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+            <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
               À propos de l'Autrice
             </p>
             <p className="text-sm font-light leading-relaxed text-neutral-500">
@@ -161,7 +161,7 @@ export default function Article(props: PropsArticle): ReactElement {
 
         {/* Mécénat */}
         <section className="my-10 border border-neutral-200 p-6">
-          <p className="mb-1 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
             Mécénat
           </p>
           <h2 className="mb-3 font-display text-xl font-light text-neutral-900">
@@ -175,7 +175,8 @@ export default function Article(props: PropsArticle): ReactElement {
             href="https://fr.tipeee.com/art-au-feminin"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block border border-neutral-300 px-5 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
+            aria-label="Soutenir ART AU FÉMININ sur Tipeee (ouvre un nouvel onglet)"
+            className="inline-block border border-neutral-300 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
           >
             Soutenir sur Tipeee
           </a>
@@ -187,7 +188,7 @@ export default function Article(props: PropsArticle): ReactElement {
       {/* ── AUTRES ARTICLES ───────────────────────────────────────── */}
       {(previousUid || nextUid) && (
         <div className="mx-auto mb-20 max-w-3xl px-6 lg:px-0">
-          <p className="mb-6 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
             Autres Articles
           </p>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">

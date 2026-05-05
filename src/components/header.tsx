@@ -22,6 +22,7 @@ export function Header(): ReactElement {
       <div className="hidden lg:flex items-center justify-between px-12 h-14">
         <Link
           to="/"
+          aria-label="ART AU FÉMININ — Accueil"
           className="font-display text-xl font-light tracking-[0.05em] text-neutral-900 transition-colors hover:text-neutral-500"
         >
           ART AU FÉMININ
@@ -33,7 +34,7 @@ export function Header(): ReactElement {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-[0.65rem] font-normal uppercase tracking-[0.2em] text-neutral-500 transition-colors hover:text-neutral-900"
+                className="text-xs font-normal uppercase tracking-[0.2em] text-neutral-500 transition-colors hover:text-neutral-900"
               >
                 {item.name}
               </a>
@@ -41,7 +42,7 @@ export function Header(): ReactElement {
               <Link
                 key={item.name}
                 to={item.href}
-                className="text-[0.65rem] font-normal uppercase tracking-[0.2em] text-neutral-500 transition-colors hover:text-neutral-900"
+                className="text-xs font-normal uppercase tracking-[0.2em] text-neutral-500 transition-colors hover:text-neutral-900"
                 activeClassName="text-neutral-900"
                 partiallyActive={true}
               >
@@ -56,6 +57,7 @@ export function Header(): ReactElement {
       <div className="flex items-center justify-between px-5 h-14 lg:hidden">
         <Link
           to="/"
+          aria-label="ART AU FÉMININ — Accueil"
           className="font-display text-lg font-light tracking-[0.05em] text-neutral-900"
         >
           ART AU FÉMININ
@@ -86,6 +88,7 @@ export function Header(): ReactElement {
           <div className="flex items-center justify-between mb-10">
             <Link
               to="/"
+              aria-label="ART AU FÉMININ — Accueil"
               className="font-display text-lg font-light text-neutral-900"
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -107,7 +110,7 @@ export function Header(): ReactElement {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="px-2 py-3 text-[0.7rem] font-normal uppercase tracking-[0.2em] text-neutral-500 hover:text-neutral-900 transition-colors"
+                  className="px-2 py-3 text-xs font-normal uppercase tracking-[0.2em] text-neutral-500 hover:text-neutral-900 transition-colors"
                 >
                   {item.name}
                 </a>
@@ -115,7 +118,7 @@ export function Header(): ReactElement {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="px-2 py-3 text-[0.7rem] font-normal uppercase tracking-[0.2em] text-neutral-500 hover:text-neutral-900 transition-colors"
+                  className="px-2 py-3 text-xs font-normal uppercase tracking-[0.2em] text-neutral-500 hover:text-neutral-900 transition-colors"
                   activeClassName="text-neutral-900"
                   partiallyActive={true}
                   onClick={() => setMobileMenuOpen(false)}
@@ -127,7 +130,7 @@ export function Header(): ReactElement {
           </nav>
 
           <div className="mt-auto pt-16 border-t border-neutral-100">
-            <p className="text-[0.65rem] uppercase tracking-widest text-neutral-300">
+            <p className="text-xs uppercase tracking-widest text-neutral-300">
               Par Aldjia Boughias
             </p>
           </div>

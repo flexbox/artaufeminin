@@ -38,7 +38,7 @@ export default function GaleriePage(): ReactElement {
 
       <main className="mx-auto max-w-xl px-6 py-20 lg:py-28">
 
-        <p className="mb-6 text-center text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-white/30">
+        <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.3em] text-white/30">
           Galerie ART AU FÉMININ · Exposition « Sororité »
         </p>
 
@@ -52,7 +52,7 @@ export default function GaleriePage(): ReactElement {
         </p>
 
         <div className="mt-12 border border-white/10 bg-neutral-900 p-8">
-          <p className="mb-1 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-white/30">
+          <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-white/30">
             Votre Cadeau Gratuit
           </p>
           <h2 className="font-display text-2xl font-light text-white lg:text-3xl">
@@ -101,7 +101,7 @@ export default function GaleriePage(): ReactElement {
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="w-full border border-white/20 bg-white/10 px-6 py-4 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white/70 transition-colors hover:bg-white/20 hover:text-white disabled:opacity-60"
+                className="w-full border border-white/20 bg-white/10 px-6 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/70 transition-colors hover:bg-white/20 hover:text-white disabled:opacity-60"
               >
                 {status === 'loading' ? 'Inscription en cours…' : 'Oui, je veux découvrir les artistes en avant-première →'}
               </button>

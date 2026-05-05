@@ -31,7 +31,7 @@ export default function Book(props: BookProps): ReactElement {
       {/* ── EN-TÊTE ──────────────────────────────────────────────── */}
       <div className="border-b border-neutral-200 pb-10 pt-16">
         <div className="mx-auto max-w-3xl px-6 lg:px-0">
-          <p className="mb-3 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
             Chronique
           </p>
           <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl lg:text-6xl">
@@ -60,7 +60,7 @@ export default function Book(props: BookProps): ReactElement {
             />
           </div>
           <div>
-            <p className="mb-1 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+            <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
               À propos de l'Autrice
             </p>
             <p className="text-sm font-light leading-relaxed text-neutral-500">
@@ -71,7 +71,7 @@ export default function Book(props: BookProps): ReactElement {
 
         {/* Mécénat */}
         <section className="my-10 border border-neutral-200 p-6">
-          <p className="mb-1 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
             Mécénat
           </p>
           <h2 className="mb-3 font-display text-xl font-light text-neutral-900">
@@ -85,7 +85,7 @@ export default function Book(props: BookProps): ReactElement {
             href="https://fr.tipeee.com/art-au-feminin"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block border border-neutral-300 px-5 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
+            className="inline-block border border-neutral-300 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
           >
             Soutenir sur Tipeee
           </a>

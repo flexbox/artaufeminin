@@ -5,7 +5,9 @@ export const wrapRootElement = ({ element }) => (
   <AudioProvider>{element}</AudioProvider>
 )
 
-export const onRenderBody = ({ setHeadComponents }) => {
+export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
+  setHtmlAttributes({ lang: 'fr' });
+
   setHeadComponents([
     <link
       key="gf-preconnect"

@@ -104,9 +104,10 @@ export function ArticleList({ allArticles, isRow }: ArticleListItemProps) {
             action={
               <Link
                 to={`/articles/${article.uid}`}
+                aria-label={`Lire l'article : ${title}`}
                 className="text-xs font-semibold uppercase tracking-widest text-clay-500 transition-colors hover:text-clay-700"
               >
-                Lire l'article →
+                Lire l'article <span aria-hidden="true">→</span>
               </Link>
             }
           />

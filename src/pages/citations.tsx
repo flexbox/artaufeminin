@@ -16,7 +16,7 @@ const QuotationPage = ({
   return (
     <Layout withInstagram={false}>
       <section className="m-auto mb-12 mt-8 w-3/4 border-b border-neutral-200 pb-8">
-        <p className="mb-2 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
           Inspiration
         </p>
         <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl">

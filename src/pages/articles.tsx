@@ -25,7 +25,7 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
 
       {/* ── EN-TÊTE ───────────────────────────────────────────────── */}
       <section className="mx-auto mb-10 mt-8 w-11/12 max-w-7xl border-b border-neutral-200 pb-8">
-        <p className="mb-2 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
           Tous les Articles
         </p>
         <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl">
@@ -42,9 +42,9 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
         return (
           <section className="mx-auto mb-16 w-11/12 max-w-7xl">
             <div className="mb-8 flex items-baseline border-b border-neutral-200 pb-4">
-              <span className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-900">
+              <h2 className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
                 Dernier Article
-              </span>
+              </h2>
             </div>
             <FeaturedCard
               href={`/articles/${featured.uid}`}
@@ -57,9 +57,10 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
               cta={
                 <Link
                   to={`/articles/${featured.uid}`}
-                  className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+                  aria-label={`Lire l'article : ${title}`}
+                  className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
                 >
-                  Lire l'Article →
+                  Lire l'Article <span aria-hidden="true">→</span>
                 </Link>
               }
             />
@@ -71,9 +72,9 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
       {rest.length > 0 && (
         <section className="mx-auto mb-20 w-11/12 max-w-7xl">
           <div className="mb-8 flex items-baseline border-b border-neutral-200 pb-4">
-            <span className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-900">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
               Tous les Articles
-            </span>
+            </h2>
           </div>
           <ArticleList allArticles={rest} />
         </section>

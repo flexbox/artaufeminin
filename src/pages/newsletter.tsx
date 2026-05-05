@@ -33,7 +33,7 @@ export default function NewsletterPage(): ReactElement {
       {/* ── HERO ─────────────────────────────────────────────────── */}
       <section className="-mx-4 border-b border-neutral-200">
         <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:py-28">
-          <p className="mb-4 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
             Newsletter
           </p>
           <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl lg:text-6xl">
@@ -70,7 +70,7 @@ export default function NewsletterPage(): ReactElement {
               <div>
                 <label
                   htmlFor="email"
-                  className="mb-2 block text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-500"
+                  className="mb-2 block text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500"
                 >
                   Adresse Email
                 </label>
@@ -90,7 +90,7 @@ export default function NewsletterPage(): ReactElement {
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="w-full border border-neutral-900 bg-neutral-900 px-6 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-neutral-700 disabled:opacity-60"
+                className="w-full border border-neutral-900 bg-neutral-900 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-neutral-700 disabled:opacity-60"
               >
                 {status === 'loading' ? 'Inscription en cours…' : "Je m'abonne →"}
               </button>
@@ -111,7 +111,7 @@ export default function NewsletterPage(): ReactElement {
 
       {/* ── CE QUE VOUS RECEVREZ ─────────────────────────────────── */}
       <section className="mx-auto mb-8 max-w-3xl px-6 lg:px-0">
-        <p className="mb-6 text-center text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
           Au Programme
         </p>
         <div className="grid grid-cols-1 gap-px bg-neutral-200 border border-neutral-200 sm:grid-cols-2 lg:grid-cols-4">
@@ -122,7 +122,7 @@ export default function NewsletterPage(): ReactElement {
             { label: 'La Galerie 3D', desc: 'Les coulisses et actualités de la Galerie ART AU FÉMININ en avant-première.' },
           ].map(({ label, desc }) => (
             <div key={label} className="bg-white p-6 text-center">
-              <p className="mb-2 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
                 {label}
               </p>
               <p className="text-sm font-light leading-relaxed text-neutral-500">{desc}</p>
@@ -135,7 +135,7 @@ export default function NewsletterPage(): ReactElement {
       <section className="-mx-4 my-16 border-y border-neutral-200 bg-neutral-900 py-16">
         <div className="mx-auto max-w-3xl px-6 lg:flex lg:items-center lg:gap-16 lg:px-0">
           <div>
-            <p className="mb-3 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-white/40">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/40">
               Bientôt · Première Exposition
             </p>
             <h2 className="font-display text-3xl font-light leading-tight text-white md:text-4xl">
@@ -151,7 +151,7 @@ export default function NewsletterPage(): ReactElement {
               actualités en avant-première.
             </p>
             <div className="mt-6">
-              <span className="inline-block border border-white/20 px-4 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white/40">
+              <span className="inline-block border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
                 En préparation — restez informée
               </span>
             </div>
@@ -168,7 +168,7 @@ export default function NewsletterPage(): ReactElement {
           <p className="mt-2 font-display text-xl font-light italic leading-relaxed text-neutral-600 md:text-2xl">
             Le monde regorge de femmes artistes talentueuses. Il est temps de les connaître.
           </p>
-          <cite className="mt-5 block text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400 not-italic">
+          <cite className="mt-5 block text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 not-italic">
             — Aldjia Boughias
           </cite>
         </div>
@@ -189,7 +189,7 @@ export default function NewsletterPage(): ReactElement {
             <Link
               key={href}
               to={href}
-              className="border border-neutral-200 px-5 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-neutral-500 transition-colors hover:border-neutral-900 hover:text-neutral-900"
+              className="border border-neutral-200 px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500 transition-colors hover:border-neutral-900 hover:text-neutral-900"
             >
               {label}
             </Link>

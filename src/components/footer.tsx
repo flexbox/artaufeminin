@@ -101,79 +101,85 @@ export default function Footer({ siteTitle }: FooterProps) {
         <div className="py-14 lg:grid lg:grid-cols-4 lg:gap-10">
 
           <div>
-            <h3 className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-white/30">
+            <h3 id="footer-nav-contenu" className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30">
               Contenu
             </h3>
-            <ul role="list" className="mt-6 space-y-3">
-              {navigation.contenu.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    to={item.href}
-                    className="text-sm font-light text-white/60 transition-colors hover:text-white"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <nav aria-labelledby="footer-nav-contenu">
+              <ul role="list" className="mt-6 space-y-3">
+                {navigation.contenu.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      to={item.href}
+                      className="text-sm font-light text-white/60 transition-colors hover:text-white"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
 
           <div className="mt-10 lg:mt-0">
-            <h3 className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-white/30">
+            <h3 id="footer-nav-podcast" className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30">
               Le podcast
             </h3>
-            <ul role="list" className="mt-6 space-y-3">
-              {navigation.podcast.map((item) => (
-                <li key={item.name}>
-                  {'external' in item && item.external ? (
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-light text-white/60 transition-colors hover:text-white"
-                    >
-                      {item.name}
-                    </a>
-                  ) : (
-                    <Link
-                      to={item.href}
-                      className="text-sm font-light text-white/60 transition-colors hover:text-white"
-                    >
-                      {item.name}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
+            <nav aria-labelledby="footer-nav-podcast">
+              <ul role="list" className="mt-6 space-y-3">
+                {navigation.podcast.map((item) => (
+                  <li key={item.name}>
+                    {'external' in item && item.external ? (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-light text-white/60 transition-colors hover:text-white"
+                      >
+                        {item.name}
+                      </a>
+                    ) : (
+                      <Link
+                        to={item.href}
+                        className="text-sm font-light text-white/60 transition-colors hover:text-white"
+                      >
+                        {item.name}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
 
           <div className="mt-10 lg:mt-0">
-            <h3 className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-white/30">
+            <h3 id="footer-nav-apropos" className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30">
               À propos
             </h3>
-            <ul role="list" className="mt-6 space-y-3">
-              {navigation.apropos.map((item) => (
-                <li key={item.name}>
-                  {'external' in item && item.external ? (
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-light text-white/60 transition-colors hover:text-white"
-                    >
-                      {item.name}
-                    </a>
-                  ) : (
-                    <Link
-                      to={item.href}
-                      className="text-sm font-light text-white/60 transition-colors hover:text-white"
-                    >
-                      {item.name}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
+            <nav aria-labelledby="footer-nav-apropos">
+              <ul role="list" className="mt-6 space-y-3">
+                {navigation.apropos.map((item) => (
+                  <li key={item.name}>
+                    {'external' in item && item.external ? (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-light text-white/60 transition-colors hover:text-white"
+                      >
+                        {item.name}
+                      </a>
+                    ) : (
+                      <Link
+                        to={item.href}
+                        className="text-sm font-light text-white/60 transition-colors hover:text-white"
+                      >
+                        {item.name}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
 
           <div className="mt-10 lg:mt-0">

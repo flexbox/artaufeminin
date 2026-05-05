@@ -21,7 +21,7 @@ export default function PressPage({ data }: PressPageProps): ReactElement {
     <Layout withInstagram={false}>
 
       <section className="m-auto mb-12 mt-8 w-3/4 border-b border-neutral-200 pb-8">
-        <p className="mb-2 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
           Médias
         </p>
         <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl">
@@ -40,7 +40,7 @@ export default function PressPage({ data }: PressPageProps): ReactElement {
       </section>
 
       <section className="m-auto mb-16 w-3/4">
-        <p className="mb-6 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
           Ils en Parlent
         </p>
         <div className="flex flex-wrap items-center justify-start gap-8 border border-neutral-200 bg-neutral-50 p-8">
@@ -54,7 +54,7 @@ export default function PressPage({ data }: PressPageProps): ReactElement {
 
       {press.length > 0 && (
         <section className="m-auto mb-16 w-3/4">
-          <p className="mb-6 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
             Articles &amp; Mentions
           </p>
           <PressList allPress={press} />
@@ -62,7 +62,7 @@ export default function PressPage({ data }: PressPageProps): ReactElement {
       )}
 
       <section className="m-auto mb-20 w-3/4">
-        <p className="mb-6 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
           Kit Presse — Logos
         </p>
         <div className="border border-neutral-200 p-8">
@@ -71,7 +71,7 @@ export default function PressPage({ data }: PressPageProps): ReactElement {
           </p>
 
           <div className="mb-8">
-            <p className="mb-4 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">SVG</p>
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">SVG</p>
             <div className="flex flex-wrap items-center gap-8">
               <StaticImage src="../images/logo/logo-black.svg" alt="Logo Noir ART AU FÉMININ" width={160} />
               <div className="bg-neutral-900 p-4">
@@ -81,7 +81,7 @@ export default function PressPage({ data }: PressPageProps): ReactElement {
           </div>
 
           <div>
-            <p className="mb-4 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">PNG</p>
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">PNG</p>
             <div className="flex flex-wrap items-center gap-8">
               <StaticImage src="../images/logo/logo-black.png" alt="Logo Noir ART AU FÉMININ" width={160} />
               <div className="bg-neutral-900 p-4">

@@ -53,7 +53,7 @@ function BookItem({ book, index }: { book: BookProps; index: number }) {
           {excerpt}
         </p>
         <span className="mt-5 text-xs font-semibold uppercase tracking-widest text-clay-500 transition-colors group-hover:text-clay-700">
-          Lire la chronique →
+          Lire la chronique <span aria-hidden="true">→</span>
         </span>
       </div>
     </Link>

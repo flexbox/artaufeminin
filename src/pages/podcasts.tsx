@@ -43,7 +43,7 @@ function EpisodeCard({ episode }: { episode: any }) {
       action={
         <div className="flex items-center gap-3">
           <PlayButton player={player} size="small" />
-          <span className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
             Écouter
           </span>
         </div>
@@ -62,7 +62,7 @@ const PodcastsPage = ({ data }) => {
 
       {/* ── EN-TÊTE ───────────────────────────────────────────────── */}
       <section className="mx-auto mb-10 mt-8 w-11/12 max-w-7xl border-b border-neutral-200 pb-8">
-        <p className="mb-2 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
           Tous les Épisodes
         </p>
         <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl">
@@ -74,9 +74,9 @@ const PodcastsPage = ({ data }) => {
       {featured && (
         <section className="mx-auto mb-16 w-11/12 max-w-7xl">
           <div className="mb-8 flex items-baseline justify-between border-b border-neutral-200 pb-4">
-            <span className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-900">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
               Dernier Épisode
-            </span>
+            </h2>
           </div>
           <FeaturedCard
             href={`/podcasts/${featured.guid}`}
@@ -92,9 +92,10 @@ const PodcastsPage = ({ data }) => {
             cta={
               <Link
                 to={`/podcasts/${featured.guid}`}
-                className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+                aria-label={`Écouter l'épisode : ${featured.title}`}
+                className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
               >
-                Écouter l'Épisode →
+                Écouter l'Épisode <span aria-hidden="true">→</span>
               </Link>
             }
           />
@@ -105,9 +106,9 @@ const PodcastsPage = ({ data }) => {
       {rest.length > 0 && (
         <section className="mx-auto mb-20 w-11/12 max-w-7xl">
           <div className="mb-8 flex items-baseline border-b border-neutral-200 pb-4">
-            <span className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-900">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
               Tous les Épisodes
-            </span>
+            </h2>
           </div>
           <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
             {rest.map((episode) => (

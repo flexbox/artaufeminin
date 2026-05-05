@@ -23,7 +23,7 @@ export function FeaturedCard({
   imageRight = false,
 }: FeaturedCardProps) {
   const image = (
-    <Link to={href} className="block overflow-hidden bg-neutral-100">
+    <Link to={href} tabIndex={-1} aria-hidden="true" className="block overflow-hidden bg-neutral-100">
       <img
         src={imageUrl}
         alt={imageAlt}
@@ -39,7 +39,7 @@ export function FeaturedCard({
         imageRight ? 'lg:border-r' : 'lg:border-l'
       }`}
     >
-      <p className="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+      <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
         {label}
       </p>
       <Link to={href}>

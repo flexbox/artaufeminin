@@ -61,7 +61,7 @@ function LinkRow({ item }: { item: LinkItem }) {
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="mb-3 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
       {children}
     </p>
   );
@@ -96,7 +96,7 @@ export default function LinksPage(): ReactElement {
         {/* ── GALERIE ──────────────────────────────────────────────── */}
         <div className="mb-8 border border-neutral-900 bg-neutral-900">
           <div className="p-5">
-            <p className="mb-1 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-white/40">
+            <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-white/40">
               Bientôt · Première Exposition
             </p>
             <p className="font-display text-lg font-light text-white">
@@ -112,7 +112,7 @@ export default function LinksPage(): ReactElement {
             </p>
             <a
               href="/newsletter"
-              className="mt-4 inline-block border border-white/20 px-4 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white/50 transition-colors hover:border-white/50 hover:text-white/80"
+              className="mt-4 inline-block border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/50 transition-colors hover:border-white/50 hover:text-white/80"
             >
               Être informée en avant-première
             </a>
