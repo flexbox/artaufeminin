@@ -49,13 +49,12 @@ export const query = graphql`
   }
 `;
 
-export const Head = () => {
-  return (
-    <SEO
-      title="Livres sur les Femmes Artistes — ART AU FÉMININ"
-      description="Une sélection de chroniques pour explorer l'Histoire des femmes dans l'Art — biographies, essais, monographies."
-    />
-  );
-};
+export const Head = ({ location }: { location: { pathname: string } }) => (
+  <SEO
+    title="Livres sur les Femmes Artistes — ART AU FÉMININ"
+    description="Une sélection de chroniques pour explorer l'Histoire des femmes dans l'Art — biographies, essais, monographies de femmes artistes de l'Antiquité à nos jours."
+    url={`https://www.artaufeminin.fr${location.pathname}`}
+  />
+);
 
 export default BooksPage;

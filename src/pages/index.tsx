@@ -337,11 +337,45 @@ export const indexPageQuery = graphql`
   }
 `;
 
-export const Head = () => (
-  <SEO
-    title="ART AU FÉMININ — Le podcast sur les femmes artistes et l'Histoire de l'Art"
-    description="Un podcast présenté par Aldjia Boughias pour redécouvrir les femmes artistes qui ont marqué l'Histoire de l'Art. Épisodes, portraits et articles à écouter et à lire."
-  />
-);
+export const Head = ({ location }: { location: { pathname: string } }) => {
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'ART AU FÉMININ',
+      url: 'https://www.artaufeminin.fr',
+      logo: 'https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/images/logo-podcast-art-au-feminin.png',
+      sameAs: [
+        'https://instagram.com/artaufeminin',
+        'https://www.facebook.com/podcastart',
+        'https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152',
+        'https://open.spotify.com/show/18f84r0ic2PUenYvBRr2Ps',
+      ],
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'PodcastSeries',
+      name: 'ART AU FÉMININ',
+      description:
+        "Un podcast pour redécouvrir les femmes artistes qui ont façonné l'Art — de l'Antiquité à aujourd'hui.",
+      url: 'https://www.artaufeminin.fr/podcasts',
+      inLanguage: 'fr',
+      author: {
+        '@type': 'Person',
+        name: 'Aldjia Boughias',
+        url: 'https://www.artaufeminin.fr/about',
+      },
+    },
+  ];
+
+  return (
+    <SEO
+      title="ART AU FÉMININ — Le podcast sur les femmes artistes et l'Histoire de l'Art"
+      description="Un podcast présenté par Aldjia Boughias pour redécouvrir les femmes artistes qui ont marqué l'Histoire de l'Art. Épisodes, portraits et articles à écouter et à lire."
+      url={`https://www.artaufeminin.fr${location.pathname}`}
+      jsonLd={jsonLd}
+    />
+  );
+};
 
 export default IndexPage;

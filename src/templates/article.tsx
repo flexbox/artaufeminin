@@ -206,13 +206,53 @@ export default function Article(props: PropsArticle): ReactElement {
   );
 }
 
-export const Head = (props: PropsArticle) => {
+export const Head = (
+  props: PropsArticle & { location: { pathname: string } }
+) => {
   const { text: seoTitle } = props.pageContext.node.data.title;
   const { text: seoDescription } = props.pageContext.node.data.description;
+  const image = props.pageContext.node.data.image;
+  const seoImage = image?.url;
+  const seoImageAlt = image?.alt || seoTitle;
+  const datePublished = props.pageContext.node.data.date;
+  const canonicalUrl = `https://www.artaufeminin.fr${props.location.pathname}`;
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: seoTitle,
+    description: seoDescription,
+    image:
+      seoImage ||
+      'https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/images/logo-podcast-art-au-feminin.png',
+    url: canonicalUrl,
+    ...(datePublished && { datePublished }),
+    inLanguage: 'fr',
+    author: {
+      '@type': 'Person',
+      name: 'Aldjia Boughias',
+      url: 'https://www.artaufeminin.fr/about',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'ART AU FÉMININ',
+      url: 'https://www.artaufeminin.fr',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/images/logo-podcast-art-au-feminin.png',
+      },
+    },
+  };
+
   return (
     <SEO
       title={`${seoTitle} — ART AU FÉMININ`}
       description={seoDescription}
+      image={seoImage}
+      imageAlt={seoImageAlt}
+      url={canonicalUrl}
+      type="article"
+      jsonLd={jsonLd}
     />
   );
 };

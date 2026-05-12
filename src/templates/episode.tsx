@@ -155,10 +155,48 @@ export default function Episode({ pageContext }) {
   );
 }
 
-export const Head = ({ pageContext }) => {
+export const Head = ({
+  pageContext,
+  location,
+}: {
+  pageContext: any;
+  location: { pathname: string };
+}) => {
   const title = pageContext.title;
+  const episodeImage = pageContext.itunes?.image;
   const description = pageContext.itunes?.summary
     ? stripHtml(pageContext.itunes.summary).substring(0, 155)
     : title;
-  return <SEO title={`${title} — ART AU FÉMININ`} description={description} />;
+  const canonicalUrl = `https://www.artaufeminin.fr${location.pathname}`;
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'PodcastEpisode',
+    name: title,
+    description,
+    url: canonicalUrl,
+    ...(episodeImage && { image: episodeImage }),
+    inLanguage: 'fr',
+    partOfSeries: {
+      '@type': 'PodcastSeries',
+      name: 'ART AU FÉMININ',
+      url: 'https://www.artaufeminin.fr/podcasts',
+    },
+    author: {
+      '@type': 'Person',
+      name: 'Aldjia Boughias',
+      url: 'https://www.artaufeminin.fr/about',
+    },
+  };
+
+  return (
+    <SEO
+      title={`${title} — ART AU FÉMININ`}
+      description={description}
+      image={episodeImage}
+      imageAlt={title}
+      url={canonicalUrl}
+      jsonLd={jsonLd}
+    />
+  );
 };

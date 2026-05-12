@@ -201,9 +201,10 @@ export default function NewsletterPage(): ReactElement {
   );
 }
 
-export const Head = () => (
+export const Head = ({ location }: { location: { pathname: string } }) => (
   <SEO
     title="Newsletter — ART AU FÉMININ, le podcast sur les femmes artistes"
     description="Abonnez-vous à la newsletter d'ART AU FÉMININ et recevez les nouveaux épisodes, articles et chroniques de livres sur les femmes artistes directement dans votre boîte mail."
+    url={`https://www.artaufeminin.fr${location.pathname}`}
   />
 );

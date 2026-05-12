@@ -85,6 +85,7 @@ export default function Book(props: BookProps): ReactElement {
             href="https://fr.tipeee.com/art-au-feminin"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Soutenir ART AU FÉMININ sur Tipeee (ouvre un nouvel onglet)"
             className="inline-block border border-neutral-300 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
           >
             Soutenir sur Tipeee
@@ -97,13 +98,38 @@ export default function Book(props: BookProps): ReactElement {
   );
 }
 
-export const Head = (props: BookProps) => {
+export const Head = (
+  props: BookProps & { location: { pathname: string } }
+) => {
   const { text: seoTitle } = props.pageContext.node.data.title;
   const { text: seoDescription } = props.pageContext.node.data.content;
+  const canonicalUrl = `https://www.artaufeminin.fr${props.location.pathname}`;
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: seoTitle,
+    description: seoDescription.substring(0, 155),
+    url: canonicalUrl,
+    inLanguage: 'fr',
+    author: {
+      '@type': 'Person',
+      name: 'Aldjia Boughias',
+      url: 'https://www.artaufeminin.fr/about',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'ART AU FÉMININ',
+      url: 'https://www.artaufeminin.fr',
+    },
+  };
+
   return (
     <SEO
       title={`${seoTitle} — ART AU FÉMININ`}
       description={seoDescription.substring(0, 155)}
+      url={canonicalUrl}
+      jsonLd={jsonLd}
     />
   );
 };

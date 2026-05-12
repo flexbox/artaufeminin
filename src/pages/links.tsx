@@ -195,9 +195,10 @@ export default function LinksPage(): ReactElement {
   );
 }
 
-export const Head = () => (
+export const Head = ({ location }: { location: { pathname: string } }) => (
   <SEO
     title="ART AU FÉMININ — Tous les Liens"
     description="Retrouvez ART AU FÉMININ sur Apple Podcasts, Spotify, Deezer, Instagram, et découvrez la future Galerie immersive 3D dédiée aux femmes artistes."
+    url={`https://www.artaufeminin.fr${location.pathname}`}
   />
 );
