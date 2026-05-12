@@ -441,6 +441,10 @@ export default function DesignSystemPage(): ReactElement {
   );
 }
 
-export const Head = () => {
-  return <SEO title="Design System — ART au féminin" description="Référentiel visuel du site artaufeminin.fr" />;
-};
+export const Head = () => (
+  <SEO
+    title="Design System — ART au féminin"
+    description="Référentiel visuel du site artaufeminin.fr"
+    noindex={true}
+  />
+);

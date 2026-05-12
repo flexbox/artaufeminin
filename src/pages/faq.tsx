@@ -109,9 +109,32 @@ export const pageQuery = graphql`
   }
 `;
 
-export const Head = () => (
-  <SEO
-    title="Questions Fréquentes — ART AU FÉMININ"
-    description="Toutes les réponses à vos questions sur le podcast ART AU FÉMININ — comment écouter, participer, soutenir le projet et en savoir plus sur les femmes artistes."
-  />
-);
+export const Head = ({
+  data,
+  location,
+}: FaqPageProps & { location: { pathname: string } }) => {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: data.allPrismicFaq.nodes.map((q) => ({
+      '@type': 'Question',
+      name: q.data.question.text,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: q.data.answer.richText
+          .map((block: any) => block.text)
+          .filter(Boolean)
+          .join(' '),
+      },
+    })),
+  };
+
+  return (
+    <SEO
+      title="Questions Fréquentes — ART AU FÉMININ"
+      description="Toutes les réponses à vos questions sur le podcast ART AU FÉMININ — comment écouter, participer, soutenir le projet et en savoir plus sur les femmes artistes."
+      url={`https://www.artaufeminin.fr${location.pathname}`}
+      jsonLd={jsonLd}
+    />
+  );
+};

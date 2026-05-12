@@ -46,13 +46,12 @@ export const query = graphql`
   }
 `;
 
-export const Head = () => {
-  return (
-    <SEO
-      title="Citations de Femmes Artistes — ART AU FÉMININ"
-      description="Des paroles inspirantes qui traversent le temps — ce que les femmes artistes ont dit de l'Art, de la création et de leur vie."
-    />
-  );
-};
+export const Head = ({ location }: { location: { pathname: string } }) => (
+  <SEO
+    title="Citations de Femmes Artistes — ART AU FÉMININ"
+    description="Des paroles inspirantes qui traversent le temps — ce que les femmes artistes ont dit de l'Art, de la création et de leur vie."
+    url={`https://www.artaufeminin.fr${location.pathname}`}
+  />
+);
 
 export default QuotationPage;

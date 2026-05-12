@@ -8,15 +8,26 @@ export function SeoHead({
   title,
   metaDescription,
   image = OG_IMAGE,
+  imageAlt,
+  url,
+  type = 'website',
+  noindex = false,
+  jsonLd,
 }: {
   title: string;
   metaDescription: string;
   image?: string;
+  imageAlt?: string;
+  url?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
+  jsonLd?: object | object[];
 }) {
   return (
     <>
       <title>{title}</title>
       <meta name="description" content={metaDescription} />
+      {noindex && <meta name="robots" content="noindex, follow" />}
       <meta
         name="google-site-verification"
         content="_I5e7rtsxD_MXi3RnD2AsbiQopSHnXHQ_eEAKQYuLPk"
@@ -24,17 +35,26 @@ export function SeoHead({
       {/* Open Graph */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={metaDescription} />
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={type} />
       <meta property="og:image" content={image} />
+      <meta property="og:image:alt" content={imageAlt ?? title} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:locale" content="fr_FR" />
       <meta property="og:site_name" content="ART au féminin" />
+      {url && <meta property="og:url" content={url} />}
       {/* Twitter / X */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={metaDescription} />
       <meta name="twitter:image" content={image} />
+      <meta name="twitter:image:alt" content={imageAlt ?? title} />
+      {/* JSON-LD */}
+      {jsonLd && (
+        <script type="application/ld+json">
+          {JSON.stringify(jsonLd)}
+        </script>
+      )}
     </>
   );
 }
@@ -43,10 +63,20 @@ function SEO({
   description,
   title,
   image,
+  imageAlt,
+  url,
+  type,
+  noindex,
+  jsonLd,
 }: {
   description: string;
   title: string;
   image?: string;
+  imageAlt?: string;
+  url?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
+  jsonLd?: object | object[];
 }) {
   const { site } = useStaticQuery(graphql`
     query {
@@ -61,7 +91,16 @@ function SEO({
   `);
   const metaDescription = description || site.siteMetadata.description;
   return (
-    <SeoHead title={title} metaDescription={metaDescription} image={image} />
+    <SeoHead
+      title={title}
+      metaDescription={metaDescription}
+      image={image}
+      imageAlt={imageAlt}
+      url={url}
+      type={type}
+      noindex={noindex}
+      jsonLd={jsonLd}
+    />
   );
 }
 

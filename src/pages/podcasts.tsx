@@ -122,10 +122,11 @@ const PodcastsPage = ({ data }) => {
   );
 };
 
-export const Head = () => (
+export const Head = ({ location }: { location: { pathname: string } }) => (
   <SEO
     title="Tous les Épisodes — ART AU FÉMININ, le podcast sur les femmes artistes"
     description="Écoutez tous les épisodes du podcast ART AU FÉMININ, présenté par Aldjia Boughias. Des récits captivants sur les femmes artistes qui ont marqué l'Histoire de l'Art."
+    url={`https://www.artaufeminin.fr${location.pathname}`}
   />
 );
 

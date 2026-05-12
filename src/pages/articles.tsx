@@ -95,10 +95,11 @@ export const query = graphql`
   }
 `;
 
-export const Head = () => (
+export const Head = ({ location }: { location: { pathname: string } }) => (
   <SEO
     title="Articles sur les Femmes Artistes — ART AU FÉMININ"
     description="Découvrez l'inspiration et la créativité des femmes artistes sur ART AU FÉMININ. Explorez leurs œuvres exceptionnelles, leurs parcours uniques et leurs contributions inestimables à l'Histoire de l'Art."
+    url={`https://www.artaufeminin.fr${location.pathname}`}
   />
 );
 

@@ -1,7 +1,7 @@
 const siteConfig = require("./siteConfig")
 
 const { linkResolver } = require("./src/utils/linkResolver.ts")
-const siteUrl = process.env.URL || `https://www.artaufeminin.fr`
+const siteUrl = process.env.URL || siteConfig.siteUrl
 module.exports = {
   siteMetadata: {
     ...siteConfig,
@@ -57,42 +57,15 @@ module.exports = {
               path
             }
           }
-          allPrismicBlogPost {
-            nodes {
-              last_publication_date
-            }
-          }
-          allAnchorEpisode {
-            nodes {
-              pubDate
-            }
-          }
-          allPrismicBookReview {
-            nodes {
-              last_publication_date
-            }
-          }
         }
       `,
         resolveSiteUrl: () => siteUrl,
         resolvePages: ({ allSitePage: { nodes: allPages } }) => {
-          return allPages.map((page) => {
-            return { ...page }
-          })
+          return allPages.map((page) => ({ ...page }))
         },
-        serialize: ({ path, last_publication_date, pubDate }) => {
-          if (path.startsWith("/articles/")) {
-            return {
-              url: `${siteUrl}${path}`,
-              lastmod: last_publication_date,
-            }
-          } else {
-            return {
-              url: `${siteUrl}${path}`,
-              lastmod: pubDate,
-            }
-          }
-        },
+        serialize: ({ path }) => ({
+          url: `${siteUrl}${path}`,
+        }),
       },
     },
     `gatsby-plugin-react-helmet`,

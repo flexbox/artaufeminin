@@ -131,9 +131,11 @@ export default function GaleriePage(): ReactElement {
   );
 }
 
-export const Head = () => (
+export const Head = ({ location }: { location: { pathname: string } }) => (
   <SEO
     title="Galerie ART AU FÉMININ — Découvrez les Artistes en avant-première"
     description="Une galerie d'Art immersive en 3D dédiée aux femmes artistes. Première exposition : Sororité, ~20 artistes. Recevez le catalogue complet en vous inscrivant."
+    url={`https://www.artaufeminin.fr${location.pathname}`}
+    noindex={true}
   />
 );

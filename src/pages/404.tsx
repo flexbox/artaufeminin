@@ -57,5 +57,6 @@ export const Head = () => (
   <SEO
     title="Page introuvable — ART AU FÉMININ"
     description="La page que vous cherchez n'existe pas. Découvrez le podcast ART AU FÉMININ et ses contenus sur les femmes artistes."
+    noindex={true}
   />
 );

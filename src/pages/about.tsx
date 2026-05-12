@@ -195,6 +195,7 @@ export default function AboutPage() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`Suivre ART AU FÉMININ sur ${name} (ouvre un nouvel onglet)`}
                 className="border border-neutral-300 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
               >
                 {name}
@@ -208,11 +209,24 @@ export default function AboutPage() {
   );
 }
 
-export const Head = () => {
+export const Head = ({ location }: { location: { pathname: string } }) => {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Aldjia Boughias',
+    url: 'https://www.artaufeminin.fr/about',
+    jobTitle: 'Développeuse web orientée Art et Culture',
+    description:
+      "Fondatrice du podcast ART AU FÉMININ, développeuse web et exploratrice de l'Histoire de l'Art.",
+    sameAs: ['https://aldjia.dev', 'https://instagram.com/artaufeminin'],
+  };
+
   return (
     <SEO
       title="Aldjia Boughias — Fondatrice du podcast ART AU FÉMININ"
       description="Je suis Aldjia Boughias, développeuse web orientée art et culture et fondatrice du podcast ART AU FÉMININ. Un projet né de ma passion pour l'histoire de l'art et l'envie de rendre visibles les femmes artistes oubliées."
+      url={`https://www.artaufeminin.fr${location.pathname}`}
+      jsonLd={jsonLd}
     />
   );
 };

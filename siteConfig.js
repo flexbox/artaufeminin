@@ -4,8 +4,8 @@ module.exports = {
   shortName: "ART",
   description:
     "Explorons l’histoire des femmes artistes d’hier et d’aujourd’hui",
-  url: "https://artaufeminin.fr",
-  siteUrl: "https://artaufeminin.fr",
+  url: "https://www.artaufeminin.fr",
+  siteUrl: "https://www.artaufeminin.fr",
   prefix: "/",
   author: "Aldjia",
   email: "artaufemininlepodcast@gmail.com",
