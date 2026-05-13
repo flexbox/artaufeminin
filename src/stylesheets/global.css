@@ -7,8 +7,7 @@
 @import "article.css";
 
 @layer base {
-  html,
   body {
-    overflow-x: clip;
+    overflow-x: hidden;
   }
 }
