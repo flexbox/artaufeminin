@@ -16,6 +16,16 @@ function customHtmlSerializer(type, element, content, children, key) {
       </Text>
     );
   }
+  if (type === Elements.paragraph && element.label === 'blockquote') {
+    return (
+      <blockquote
+        key={key}
+        className="my-8 border-l-2 border-neutral-300 pl-6 font-display text-xl font-light italic leading-relaxed text-neutral-600"
+      >
+        {children}
+      </blockquote>
+    );
+  }
   if (type === Elements.image) {
     const { url, alt, copyright } = element;
 
