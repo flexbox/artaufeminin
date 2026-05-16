@@ -2,6 +2,68 @@
 // https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
 
 const path = require(`path`)
+const https = require(`https`)
+const http = require(`http`)
+
+// Fetch a URL and return the body as a string
+function fetchUrl(url) {
+  return new Promise((resolve, reject) => {
+    const client = url.startsWith('https') ? https : http
+    client.get(url, (res) => {
+      let data = ''
+      res.on('data', (chunk) => { data += chunk })
+      res.on('end', () => resolve({ body: data, contentType: res.headers['content-type'] || '' }))
+    }).on('error', reject)
+  })
+}
+
+// Parse SRT or VTT subtitles → plain text
+function parseSrtOrVtt(text) {
+  return text
+    .split('\n')
+    .filter((line) => {
+      const trimmed = line.trim()
+      if (!trimmed || trimmed === 'WEBVTT') return false
+      if (/^\d+$/.test(trimmed)) return false                          // SRT sequence numbers
+      if (/-->/i.test(trimmed)) return false                          // timestamp lines
+      return true
+    })
+    .join(' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+// Parse Spotify/Apple JSON transcript → plain text
+function parseJsonTranscript(json) {
+  try {
+    const data = JSON.parse(json)
+    // Spotify format: { segments: [{ body: "..." }] }
+    if (Array.isArray(data.segments)) {
+      return data.segments.map((s) => s.body || s.text || '').join(' ').trim()
+    }
+    // Generic array fallback
+    if (Array.isArray(data)) {
+      return data.map((s) => s.body || s.text || s.content || '').join(' ').trim()
+    }
+    return ''
+  } catch {
+    return ''
+  }
+}
+
+async function fetchTranscriptText(url) {
+  try {
+    const { body, contentType } = await fetchUrl(url)
+    if (contentType.includes('json') || url.endsWith('.json')) {
+      return parseJsonTranscript(body)
+    }
+    // SRT or VTT
+    return parseSrtOrVtt(body)
+  } catch {
+    return null
+  }
+}
+
 // Log out information after a build is done
 exports.onPostBuild = ({ reporter }) => {
   reporter.info(`✅ Your Gatsby site has been built`)
@@ -64,6 +126,7 @@ exports.createPages = async ({ graphql, actions }) => {
           contentSnippet
           link
           title
+          transcriptUrl
           itunes {
             summary
             image
@@ -78,7 +141,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-  podcats.data.allAnchorEpisode.nodes.forEach((node) => {
+  for (const node of podcats.data.allAnchorEpisode.nodes) {
     // Redirect old url to new url needs to be before `createPage`
     createRedirect({
       fromPath: `/podcast/${node.guid}`,
@@ -86,14 +149,26 @@ exports.createPages = async ({ graphql, actions }) => {
       isPermanent: true,
     })
 
+    // Fetch transcript content at build time so Google can index it
+    let transcriptText = null
+    if (node.transcriptUrl) {
+      transcriptText = await fetchTranscriptText(node.transcriptUrl)
+      if (transcriptText) {
+        console.info(`  ✅ Transcript fetched for: ${node.title}`)
+      } else {
+        console.warn(`  ⚠️  Could not parse transcript for: ${node.title}`)
+      }
+    }
+
     createPage({
       path: `podcasts/${node.guid}`,
       component: episodeTemplate,
       context: {
         ...node,
+        transcriptText,
       },
     })
-  })
+  }
 
   const articleTemplate = path.resolve(`src/templates/article.tsx`)
   const articles = await graphql(`
