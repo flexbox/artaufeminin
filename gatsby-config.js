@@ -71,7 +71,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
-      resolve: "gatsby-source-anchor",
+      resolve: require.resolve(`./plugins/gatsby-source-anchor-transcript`),
       options: {
         rss: siteConfig.anchorRssUrl,
       },

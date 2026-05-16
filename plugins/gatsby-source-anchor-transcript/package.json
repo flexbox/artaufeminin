@@ -1,0 +1,9 @@
+{
+  "name": "gatsby-source-anchor-transcript",
+  "version": "1.0.0",
+  "description": "Local Gatsby plugin — extends gatsby-source-anchor with podcast:transcript support",
+  "main": "gatsby-node.js",
+  "dependencies": {
+    "rss-parser": "^3.13.0"
+  }
+}
