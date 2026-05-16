@@ -18,9 +18,6 @@ export default function Episode({ pageContext }) {
   const image = pageContext.itunes.image;
   const summary = pageContext.itunes.summary;
   const plainSummary = summary ? stripHtml(summary) : '';
-  const transcriptUrl = pageContext.transcriptUrl || null;
-  const transcriptText = pageContext.transcriptText || null;
-
   const audioPlayerData = useMemo(
     () => ({
       title,
@@ -124,45 +121,6 @@ export default function Episode({ pageContext }) {
             Soutenir sur Tipeee
           </a>
         </section>
-
-        <hr className="separator" />
-
-        {/* ── TRANSCRIPTION ─────────────────────────────────────── */}
-        {transcriptText && (
-          <section className="my-10 border border-neutral-200" aria-labelledby="transcript-heading">
-            <details>
-              <summary className="flex cursor-pointer items-center justify-between p-6 marker:content-none">
-                <div>
-                  <p id="transcript-heading" className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
-                    Transcription
-                  </p>
-                  <p className="text-sm font-light text-neutral-500">
-                    Lire la transcription complète de cet épisode
-                  </p>
-                </div>
-                <span className="shrink-0 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
-                  + Afficher
-                </span>
-              </summary>
-              <div className="border-t border-neutral-200 px-6 py-8">
-                <p className="whitespace-pre-line text-sm font-light leading-relaxed text-neutral-600">
-                  {transcriptText}
-                </p>
-                {transcriptUrl && (
-                  <a
-                    href={transcriptUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Télécharger la transcription de l'épisode : ${title} (ouvre un nouvel onglet)`}
-                    className="mt-6 inline-block text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
-                  >
-                    Télécharger le fichier <span aria-hidden="true">→</span>
-                  </a>
-                )}
-              </div>
-            </details>
-          </section>
-        )}
 
         <hr className="separator" />
       </div>

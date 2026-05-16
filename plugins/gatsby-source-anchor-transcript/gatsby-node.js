@@ -2,17 +2,6 @@
 
 const Parser = require('rss-parser')
 
-// Explicitly define the AnchorEpisode type so transcriptUrl is always
-// present in the GraphQL schema, even when null for all episodes.
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
-  createTypes(`
-    type AnchorEpisode implements Node {
-      transcriptUrl: String
-    }
-  `)
-}
-
 exports.sourceNodes = async (
   { actions, createContentDigest },
   configOptions
@@ -24,18 +13,7 @@ exports.sourceNodes = async (
     throw new Error('[gatsby-source-anchor-transcript] rss must be a valid URL')
   }
 
-  console.time('\nAnchor podcast fetched in')
-
-  // Parse podcast:transcript custom field from the RSS
-  const parser = new Parser({
-    customFields: {
-      item: [
-        ['podcast:transcript', 'transcript'],
-        ['psc:chapters', 'chapters'],
-      ],
-    },
-  })
-
+  const parser = new Parser()
   const feed = await parser.parseURL(rss)
 
   if (!feed || !feed.title) {
@@ -44,26 +22,10 @@ exports.sourceNodes = async (
     )
   }
 
-  const getEpisodeId = (guid) => `anchor-episode-${guid}`
-
   for (const item of feed.items) {
-    // Normalize transcript field — rss-parser returns either a string (url)
-    // or an object with $ attributes depending on the XML structure
-    let transcriptUrl = null
-    if (item.transcript) {
-      if (typeof item.transcript === 'string') {
-        transcriptUrl = item.transcript
-      } else if (item.transcript.$ && item.transcript.$.url) {
-        transcriptUrl = item.transcript.$.url
-      }
-    }
-
     const node = {
       ...item,
-      transcriptUrl,
-      // Remove raw transcript field — we expose transcriptUrl instead
-      transcript: undefined,
-      id: getEpisodeId(item.guid),
+      id: `anchor-episode-${item.guid}`,
       parent: null,
       children: [],
       internal: {
@@ -76,6 +38,4 @@ exports.sourceNodes = async (
 
     createNode(node)
   }
-
-  console.timeEnd('\nAnchor podcast fetched in')
 }
