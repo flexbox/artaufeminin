@@ -2,6 +2,17 @@
 
 const Parser = require('rss-parser')
 
+// Explicitly define the AnchorEpisode type so transcriptUrl is always
+// present in the GraphQL schema, even when null for all episodes.
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  createTypes(`
+    type AnchorEpisode implements Node {
+      transcriptUrl: String
+    }
+  `)
+}
+
 exports.sourceNodes = async (
   { actions, createContentDigest },
   configOptions

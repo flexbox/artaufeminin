@@ -6,11 +6,11 @@ import SEO from '../components/seo';
 
 const questions = [
   {
-    question: "Qui a créé la sculpture géante "Maman", représentant une araignée ?",
-    options: ["Yayoi Kusama", "Louise Bourgeois", "Camille Claudel"],
+    question: 'Qui a créé la sculpture géante «Maman», représentant une araignée ?',
+    options: ['Yayoi Kusama', 'Louise Bourgeois', 'Camille Claudel'],
     answer: 1,
     explanation:
-      "Louise Bourgeois a créé "Maman" en 1999 pour l'inauguration de la Tate Modern à Londres. L'araignée représente sa mère, restauratrice de tapisseries — patiente, habile et indispensable comme une araignée.",
+      "Louise Bourgeois a créé «Maman» en 1999 pour l'inauguration de la Tate Modern à Londres. L'araignée représente sa mère, restauratrice de tapisseries — patiente, habile et indispensable comme une araignée.",
   },
   {
     question: "En quelle année les Guerrilla Girls ont-elles été fondées ?",
@@ -32,7 +32,7 @@ const questions = [
     options: ["1 an", "5 ans", "10 ans"],
     answer: 1,
     explanation:
-      "Kandinsky est souvent cité comme le père de l'abstraction avec ses premières aquarelles abstraites vers 1911. Hilma af Klint peignait ses "Peintures pour le Temple" dès 1906 — cinq ans avant lui.",
+      "Kandinsky est souvent cité comme le père de l'abstraction avec ses premières aquarelles abstraites vers 1911. Hilma af Klint peignait ses «Peintures pour le Temple» dès 1906 — cinq ans avant lui.",
   },
   {
     question:
@@ -48,14 +48,14 @@ const questions = [
     options: ["Hagar in the Wilderness", "Portrait of Lincoln", "The Death of Cleopatra"],
     answer: 2,
     explanation:
-      ""The Death of Cleopatra" (1876) a disparu après l'Exposition universelle de Philadelphie. Elle a servi de décoration dans un hippodrome du Illinois avant d'être retrouvée et restaurée. Elle est aujourd'hui conservée au Smithsonian American Art Museum de Washington.",
+      "«The Death of Cleopatra» (1876) a disparu après l'Exposition universelle de Philadelphie. Elle a servi de décoration dans un hippodrome du Illinois avant d'être retrouvée et restaurée. Elle est aujourd'hui conservée au Smithsonian American Art Museum de Washington.",
   },
   {
     question: "Pourquoi Frida Kahlo réalisait-elle autant d'autoportraits ?",
     options: [
-      ""Parce que les galeries l'exigeaient"",
-      ""Parce que je manque de modèles"",
-      ""Parce que je suis souvent seule et suis le sujet que je connais le mieux"",
+      '«Parce que les galeries l\'exigeaient»',
+      '«Parce que je manque de modèles»',
+      '«Parce que je suis souvent seule et suis le sujet que je connais le mieux»',
     ],
     answer: 2,
     explanation:
