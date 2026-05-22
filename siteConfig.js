@@ -3,7 +3,7 @@ module.exports = {
   title: "ART au féminin",
   shortName: "ART",
   description:
-    "Explorons l’histoire des femmes artistes d’hier et d’aujourd’hui",
+    "Femmes artistes oubliées, histoire de l’art et portraits — redécouvrez celles qui ont créé avec ART AU FÉMININ, le podcast et le média dédié aux artistes femmes.",
   url: "https://www.artaufeminin.fr",
   siteUrl: "https://www.artaufeminin.fr",
   prefix: "/",

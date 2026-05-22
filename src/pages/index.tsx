@@ -341,9 +341,20 @@ export const Head = ({ location }: { location: { pathname: string } }) => {
   const jsonLd = [
     {
       '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'ART AU FÉMININ',
+      url: 'https://www.artaufeminin.fr',
+      description:
+        "Le podcast et le média dédié aux femmes artistes — portraits, histoire de l'art et ressources pour redécouvrir celles que l'Histoire a oubliées.",
+      inLanguage: 'fr',
+    },
+    {
+      '@context': 'https://schema.org',
       '@type': 'Organization',
       name: 'ART AU FÉMININ',
       url: 'https://www.artaufeminin.fr',
+      description:
+        "Média dédié aux femmes artistes : podcast, articles, livres et citations pour rendre visible l'histoire des femmes dans l'Art.",
       logo: 'https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/images/logo-podcast-art-au-feminin.png',
       sameAs: [
         'https://instagram.com/artaufeminin',
@@ -358,6 +369,16 @@ export const Head = ({ location }: { location: { pathname: string } }) => {
       name: 'ART AU FÉMININ',
       description:
         "Un podcast pour redécouvrir les femmes artistes qui ont façonné l'Art — de l'Antiquité à aujourd'hui.",
+      keywords: [
+        'femmes artistes',
+        'artistes femmes',
+        'histoire de l'art',
+        'podcast art',
+        'femmes dans l'art',
+        'artistes oubliées',
+        'histoire des femmes',
+        'art au féminin',
+      ],
       url: 'https://www.artaufeminin.fr/podcasts',
       inLanguage: 'fr',
       author: {
@@ -371,7 +392,7 @@ export const Head = ({ location }: { location: { pathname: string } }) => {
   return (
     <SEO
       title="ART AU FÉMININ — Le podcast sur les femmes artistes et l'Histoire de l'Art"
-      description="Un podcast présenté par Aldjia Boughias pour redécouvrir les femmes artistes qui ont marqué l'Histoire de l'Art. Épisodes, portraits et articles à écouter et à lire."
+      description="Femmes artistes oubliées par l'Histoire de l'Art — redécouvrez leurs œuvres et leurs parcours avec ART AU FÉMININ : podcast, articles, portraits et chroniques présentés par Aldjia Boughias."
       url={`https://www.artaufeminin.fr${location.pathname}`}
       jsonLd={jsonLd}
     />
