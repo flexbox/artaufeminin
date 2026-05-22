@@ -217,32 +217,59 @@ export const Head = (
   const datePublished = props.pageContext.node.data.date;
   const canonicalUrl = `https://www.artaufeminin.fr${props.location.pathname}`;
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
-    headline: seoTitle,
-    description: seoDescription,
-    image:
-      seoImage ||
-      'https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/images/logo-podcast-art-au-feminin.png',
-    url: canonicalUrl,
-    ...(datePublished && { datePublished }),
-    inLanguage: 'fr',
-    author: {
-      '@type': 'Person',
-      name: 'Aldjia Boughias',
-      url: 'https://www.artaufeminin.fr/about',
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Accueil',
+          item: 'https://www.artaufeminin.fr',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Articles',
+          item: 'https://www.artaufeminin.fr/articles',
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: seoTitle,
+          item: canonicalUrl,
+        },
+      ],
     },
-    publisher: {
-      '@type': 'Organization',
-      name: 'ART AU FÉMININ',
-      url: 'https://www.artaufeminin.fr',
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/images/logo-podcast-art-au-feminin.png',
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: seoTitle,
+      description: seoDescription,
+      keywords: ['femmes artistes', 'histoire de l'art', 'art au féminin', 'artistes femmes'],
+      image:
+        seoImage ||
+        'https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/images/logo-podcast-art-au-feminin.png',
+      url: canonicalUrl,
+      ...(datePublished && { datePublished, dateModified: datePublished }),
+      inLanguage: 'fr',
+      author: {
+        '@type': 'Person',
+        name: 'Aldjia Boughias',
+        url: 'https://www.artaufeminin.fr/about',
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'ART AU FÉMININ',
+        url: 'https://www.artaufeminin.fr',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/images/logo-podcast-art-au-feminin.png',
+        },
       },
     },
-  };
+  ];
 
   return (
     <SEO

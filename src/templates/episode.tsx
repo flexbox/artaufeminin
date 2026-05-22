@@ -168,25 +168,52 @@ export const Head = ({
     : title;
   const canonicalUrl = `https://www.artaufeminin.fr${location.pathname}`;
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'PodcastEpisode',
-    name: title,
-    description,
-    url: canonicalUrl,
-    ...(episodeImage && { image: episodeImage }),
-    inLanguage: 'fr',
-    partOfSeries: {
-      '@type': 'PodcastSeries',
-      name: 'ART AU FÉMININ',
-      url: 'https://www.artaufeminin.fr/podcasts',
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Accueil',
+          item: 'https://www.artaufeminin.fr',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Podcasts',
+          item: 'https://www.artaufeminin.fr/podcasts',
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: title,
+          item: canonicalUrl,
+        },
+      ],
     },
-    author: {
-      '@type': 'Person',
-      name: 'Aldjia Boughias',
-      url: 'https://www.artaufeminin.fr/about',
+    {
+      '@context': 'https://schema.org',
+      '@type': 'PodcastEpisode',
+      name: title,
+      description,
+      keywords: ['femmes artistes', 'podcast art', 'histoire de l'art', 'art au féminin', 'artistes femmes'],
+      url: canonicalUrl,
+      ...(episodeImage && { image: episodeImage }),
+      inLanguage: 'fr',
+      partOfSeries: {
+        '@type': 'PodcastSeries',
+        name: 'ART AU FÉMININ',
+        url: 'https://www.artaufeminin.fr/podcasts',
+      },
+      author: {
+        '@type': 'Person',
+        name: 'Aldjia Boughias',
+        url: 'https://www.artaufeminin.fr/about',
+      },
     },
-  };
+  ];
 
   return (
     <SEO
