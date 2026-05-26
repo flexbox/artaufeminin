@@ -247,7 +247,7 @@ export const Head = (
       '@type': 'BlogPosting',
       headline: seoTitle,
       description: seoDescription,
-      keywords: ['femmes artistes', 'histoire de l'art', 'art au féminin', 'artistes femmes'],
+      keywords: ['femmes artistes', "histoire de l'art", 'art au féminin', 'artistes femmes'],
       image:
         seoImage ||
         'https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/images/logo-podcast-art-au-feminin.png',

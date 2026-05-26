@@ -372,9 +372,9 @@ export const Head = ({ location }: { location: { pathname: string } }) => {
       keywords: [
         'femmes artistes',
         'artistes femmes',
-        'histoire de l'art',
+        "histoire de l'art",
         'podcast art',
-        'femmes dans l'art',
+        "femmes dans l'art",
         'artistes oubliées',
         'histoire des femmes',
         'art au féminin',

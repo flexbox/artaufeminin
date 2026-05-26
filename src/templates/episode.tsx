@@ -198,7 +198,7 @@ export const Head = ({
       '@type': 'PodcastEpisode',
       name: title,
       description,
-      keywords: ['femmes artistes', 'podcast art', 'histoire de l'art', 'art au féminin', 'artistes femmes'],
+      keywords: ['femmes artistes', 'podcast art', "histoire de l'art", 'art au féminin', 'artistes femmes'],
       url: canonicalUrl,
       ...(episodeImage && { image: episodeImage }),
       inLanguage: 'fr',
