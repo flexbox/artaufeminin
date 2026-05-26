@@ -4,5 +4,3 @@
 
 [build.environment]
   NODE_VERSION = "20"
-  YARN_VERSION = "4"
-  ENABLE_COREPACK = "1"
