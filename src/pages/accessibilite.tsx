@@ -54,16 +54,16 @@ export default function AccessibilitePage() {
           <div className="border border-neutral-200 p-6 text-sm font-light leading-relaxed text-neutral-600">
             <ul className="space-y-2 pl-4">
               {[
-                'Langue de la page déclarée en français (lang="fr")',
-                'Lien d'évitement "Passer au contenu principal" en début de page',
-                'Structure de titres cohérente (h1, h2, h3) sur toutes les pages',
-                'Navigation clavier entièrement fonctionnelle avec focus visible',
-                'Attributs aria-label descriptifs sur tous les liens et boutons d'action',
-                'Alternatives textuelles sur toutes les images',
-                'Liens vers des ressources externes indiquant l'ouverture dans un nouvel onglet',
-                'Lecteurs d'écran : balises aria-hidden sur les éléments décoratifs',
-                'Points de repère ARIA (main, nav, footer) sur toutes les pages',
-                'Formulaire newsletter avec label explicite et indication des champs requis',
+                "Langue de la page déclarée en français (lang=\"fr\")",
+                "Lien d'évitement « Passer au contenu principal » en début de page",
+                "Structure de titres cohérente (h1, h2, h3) sur toutes les pages",
+                "Navigation clavier entièrement fonctionnelle avec focus visible",
+                "Attributs aria-label descriptifs sur tous les liens et boutons d'action",
+                "Alternatives textuelles sur toutes les images",
+                "Liens vers des ressources externes indiquant l'ouverture dans un nouvel onglet",
+                "Lecteurs d'écran : balises aria-hidden sur les éléments décoratifs",
+                "Points de repère ARIA (main, nav, footer) sur toutes les pages",
+                "Formulaire newsletter avec label explicite et indication des champs requis",
               ].map((measure) => (
                 <li key={measure} className="flex items-start gap-2">
                   <span className="mt-2 size-1 shrink-0 bg-neutral-400" />

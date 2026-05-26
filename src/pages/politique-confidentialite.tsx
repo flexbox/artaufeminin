@@ -108,10 +108,10 @@ export default function PolitiqueConfidentialitePage() {
             <p>Conformément au RGPD, vous disposez des droits suivants :</p>
             <ul className="space-y-2 pl-4">
               {[
-                { droit: 'Droit d'accès', desc: 'obtenir une copie des données vous concernant.' },
+                { droit: "Droit d'accès", desc: 'obtenir une copie des données vous concernant.' },
                 { droit: 'Droit de rectification', desc: 'faire corriger vos données si elles sont inexactes.' },
-                { droit: 'Droit à l'effacement', desc: 'demander la suppression de vos données.' },
-                { droit: 'Droit d'opposition', desc: 'vous opposer au traitement de vos données.' },
+                { droit: "Droit à l'effacement", desc: 'demander la suppression de vos données.' },
+                { droit: "Droit d'opposition", desc: 'vous opposer au traitement de vos données.' },
                 { droit: 'Droit à la portabilité', desc: 'recevoir vos données dans un format structuré.' },
                 { droit: 'Droit de retrait du consentement', desc: 'en vous désinscrivant à tout moment via le lien en bas de chaque e-mail.' },
               ].map(({ droit, desc }) => (
