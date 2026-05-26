@@ -188,21 +188,35 @@ export default function Footer({ siteTitle }: FooterProps) {
         </div>
 
         {/* ── Bas de page ─────────────────────────────────────── */}
-        <div className="border-t border-white/10 py-8 lg:flex lg:items-center lg:justify-between">
-          <p className="text-xs font-light text-white/30">
-            &copy; {new Date().getFullYear()} {siteTitle} — Tous droits réservés.
-          </p>
-          <p className="mt-2 text-xs font-light text-white/20 lg:mt-0">
-            Fait avec passion par{' '}
-            <a
-              href="https://aldjia.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/40 transition-colors hover:text-white/70"
-            >
-              Aldjia Boughias
-            </a>
-          </p>
+        <div className="border-t border-white/10 py-8">
+          <div className="lg:flex lg:items-center lg:justify-between">
+            <p className="text-xs font-light text-white/30">
+              &copy; {new Date().getFullYear()} {siteTitle} — Tous droits réservés.
+            </p>
+            <p className="mt-2 text-xs font-light text-white/20 lg:mt-0">
+              Fait avec passion par{' '}
+              <a
+                href="https://aldjia.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Site d'Aldjia Boughias (ouvre un nouvel onglet)"
+                className="text-white/40 transition-colors hover:text-white/70"
+              >
+                Aldjia Boughias
+              </a>
+            </p>
+          </div>
+          <nav aria-label="Liens légaux" className="mt-4 flex flex-wrap gap-4">
+            <Link to="/mentions-legales" className="text-xs font-light text-white/25 transition-colors hover:text-white/60">
+              Mentions légales
+            </Link>
+            <Link to="/politique-confidentialite" className="text-xs font-light text-white/25 transition-colors hover:text-white/60">
+              Politique de confidentialité
+            </Link>
+            <Link to="/accessibilite" className="text-xs font-light text-white/25 transition-colors hover:text-white/60">
+              Accessibilité
+            </Link>
+          </nav>
         </div>
 
       </div>
