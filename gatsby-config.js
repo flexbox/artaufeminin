@@ -7,6 +7,7 @@ module.exports = {
     ...siteConfig,
   },
   plugins: [
+    `gatsby-plugin-netlify`,
     `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-source-filesystem`,

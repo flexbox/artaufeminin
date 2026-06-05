@@ -8,6 +8,7 @@ import { AudioPlayer } from './player/AudioPlayer';
 import { useAudioPlayer } from './player/AudioProvider';
 import { PlayButton } from './player/PlayButton';
 import Text from './text';
+import { slugify } from '../utils/slugify';
 
 interface LayoutProps {
   children: ReactNode;
@@ -28,7 +29,6 @@ function Layout({
             url
           }
           title
-          guid
         }
       }
       site {
@@ -41,7 +41,6 @@ function Layout({
   const audioUrl = data.allAnchorEpisode.nodes[0].enclosure.url;
   const siteTitle = data.site.siteMetadata.title;
   const lastPodcastTitle = data.allAnchorEpisode.nodes[0].title;
-  const guid = data.allAnchorEpisode.nodes[0].guid;
 
   const audioPlayerData = useMemo(
     () => ({
@@ -50,9 +49,9 @@ function Layout({
         src: audioUrl,
         type: 'audio/mpeg',
       },
-      link: `/${guid}`,
+      link: `/podcasts/${slugify(lastPodcastTitle)}/`,
     }),
-    [audioUrl, guid, lastPodcastTitle],
+    [audioUrl, lastPodcastTitle]
   );
   const player = useAudioPlayer(audioPlayerData);
 

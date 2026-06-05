@@ -1,6 +1,8 @@
 import { Link } from 'gatsby';
 import React, { useMemo } from 'react';
 
+import { slugify } from '../utils/slugify';
+
 import { useAudioPlayer } from './player/AudioProvider';
 import { PlayButton } from './player/PlayButton';
 import { stripHtml } from '../utils/html';
@@ -37,9 +39,9 @@ export default function EpisodeItem({
         src: episode.enclosure.url,
         type: 'audio/mpeg',
       },
-      link: `/${episode.guid}`,
+      link: `/podcasts/${slugify(episode.title)}/`,
     }),
-    [episode],
+    [episode]
   );
   const player = useAudioPlayer(audioPlayerData);
 
@@ -51,7 +53,7 @@ export default function EpisodeItem({
   return (
     <>
       <Link
-        to={`/podcasts/${episode.guid}`}
+        to={`/podcasts/${slugify(episode.title)}/`}
         className="article-preview flex flex-col hover:no-underline md:flex-row"
       >
         <div className="flex-1">
@@ -74,7 +76,9 @@ export default function EpisodeItem({
       </Link>
       <div className="flex items-center">
         <PlayButton player={player} size="small" />
-        <Text className="ml-4 text-sm font-semibold uppercase tracking-widest text-clay-500">Écouter</Text>
+        <Text className="ml-4 text-sm font-semibold uppercase tracking-widest text-clay-500">
+          Écouter
+        </Text>
       </div>
       <hr className="separator my-8" />
     </>

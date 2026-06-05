@@ -1,6 +1,7 @@
 import React from 'react';
 
 import HeroCard from './heroCard';
+import { slugify } from '../utils/slugify';
 
 type HeroProps = {
   allEpisodes: any;
@@ -23,7 +24,7 @@ export function Hero({ allEpisodes }: HeroProps) {
         {allEpisodes.slice(0, 3).map((episode: any) => (
           <HeroCard
             key={episode.guid}
-            heroLink={`/podcasts/${episode.guid}`}
+            heroLink={`/podcasts/${slugify(episode.title)}/`}
             imageUrl={episode.itunes.image}
             heroTitle={episode.title}
             subtitle={`Saison ${episode.itunes.season} · Épisode ${episode.itunes.episode}`}

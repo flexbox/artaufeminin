@@ -22,7 +22,7 @@ export default function Episode({ pageContext }) {
     () => ({
       title,
       audio: { src: pageContext.enclosure.url, type: 'audio/mpeg' },
-      link: `/podcasts/${pageContext.guid}`,
+      link: `/podcasts/${pageContext.slug}`,
     }),
     [pageContext]
   );
@@ -30,7 +30,6 @@ export default function Episode({ pageContext }) {
 
   return (
     <Layout withLastPodcast={false}>
-
       {/* ── HERO IMAGE ───────────────────────────────────────────── */}
       <div className="-mx-4 relative h-[55vh] min-h-[340px] overflow-hidden">
         <img
@@ -54,7 +53,6 @@ export default function Episode({ pageContext }) {
 
       {/* ── CONTENU ──────────────────────────────────────────────── */}
       <div className="mx-auto max-w-3xl px-6 lg:px-0">
-
         {/* Bouton play — style "description" de l'article */}
         <div className="flex items-center gap-5 border-b border-neutral-200 py-8">
           <PlayButton player={player} size="medium" />
@@ -94,7 +92,10 @@ export default function Episode({ pageContext }) {
               Présenté par
             </p>
             <p className="text-sm font-light leading-relaxed text-neutral-500">
-              Aldjia Boughias — développeuse web orientée Art et Culture, exploratrice de l'Histoire de l'Art le reste du temps. J'ai créé ART AU FÉMININ pour donner aux femmes artistes la place qu'elles méritent dans notre mémoire collective.
+              Aldjia Boughias — développeuse web orientée Art et Culture,
+              exploratrice de l'Histoire de l'Art le reste du temps. J'ai créé
+              ART AU FÉMININ pour donner aux femmes artistes la place qu'elles
+              méritent dans notre mémoire collective.
             </p>
           </div>
         </section>
@@ -108,8 +109,9 @@ export default function Episode({ pageContext }) {
             Vous avez aimé cet épisode ?
           </h2>
           <p className="mb-5 text-sm font-light leading-relaxed text-neutral-500">
-            Si ce contenu vous a plu, vous pouvez soutenir ART AU FÉMININ sur Tipeee.
-            Chaque contribution aide à produire de nouveaux épisodes et articles.
+            Si ce contenu vous a plu, vous pouvez soutenir ART AU FÉMININ sur
+            Tipeee. Chaque contribution aide à produire de nouveaux épisodes et
+            articles.
           </p>
           <a
             href="https://fr.tipeee.com/art-au-feminin"
@@ -141,7 +143,11 @@ export default function Episode({ pageContext }) {
                 rel="noopener noreferrer"
                 className="group flex items-center gap-3 border border-neutral-200 p-4 transition-colors hover:border-neutral-400"
               >
-                <img src={platform.imageUrl} alt={platform.name} className="size-6 shrink-0" />
+                <img
+                  src={platform.imageUrl}
+                  alt={platform.name}
+                  className="size-6 shrink-0"
+                />
                 <span className="text-sm font-light text-neutral-700 transition-colors group-hover:text-neutral-900">
                   {platform.name}
                 </span>
@@ -149,7 +155,6 @@ export default function Episode({ pageContext }) {
             ))}
         </div>
       </div>
-
     </Layout>
   );
 }
@@ -198,7 +203,13 @@ export const Head = ({
       '@type': 'PodcastEpisode',
       name: title,
       description,
-      keywords: ['femmes artistes', 'podcast art', "histoire de l'art", 'art au féminin', 'artistes femmes'],
+      keywords: [
+        'femmes artistes',
+        'podcast art',
+        "histoire de l'art",
+        'art au féminin',
+        'artistes femmes',
+      ],
       url: canonicalUrl,
       ...(episodeImage && { image: episodeImage }),
       inLanguage: 'fr',
