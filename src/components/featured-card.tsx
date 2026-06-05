@@ -23,10 +23,18 @@ export function FeaturedCard({
   imageRight = false,
 }: FeaturedCardProps) {
   const image = (
-    <Link to={href} tabIndex={-1} aria-hidden="true" className="block overflow-hidden bg-neutral-100">
+    <Link
+      to={href}
+      tabIndex={-1}
+      aria-hidden="true"
+      className="block overflow-hidden bg-neutral-100"
+    >
       <img
         src={imageUrl}
         alt={imageAlt}
+        width={800}
+        height={450}
+        loading="lazy"
         className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
         style={{ aspectRatio: '16/9', minHeight: 320 }}
       />
