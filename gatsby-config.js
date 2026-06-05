@@ -1,23 +1,13 @@
-const siteConfig = require("./siteConfig")
+const siteConfig = require('./siteConfig');
 
-const { linkResolver } = require("./src/utils/linkResolver.ts")
-const siteUrl = process.env.URL || siteConfig.siteUrl
+const { linkResolver } = require('./src/utils/linkResolver.ts');
+const siteUrl = process.env.URL || siteConfig.siteUrl;
 module.exports = {
   siteMetadata: {
     ...siteConfig,
   },
   plugins: [
     `gatsby-plugin-postcss`,
-    {
-      resolve: "gatsby-plugin-google-fonts",
-      options: {
-        fonts: [
-          "Cormorant Garamond:300,300i,400,400i,500",
-          "Inter:300,400,500",
-        ],
-        display: 'swap',
-      },
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -47,7 +37,7 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-sitemap",
+      resolve: 'gatsby-plugin-sitemap',
       options: {
         output: `/`,
         query: `
@@ -61,7 +51,7 @@ module.exports = {
       `,
         resolveSiteUrl: () => siteUrl,
         resolvePages: ({ allSitePage: { nodes: allPages } }) => {
-          return allPages.map((page) => ({ ...page }))
+          return allPages.map((page) => ({ ...page }));
         },
         serialize: ({ path }) => ({
           url: `${siteUrl}${path}`,
@@ -77,18 +67,18 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-prismic",
+      resolve: 'gatsby-source-prismic',
       options: {
-        repositoryName: "artaufeminin",
+        repositoryName: 'artaufeminin',
         linkResolver: (doc) => linkResolver(doc),
         schemas: {
-          faq: require("./custom_types/faq.json"),
-          blog_post: require("./custom_types/blog_post.json"),
-          press: require("./custom_types/press.json"),
-          quotation: require("./custom_types/quotation.json"),
-          book_review: require("./custom_types/book_review.json"),
+          faq: require('./custom_types/faq.json'),
+          blog_post: require('./custom_types/blog_post.json'),
+          press: require('./custom_types/press.json'),
+          quotation: require('./custom_types/quotation.json'),
+          book_review: require('./custom_types/book_review.json'),
         },
       },
     },
   ],
-}
+};
