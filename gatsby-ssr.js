@@ -1,9 +1,9 @@
-import React from "react"
-import { AudioProvider } from "./src/components/player/AudioProvider"
+import React from 'react';
+import { AudioProvider } from './src/components/player/AudioProvider';
 
 export const wrapRootElement = ({ element }) => (
   <AudioProvider>{element}</AudioProvider>
-)
+);
 
 export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
   setHtmlAttributes({ lang: 'fr' });
@@ -22,8 +22,9 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
     />,
     <link
       key="gf-cormorant"
-      rel="stylesheet"
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&display=swap"
     />,
-  ])
-}
+  ]);
+};

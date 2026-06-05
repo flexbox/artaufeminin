@@ -10,7 +10,6 @@ import { stripHtml } from '../utils/html';
 
 import heroImage from '../images/instagram/votre-image.jpg';
 
-
 /* ─── Page ──────────────────────────────────────────────────────── */
 const IndexPage = ({ data }) => {
   const allEpisodes = data.allAnchorEpisode.nodes;
@@ -19,11 +18,11 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout withInstagram={false}>
-
       {/* ── HERO — image plein cadre + strip "Now Open" ─────────── */}
       <section className="-mx-4" aria-labelledby="hero-heading">
         <h1 id="hero-heading" className="sr-only">
-          ART AU FÉMININ — Le podcast sur les femmes artistes et l'Histoire de l'Art
+          ART AU FÉMININ — Le podcast sur les femmes artistes et l'Histoire de
+          l'Art
         </h1>
 
         {/* Image pleine hauteur */}
@@ -35,6 +34,8 @@ const IndexPage = ({ data }) => {
             src={heroImage}
             alt="ART AU FÉMININ"
             className="h-full w-full object-cover object-[center_30%]"
+            fetchpriority="high"
+            loading="eager"
           />
           {/* Gradient + phrase d'accroche */}
           <div className="absolute inset-0 bg-black/40" />
@@ -47,7 +48,8 @@ const IndexPage = ({ data }) => {
               <span className="italic">l'Histoire les a oubliées.</span>
             </h2>
             <p className="mt-6 max-w-lg text-base font-light leading-relaxed text-white/60">
-              Un podcast pour redécouvrir les femmes artistes qui ont façonné l'Art — de l'Antiquité à aujourd'hui.
+              Un podcast pour redécouvrir les femmes artistes qui ont façonné
+              l'Art — de l'Antiquité à aujourd'hui.
             </p>
           </div>
         </div>
@@ -64,7 +66,8 @@ const IndexPage = ({ data }) => {
                 {latestEpisode.title}
               </span>
               <span className="hidden shrink-0 text-xs font-light text-neutral-400 sm:block">
-                Saison {latestEpisode.itunes.season} · Épisode {latestEpisode.itunes.episode}
+                Saison {latestEpisode.itunes.season} · Épisode{' '}
+                {latestEpisode.itunes.episode}
               </span>
               <Link
                 to={`/podcasts/${latestEpisode.guid}`}
@@ -79,11 +82,16 @@ const IndexPage = ({ data }) => {
       </section>
 
       {/* ── ÉPISODES ─────────────────────────────────────────────── */}
-      <section className="mx-auto mt-16 w-11/12 max-w-7xl" aria-labelledby="section-episodes">
-
+      <section
+        className="mx-auto mt-16 w-11/12 max-w-7xl"
+        aria-labelledby="section-episodes"
+      >
         {/* En-tête de section */}
         <div className="mb-10 flex items-baseline justify-between border-b border-neutral-200 pb-4">
-          <h2 id="section-episodes" className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
+          <h2
+            id="section-episodes"
+            className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+          >
             Épisodes
           </h2>
           <Link
@@ -105,7 +113,8 @@ const IndexPage = ({ data }) => {
             title={allEpisodes[0].title}
             description={
               allEpisodes[0].itunes.summary
-                ? stripHtml(allEpisodes[0].itunes.summary).substring(0, 240) + '…'
+                ? stripHtml(allEpisodes[0].itunes.summary).substring(0, 240) +
+                  '…'
                 : undefined
             }
             cta={
@@ -155,10 +164,15 @@ const IndexPage = ({ data }) => {
       <div className="mx-auto my-20 w-11/12 max-w-7xl border-t border-neutral-200" />
 
       {/* ── ARTICLES ─────────────────────────────────────────────── */}
-      <section className="mx-auto w-11/12 max-w-7xl" aria-labelledby="section-articles">
-
+      <section
+        className="mx-auto w-11/12 max-w-7xl"
+        aria-labelledby="section-articles"
+      >
         <div className="mb-10 flex items-baseline justify-between border-b border-neutral-200 pb-4">
-          <h2 id="section-articles" className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
+          <h2
+            id="section-articles"
+            className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+          >
             Articles
           </h2>
           <Link
@@ -171,33 +185,36 @@ const IndexPage = ({ data }) => {
         </div>
 
         {/* Grande card featured — dernier article */}
-        {allArticles[0] && (() => {
-          const art = allArticles[0];
-          const title = RichText.asText(art.data.title.richText);
-          const description = art.data.description?.richText
-            ? RichText.asText(art.data.description.richText)
-            : undefined;
-          return (
-            <FeaturedCard
-              href={`/articles/${art.uid}`}
-              imageUrl={art.data.image.url}
-              imageAlt={art.data.image.alt || title}
-              label="Article · À la Une"
-              title={title}
-              description={description ? description.substring(0, 240) + '…' : undefined}
-              imageRight
-              cta={
-                <Link
-                  to={`/articles/${art.uid}`}
-                  aria-label={`Lire l'article : ${title}`}
-                  className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
-                >
-                  Lire l'Article <span aria-hidden="true">→</span>
-                </Link>
-              }
-            />
-          );
-        })()}
+        {allArticles[0] &&
+          (() => {
+            const art = allArticles[0];
+            const title = RichText.asText(art.data.title.richText);
+            const description = art.data.description?.richText
+              ? RichText.asText(art.data.description.richText)
+              : undefined;
+            return (
+              <FeaturedCard
+                href={`/articles/${art.uid}`}
+                imageUrl={art.data.image.url}
+                imageAlt={art.data.image.alt || title}
+                label="Article · À la Une"
+                title={title}
+                description={
+                  description ? description.substring(0, 240) + '…' : undefined
+                }
+                imageRight
+                cta={
+                  <Link
+                    to={`/articles/${art.uid}`}
+                    aria-label={`Lire l'article : ${title}`}
+                    className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+                  >
+                    Lire l'Article <span aria-hidden="true">→</span>
+                  </Link>
+                }
+              />
+            );
+          })()}
 
         {/* Grille des articles suivants */}
         {allArticles.length > 1 && (
@@ -205,7 +222,10 @@ const IndexPage = ({ data }) => {
             {allArticles.slice(1).map((article: any) => {
               const title = RichText.asText(article.data.title.richText);
               const description = article.data.description?.richText
-                ? RichText.asText(article.data.description.richText).substring(0, 120) + '…'
+                ? RichText.asText(article.data.description.richText).substring(
+                    0,
+                    120
+                  ) + '…'
                 : '';
               return (
                 <ContentCard
@@ -246,9 +266,10 @@ const IndexPage = ({ data }) => {
               « Sororité »
             </p>
             <p className="mt-5 text-sm font-light leading-relaxed text-white/50">
-              Une galerie d'Art immersive en 3D dédiée aux femmes artistes.
-              La première exposition réunit une vingtaine d'artistes autour du thème
-              de la Sororité — ce lien puissant entre femmes qui traverse l'Histoire de l'Art.
+              Une galerie d'Art immersive en 3D dédiée aux femmes artistes. La
+              première exposition réunit une vingtaine d'artistes autour du
+              thème de la Sororité — ce lien puissant entre femmes qui traverse
+              l'Histoire de l'Art.
             </p>
           </div>
           <a
@@ -280,7 +301,6 @@ const IndexPage = ({ data }) => {
           </a>
         </div>
       </section>
-
     </Layout>
   );
 };
@@ -308,8 +328,12 @@ export const indexPageQuery = graphql`
     uid
     data {
       date
-      title { richText }
-      description { richText }
+      title {
+        richText
+      }
+      description {
+        richText
+      }
       image {
         alt
         copyright

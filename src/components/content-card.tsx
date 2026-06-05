@@ -22,11 +22,19 @@ export function ContentCard({
 }: ContentCardProps) {
   return (
     <article className="group flex flex-col">
-      <Link to={href} tabIndex={-1} aria-hidden="true" className="block overflow-hidden bg-neutral-100">
+      <Link
+        to={href}
+        tabIndex={-1}
+        aria-hidden="true"
+        className="block overflow-hidden bg-neutral-100"
+      >
         <div className="aspect-square overflow-hidden">
           <img
             src={imageUrl}
             alt={imageAlt}
+            width={400}
+            height={400}
+            loading="lazy"
             className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]"
           />
         </div>
@@ -47,9 +55,7 @@ export function ContentCard({
           {description}
         </p>
 
-        <div className="mt-4">
-          {action}
-        </div>
+        <div className="mt-4">{action}</div>
       </div>
     </article>
   );
