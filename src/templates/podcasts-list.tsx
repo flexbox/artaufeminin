@@ -1,6 +1,8 @@
 import { graphql, Link } from 'gatsby';
 import React, { useMemo } from 'react';
 
+import { slugify } from '../utils/slugify';
+
 import { ContentCard } from '../components/content-card';
 import { FeaturedCard } from '../components/featured-card';
 import Layout from '../components/layout';
@@ -15,9 +17,9 @@ function EpisodeCard({ episode }: { episode: any }) {
     () => ({
       title: episode.title,
       audio: { src: episode.enclosure.url, type: 'audio/mpeg' },
-      link: `/podcasts/${episode.guid}`,
+      link: `/podcasts/${slugify(episode.title)}/`,
     }),
-    [episode],
+    [episode]
   );
   const player = useAudioPlayer(audioPlayerData);
 
@@ -35,7 +37,7 @@ function EpisodeCard({ episode }: { episode: any }) {
 
   return (
     <ContentCard
-      href={`/podcasts/${episode.guid}`}
+      href={`/podcasts/${slugify(episode.title)}/`}
       imageUrl={episode.itunes.image}
       imageAlt={episode.title}
       meta={meta}
@@ -77,7 +79,6 @@ const PodcastsListTemplate = ({ data, pageContext }: PodcastsListProps) => {
 
   return (
     <Layout>
-
       {/* ── EN-TÊTE ───────────────────────────────────────────────── */}
       <section className="mx-auto mb-10 mt-8 w-11/12 max-w-7xl border-b border-neutral-200 pb-8">
         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
@@ -97,7 +98,7 @@ const PodcastsListTemplate = ({ data, pageContext }: PodcastsListProps) => {
             </h2>
           </div>
           <FeaturedCard
-            href={`/podcasts/${featured.guid}`}
+            href={`/podcasts/${slugify(featured.title)}/`}
             imageUrl={featured.itunes.image}
             imageAlt={featured.title}
             label={`Saison ${featured.itunes.season} · Épisode ${featured.itunes.episode}`}
@@ -109,7 +110,7 @@ const PodcastsListTemplate = ({ data, pageContext }: PodcastsListProps) => {
             }
             cta={
               <Link
-                to={`/podcasts/${featured.guid}`}
+                to={`/podcasts/${slugify(featured.title)}/`}
                 aria-label={`Écouter l'épisode : ${featured.title}`}
                 className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
               >
@@ -136,19 +137,18 @@ const PodcastsListTemplate = ({ data, pageContext }: PodcastsListProps) => {
         </section>
       )}
 
-      <Pagination currentPage={currentPage} numPages={numPages} basePath="/podcasts" />
-
+      <Pagination
+        currentPage={currentPage}
+        numPages={numPages}
+        basePath="/podcasts"
+      />
     </Layout>
   );
 };
 
 export const query = graphql`
   query PodcastsListQuery($skip: Int!, $limit: Int!) {
-    allAnchorEpisode(
-      sort: { isoDate: DESC }
-      limit: $limit
-      skip: $skip
-    ) {
+    allAnchorEpisode(sort: { isoDate: DESC }, limit: $limit, skip: $skip) {
       nodes {
         id
         guid

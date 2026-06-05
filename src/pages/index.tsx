@@ -7,6 +7,7 @@ import { FeaturedCard } from '../components/featured-card';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { stripHtml } from '../utils/html';
+import { slugify } from '../utils/slugify';
 
 import heroImage from '../images/instagram/votre-image.jpg';
 
@@ -70,7 +71,7 @@ const IndexPage = ({ data }) => {
                 {latestEpisode.itunes.episode}
               </span>
               <Link
-                to={`/podcasts/${latestEpisode.guid}`}
+                to={`/podcasts/${slugify(latestEpisode.title)}/`}
                 aria-label={`Écouter : ${latestEpisode.title}`}
                 className="shrink-0 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
               >
@@ -106,7 +107,7 @@ const IndexPage = ({ data }) => {
         {/* Grande card featured — dernier épisode */}
         {allEpisodes[0] && (
           <FeaturedCard
-            href={`/podcasts/${allEpisodes[0].guid}`}
+            href={`/podcasts/${slugify(allEpisodes[0].title)}/`}
             imageUrl={allEpisodes[0].itunes.image}
             imageAlt={allEpisodes[0].title}
             label={`Saison ${allEpisodes[0].itunes.season} · Épisode ${allEpisodes[0].itunes.episode}`}
@@ -119,7 +120,7 @@ const IndexPage = ({ data }) => {
             }
             cta={
               <Link
-                to={`/podcasts/${allEpisodes[0].guid}`}
+                to={`/podcasts/${slugify(allEpisodes[0].title)}/`}
                 aria-label={`Écouter l'épisode : ${allEpisodes[0].title}`}
                 className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
               >
@@ -135,7 +136,7 @@ const IndexPage = ({ data }) => {
             {allEpisodes.slice(1).map((episode: any) => (
               <ContentCard
                 key={episode.guid}
-                href={`/podcasts/${episode.guid}`}
+                href={`/podcasts/${slugify(episode.title)}/`}
                 imageUrl={episode.itunes.image}
                 imageAlt={episode.title}
                 meta={`Saison ${episode.itunes.season} · Épisode ${episode.itunes.episode}`}
@@ -147,7 +148,7 @@ const IndexPage = ({ data }) => {
                 }
                 action={
                   <Link
-                    to={`/podcasts/${episode.guid}`}
+                    to={`/podcasts/${slugify(episode.title)}/`}
                     aria-label={`Écouter : ${episode.title}`}
                     className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
                   >

@@ -1,62 +1,82 @@
-// Controlling your site’s data in the GraphQL data layer.
+// Controlling your site's data in the GraphQL data layer.
 // https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
 
-const path = require(`path`)
+const path = require(`path`);
+
+const slugify = (text) =>
+  text
+    .toString()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 80);
 
 // Log out information after a build is done
 exports.onPostBuild = ({ reporter }) => {
-  reporter.info(`✅ Your Gatsby site has been built`)
-}
+  reporter.info(`✅ Your Gatsby site has been built`);
+};
 
-const FIRST_PAGE_LIMIT = 10
-const OTHER_PAGES_LIMIT = 12
+const FIRST_PAGE_LIMIT = 10;
+const OTHER_PAGES_LIMIT = 12;
 
 function buildPaginatedPages(total) {
-  const remaining = Math.max(0, total - FIRST_PAGE_LIMIT)
-  const numPages = 1 + Math.ceil(remaining / OTHER_PAGES_LIMIT)
+  const remaining = Math.max(0, total - FIRST_PAGE_LIMIT);
+  const numPages = 1 + Math.ceil(remaining / OTHER_PAGES_LIMIT);
   return Array.from({ length: numPages }).map((_, i) => ({
     currentPage: i + 1,
     numPages,
     limit: i === 0 ? FIRST_PAGE_LIMIT : OTHER_PAGES_LIMIT,
     skip: i === 0 ? 0 : FIRST_PAGE_LIMIT + (i - 1) * OTHER_PAGES_LIMIT,
-  }))
+  }));
 }
 
 // Create blog pages dynamically
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage, createRedirect } = actions
+  const { createPage, createRedirect } = actions;
 
   // ── ARTICLES LIST (paginée) ──────────────────────────────────────
-  const articlesListTemplate = path.resolve(`src/templates/articles-list.tsx`)
+  const articlesListTemplate = path.resolve(`src/templates/articles-list.tsx`);
   const articlesCount = await graphql(`
-    query { allPrismicBlogPost { totalCount } }
-  `)
+    query {
+      allPrismicBlogPost {
+        totalCount
+      }
+    }
+  `);
   buildPaginatedPages(articlesCount.data.allPrismicBlogPost.totalCount).forEach(
     ({ currentPage, numPages, limit, skip }) => {
       createPage({
         path: currentPage === 1 ? `/articles/` : `/articles/${currentPage}/`,
         component: articlesListTemplate,
         context: { limit, skip, currentPage, numPages },
-      })
+      });
     }
-  )
+  );
 
   // ── PODCASTS LIST (paginée) ──────────────────────────────────────
-  const podcastsListTemplate = path.resolve(`src/templates/podcasts-list.tsx`)
+  const podcastsListTemplate = path.resolve(`src/templates/podcasts-list.tsx`);
   const podcastsCount = await graphql(`
-    query { allAnchorEpisode { totalCount } }
-  `)
+    query {
+      allAnchorEpisode {
+        totalCount
+      }
+    }
+  `);
   buildPaginatedPages(podcastsCount.data.allAnchorEpisode.totalCount).forEach(
     ({ currentPage, numPages, limit, skip }) => {
       createPage({
         path: currentPage === 1 ? `/podcasts/` : `/podcasts/${currentPage}/`,
         component: podcastsListTemplate,
         context: { limit, skip, currentPage, numPages },
-      })
+      });
     }
-  )
+  );
 
-  const episodeTemplate = path.resolve(`src/templates/episode.tsx`)
+  const episodeTemplate = path.resolve(`src/templates/episode.tsx`);
   const podcats = await graphql(`
     query {
       allAnchorEpisode {
@@ -78,25 +98,37 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `)
+  `);
   podcats.data.allAnchorEpisode.nodes.forEach((node) => {
-    // Redirect old url to new url needs to be before `createPage`
+    const slug = slugify(node.title);
+    const newPath = `podcasts/${slug}/`;
+    const oldPath = `podcasts/${node.guid}/`;
+
+    // Redirect ancienne URL UUID → nouvelle URL slug (301)
+    createRedirect({
+      fromPath: `/${oldPath}`,
+      toPath: `/${newPath}`,
+      isPermanent: true,
+    });
+
+    // Redirect encore plus ancienne URL /podcast/ → nouvelle URL slug (301)
     createRedirect({
       fromPath: `/podcast/${node.guid}`,
-      toPath: `/podcasts/${node.guid}`,
+      toPath: `/${newPath}`,
       isPermanent: true,
-    })
+    });
 
     createPage({
-      path: `podcasts/${node.guid}`,
+      path: newPath,
       component: episodeTemplate,
       context: {
         ...node,
+        slug,
       },
-    })
-  })
+    });
+  });
 
-  const articleTemplate = path.resolve(`src/templates/article.tsx`)
+  const articleTemplate = path.resolve(`src/templates/article.tsx`);
   const articles = await graphql(`
     query {
       allPrismicBlogPost {
@@ -147,7 +179,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `)
+  `);
 
   articles.data.allPrismicBlogPost.edges.forEach((edge) => {
     // Redirect old url to new url needs to be before `createPage`
@@ -155,7 +187,7 @@ exports.createPages = async ({ graphql, actions }) => {
       fromPath: `/article/${edge.node.uid}`,
       toPath: `/articles/${edge.node.uid}`,
       isPermanent: true,
-    })
+    });
 
     createPage({
       path: `articles/${edge.node.uid}`,
@@ -163,10 +195,10 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         ...edge,
       },
-    })
-  })
+    });
+  });
 
-  const bookTemplate = path.resolve(`src/templates/book.tsx`)
+  const bookTemplate = path.resolve(`src/templates/book.tsx`);
   const books = await graphql(`
     query {
       allPrismicBookReview {
@@ -186,7 +218,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `)
+  `);
 
   books.data.allPrismicBookReview.edges.forEach((edge) => {
     // Redirect old url to new url needs to be before `createPage`
@@ -194,7 +226,7 @@ exports.createPages = async ({ graphql, actions }) => {
       fromPath: `/livre/${edge.node.uid}`,
       toPath: `/livres/${edge.node.uid}`,
       isPermanent: true,
-    })
+    });
 
     createPage({
       path: `livres/${edge.node.uid}`,
@@ -202,6 +234,6 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         ...edge,
       },
-    })
-  })
-}
+    });
+  });
+};
