@@ -6,250 +6,317 @@ import SEO from '../components/seo';
 
 const questions = [
   {
-    question: 'Qui a créé la sculpture géante «Maman», représentant une araignée ?',
-    options: ['Yayoi Kusama', 'Louise Bourgeois', 'Camille Claudel'],
-    answer: 1,
-    explanation:
-      "Louise Bourgeois a créé «Maman» en 1999 pour l'inauguration de la Tate Modern à Londres. L'araignée représente sa mère, restauratrice de tapisseries — patiente, habile et indispensable comme une araignée.",
-  },
-  {
-    question: "En quelle année les Guerrilla Girls ont-elles été fondées ?",
-    options: ["1975", "1980", "1985"],
-    answer: 2,
-    explanation:
-      "Les Guerrilla Girls naissent en 1985 en réaction à une exposition du MoMA de New York qui ne comptait que 13 femmes sur 169 artistes sélectionnés.",
-  },
-  {
-    question: "Quel est le vrai nom de VALIE EXPORT ?",
-    options: ["Waltraud Hollinger", "Maria Braun", "Ingrid Weber"],
-    answer: 0,
-    explanation:
-      "Née Waltraud Hollinger en 1940 à Linz, elle se rebaptise VALIE EXPORT en 1967 — un nom toujours écrit en majuscules, emprunté à une marque de cigarettes pour dénoncer la marchandisation des femmes.",
-  },
-  {
-    question:
-      "Hilma af Klint a peint ses premières œuvres abstraites en 1906 — combien d'années avant Kandinsky ?",
-    options: ["1 an", "5 ans", "10 ans"],
-    answer: 1,
-    explanation:
-      "Kandinsky est souvent cité comme le père de l'abstraction avec ses premières aquarelles abstraites vers 1911. Hilma af Klint peignait ses «Peintures pour le Temple» dès 1906 — cinq ans avant lui.",
-  },
-  {
-    question:
-      "Berthe Morisot était la seule femme à exposer régulièrement avec quel groupe ?",
-    options: ["Les Cubistes", "Les Fauves", "Les Impressionnistes"],
-    answer: 2,
-    explanation:
-      "Berthe Morisot a participé à sept des huit expositions impressionnistes entre 1874 et 1886. Elle était la seule femme à exposer régulièrement aux côtés de Monet, Renoir et Degas.",
-  },
-  {
-    question:
-      "Quelle œuvre d'Edmonia Lewis a été utilisée comme décoration dans un hippodrome avant d'être retrouvée et restaurée ?",
-    options: ["Hagar in the Wilderness", "Portrait of Lincoln", "The Death of Cleopatra"],
-    answer: 2,
-    explanation:
-      "«The Death of Cleopatra» (1876) a disparu après l'Exposition universelle de Philadelphie. Elle a servi de décoration dans un hippodrome du Illinois avant d'être retrouvée et restaurée. Elle est aujourd'hui conservée au Smithsonian American Art Museum de Washington.",
-  },
-  {
-    question: "Pourquoi Frida Kahlo réalisait-elle autant d'autoportraits ?",
+    question: 'Cet été, ton énergie ressemble à\u00a0\u2026',
     options: [
-      '«Parce que les galeries l\'exigeaient»',
-      '«Parce que je manque de modèles»',
-      '«Parce que je suis souvent seule et suis le sujet que je connais le mieux»',
+      "Un jardin qu'on cultive avec les mains",
+      'Une création qui sort un mardi sans prévenir',
+      'Quelque chose à transmettre, à laisser après soi',
+      'La liberté de tout recommencer',
     ],
-    answer: 2,
-    explanation:
-      "Frida Kahlo a réalisé 55 autoportraits sur 143 œuvres au total. Cette phrase, extraite de ses écrits, dit tout de sa démarche : se peindre soi-même comme acte de connaissance, non de narcissisme.",
   },
   {
     question:
-      "Yayoi Kusama est l'artiste vivante la plus cotée au monde. Où vit-elle volontairement depuis des décennies ?",
+      "Quand tu crées ou apprends quelque chose, ce qui compte le plus, c'est\u00a0\u2026",
     options: [
-      "Dans un monastère à Kyoto",
-      "Dans un hôpital psychiatrique à Tokyo",
-      "Dans une île isolée au Japon",
+      'La couleur, la sensation, ce que ça fait dans le corps',
+      "L'histoire derrière — les gens, la mémoire, le tissu des choses",
+      'Que ça serve à quelque chose, que ça touche vraiment',
+      "La découverte d'un monde qu'on ne connaissait pas encore",
     ],
-    answer: 1,
-    explanation:
-      "Depuis 1977, Yayoi Kusama vit volontairement dans un hôpital psychiatrique de Tokyo. Elle y trouve la structure dont elle a besoin pour canaliser ses hallucinations visuelles — et continue de créer chaque jour dans son atelier voisin.",
   },
   {
-    question:
-      "Artemisia Gentileschi a été la première femme admise dans quelle institution artistique prestigieuse ?",
+    question: "Ce que tu veux laisser cet été, c'est\u00a0\u2026",
     options: [
-      "L'Académie royale de Londres",
-      "L'École des Beaux-Arts de Paris",
-      "L'Académie des Arts du Dessin de Florence",
+      'Une trace de couleur, de lumière, de beauté',
+      "Un récit qu'on pourra relire longtemps",
+      'Un geste concret, quelque chose de construit',
+      "Un regard différent sur ce qu'on croyait connaître",
     ],
-    answer: 2,
-    explanation:
-      "En 1616, Artemisia Gentileschi devient la première femme admise à l'Accademia delle Arti del Disegno de Florence — l'une des institutions artistiques les plus influentes de la Renaissance italienne.",
+  },
+];
+
+const artists = [
+  {
+    name: 'Alma Thomas',
+    dates: '1891\u20131978',
+    tagline: 'La joie comme acte de résistance',
+    description:
+      "Comme elle, tu trouves le beau là où d'autres ne regardent pas — dans un jardin, dans la lumière qui change, dans la répétition apaisante d'un geste. Elle a commencé à peindre vraiment à 68\u00a0ans, depuis sa cuisine, en regardant les fleurs par la fenêtre. Ses toiles sont aujourd'hui à la Maison Blanche.",
+    work: 'Iris, Tulips, Jonquils and Crocuses, 1969',
   },
   {
-    question:
-      "Käthe Kollwitz pratiquait principalement quel type d'art pour dénoncer la guerre et la misère ?",
-    options: [
-      "La peinture à l'huile abstraite",
-      "La photographie documentaire",
-      "La gravure et le dessin engagés",
-    ],
-    answer: 2,
-    explanation:
-      "Käthe Kollwitz a consacré sa vie à la gravure et au dessin pour représenter la souffrance ouvrière, la guerre et le deuil. Elle a perdu son fils pendant la Première Guerre mondiale et son petit-fils pendant la Seconde.",
+    name: 'Faith Ringgold',
+    dates: '1930\u20132024',
+    tagline: 'Les histoires cousues dans le tissu',
+    description:
+      "Comme elle, tu crois que les histoires méritent d'être transmises — pas seulement racontées, mais portées, données, cousues. Elle a inventé les story quilts pour mêler la peinture et le tissu, l'art et la mémoire des femmes noires américaines.",
+    work: 'Tar Beach, 1988',
+  },
+  {
+    name: 'Elizabeth Catlett',
+    dates: '1915\u20132012',
+    tagline: "L'art comme acte politique",
+    description:
+      "Comme elle, tu crois que l'art doit toucher au sens propre — pas rester derrière le verre des musées. Elle sculpta, grava, construisit toujours pour les gens qui n'allaient pas dans les galeries. Mexicaine d'adoption, elle fit de chaque œuvre un geste de résistance.",
+    work: 'The Negro Woman, 1947',
+  },
+  {
+    name: 'Loïs Mailou Jones',
+    dates: '1905\u20131998',
+    tagline: 'Plusieurs mondes dans un seul regard',
+    description:
+      "Comme elle, tu portes en toi plusieurs univers et tu n'as pas besoin de choisir. Elle peignit à Paris, à Haïti, à Washington — absorbant chaque culture sans jamais se dissoudre. Elle enseigna à Howard University pendant 47\u00a0ans et peignit jusqu'à la fin de sa vie.",
+    work: 'Les Fétiches, 1938',
   },
 ];
 
 export default function QuizEte2026() {
-  const [answers, setAnswers] = useState<Record<number, number>>({});
+  const [step, setStep] = useState(0);
+  const [answers, setAnswers] = useState<number[]>([]);
 
-  const totalAnswered = Object.keys(answers).length;
-  const isFinished = totalAnswered === questions.length;
-  const score = Object.entries(answers).filter(
-    ([i, selected]) => questions[Number(i)].answer === selected
-  ).length;
-
-  function handleAnswer(questionIndex: number, optionIndex: number) {
-    if (answers[questionIndex] !== undefined) return;
-    setAnswers((prev) => ({ ...prev, [questionIndex]: optionIndex }));
+  function handleAnswer(optionIndex: number) {
+    const newAnswers = [...answers, optionIndex];
+    setAnswers(newAnswers);
+    if (step < 2) {
+      setStep(step + 1);
+    } else {
+      setStep(3);
+    }
   }
+
+  function getResult(): number {
+    const counts = [0, 0, 0, 0];
+    answers.forEach((a) => counts[a]++);
+    let max = 0;
+    let maxIdx = answers[0];
+    counts.forEach((count, idx) => {
+      if (count > max) {
+        max = count;
+        maxIdx = idx;
+      }
+    });
+    return maxIdx;
+  }
+
+  function handleRestart() {
+    setStep(0);
+    setAnswers([]);
+  }
+
+  const resultArtist = step === 3 ? artists[getResult()] : null;
+  const currentQuestion = step < 3 ? questions[step] : null;
 
   return (
     <Layout withInstagram={false}>
-
       {/* ── EN-TÊTE ───────────────────────────────────────────────── */}
       <section className="mx-auto mb-12 mt-8 w-11/12 max-w-3xl border-b border-neutral-200 pb-8">
         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
-          Été 2026 · Quiz
+          Été 2026 · Lettre N°1
         </p>
         <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl">
-          Connaissez-vous les femmes artistes ?
+          Quelle artiste te ressemble cet été ?
         </h1>
         <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-neutral-500">
-          10 questions pour tester vos connaissances sur les femmes artistes
-          qui ont façonné l'Histoire de l'Art. Bonne chance !
+          Dans la première lettre d&rsquo;ART AU FÉMININ, j&rsquo;ai parlé
+          d&rsquo;Alma Thomas — peintre, enseignante, et femme qui a commencé à
+          68 ans dans sa cuisine. Il y avait d&rsquo;autres femmes autour
+          d&rsquo;elle. Ce quiz t&rsquo;en fait découvrir une.
         </p>
       </section>
 
-      {/* ── QUESTIONS ─────────────────────────────────────────────── */}
-      <div className="mx-auto mb-16 w-11/12 max-w-3xl space-y-10">
-        {questions.map((q, qi) => {
-          const selected = answers[qi];
-          const isAnswered = selected !== undefined;
+      {/* ── ALMA THOMAS ───────────────────────────────────────────── */}
+      <section className="mx-auto mb-16 w-11/12 max-w-3xl">
+        <div className="border border-neutral-200 p-8">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+            L&rsquo;artiste de ce numéro
+          </p>
+          <h2 className="font-display text-2xl font-light text-neutral-900">
+            Alma Thomas{' '}
+            <span className="font-light text-neutral-300">· 1891–1978</span>
+          </h2>
+          <p className="mt-4 text-sm font-light leading-relaxed text-neutral-500">
+            En 1960, Alma Thomas prend sa retraite après 35 ans à enseigner
+            l&rsquo;art à des enfants de Washington. Elle s&rsquo;installe dans
+            sa cuisine, regarde son jardin par la fenêtre, et elle commence. Des
+            couleurs pures posées en petites touches serrées, des anneaux
+            concentriques qui vibrent. Elle peindra jusqu&rsquo;à 86 ans.
+          </p>
+          <blockquote className="mt-6 border-l-2 border-neutral-200 pl-6">
+            <p className="font-display text-lg font-light italic leading-relaxed text-neutral-600">
+              « À travers la couleur, j&rsquo;ai cherché à me concentrer sur la
+              beauté et le bonheur, plutôt que sur l&rsquo;inhumanité de
+              l&rsquo;homme envers l&rsquo;homme. »
+            </p>
+            <cite className="mt-3 block text-xs not-italic font-semibold uppercase tracking-[0.2em] text-neutral-400">
+              Alma Thomas
+            </cite>
+          </blockquote>
+          <p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
+            Œuvre à chercher
+          </p>
+          <p className="mt-1 font-display text-sm font-light italic text-neutral-600">
+            Iris, Tulips, Jonquils and Crocuses, 1969 — Smithsonian American Art
+            Museum
+          </p>
+        </div>
+      </section>
 
-          return (
-            <article key={qi} className="border border-neutral-200">
+      {/* ── QUIZ ──────────────────────────────────────────────────── */}
+      <section className="mx-auto mb-20 w-11/12 max-w-3xl">
+        <div className="mb-6 flex items-center justify-between border-b border-neutral-200 pb-4">
+          <h2 className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
+            {step < 3
+              ? `Question ${step + 1} sur 3`
+              : 'Ton artiste de l\u2019\u00e9t\u00e9'}
+          </h2>
+          {step < 3 && (
+            <span className="text-xs font-light text-neutral-400">
+              3 questions · Résultat immédiat
+            </span>
+          )}
+        </div>
 
-              {/* Question */}
-              <div className="border-b border-neutral-200 px-6 py-5">
-                <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
-                  Question {qi + 1}
-                </p>
+        {/* Question active */}
+        {currentQuestion && (
+          <>
+            <article className="border border-neutral-200">
+              <div className="border-b border-neutral-200 px-6 py-6">
                 <p className="font-display text-xl font-light leading-snug text-neutral-900">
-                  {q.question}
+                  {currentQuestion.question}
                 </p>
               </div>
-
-              {/* Options */}
               <div className="divide-y divide-neutral-100">
-                {q.options.map((option, oi) => {
-                  const isSelected = selected === oi;
-                  const isCorrect = q.answer === oi;
-
-                  let style =
-                    'w-full px-6 py-4 text-left text-sm font-light text-neutral-600 transition-colors hover:bg-neutral-50';
-
-                  if (isAnswered) {
-                    if (isCorrect) {
-                      style =
-                        'w-full px-6 py-4 text-left text-sm font-light bg-neutral-900 text-white';
-                    } else if (isSelected) {
-                      style =
-                        'w-full px-6 py-4 text-left text-sm font-light bg-neutral-100 text-neutral-400 line-through';
-                    } else {
-                      style =
-                        'w-full px-6 py-4 text-left text-sm font-light text-neutral-300';
-                    }
-                  }
-
-                  return (
-                    <button
-                      key={oi}
-                      onClick={() => handleAnswer(qi, oi)}
-                      disabled={isAnswered}
-                      className={style}
-                      aria-pressed={isSelected}
-                    >
-                      <span className="mr-3 text-xs font-semibold uppercase tracking-[0.2em]">
-                        {['A', 'B', 'C'][oi]}.
-                      </span>
-                      {option}
-                      {isAnswered && isCorrect && (
-                        <span className="ml-3 text-xs font-semibold uppercase tracking-[0.2em]">
-                          ✓
-                        </span>
-                      )}
-                    </button>
-                  );
-                })}
+                {currentQuestion.options.map((option, oi) => (
+                  <button
+                    key={oi}
+                    onClick={() => handleAnswer(oi)}
+                    className="w-full px-6 py-4 text-left text-sm font-light text-neutral-600 transition-colors hover:bg-neutral-50 hover:text-neutral-900"
+                  >
+                    <span className="mr-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-300">
+                      {['A', 'B', 'C', 'D'][oi]}.
+                    </span>
+                    {option}
+                  </button>
+                ))}
               </div>
-
-              {/* Explication */}
-              {isAnswered && (
-                <div className="border-t border-neutral-200 bg-neutral-50 px-6 py-5">
-                  <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
-                    {selected === q.answer ? 'Bonne réponse !' : 'Pas tout à fait…'}
-                  </p>
-                  <p className="font-display text-base font-light italic leading-relaxed text-neutral-600">
-                    {q.explanation}
-                  </p>
-                </div>
-              )}
-
             </article>
-          );
-        })}
-      </div>
 
-      {/* ── SCORE FINAL ───────────────────────────────────────────── */}
-      {isFinished && (
-        <section className="mx-auto mb-20 w-11/12 max-w-3xl border border-neutral-200 bg-neutral-900 px-8 py-10 text-center">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-white/40">
-            Résultat Final
+            {/* Barre de progression */}
+            <div className="mt-4 flex gap-1.5">
+              {[0, 1, 2].map((i) => (
+                <div
+                  key={i}
+                  className={`h-0.5 flex-1 transition-colors duration-300 ${
+                    i < step
+                      ? 'bg-neutral-900'
+                      : i === step
+                        ? 'bg-neutral-400'
+                        : 'bg-neutral-200'
+                  }`}
+                />
+              ))}
+            </div>
+          </>
+        )}
+
+        {/* Résultat */}
+        {resultArtist && (
+          <div className="border border-neutral-200">
+            <div className="border-b border-neutral-200 bg-neutral-900 px-8 py-10 text-center">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/40">
+                Ton artiste de l&rsquo;été
+              </p>
+              <h3 className="font-display text-4xl font-light text-white">
+                {resultArtist.name}
+              </h3>
+              <p className="mt-1 text-xs font-light tracking-[0.1em] text-white/30">
+                {resultArtist.dates}
+              </p>
+              <p className="mt-4 font-display text-lg font-light italic text-white/60">
+                {resultArtist.tagline}
+              </p>
+            </div>
+
+            <div className="px-8 py-8">
+              <p className="text-sm font-light leading-relaxed text-neutral-600">
+                {resultArtist.description}
+              </p>
+              <div className="mt-6 border-t border-neutral-100 pt-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
+                  Œuvre à chercher
+                </p>
+                <p className="mt-1 font-display text-base font-light italic text-neutral-700">
+                  {resultArtist.work}
+                </p>
+              </div>
+            </div>
+
+            <div className="border-t border-neutral-200 px-8 py-5">
+              <button
+                onClick={handleRestart}
+                className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400 transition-colors hover:text-neutral-900"
+              >
+                Recommencer <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </div>
+        )}
+      </section>
+
+      {/* ── CARNETS ───────────────────────────────────────────────── */}
+      <section className="-mx-4 border-t border-neutral-200 bg-neutral-50">
+        <div className="mx-auto max-w-3xl px-10 py-14">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+            Depuis toujours, j&rsquo;ai des carnets
           </p>
-          <p className="font-display text-5xl font-light text-white">
-            {score} / {questions.length}
+          <p className="font-display text-xl font-light leading-relaxed text-neutral-700">
+            Des noms d&rsquo;artistes notés après une expo, des questions sans
+            réponse, des œuvres qui m&rsquo;avaient arrêtée et que je voulais ne
+            pas oublier. Personne ne me le demandait. Je le faisais pour moi.
           </p>
-          <p className="mt-3 font-display text-xl font-light italic text-white/60">
-            {score <= 3 && "De belles découvertes à faire — le podcast est là pour ça !"}
-            {score >= 4 && score <= 6 && "Pas mal ! Vous connaissez déjà quelques-unes de ces femmes remarquables."}
-            {score >= 7 && score <= 9 && "Excellent ! Vous êtes une vraie passionnée d'Histoire de l'Art au féminin."}
-            {score === 10 && "Parfait ! Vous méritez un épisode entier rien que pour vous."}
+          <p className="mt-4 text-sm font-light leading-relaxed text-neutral-500">
+            Et puis, sur toutes ces pages, une question a commencé à
+            revenir&nbsp;: <em>Où sont les femmes&nbsp;?</em>
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <div className="mt-8">
             <Link
-              to="/podcasts"
-              className="border border-white/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/60 transition-colors hover:border-white/60 hover:text-white"
+              to="/newsletter"
+              className="inline-block border border-neutral-300 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
             >
-              Écouter le Podcast <span aria-hidden="true">→</span>
-            </Link>
-            <Link
-              to="/articles"
-              className="border border-white/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/60 transition-colors hover:border-white/60 hover:text-white"
-            >
-              Lire les Articles <span aria-hidden="true">→</span>
+              Recevoir la Lettre <span aria-hidden="true">→</span>
             </Link>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
+      {/* ── POUR ALLER PLUS LOIN ──────────────────────────────────── */}
+      <section className="mx-auto my-20 w-11/12 max-w-3xl">
+        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          Pour aller plus loin
+        </p>
+        <div className="flex flex-wrap gap-3">
+          <Link
+            to="/podcasts"
+            className="border border-neutral-300 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
+          >
+            Écouter le Podcast <span aria-hidden="true">→</span>
+          </Link>
+          <Link
+            to="/articles"
+            className="border border-neutral-300 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
+          >
+            Lire les Articles <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+      </section>
     </Layout>
   );
 }
 
 export const Head = ({ location }: { location: { pathname: string } }) => (
   <SEO
-    title="Quiz Été 2026 — Connaissez-vous les femmes artistes ? — ART AU FÉMININ"
-    description="10 questions pour tester vos connaissances sur les femmes artistes qui ont façonné l'Histoire de l'Art. Frida Kahlo, Louise Bourgeois, Artemisia Gentileschi et bien d'autres."
+    title="Quelle artiste te ressemble cet été ? — Quiz Été 2026 — ART AU FÉMININ"
+    description="Un quiz pour découvrir une femme artiste noire oubliée de l'histoire — inspiré de la lettre d'Aldjia sur Alma Thomas. 3 questions, une découverte."
     url={`https://www.artaufeminin.fr${location.pathname}`}
   />
 );
