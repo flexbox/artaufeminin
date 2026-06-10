@@ -8,8 +8,13 @@ const navigation = [
   { name: 'Articles', href: '/articles' },
   { name: 'Livres', href: '/livres' },
   { name: 'Citations', href: '/citations' },
+  { name: 'Événements', href: '/evenements' },
   { name: 'Galerie', href: '/galerie' },
-  { name: 'Contact', href: 'mailto:artaufemininlepodcast@gmail.com', isExternal: true },
+  {
+    name: 'Contact',
+    href: 'mailto:artaufemininlepodcast@gmail.com',
+    isExternal: true,
+  },
 ];
 
 export function Header(): ReactElement {
@@ -17,7 +22,6 @@ export function Header(): ReactElement {
 
   return (
     <header className="sticky top-0 z-50 bg-white">
-
       {/* ── DESKTOP ────────────────────────────────────────────── */}
       <div className="hidden lg:flex items-center justify-between px-12 h-14">
         <Link
@@ -28,7 +32,10 @@ export function Header(): ReactElement {
           ART AU FÉMININ
         </Link>
 
-        <nav aria-label="Navigation principale" className="flex items-center gap-9">
+        <nav
+          aria-label="Navigation principale"
+          className="flex items-center gap-9"
+        >
           {navigation.map((item) =>
             item.isExternal ? (
               <a
@@ -84,7 +91,6 @@ export function Header(): ReactElement {
       >
         <div className="fixed inset-0 z-10 bg-black/10 backdrop-blur-sm" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-20 w-72 overflow-y-auto bg-white px-6 py-6 shadow-xl">
-
           <div className="flex items-center justify-between mb-10">
             <Link
               to="/"
