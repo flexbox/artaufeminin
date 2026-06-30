@@ -313,7 +313,7 @@ export const indexPageQuery = graphql`
         description
       }
     }
-    allAnchorEpisode(limit: 4) {
+    allAnchorEpisode(sort: { isoDate: DESC }, limit: 4) {
       nodes {
         ...AnchorEpisodeFragment
       }
