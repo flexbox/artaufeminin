@@ -64,7 +64,10 @@ export default function Book(props: BookProps): ReactElement {
               À propos de l'Autrice
             </p>
             <p className="text-sm font-light leading-relaxed text-neutral-500">
-              Aldjia Boughias — développeuse web orientée Art et Culture, exploratrice de l'Histoire de l'Art le reste du temps. J'ai créé ART AU FÉMININ pour donner aux femmes artistes la place qu'elles méritent dans notre mémoire collective.
+              Aldjia Boughias — développeuse web orientée Art et Culture,
+              exploratrice de l'Histoire de l'Art le reste du temps. J'ai créé
+              ART AU FÉMININ pour donner aux femmes artistes la place qu'elles
+              méritent dans notre mémoire collective.
             </p>
           </div>
         </section>
@@ -78,8 +81,9 @@ export default function Book(props: BookProps): ReactElement {
             Vous avez aimé cette Chronique ?
           </h2>
           <p className="mb-5 text-sm font-light leading-relaxed text-neutral-500">
-            Si ce contenu vous a plu, vous pouvez soutenir ART AU FÉMININ sur Tipeee.
-            Chaque contribution aide à produire de nouveaux épisodes et articles.
+            Si ce contenu vous a plu, vous pouvez soutenir ART AU FÉMININ sur
+            Tipeee. Chaque contribution aide à produire de nouveaux épisodes et
+            articles.
           </p>
           <a
             href="https://fr.tipeee.com/art-au-feminin"
@@ -98,31 +102,59 @@ export default function Book(props: BookProps): ReactElement {
   );
 }
 
-export const Head = (
-  props: BookProps & { location: { pathname: string } }
-) => {
+export const Head = (props: BookProps & { location: { pathname: string } }) => {
   const { text: seoTitle } = props.pageContext.node.data.title;
   const { text: seoDescription } = props.pageContext.node.data.content;
   const canonicalUrl = `https://www.artaufeminin.fr${props.location.pathname}`;
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: seoTitle,
-    description: seoDescription.substring(0, 155),
-    url: canonicalUrl,
-    inLanguage: 'fr',
-    author: {
-      '@type': 'Person',
-      name: 'Aldjia Boughias',
-      url: 'https://www.artaufeminin.fr/about',
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Accueil',
+          item: 'https://www.artaufeminin.fr',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Chroniques',
+          item: 'https://www.artaufeminin.fr/livres',
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: seoTitle,
+          item: canonicalUrl,
+        },
+      ],
     },
-    publisher: {
-      '@type': 'Organization',
-      name: 'ART AU FÉMININ',
-      url: 'https://www.artaufeminin.fr',
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: seoTitle,
+      description: seoDescription.substring(0, 155),
+      url: canonicalUrl,
+      inLanguage: 'fr',
+      author: {
+        '@type': 'Person',
+        name: 'Aldjia Boughias',
+        url: 'https://www.artaufeminin.fr/about',
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'ART AU FÉMININ',
+        url: 'https://www.artaufeminin.fr',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://www.artaufeminin.fr/og-default.png',
+        },
+      },
     },
-  };
+  ];
 
   return (
     <SEO

@@ -157,6 +157,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
           node {
             uid
+            last_publication_date
             data {
               date
               title {

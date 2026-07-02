@@ -1,8 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 
-const OG_IMAGE =
-  'https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/images/logo-podcast-art-au-feminin.png';
+const OG_IMAGE = 'https://www.artaufeminin.fr/og-default.png';
 
 export function SeoHead({
   title,
@@ -45,15 +44,15 @@ export function SeoHead({
       {url && <meta property="og:url" content={url} />}
       {/* Twitter / X */}
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@artaufeminin" />
+      <meta name="twitter:creator" content="@artaufeminin" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={metaDescription} />
       <meta name="twitter:image" content={image} />
       <meta name="twitter:image:alt" content={imageAlt ?? title} />
       {/* JSON-LD */}
       {jsonLd && (
-        <script type="application/ld+json">
-          {JSON.stringify(jsonLd)}
-        </script>
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       )}
     </>
   );

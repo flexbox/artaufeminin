@@ -82,7 +82,6 @@ export default function Article(props: PropsArticle): ReactElement {
 
   return (
     <Layout>
-
       {/* ── HERO IMAGE ───────────────────────────────────────────── */}
       {imageHero?.url && (
         <div className="-mx-4 relative h-[55vh] min-h-[340px] overflow-hidden">
@@ -108,7 +107,6 @@ export default function Article(props: PropsArticle): ReactElement {
 
       {/* ── CONTENU ──────────────────────────────────────────────── */}
       <div className="mx-auto max-w-3xl px-6 lg:px-0">
-
         {!imageHero?.url && (
           <header className="py-16">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
@@ -154,7 +152,10 @@ export default function Article(props: PropsArticle): ReactElement {
               À propos de l'Autrice
             </p>
             <p className="text-sm font-light leading-relaxed text-neutral-500">
-              Aldjia Boughias — développeuse web orientée Art et Culture, exploratrice de l'Histoire de l'Art le reste du temps. J'ai créé ART AU FÉMININ pour donner aux femmes artistes la place qu'elles méritent dans notre mémoire collective.
+              Aldjia Boughias — développeuse web orientée Art et Culture,
+              exploratrice de l'Histoire de l'Art le reste du temps. J'ai créé
+              ART AU FÉMININ pour donner aux femmes artistes la place qu'elles
+              méritent dans notre mémoire collective.
             </p>
           </div>
         </section>
@@ -168,8 +169,9 @@ export default function Article(props: PropsArticle): ReactElement {
             Vous avez aimé cet article ?
           </h2>
           <p className="mb-5 text-sm font-light leading-relaxed text-neutral-500">
-            Si ce contenu vous a plu, vous pouvez soutenir ART AU FÉMININ sur Tipeee.
-            Chaque contribution aide à produire de nouveaux épisodes et articles.
+            Si ce contenu vous a plu, vous pouvez soutenir ART AU FÉMININ sur
+            Tipeee. Chaque contribution aide à produire de nouveaux épisodes et
+            articles.
           </p>
           <a
             href="https://fr.tipeee.com/art-au-feminin"
@@ -193,15 +195,22 @@ export default function Article(props: PropsArticle): ReactElement {
           </p>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {previousUid && (
-              <OtherArticleLink uid={previousUid} imgUrl={previousImgUrl} title={previousTitle} />
+              <OtherArticleLink
+                uid={previousUid}
+                imgUrl={previousImgUrl}
+                title={previousTitle}
+              />
             )}
             {nextUid && (
-              <OtherArticleLink uid={nextUid} imgUrl={nextImgUrl} title={nextTitle} />
+              <OtherArticleLink
+                uid={nextUid}
+                imgUrl={nextImgUrl}
+                title={nextTitle}
+              />
             )}
           </div>
         </div>
       )}
-
     </Layout>
   );
 }
@@ -215,6 +224,8 @@ export const Head = (
   const seoImage = image?.url;
   const seoImageAlt = image?.alt || seoTitle;
   const datePublished = props.pageContext.node.data.date;
+  const dateModified =
+    (props.pageContext.node as any).last_publication_date || datePublished;
   const canonicalUrl = `https://www.artaufeminin.fr${props.location.pathname}`;
 
   const jsonLd = [
@@ -247,12 +258,18 @@ export const Head = (
       '@type': 'BlogPosting',
       headline: seoTitle,
       description: seoDescription,
-      keywords: ['femmes artistes', "histoire de l'art", 'art au féminin', 'artistes femmes'],
+      keywords: [
+        'femmes artistes',
+        "histoire de l'art",
+        'art au féminin',
+        'artistes femmes',
+      ],
       image:
         seoImage ||
         'https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/images/logo-podcast-art-au-feminin.png',
       url: canonicalUrl,
-      ...(datePublished && { datePublished, dateModified: datePublished }),
+      ...(datePublished && { datePublished }),
+      ...(dateModified && { dateModified }),
       inLanguage: 'fr',
       author: {
         '@type': 'Person',
