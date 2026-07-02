@@ -52,10 +52,15 @@ module.exports = {
       `,
         resolveSiteUrl: () => siteUrl,
         resolvePages: ({ allSitePage: { nodes: allPages } }) => {
-          return allPages.map((page) => ({ ...page }));
+          const NOINDEX_PATHS = ['/design-system/', '/start/'];
+          return allPages
+            .filter((page) => !NOINDEX_PATHS.includes(page.path))
+            .map((page) => ({ ...page }));
         },
         serialize: ({ path }) => ({
           url: `${siteUrl}${path}`,
+          changefreq: path === '/' ? 'daily' : 'weekly',
+          priority: path === '/' ? 1.0 : 0.7,
         }),
       },
     },

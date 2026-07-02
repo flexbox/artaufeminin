@@ -170,9 +170,11 @@ export const query = graphql`
 `;
 
 export const Head = ({
+  data,
   pageContext,
   location,
 }: {
+  data: { allAnchorEpisode: { nodes: any[] } };
   pageContext: { currentPage: number; numPages: number };
   location: { pathname: string };
 }) => {
@@ -182,11 +184,27 @@ export const Head = ({
     ? 'Tous les Épisodes — ART AU FÉMININ, le podcast sur les femmes artistes'
     : `Tous les Épisodes — Page ${currentPage} — ART AU FÉMININ`;
 
+  const jsonLd = isFirst
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        name: 'Épisodes du podcast ART AU FÉMININ',
+        url: 'https://www.artaufeminin.fr/podcasts/',
+        itemListElement: data.allAnchorEpisode.nodes.map((episode, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          url: `https://www.artaufeminin.fr/podcasts/${slugify(episode.title)}/`,
+          name: episode.title,
+        })),
+      }
+    : undefined;
+
   return (
     <SEO
       title={title}
       description="Écoutez tous les épisodes du podcast ART AU FÉMININ, présenté par Aldjia Boughias. Des récits captivants sur les femmes artistes qui ont marqué l'Histoire de l'Art."
       url={`https://www.artaufeminin.fr${location.pathname}`}
+      jsonLd={jsonLd}
     />
   );
 };
