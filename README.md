@@ -12,8 +12,8 @@
 ## Getting started
 
 ```console
-yarn
-yarn start
+npm install
+npm start
 ```
 
 ## Troubleshouting
