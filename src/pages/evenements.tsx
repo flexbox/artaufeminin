@@ -39,9 +39,12 @@ export default function EvenementsPage(): ReactElement {
             Des soirées, des discussions et des rencontres autour des femmes
             dans le monde de l'Art — en présentiel, dans un cadre intime.
           </p>
-          <div className="mt-8 inline-block border border-neutral-200 px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
-            Annonces à venir
-          </div>
+          <Link
+            to="/newsletter"
+            className="mt-8 inline-block border border-neutral-300 px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
+          >
+            M'avertir par newsletter <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </section>
 

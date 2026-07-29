@@ -17,17 +17,34 @@ const navigation = {
   ],
   podcast: [
     { name: 'Toutes les plateformes', href: '/links' },
-    { name: 'Apple Podcasts', href: 'https://podcasts.apple.com/us/podcast/art-au-feminin/id1493131152', external: true },
-    { name: 'Spotify', href: 'https://open.spotify.com/show/18f84r0ic2PUenYvBRr2Ps', external: true },
-    { name: 'Deezer', href: 'https://www.deezer.com/us/show/2157592', external: true },
+    {
+      name: 'Apple Podcasts',
+      href: 'https://podcasts.apple.com/us/podcast/art-au-feminin/id1493131152',
+      external: true,
+    },
+    {
+      name: 'Spotify',
+      href: 'https://open.spotify.com/show/18f84r0ic2PUenYvBRr2Ps',
+      external: true,
+    },
+    {
+      name: 'Deezer',
+      href: 'https://www.deezer.com/us/show/2157592',
+      external: true,
+    },
     { name: 'Participer', href: '/start' },
   ],
   apropos: [
+    { name: 'Commencer ici', href: '/commencer' },
     { name: 'À propos', href: '/about' },
     { name: 'Newsletter', href: '/newsletter' },
     { name: 'Questions fréquentes', href: '/faq' },
     { name: 'Presse', href: '/press' },
-    { name: 'Nous soutenir', href: 'https://fr.tipeee.com/art-au-feminin', external: true },
+    {
+      name: 'Nous soutenir',
+      href: 'https://fr.tipeee.com/art-au-feminin',
+      external: true,
+    },
   ],
   social: [
     {
@@ -62,10 +79,11 @@ const navigation = {
 export default function Footer({ siteTitle }: FooterProps) {
   return (
     <footer aria-labelledby="footer-heading" className="bg-neutral-900 pb-24">
-      <h2 id="footer-heading" className="sr-only">Footer</h2>
+      <h2 id="footer-heading" className="sr-only">
+        Footer
+      </h2>
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-
         {/* ── Zone marque ────────────────────────────────────── */}
         <div className="border-b border-white/10 py-14 lg:py-20">
           <div className="lg:flex lg:items-end lg:justify-between">
@@ -76,7 +94,8 @@ export default function Footer({ siteTitle }: FooterProps) {
                 </span>
               </Link>
               <p className="mt-4 max-w-sm text-sm font-light leading-relaxed text-white/40">
-                Un podcast par Aldjia Boughias — célébrer les femmes artistes qui ont façonné l'histoire de l'art.
+                Un podcast par Aldjia Boughias — célébrer les femmes artistes
+                qui ont façonné l'histoire de l'art.
               </p>
             </div>
 
@@ -99,9 +118,11 @@ export default function Footer({ siteTitle }: FooterProps) {
 
         {/* ── Zone navigation + newsletter ───────────────────── */}
         <div className="py-14 lg:grid lg:grid-cols-4 lg:gap-10">
-
           <div>
-            <h3 id="footer-nav-contenu" className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30">
+            <h3
+              id="footer-nav-contenu"
+              className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30"
+            >
               Contenu
             </h3>
             <nav aria-labelledby="footer-nav-contenu">
@@ -121,7 +142,10 @@ export default function Footer({ siteTitle }: FooterProps) {
           </div>
 
           <div className="mt-10 lg:mt-0">
-            <h3 id="footer-nav-podcast" className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30">
+            <h3
+              id="footer-nav-podcast"
+              className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30"
+            >
               Le podcast
             </h3>
             <nav aria-labelledby="footer-nav-podcast">
@@ -152,7 +176,10 @@ export default function Footer({ siteTitle }: FooterProps) {
           </div>
 
           <div className="mt-10 lg:mt-0">
-            <h3 id="footer-nav-apropos" className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30">
+            <h3
+              id="footer-nav-apropos"
+              className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30"
+            >
               À propos
             </h3>
             <nav aria-labelledby="footer-nav-apropos">
@@ -191,7 +218,8 @@ export default function Footer({ siteTitle }: FooterProps) {
         <div className="border-t border-white/10 py-8">
           <div className="lg:flex lg:items-center lg:justify-between">
             <p className="text-xs font-light text-white/30">
-              &copy; {new Date().getFullYear()} {siteTitle} — Tous droits réservés.
+              &copy; {new Date().getFullYear()} {siteTitle} — Tous droits
+              réservés.
             </p>
             <p className="mt-2 text-xs font-light text-white/20 lg:mt-0">
               Fait avec passion par{' '}
@@ -207,18 +235,26 @@ export default function Footer({ siteTitle }: FooterProps) {
             </p>
           </div>
           <nav aria-label="Liens légaux" className="mt-4 flex flex-wrap gap-4">
-            <Link to="/mentions-legales" className="text-xs font-light text-white/25 transition-colors hover:text-white/60">
+            <Link
+              to="/mentions-legales"
+              className="text-xs font-light text-white/25 transition-colors hover:text-white/60"
+            >
               Mentions légales
             </Link>
-            <Link to="/politique-confidentialite" className="text-xs font-light text-white/25 transition-colors hover:text-white/60">
+            <Link
+              to="/politique-confidentialite"
+              className="text-xs font-light text-white/25 transition-colors hover:text-white/60"
+            >
               Politique de confidentialité
             </Link>
-            <Link to="/accessibilite" className="text-xs font-light text-white/25 transition-colors hover:text-white/60">
+            <Link
+              to="/accessibilite"
+              className="text-xs font-light text-white/25 transition-colors hover:text-white/60"
+            >
               Accessibilité
             </Link>
           </nav>
         </div>
-
       </div>
     </footer>
   );

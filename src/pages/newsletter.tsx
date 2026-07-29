@@ -6,7 +6,9 @@ import SEO from '../components/seo';
 
 export default function NewsletterPage(): ReactElement {
   const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<
+    'idle' | 'loading' | 'success' | 'error'
+  >('idle');
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -29,21 +31,21 @@ export default function NewsletterPage(): ReactElement {
 
   return (
     <Layout withInstagram={false}>
-
       {/* ── HERO ─────────────────────────────────────────────────── */}
       <section className="-mx-4 border-b border-neutral-200">
         <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:py-28">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
-            Newsletter
+            Newsletter Mensuelle · Gratuit
           </p>
           <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl lg:text-6xl">
-            L'Art au Féminin<br />
-            <span className="italic">dans votre boîte mail</span>
+            Une femme artiste <br />
+            <span className="italic">chaque mois dans votre boîte mail</span>
           </h1>
           <p className="mx-auto mt-6 max-w-md text-sm font-light leading-relaxed text-neutral-500">
-            Recevez les nouveaux épisodes, articles, chroniques de livres et les
-            actualités de la Galerie ART AU FÉMININ directement par email.
-            Pas de spam — uniquement du contenu sur les femmes artistes.
+            Chaque mois, un email soigné : un portrait de femme artiste oubliée,
+            les nouveaux épisodes du podcast, des chroniques de livres et les
+            actualités de la Galerie ART AU FÉMININ. Un seul email par mois, pas
+            de spam.
           </p>
         </div>
       </section>
@@ -55,14 +57,17 @@ export default function NewsletterPage(): ReactElement {
             S'abonner Gratuitement
           </h2>
           <p className="mb-8 text-sm font-light leading-relaxed text-neutral-400">
-            Rejoignez les abonnées qui reçoivent la newsletter d'ART AU FÉMININ.
+            1 email par mois. Désabonnement en un clic à tout moment.
           </p>
 
           {status === 'success' ? (
             <div className="border border-neutral-200 bg-neutral-50 px-6 py-8 text-center">
-              <p className="font-display text-xl font-light text-neutral-700">Merci !</p>
+              <p className="font-display text-xl font-light text-neutral-700">
+                Merci !
+              </p>
               <p className="mt-2 text-sm font-light leading-relaxed text-neutral-500">
-                Votre inscription est confirmée. À très vite dans votre boîte mail !
+                Votre inscription est confirmée. À très vite dans votre boîte
+                mail !
               </p>
             </div>
           ) : (
@@ -92,7 +97,9 @@ export default function NewsletterPage(): ReactElement {
                 disabled={status === 'loading'}
                 className="w-full border border-neutral-900 bg-neutral-900 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-neutral-700 disabled:opacity-60"
               >
-                {status === 'loading' ? 'Inscription en cours…' : "Je m'abonne →"}
+                {status === 'loading'
+                  ? 'Inscription en cours…'
+                  : "Je m'abonne →"}
               </button>
 
               {status === 'error' && (
@@ -116,16 +123,30 @@ export default function NewsletterPage(): ReactElement {
         </p>
         <div className="grid grid-cols-1 gap-px bg-neutral-200 border border-neutral-200 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { label: 'Les Nouveaux Épisodes', desc: 'Soyez la première informée à chaque nouvel épisode du podcast.' },
-            { label: 'Les Articles', desc: 'Des portraits et analyses sur les femmes artistes à travers les siècles.' },
-            { label: 'Les Chroniques', desc: "Des sélections de livres pour explorer l'Histoire de l'Art au féminin." },
-            { label: 'La Galerie 3D', desc: 'Les coulisses et actualités de la Galerie ART AU FÉMININ en avant-première.' },
+            {
+              label: 'Les Nouveaux Épisodes',
+              desc: 'Soyez la première informée à chaque nouvel épisode du podcast.',
+            },
+            {
+              label: 'Les Articles',
+              desc: 'Des portraits et analyses sur les femmes artistes à travers les siècles.',
+            },
+            {
+              label: 'Les Chroniques',
+              desc: "Des sélections de livres pour explorer l'Histoire de l'Art au féminin.",
+            },
+            {
+              label: 'La Galerie 3D',
+              desc: 'Les coulisses et actualités de la Galerie ART AU FÉMININ en avant-première.',
+            },
           ].map(({ label, desc }) => (
             <div key={label} className="bg-white p-6 text-center">
               <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
                 {label}
               </p>
-              <p className="text-sm font-light leading-relaxed text-neutral-500">{desc}</p>
+              <p className="text-sm font-light leading-relaxed text-neutral-500">
+                {desc}
+              </p>
             </div>
           ))}
         </div>
@@ -145,8 +166,8 @@ export default function NewsletterPage(): ReactElement {
               « Sororité »
             </p>
             <p className="mt-4 text-sm font-light leading-relaxed text-white/40">
-              Une galerie d'Art immersive en 3D dédiée aux femmes artistes.
-              La première exposition réunit une vingtaine d'artistes autour du
+              Une galerie d'Art immersive en 3D dédiée aux femmes artistes. La
+              première exposition réunit une vingtaine d'artistes autour du
               thème de la Sororité. Abonnez-vous pour recevoir toutes les
               actualités en avant-première.
             </p>
@@ -162,11 +183,15 @@ export default function NewsletterPage(): ReactElement {
       {/* ── CITATION ─────────────────────────────────────────────── */}
       <section className="border-y border-neutral-200 bg-neutral-50 py-14">
         <div className="mx-auto max-w-2xl px-6 text-center lg:px-0">
-          <span className="block font-display text-6xl font-light leading-none text-neutral-200" aria-hidden="true">
+          <span
+            className="block font-display text-6xl font-light leading-none text-neutral-200"
+            aria-hidden="true"
+          >
             «
           </span>
           <p className="mt-2 font-display text-xl font-light italic leading-relaxed text-neutral-600 md:text-2xl">
-            Le monde regorge de femmes artistes talentueuses. Il est temps de les connaître.
+            Le monde regorge de femmes artistes talentueuses. Il est temps de
+            les connaître.
           </p>
           <cite className="mt-5 block text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 not-italic">
             — Aldjia Boughias
@@ -196,7 +221,6 @@ export default function NewsletterPage(): ReactElement {
           ))}
         </div>
       </section>
-
     </Layout>
   );
 }
