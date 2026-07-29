@@ -26,7 +26,8 @@ const BooksPage = ({ data }: BooksPageProps) => {
           Livres sur les Femmes Artistes
         </h1>
         <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-neutral-500">
-          Une sélection de chroniques pour explorer l'Histoire des femmes dans l'Art — biographies, essais, monographies.
+          Une sélection de chroniques pour explorer l'Histoire des femmes dans
+          l'Art — biographies, essais, monographies.
         </p>
       </section>
 
@@ -41,8 +42,12 @@ export const query = graphql`
       nodes {
         uid
         data {
-          title { text }
-          content { text }
+          title {
+            text
+          }
+          content {
+            text
+          }
         }
       }
     }
@@ -52,7 +57,7 @@ export const query = graphql`
 export const Head = ({ location }: { location: { pathname: string } }) => (
   <SEO
     title="Livres sur les Femmes Artistes — ART AU FÉMININ"
-    description="Une sélection de chroniques pour explorer l'Histoire des femmes dans l'Art — biographies, essais, monographies de femmes artistes de l'Antiquité à nos jours."
+    description="Chroniques et sélections de livres sur les femmes artistes : biographies, essais, monographies — de l'Antiquité à l'Art contemporain. Recommandés par Aldjia Boughias pour ART AU FÉMININ."
     url={`https://www.artaufeminin.fr${location.pathname}`}
   />
 );

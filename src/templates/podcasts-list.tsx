@@ -202,7 +202,7 @@ export const Head = ({
   return (
     <SEO
       title={title}
-      description="Écoutez tous les épisodes du podcast ART AU FÉMININ, présenté par Aldjia Boughias. Des récits captivants sur les femmes artistes qui ont marqué l'Histoire de l'Art."
+      description="Plus de 100 épisodes sur les femmes artistes qui ont façonné l'Histoire de l'Art — avec des historiennes, conservatrices de musées et artistes contemporaines. Le podcast ART AU FÉMININ, présenté par Aldjia Boughias."
       url={`https://www.artaufeminin.fr${location.pathname}`}
       jsonLd={jsonLd}
     />

@@ -162,7 +162,7 @@ export const Head = ({
   return (
     <SEO
       title={title}
-      description="Découvrez l'inspiration et la créativité des femmes artistes sur ART AU FÉMININ. Explorez leurs œuvres exceptionnelles, leurs parcours uniques et leurs contributions inestimables à l'Histoire de l'Art."
+      description="Portraits de femmes artistes oubliées par l'Histoire de l'Art — biographies, analyses d'œuvres et récits de parcours de la Renaissance à l'Art contemporain. Écrits par Aldjia Boughias pour ART AU FÉMININ."
       url={`https://www.artaufeminin.fr${location.pathname}`}
       jsonLd={jsonLd}
     />

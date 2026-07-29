@@ -23,7 +23,8 @@ const QuotationPage = ({
           Citations de Femmes Artistes
         </h1>
         <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-neutral-500">
-          Des paroles qui traversent le temps — ce que les femmes artistes ont dit de l'Art, de la création et de leur vie.
+          Des paroles qui traversent le temps — ce que les femmes artistes ont
+          dit de l'Art, de la création et de leur vie.
         </p>
       </section>
 
@@ -49,7 +50,7 @@ export const query = graphql`
 export const Head = ({ location }: { location: { pathname: string } }) => (
   <SEO
     title="Citations de Femmes Artistes — ART AU FÉMININ"
-    description="Des paroles inspirantes qui traversent le temps — ce que les femmes artistes ont dit de l'Art, de la création et de leur vie."
+    description="Citations de femmes artistes à travers les siècles — ce qu'Artemisia Gentileschi, Camille Claudel, Frida Kahlo et d'autres ont dit de l'Art, de la création et de leur parcours."
     url={`https://www.artaufeminin.fr${location.pathname}`}
   />
 );
