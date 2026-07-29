@@ -52,6 +52,20 @@ const IndexPage = ({ data }) => {
               Un podcast pour redécouvrir les femmes artistes qui ont façonné
               l'Art — de l'Antiquité à aujourd'hui.
             </p>
+            <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+              <Link
+                to="/podcasts"
+                className="border border-white/80 bg-white/10 px-7 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+              >
+                Écouter le Podcast <span aria-hidden="true">→</span>
+              </Link>
+              <Link
+                to="/newsletter"
+                className="border border-white/30 px-7 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/60 hover:text-white"
+              >
+                S'abonner à la Newsletter
+              </Link>
+            </div>
           </div>
         </div>
 
@@ -80,6 +94,27 @@ const IndexPage = ({ data }) => {
             </div>
           </div>
         )}
+      </section>
+
+      {/* ── CHIFFRES CLÉS ────────────────────────────────────────── */}
+      <section className="border-b border-neutral-200">
+        <div className="mx-auto flex max-w-7xl divide-x divide-neutral-200">
+          {[
+            { number: '+100', label: 'Épisodes' },
+            { number: '5', label: 'Saisons' },
+            { number: '2019', label: 'Depuis' },
+            { number: 'Gratuit', label: 'Pour toujours' },
+          ].map(({ number, label }) => (
+            <div key={label} className="flex-1 py-8 text-center">
+              <p className="font-display text-3xl font-light text-neutral-900">
+                {number}
+              </p>
+              <p className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
+                {label}
+              </p>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* ── ÉPISODES ─────────────────────────────────────────────── */}
@@ -273,13 +308,22 @@ const IndexPage = ({ data }) => {
               l'Histoire de l'Art.
             </p>
           </div>
-          <a
-            href="/galerie"
-            aria-label="Découvrir la Galerie ART AU FÉMININ"
-            className="shrink-0 border border-white/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/50 transition-colors hover:border-white/60 hover:text-white"
-          >
-            Découvrir la Galerie <span aria-hidden="true">→</span>
-          </a>
+          <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
+            <Link
+              to="/newsletter"
+              aria-label="S'inscrire pour être informée de l'ouverture de la Galerie"
+              className="border border-white/40 bg-white/10 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-white/20"
+            >
+              M'avertir à l'ouverture <span aria-hidden="true">→</span>
+            </Link>
+            <a
+              href="/galerie"
+              aria-label="Découvrir la Galerie ART AU FÉMININ"
+              className="border border-white/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/50 transition-colors hover:border-white/60 hover:text-white"
+            >
+              En savoir plus
+            </a>
+          </div>
         </div>
       </section>
 
@@ -294,12 +338,26 @@ const IndexPage = ({ data }) => {
               Vous aimez ART AU FÉMININ ?
             </p>
           </div>
-          <a
-            href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152"
-            className="shrink-0 border border-neutral-300 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
-          >
-            Laisser 5 ★ sur Apple Podcasts
-          </a>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="https://fr.tipeee.com/art-au-feminin"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Soutenir ART AU FÉMININ sur Tipeee (ouvre un nouvel onglet)"
+              className="shrink-0 border border-neutral-900 bg-neutral-900 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-neutral-700"
+            >
+              Soutenir sur Tipeee
+            </a>
+            <a
+              href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Laisser un avis sur Apple Podcasts (ouvre un nouvel onglet)"
+              className="shrink-0 border border-neutral-300 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
+            >
+              Laisser 5 ★ sur Apple Podcasts
+            </a>
+          </div>
         </div>
       </section>
     </Layout>

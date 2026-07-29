@@ -160,13 +160,33 @@ export default function Article(props: PropsArticle): ReactElement {
           </div>
         </section>
 
+        {/* Newsletter */}
+        <section className="my-10 border border-neutral-200 bg-neutral-50 p-6">
+          <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+            Newsletter
+          </p>
+          <h2 className="mb-2 font-display text-xl font-light text-neutral-900">
+            Vous avez aimé cet article ?
+          </h2>
+          <p className="mb-5 text-sm font-light leading-relaxed text-neutral-500">
+            Recevez les prochains articles et épisodes directement dans votre
+            boîte mail. Gratuit, sans spam.
+          </p>
+          <Link
+            to="/newsletter"
+            className="inline-block border border-neutral-900 bg-neutral-900 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-neutral-700"
+          >
+            S'abonner Gratuitement <span aria-hidden="true">→</span>
+          </Link>
+        </section>
+
         {/* Mécénat */}
         <section className="my-10 border border-neutral-200 p-6">
           <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
             Mécénat
           </p>
           <h2 className="mb-3 font-display text-xl font-light text-neutral-900">
-            Vous avez aimé cet article ?
+            Soutenir ART AU FÉMININ
           </h2>
           <p className="mb-5 text-sm font-light leading-relaxed text-neutral-500">
             Si ce contenu vous a plu, vous pouvez soutenir ART AU FÉMININ sur
@@ -259,6 +279,7 @@ export const Head = (
       headline: seoTitle,
       description: seoDescription,
       keywords: [
+        seoTitle,
         'femmes artistes',
         "histoire de l'art",
         'art au féminin',

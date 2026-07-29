@@ -10,6 +10,7 @@ const navigation = [
   { name: 'Citations', href: '/citations' },
   { name: 'Événements', href: '/evenements' },
   { name: 'Galerie', href: '/galerie' },
+  { name: 'Newsletter', href: '/newsletter' },
   {
     name: 'Contact',
     href: 'mailto:artaufemininlepodcast@gmail.com',

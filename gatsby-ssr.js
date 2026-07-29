@@ -10,6 +10,13 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
 
   setHeadComponents([
     <link
+      key="podcast-rss"
+      rel="alternate"
+      type="application/rss+xml"
+      title="ART AU FÉMININ — Podcast"
+      href="https://anchor.fm/s/9483df8/podcast/rss"
+    />,
+    <link
       key="gf-preconnect"
       rel="preconnect"
       href="https://fonts.googleapis.com"
