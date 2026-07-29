@@ -29,7 +29,7 @@ export default function Episode({ pageContext }) {
   const player = useAudioPlayer(audioPlayerData);
 
   return (
-    <Layout withLastPodcast={false}>
+    <Layout>
       {/* ── HERO IMAGE ───────────────────────────────────────────── */}
       <div className="-mx-4 relative h-[55vh] min-h-[340px] overflow-hidden">
         <img

@@ -6,7 +6,7 @@ import SEO from '../components/seo';
 
 export default function PolitiqueConfidentialitePage() {
   return (
-    <Layout withInstagram={false} withLastPodcast={false}>
+    <Layout withInstagram={false}>
       <section className="m-auto mb-12 mt-8 w-3/4 max-w-3xl">
         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
           Légal
