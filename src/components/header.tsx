@@ -18,6 +18,8 @@ const navigation = [
   },
 ];
 
+const ctaNav = { name: 'Commencer ici', href: '/commencer' };
+
 export function Header(): ReactElement {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -58,6 +60,13 @@ export function Header(): ReactElement {
               </Link>
             )
           )}
+          <Link
+            to={ctaNav.href}
+            className="border border-neutral-900 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-900 transition-colors hover:bg-neutral-900 hover:text-white"
+            activeClassName="bg-neutral-900 text-white"
+          >
+            {ctaNav.name}
+          </Link>
         </nav>
       </div>
 
@@ -136,8 +145,15 @@ export function Header(): ReactElement {
             )}
           </nav>
 
-          <div className="mt-auto pt-16 border-t border-neutral-100">
-            <p className="text-xs uppercase tracking-widest text-neutral-300">
+          <div className="mt-8 border-t border-neutral-100 pt-6">
+            <Link
+              to={ctaNav.href}
+              onClick={() => setMobileMenuOpen(false)}
+              className="block border border-neutral-900 px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.2em] text-neutral-900 transition-colors hover:bg-neutral-900 hover:text-white"
+            >
+              {ctaNav.name}
+            </Link>
+            <p className="mt-6 text-xs uppercase tracking-widest text-neutral-300">
               Par Aldjia Boughias
             </p>
           </div>

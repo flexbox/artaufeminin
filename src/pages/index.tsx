@@ -187,7 +187,7 @@ const IndexPage = ({ data }) => {
                     aria-label={`Écouter : ${episode.title}`}
                     className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
                   >
-                    Écouter <span aria-hidden="true">→</span>
+                    Écouter l'Épisode <span aria-hidden="true">→</span>
                   </Link>
                 }
               />
@@ -278,7 +278,7 @@ const IndexPage = ({ data }) => {
                       aria-label={`Lire : ${title}`}
                       className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
                     >
-                      Lire <span aria-hidden="true">→</span>
+                      Lire le Portrait <span aria-hidden="true">→</span>
                     </Link>
                   }
                 />
