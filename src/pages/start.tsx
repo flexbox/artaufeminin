@@ -24,6 +24,7 @@ export default function StartPage({}: Props): ReactElement {
       <div className="mx-auto mb-20 w-3/4 max-w-3xl">
         <iframe
           src="https://airtable.com/embed/shrDSm33OhRdSGD0C?backgroundColor=purple"
+          title="Formulaire de présentation communauté ART AU FÉMININ"
           frameBorder={0}
           width="100%"
           height="1635"

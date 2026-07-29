@@ -154,5 +154,6 @@ export const Head = ({ location }: { location: { pathname: string } }) => (
     title="Événements — ART AU FÉMININ, rencontres autour des femmes artistes"
     description="ART AU FÉMININ organise des rencontres en présentiel pour échanger avec des directrices de musées, conservatrices, historiennes de l'Art et artistes. Les premiers événements arrivent bientôt."
     url={`https://www.artaufeminin.fr${location.pathname}`}
+    noindex={true}
   />
 );
