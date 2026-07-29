@@ -44,10 +44,10 @@ export default function MentionsLegalesPage() {
                 Contact :
               </strong>{' '}
               <a
-                href="mailto:artaufemininlepodcast@gmail.com"
+                href="mailto:bonjour@artaufeminin.fr"
                 className="text-neutral-700 underline underline-offset-2 hover:text-neutral-900"
               >
-                artaufemininlepodcast@gmail.com
+                bonjour@artaufeminin.fr
               </a>
             </p>
           </div>
@@ -110,10 +110,10 @@ export default function MentionsLegalesPage() {
               droits sur une image et souhaitez qu'elle soit retirée ou créditée
               différemment, contactez-nous à{' '}
               <a
-                href="mailto:artaufemininlepodcast@gmail.com"
+                href="mailto:bonjour@artaufeminin.fr"
                 className="text-neutral-700 underline underline-offset-2 hover:text-neutral-900"
               >
-                artaufemininlepodcast@gmail.com
+                bonjour@artaufeminin.fr
               </a>
               .
             </p>

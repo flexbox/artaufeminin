@@ -186,10 +186,10 @@ export default function AccessibilitePage() {
                 Par e-mail :
               </strong>{' '}
               <a
-                href="mailto:artaufemininlepodcast@gmail.com"
+                href="mailto:bonjour@artaufeminin.fr"
                 className="text-neutral-700 underline underline-offset-2 hover:text-neutral-900"
               >
-                artaufemininlepodcast@gmail.com
+                bonjour@artaufeminin.fr
               </a>
             </p>
             <p className="text-xs text-neutral-400">

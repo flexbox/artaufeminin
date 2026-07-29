@@ -13,7 +13,7 @@ const navigation = [
   { name: 'Newsletter', href: '/newsletter' },
   {
     name: 'Contact',
-    href: 'mailto:artaufemininlepodcast@gmail.com',
+    href: 'mailto:bonjour@artaufeminin.fr',
     isExternal: true,
   },
 ];

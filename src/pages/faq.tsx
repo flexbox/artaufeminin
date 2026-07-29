@@ -18,7 +18,13 @@ interface FaqPageProps {
   };
 }
 
-function QuestionItem({ question, defaultOpen = false }: { question: FaqPageProps['data']['allPrismicFaq']['nodes'][0]; defaultOpen?: boolean }) {
+function QuestionItem({
+  question,
+  defaultOpen = false,
+}: {
+  question: FaqPageProps['data']['allPrismicFaq']['nodes'][0];
+  defaultOpen?: boolean;
+}) {
   const [open, setOpen] = useState(defaultOpen);
 
   return (
@@ -53,7 +59,6 @@ export default function FaqPage({ data }: FaqPageProps): ReactElement {
 
   return (
     <Layout withInstagram={false}>
-
       <section className="m-auto mb-12 mt-8 w-3/4">
         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
           Aide
@@ -69,7 +74,11 @@ export default function FaqPage({ data }: FaqPageProps): ReactElement {
 
       <div className="m-auto mb-16 w-3/4 border border-neutral-200 px-8">
         {questions.map((question, index) => (
-          <QuestionItem key={index} question={question} defaultOpen={index === 0} />
+          <QuestionItem
+            key={index}
+            question={question}
+            defaultOpen={index === 0}
+          />
         ))}
       </div>
 
@@ -84,14 +93,13 @@ export default function FaqPage({ data }: FaqPageProps): ReactElement {
             </p>
           </div>
           <a
-            href="mailto:artaufemininlepodcast@gmail.com"
+            href="mailto:bonjour@artaufeminin.fr"
             className="inline-block border border-neutral-300 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
           >
             Envoyer un Email <span aria-hidden="true">→</span>
           </a>
         </div>
       </section>
-
     </Layout>
   );
 }
@@ -101,8 +109,13 @@ export const pageQuery = graphql`
     allPrismicFaq {
       nodes {
         data {
-          question { text }
-          answer { raw richText }
+          question {
+            text
+          }
+          answer {
+            raw
+            richText
+          }
         }
       }
     }
