@@ -8,7 +8,6 @@ export default function NotFoundPage(): ReactElement {
   return (
     <Layout withInstagram={false}>
       <div className="mx-auto max-w-2xl px-6 py-24 text-center lg:px-0">
-
         <p className="font-display text-[8rem] font-light leading-none text-neutral-100 md:text-[12rem]">
           404
         </p>
@@ -17,8 +16,8 @@ export default function NotFoundPage(): ReactElement {
           Cette page n'existe pas
         </h1>
         <p className="mx-auto mt-4 max-w-md text-sm font-light leading-relaxed text-neutral-500">
-          La page que vous cherchez a peut-être été déplacée ou supprimée.
-          Voici quelques liens pour retrouver votre chemin.
+          La page que vous cherchez a peut-être été déplacée ou supprimée. Voici
+          quelques liens pour retrouver votre chemin.
         </p>
 
         <div className="mt-10 flex flex-wrap justify-center gap-3">
@@ -40,6 +39,12 @@ export default function NotFoundPage(): ReactElement {
           >
             Les Articles
           </Link>
+          <Link
+            to="/newsletter"
+            className="border border-neutral-200 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400 transition-colors hover:border-neutral-500 hover:text-neutral-700"
+          >
+            Newsletter
+          </Link>
         </div>
 
         <hr className="separator mx-auto mt-16 max-w-xs" />
@@ -47,7 +52,6 @@ export default function NotFoundPage(): ReactElement {
         <p className="mt-8 font-display text-lg font-light italic text-neutral-400">
           « L'Art, c'est aussi savoir se perdre pour mieux se retrouver. »
         </p>
-
       </div>
     </Layout>
   );

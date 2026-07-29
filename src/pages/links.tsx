@@ -7,22 +7,26 @@ export const allPodcastPlatforms = [
   {
     name: 'Anchor',
     url: 'https://anchor.fm/artaufeminin/',
-    imageUrl: 'https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/images/logo-links.svg',
+    imageUrl:
+      'https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/images/logo-links.svg',
   },
   {
     name: 'Apple podcasts',
     url: 'https://podcasts.apple.com/us/podcast/art-au-feminin/id1493131152',
-    imageUrl: 'https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/itunes_podcasts.svg',
+    imageUrl:
+      'https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/itunes_podcasts.svg',
   },
   {
     name: 'Deezer',
     url: 'https://www.deezer.com/us/show/2157592',
-    imageUrl: 'https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/deezer.svg',
+    imageUrl:
+      'https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/deezer.svg',
   },
   {
     name: 'Spotify',
     url: 'https://open.spotify.com/show/18f84r0ic2PUenYvBRr2Ps',
-    imageUrl: 'https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/spotify.svg',
+    imageUrl:
+      'https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/spotify.svg',
   },
 ];
 
@@ -42,14 +46,20 @@ function LinkRow({ item }: { item: LinkItem }) {
       className="group flex items-center gap-4 border border-neutral-200 bg-white px-5 py-4 transition-all hover:border-neutral-400"
     >
       {item.imageUrl && (
-        <img src={item.imageUrl} alt={item.name} className="size-7 shrink-0 object-contain" />
+        <img
+          src={item.imageUrl}
+          alt={item.name}
+          className="size-7 shrink-0 object-contain"
+        />
       )}
       <div className="flex-1">
         <span className="text-sm font-light text-neutral-700 transition-colors group-hover:text-neutral-900">
           {item.name}
         </span>
         {item.description && (
-          <p className="mt-0.5 text-xs font-light text-neutral-400">{item.description}</p>
+          <p className="mt-0.5 text-xs font-light text-neutral-400">
+            {item.description}
+          </p>
         )}
       </div>
       <span className="text-neutral-300 transition-transform group-hover:translate-x-0.5 group-hover:text-neutral-600">
@@ -71,7 +81,6 @@ export default function LinksPage(): ReactElement {
   return (
     <div className="min-h-screen bg-white px-4 py-12">
       <div className="mx-auto max-w-sm">
-
         {/* ── PROFIL ───────────────────────────────────────────────── */}
         <div className="mb-10 text-center">
           <div className="mx-auto mb-5 size-24 overflow-hidden border border-neutral-200">
@@ -86,10 +95,12 @@ export default function LinksPage(): ReactElement {
           <h1 className="font-display text-2xl font-light text-neutral-900">
             ART AU FÉMININ
           </h1>
-          <p className="mt-1 text-sm font-light text-neutral-400">@artaufeminin</p>
+          <p className="mt-1 text-sm font-light text-neutral-400">
+            @artaufeminin
+          </p>
           <p className="mx-auto mt-3 max-w-xs text-xs font-light leading-relaxed text-neutral-400">
-            Un podcast sur les femmes artistes qui ont façonné l'Histoire de l'Art.
-            Par Aldjia Boughias.
+            Un podcast sur les femmes artistes qui ont façonné l'Histoire de
+            l'Art. Par Aldjia Boughias.
           </p>
         </div>
 
@@ -119,6 +130,26 @@ export default function LinksPage(): ReactElement {
           </div>
         </div>
 
+        {/* ── COMMENCER ────────────────────────────────────────────── */}
+        <div className="mb-8">
+          <a
+            href="https://www.artaufeminin.fr/commencer"
+            className="group flex items-center justify-between border border-neutral-900 bg-neutral-900 px-5 py-4 transition-all hover:bg-neutral-800"
+          >
+            <div>
+              <span className="text-sm font-light text-white">
+                Par où commencer ?
+              </span>
+              <p className="mt-0.5 text-xs font-light text-white/50">
+                Découvrez le podcast et les meilleurs épisodes
+              </p>
+            </div>
+            <span className="text-white/40 transition-transform group-hover:translate-x-0.5 group-hover:text-white/80">
+              →
+            </span>
+          </a>
+        </div>
+
         {/* ── ÉCOUTER ──────────────────────────────────────────────── */}
         <div className="mb-8">
           <SectionLabel>Écouter le Podcast</SectionLabel>
@@ -136,10 +167,27 @@ export default function LinksPage(): ReactElement {
           <SectionLabel>Explorer le Contenu</SectionLabel>
           <div className="space-y-px border border-neutral-200">
             {[
-              { name: 'Tous les Épisodes', url: 'https://artaufeminin.fr/podcasts', description: 'Parcourez tous les épisodes du podcast' },
-              { name: 'Articles', url: 'https://artaufeminin.fr/articles', description: 'Des portraits de femmes artistes' },
-              { name: 'Livres & Chroniques', url: 'https://artaufeminin.fr/livres', description: "Sélections de lectures sur l'Art au féminin" },
-              { name: 'Citations', url: 'https://artaufeminin.fr/citations', description: 'Des paroles de femmes artistes qui traversent le temps' },
+              {
+                name: 'Tous les Épisodes',
+                url: 'https://www.artaufeminin.fr/podcasts',
+                description: 'Parcourez tous les épisodes du podcast',
+              },
+              {
+                name: 'Articles',
+                url: 'https://www.artaufeminin.fr/articles',
+                description: 'Des portraits de femmes artistes',
+              },
+              {
+                name: 'Livres & Chroniques',
+                url: 'https://www.artaufeminin.fr/livres',
+                description: "Sélections de lectures sur l'Art au féminin",
+              },
+              {
+                name: 'Citations',
+                url: 'https://www.artaufeminin.fr/citations',
+                description:
+                  'Des paroles de femmes artistes qui traversent le temps',
+              },
             ].map((item) => (
               <LinkRow key={item.name} item={item} />
             ))}
@@ -151,9 +199,24 @@ export default function LinksPage(): ReactElement {
           <SectionLabel>Communauté</SectionLabel>
           <div className="space-y-px border border-neutral-200">
             {[
-              { name: 'Instagram', url: 'https://instagram.com/artaufeminin', imageUrl: 'https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/instagram.svg', description: '@artaufeminin' },
-              { name: 'Facebook', url: 'https://www.facebook.com/podcastart', imageUrl: 'https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/facebook.svg' },
-              { name: 'Newsletter', url: 'https://artaufeminin.fr/newsletter', description: 'Recevez les épisodes directement par email' },
+              {
+                name: 'Instagram',
+                url: 'https://instagram.com/artaufeminin',
+                imageUrl:
+                  'https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/instagram.svg',
+                description: '@artaufeminin',
+              },
+              {
+                name: 'Facebook',
+                url: 'https://www.facebook.com/podcastart',
+                imageUrl:
+                  'https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/facebook.svg',
+              },
+              {
+                name: 'Newsletter',
+                url: 'https://www.artaufeminin.fr/newsletter',
+                description: 'Recevez les épisodes directement par email',
+              },
             ].map((item) => (
               <LinkRow key={item.name} item={item} />
             ))}
@@ -185,11 +248,15 @@ export default function LinksPage(): ReactElement {
 
         <p className="text-center text-xs font-light text-neutral-300">
           © {new Date().getFullYear()} ART AU FÉMININ · Par{' '}
-          <a href="https://aldjia.dev" target="_blank" rel="noopener noreferrer" className="text-neutral-400 underline hover:text-neutral-700">
+          <a
+            href="https://aldjia.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-neutral-400 underline hover:text-neutral-700"
+          >
             Aldjia Boughias
           </a>
         </p>
-
       </div>
     </div>
   );
