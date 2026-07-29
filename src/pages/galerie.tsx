@@ -5,7 +5,9 @@ import SEO from '../components/seo';
 
 export default function GaleriePage(): ReactElement {
   const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<
+    'idle' | 'loading' | 'success' | 'error'
+  >('idle');
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -35,9 +37,22 @@ export default function GaleriePage(): ReactElement {
 
   return (
     <div className="min-h-screen bg-neutral-950 text-white">
+      <div className="flex items-center justify-between px-6 py-5 lg:px-12">
+        <Link
+          to="/"
+          className="font-display text-lg font-light tracking-[0.05em] text-white/60 transition-colors hover:text-white"
+        >
+          ART AU FÉMININ
+        </Link>
+        <Link
+          to="/podcasts"
+          className="text-xs font-semibold uppercase tracking-[0.2em] text-white/30 transition-colors hover:text-white/70"
+        >
+          Le Podcast
+        </Link>
+      </div>
 
-      <main className="mx-auto max-w-xl px-6 py-20 lg:py-28">
-
+      <main className="mx-auto max-w-xl px-6 py-12 lg:py-20">
         <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.3em] text-white/30">
           Galerie ART AU FÉMININ · Exposition « Sororité »
         </p>
@@ -48,7 +63,9 @@ export default function GaleriePage(): ReactElement {
         </h1>
 
         <p className="mx-auto mt-6 max-w-md text-center text-sm font-light leading-relaxed text-white/40">
-          Je prépare une galerie d'Art immersive en 3D autour du thème de la <strong className="text-white/60 font-normal">Sororité</strong> — une vingtaine de femmes artistes réunies dans un espace numérique unique.
+          Je prépare une galerie d'Art immersive en 3D autour du thème de la{' '}
+          <strong className="text-white/60 font-normal">Sororité</strong> — une
+          vingtaine de femmes artistes réunies dans un espace numérique unique.
         </p>
 
         <div className="mt-12 border border-white/10 bg-neutral-900 p-8">
@@ -57,10 +74,14 @@ export default function GaleriePage(): ReactElement {
           </p>
           <h2 className="font-display text-2xl font-light text-white lg:text-3xl">
             Le Catalogue Complet{' '}
-            <span className="italic font-light text-white/50">de l'Exposition</span>
+            <span className="italic font-light text-white/50">
+              de l'Exposition
+            </span>
           </h2>
           <p className="mt-3 text-sm font-light leading-relaxed text-white/40">
-            En laissant votre email, vous recevez en avant-première le catalogue de l'exposition — toutes les artistes, leur univers, leur œuvre, et ce qui les relie autour du thème de la Sororité.
+            En laissant votre email, vous recevez en avant-première le catalogue
+            de l'exposition — toutes les artistes, leur univers, leur œuvre, et
+            ce qui les relie autour du thème de la Sororité.
           </p>
 
           <ul className="mt-6 space-y-3">
@@ -68,9 +89,12 @@ export default function GaleriePage(): ReactElement {
               "Le portrait de chacune des ~20 artistes de l'exposition",
               "La date d'ouverture de la galerie en avant-première",
               "Les coulisses de la création de l'exposition 3D",
-              "Un accès VIP dès le jour J — avant le grand public",
+              'Un accès VIP dès le jour J — avant le grand public',
             ].map((item) => (
-              <li key={item} className="flex items-start gap-3 text-sm font-light text-white/40">
+              <li
+                key={item}
+                className="flex items-start gap-3 text-sm font-light text-white/40"
+              >
                 <span className="mt-0.5 shrink-0 text-white/20">—</span>
                 {item}
               </li>
@@ -80,9 +104,12 @@ export default function GaleriePage(): ReactElement {
 
         {status === 'success' ? (
           <div className="mt-8 border border-white/10 bg-neutral-900 p-8 text-center">
-            <p className="font-display text-2xl font-light text-white">Merci !</p>
+            <p className="font-display text-2xl font-light text-white">
+              Merci !
+            </p>
             <p className="mt-3 text-sm font-light leading-relaxed text-white/40">
-              Votre inscription est confirmée. Vous recevrez le catalogue et la date d'ouverture en avant-première.
+              Votre inscription est confirmée. Vous recevrez le catalogue et la
+              date d'ouverture en avant-première.
             </p>
           </div>
         ) : (
@@ -103,7 +130,9 @@ export default function GaleriePage(): ReactElement {
                 disabled={status === 'loading'}
                 className="w-full border border-white/20 bg-white/10 px-6 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/70 transition-colors hover:bg-white/20 hover:text-white disabled:opacity-60"
               >
-                {status === 'loading' ? 'Inscription en cours…' : 'Oui, je veux découvrir les artistes en avant-première →'}
+                {status === 'loading'
+                  ? 'Inscription en cours…'
+                  : 'Oui, je veux découvrir les artistes en avant-première →'}
               </button>
             </div>
 
@@ -118,15 +147,16 @@ export default function GaleriePage(): ReactElement {
             </p>
           </form>
         )}
-
       </main>
 
       <footer className="pb-10 text-center">
-        <Link to="/" className="text-xs font-light text-white/20 transition-colors hover:text-white/50">
+        <Link
+          to="/"
+          className="text-xs font-light text-white/20 transition-colors hover:text-white/50"
+        >
           Revenir au site →
         </Link>
       </footer>
-
     </div>
   );
 }

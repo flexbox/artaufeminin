@@ -30,9 +30,9 @@ export default function CommencerPage({ data }): ReactElement {
 
       {/* ── LE PROJET EN 3 POINTS ────────────────────────────────── */}
       <section className="mx-auto my-16 w-11/12 max-w-3xl">
-        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <h2 className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
           Le Projet
-        </p>
+        </h2>
         <div className="grid grid-cols-1 gap-px border border-neutral-200 bg-neutral-200 sm:grid-cols-3">
           {[
             {
@@ -69,9 +69,9 @@ export default function CommencerPage({ data }): ReactElement {
       {/* ── ÉPISODES POUR COMMENCER ───────────────────────────────── */}
       <section className="mx-auto mb-16 w-11/12 max-w-3xl">
         <div className="mb-8 flex items-baseline justify-between border-b border-neutral-200 pb-4">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
+          <h2 className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
             Épisodes pour commencer
-          </p>
+          </h2>
           <Link
             to="/podcasts"
             aria-label="Voir tous les épisodes"
@@ -124,9 +124,9 @@ export default function CommencerPage({ data }): ReactElement {
 
       {/* ── EXPLORER ─────────────────────────────────────────────── */}
       <section className="mx-auto mb-16 w-11/12 max-w-3xl">
-        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <h2 className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
           Explorer le Contenu
-        </p>
+        </h2>
         <div className="grid grid-cols-2 gap-px border border-neutral-200 bg-neutral-200 lg:grid-cols-4">
           {[
             {

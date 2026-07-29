@@ -125,7 +125,7 @@ export default function NewsletterPage(): ReactElement {
           {[
             {
               label: 'Les Nouveaux Épisodes',
-              desc: 'Soyez la première informée à chaque nouvel épisode du podcast.',
+              desc: 'Retrouvez chaque mois une sélection des derniers épisodes du podcast.',
             },
             {
               label: 'Les Articles',

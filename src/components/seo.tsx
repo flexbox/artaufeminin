@@ -40,7 +40,7 @@ export function SeoHead({
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:locale" content="fr_FR" />
-      <meta property="og:site_name" content="ART au féminin" />
+      <meta property="og:site_name" content="ART AU FÉMININ" />
       {url && <meta property="og:url" content={url} />}
       {/* Twitter / X */}
       <meta name="twitter:card" content="summary_large_image" />
