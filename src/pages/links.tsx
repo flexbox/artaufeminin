@@ -213,6 +213,12 @@ export default function LinksPage(): ReactElement {
                   'https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/facebook.svg',
               },
               {
+                name: 'LinkedIn',
+                url: 'https://www.linkedin.com/in/art-au-f%C3%A9minin-81106b217/',
+                imageUrl:
+                  'https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/linkedin.svg',
+              },
+              {
                 name: 'Newsletter',
                 url: 'https://www.artaufeminin.fr/newsletter',
                 description: 'Recevez les épisodes directement par email',

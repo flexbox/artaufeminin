@@ -442,6 +442,7 @@ export const Head = ({ location }: { location: { pathname: string } }) => {
       sameAs: [
         'https://instagram.com/artaufeminin',
         'https://www.facebook.com/podcastart',
+        'https://www.linkedin.com/in/art-au-f%C3%A9minin-81106b217/',
         'https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152',
         'https://open.spotify.com/show/18f84r0ic2PUenYvBRr2Ps',
       ],
