@@ -17,7 +17,7 @@ export function Quote({ data }: QuotationProps) {
 
       {/* Citation */}
       <blockquote className="flex-1">
-        <p className="font-display text-lg font-light italic leading-relaxed text-stone-700">
+        <p className="font-display text-lg italic leading-relaxed text-stone-700">
           {quotation}
         </p>
       </blockquote>
