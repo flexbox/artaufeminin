@@ -13,6 +13,7 @@ interface BookProps {
       uid: string;
       data: {
         title: { text: string };
+        description: { text: string };
         content: {
           text: string;
           richText: RichTextBlock[];
@@ -126,7 +127,9 @@ export default function Book(props: BookProps): ReactElement {
 
 export const Head = (props: BookProps & { location: { pathname: string } }) => {
   const { text: seoTitle } = props.pageContext.node.data.title;
-  const { text: seoDescription } = props.pageContext.node.data.content;
+  const { text: seoDescription } = props.pageContext.node.data.description ?? {
+    text: '',
+  };
   const canonicalUrl = `https://www.artaufeminin.fr${props.location.pathname}`;
 
   const jsonLd = [
