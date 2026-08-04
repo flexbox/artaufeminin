@@ -10,7 +10,7 @@ export default function EvenementsPage(): ReactElement {
       {/* ── HERO ─────────────────────────────────────────────────── */}
       <section className="-mx-4 border-b border-neutral-200">
         <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:py-28">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             Événements
           </p>
           <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl lg:text-6xl">
@@ -18,7 +18,7 @@ export default function EvenementsPage(): ReactElement {
             <br />
             questionner
           </h1>
-          <p className="mx-auto mt-6 max-w-md text-sm font-light leading-relaxed text-neutral-500">
+          <p className="mx-auto mt-6 max-w-md text-sm leading-relaxed text-neutral-600">
             ART AU FÉMININ prend vie en dehors des écrans. Des rencontres en
             présentiel pour aller plus loin avec celles qui font vivre l'Art au
             féminin aujourd'hui.
@@ -29,13 +29,13 @@ export default function EvenementsPage(): ReactElement {
       {/* ── BIENTÔT ──────────────────────────────────────────────── */}
       <section className="mx-auto max-w-3xl px-6 py-20 lg:px-0">
         <div className="border border-neutral-200 p-10 text-center">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             Prochainement
           </p>
           <h2 className="font-display text-3xl font-light leading-snug text-neutral-900 md:text-4xl">
             Les premiers événements arrivent
           </h2>
-          <p className="mx-auto mt-5 max-w-sm text-sm font-light leading-relaxed text-neutral-500">
+          <p className="mx-auto mt-5 max-w-sm text-sm leading-relaxed text-neutral-600">
             Des soirées, des discussions et des rencontres autour des femmes
             dans le monde de l'Art — en présentiel, dans un cadre intime.
           </p>
@@ -50,7 +50,7 @@ export default function EvenementsPage(): ReactElement {
 
       {/* ── FORMAT ───────────────────────────────────────────────── */}
       <section className="mx-auto mb-6 max-w-3xl px-6 lg:px-0">
-        <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Le Format
         </p>
         <div className="grid grid-cols-1 gap-px bg-neutral-200 border border-neutral-200 sm:grid-cols-3">
@@ -69,12 +69,10 @@ export default function EvenementsPage(): ReactElement {
             },
           ].map(({ label, desc }) => (
             <div key={label} className="bg-white p-8 text-center">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
                 {label}
               </p>
-              <p className="text-sm font-light leading-relaxed text-neutral-500">
-                {desc}
-              </p>
+              <p className="text-sm leading-relaxed text-neutral-600">{desc}</p>
             </div>
           ))}
         </div>
@@ -83,13 +81,13 @@ export default function EvenementsPage(): ReactElement {
       {/* ── CTA NEWSLETTER ───────────────────────────────────────── */}
       <section className="-mx-4 my-16 border-y border-neutral-200 bg-neutral-900 py-16">
         <div className="mx-auto max-w-2xl px-6 text-center lg:px-0">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/40">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
             Rester Informée
           </p>
           <h2 className="font-display text-3xl font-light leading-tight text-white md:text-4xl">
             Soyez la première à savoir
           </h2>
-          <p className="mx-auto mt-4 max-w-sm text-sm font-light leading-relaxed text-white/50">
+          <p className="mx-auto mt-4 max-w-sm text-sm leading-relaxed text-white/70">
             Les dates, lieux et inscriptions aux événements seront annoncés en
             exclusivité dans la newsletter d'ART AU FÉMININ.
           </p>
@@ -117,7 +115,7 @@ export default function EvenementsPage(): ReactElement {
             Le monde regorge de femmes artistes talentueuses. Il est temps de
             les connaître.
           </p>
-          <cite className="mt-5 block text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 not-italic">
+          <cite className="mt-5 block text-sm font-semibold uppercase tracking-[0.25em] text-neutral-500 not-italic">
             — Aldjia Boughias
           </cite>
         </div>
@@ -125,7 +123,7 @@ export default function EvenementsPage(): ReactElement {
 
       {/* ── EXPLORER ─────────────────────────────────────────────── */}
       <section className="mx-auto mb-20 mt-12 max-w-3xl px-6 text-center lg:px-0">
-        <p className="mb-6 text-sm font-light text-neutral-400">
+        <p className="mb-6 text-sm text-neutral-600">
           En attendant les événements, explorez le contenu du site :
         </p>
         <div className="flex flex-wrap justify-center gap-3">
