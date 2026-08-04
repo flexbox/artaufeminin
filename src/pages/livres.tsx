@@ -14,7 +14,12 @@ interface BooksPageProps {
 }
 
 const BooksPage = ({ data }: BooksPageProps) => {
-  const allBooks = data.allPrismicBookReview.nodes;
+  const seen = new Set<string>();
+  const allBooks = data.allPrismicBookReview.nodes.filter((book) => {
+    if (!book.uid || seen.has(book.uid)) return false;
+    seen.add(book.uid);
+    return true;
+  });
 
   return (
     <Layout withInstagram={false}>
