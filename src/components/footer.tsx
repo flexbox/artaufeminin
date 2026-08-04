@@ -102,7 +102,7 @@ export default function Footer({ siteTitle }: FooterProps) {
                   ART AU FÉMININ
                 </span>
               </Link>
-              <p className="mt-4 max-w-sm text-sm font-light leading-relaxed text-white/40">
+              <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/60">
                 Un podcast par Aldjia Boughias — célébrer les femmes artistes
                 qui ont façonné l'histoire de l'art.
               </p>
@@ -115,7 +115,7 @@ export default function Footer({ siteTitle }: FooterProps) {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex size-9 items-center justify-center border border-white/20 text-white/40 transition-all hover:border-white/60 hover:text-white/80"
+                  className="flex size-9 items-center justify-center border border-white/30 text-white/60 transition-all hover:border-white/70 hover:text-white"
                 >
                   <span className="sr-only">{item.name}</span>
                   <item.icon className="size-4" aria-hidden="true" />
@@ -130,7 +130,7 @@ export default function Footer({ siteTitle }: FooterProps) {
           <div>
             <h3
               id="footer-nav-contenu"
-              className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30"
+              className="text-xs font-semibold uppercase tracking-[0.25em] text-white/50"
             >
               Contenu
             </h3>
@@ -140,7 +140,7 @@ export default function Footer({ siteTitle }: FooterProps) {
                   <li key={item.name}>
                     <Link
                       to={item.href}
-                      className="text-sm font-light text-white/60 transition-colors hover:text-white"
+                      className="text-sm text-white/70 transition-colors hover:text-white"
                     >
                       {item.name}
                     </Link>
@@ -153,7 +153,7 @@ export default function Footer({ siteTitle }: FooterProps) {
           <div className="mt-10 lg:mt-0">
             <h3
               id="footer-nav-podcast"
-              className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30"
+              className="text-xs font-semibold uppercase tracking-[0.25em] text-white/50"
             >
               Le podcast
             </h3>
@@ -166,14 +166,14 @@ export default function Footer({ siteTitle }: FooterProps) {
                         href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm font-light text-white/60 transition-colors hover:text-white"
+                        className="text-sm text-white/70 transition-colors hover:text-white"
                       >
                         {item.name}
                       </a>
                     ) : (
                       <Link
                         to={item.href}
-                        className="text-sm font-light text-white/60 transition-colors hover:text-white"
+                        className="text-sm text-white/70 transition-colors hover:text-white"
                       >
                         {item.name}
                       </Link>
@@ -187,7 +187,7 @@ export default function Footer({ siteTitle }: FooterProps) {
           <div className="mt-10 lg:mt-0">
             <h3
               id="footer-nav-apropos"
-              className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30"
+              className="text-xs font-semibold uppercase tracking-[0.25em] text-white/50"
             >
               À propos
             </h3>
@@ -200,14 +200,14 @@ export default function Footer({ siteTitle }: FooterProps) {
                         href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm font-light text-white/60 transition-colors hover:text-white"
+                        className="text-sm text-white/70 transition-colors hover:text-white"
                       >
                         {item.name}
                       </a>
                     ) : (
                       <Link
                         to={item.href}
-                        className="text-sm font-light text-white/60 transition-colors hover:text-white"
+                        className="text-sm text-white/70 transition-colors hover:text-white"
                       >
                         {item.name}
                       </Link>
@@ -226,18 +226,18 @@ export default function Footer({ siteTitle }: FooterProps) {
         {/* ── Bas de page ─────────────────────────────────────── */}
         <div className="border-t border-white/10 py-8">
           <div className="lg:flex lg:items-center lg:justify-between">
-            <p className="text-xs font-light text-white/30">
+            <p className="text-xs text-white/50">
               &copy; {new Date().getFullYear()} {siteTitle} — Tous droits
               réservés.
             </p>
-            <p className="mt-2 text-xs font-light text-white/20 lg:mt-0">
+            <p className="mt-2 text-xs text-white/50 lg:mt-0">
               Fait avec passion par{' '}
               <a
                 href="https://aldjia.dev"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Site d'Aldjia Boughias (ouvre un nouvel onglet)"
-                className="text-white/40 transition-colors hover:text-white/70"
+                className="text-white/60 transition-colors hover:text-white"
               >
                 Aldjia Boughias
               </a>
@@ -246,19 +246,19 @@ export default function Footer({ siteTitle }: FooterProps) {
           <nav aria-label="Liens légaux" className="mt-4 flex flex-wrap gap-4">
             <Link
               to="/mentions-legales"
-              className="text-xs font-light text-white/25 transition-colors hover:text-white/60"
+              className="text-xs text-white/50 transition-colors hover:text-white/80"
             >
               Mentions légales
             </Link>
             <Link
               to="/politique-confidentialite"
-              className="text-xs font-light text-white/25 transition-colors hover:text-white/60"
+              className="text-xs text-white/50 transition-colors hover:text-white/80"
             >
               Politique de confidentialité
             </Link>
             <Link
               to="/accessibilite"
-              className="text-xs font-light text-white/25 transition-colors hover:text-white/60"
+              className="text-xs text-white/50 transition-colors hover:text-white/80"
             >
               Accessibilité
             </Link>

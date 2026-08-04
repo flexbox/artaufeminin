@@ -112,7 +112,7 @@ export function Header(): ReactElement {
             </Link>
             <button
               type="button"
-              className="p-2 text-neutral-400 hover:text-neutral-900 transition-colors"
+              className="p-2 text-neutral-600 hover:text-neutral-900 transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Fermer le menu</span>
@@ -153,7 +153,7 @@ export function Header(): ReactElement {
             >
               {ctaNav.name}
             </Link>
-            <p className="mt-6 text-xs uppercase tracking-widest text-neutral-300">
+            <p className="mt-6 text-xs uppercase tracking-widest text-neutral-500">
               Par Aldjia Boughias
             </p>
           </div>
