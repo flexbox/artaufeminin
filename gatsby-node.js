@@ -211,6 +211,9 @@ exports.createPages = async ({ graphql, actions }) => {
                 text
                 richText
               }
+              description {
+                text
+              }
               title {
                 text
               }
