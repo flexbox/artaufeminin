@@ -25,7 +25,7 @@ export function Quote({ data }: QuotationProps) {
       {/* Autrice */}
       {author && (
         <figcaption className="mt-5 border-t border-clay-200 pt-4">
-          <span className="text-xs font-semibold uppercase tracking-widest text-clay-500">
+          <span className="text-sm font-semibold uppercase tracking-widest text-clay-500">
             — {author}
           </span>
         </figcaption>
