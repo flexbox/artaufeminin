@@ -15,27 +15,6 @@ const slugify = (text) =>
     .replace(/^-+|-+$/g, '')
     .slice(0, 80);
 
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions;
-  createTypes(`
-    type PrismicStructuredTextType {
-      text: String
-      richText: JSON
-      html: String
-      raw: JSON
-    }
-    type PrismicBookReviewData {
-      title: PrismicStructuredTextType
-      description: PrismicStructuredTextType
-      content: PrismicStructuredTextType
-    }
-    type PrismicBookReview implements Node {
-      uid: String!
-      data: PrismicBookReviewData
-    }
-  `);
-};
-
 // Log out information after a build is done
 exports.onPostBuild = ({ reporter }) => {
   reporter.info(`✅ Your Gatsby site has been built`);
@@ -231,9 +210,6 @@ exports.createPages = async ({ graphql, actions }) => {
               content {
                 text
                 richText
-              }
-              description {
-                text
               }
               title {
                 text

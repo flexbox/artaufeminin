@@ -127,9 +127,9 @@ export default function Book(props: BookProps): ReactElement {
 
 export const Head = (props: BookProps & { location: { pathname: string } }) => {
   const { text: seoTitle } = props.pageContext.node.data.title;
-  const { text: seoDescription } = props.pageContext.node.data.description ?? {
-    text: '',
-  };
+  const seoDescription =
+    props.pageContext.node.data.description?.text ||
+    props.pageContext.node.data.content.text.substring(0, 155);
   const canonicalUrl = `https://www.artaufeminin.fr${props.location.pathname}`;
 
   const jsonLd = [
