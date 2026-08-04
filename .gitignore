@@ -66,3 +66,6 @@ public
 *storybook.log
 storybook-static
 package-lock.json
+
+# Rapports GSC générés automatiquement
+.reports/
