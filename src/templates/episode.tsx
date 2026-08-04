@@ -69,10 +69,12 @@ export default function Episode({ pageContext }) {
         </div>
 
         {/* Résumé en prose */}
-        <div
-          className="prose prose-neutral my-10 max-w-none font-light text-neutral-600 prose-p:font-light prose-p:leading-relaxed prose-p:text-neutral-600 prose-a:text-neutral-700 prose-a:no-underline hover:prose-a:underline"
-          dangerouslySetInnerHTML={{ __html: summary }}
-        />
+        {summary && (
+          <div
+            className="prose prose-neutral my-10 max-w-none font-light text-neutral-600 prose-p:font-light prose-p:leading-relaxed prose-p:text-neutral-600 prose-a:text-neutral-700 prose-a:no-underline hover:prose-a:underline"
+            dangerouslySetInnerHTML={{ __html: summary }}
+          />
+        )}
 
         <hr className="separator" />
 
@@ -188,10 +190,14 @@ export const Head = ({
 }) => {
   const title = pageContext.title;
   const episodeImage = pageContext.itunes?.image;
-  const description = pageContext.itunes?.summary
-    ? stripHtml(pageContext.itunes.summary).substring(0, 155)
-    : title;
+  const rawSummary = pageContext.itunes?.summary
+    ? stripHtml(pageContext.itunes.summary)
+    : '';
+  const description = rawSummary
+    ? rawSummary.substring(0, 155)
+    : `Épisode du podcast ART AU FÉMININ — ${title}`;
   const canonicalUrl = `https://www.artaufeminin.fr${location.pathname}`;
+  const datePublished = pageContext.isoDate;
 
   const jsonLd = [
     {
@@ -232,7 +238,13 @@ export const Head = ({
         'artistes femmes',
       ],
       url: canonicalUrl,
+      ...(datePublished && { datePublished }),
       ...(episodeImage && { image: episodeImage }),
+      associatedMedia: {
+        '@type': 'AudioObject',
+        contentUrl: pageContext.enclosure?.url,
+        encodingFormat: 'audio/mpeg',
+      },
       inLanguage: 'fr',
       partOfSeries: {
         '@type': 'PodcastSeries',
