@@ -12,7 +12,7 @@ export default function AboutPage() {
       <section className="-mx-4 border-b border-neutral-200">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:flex lg:items-center lg:gap-20 lg:px-16 lg:py-28">
           <div className="flex-1">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
               À Propos
             </p>
             <h1 className="font-display text-5xl font-light leading-tight text-neutral-900 md:text-6xl lg:text-7xl">
@@ -22,7 +22,7 @@ export default function AboutPage() {
               Développeuse web orientée Art et Culture · Fondatrice d'ART AU
               FÉMININ
             </p>
-            <p className="mt-6 max-w-lg text-sm font-light leading-relaxed text-neutral-500">
+            <p className="mt-6 max-w-lg text-sm leading-relaxed text-neutral-600">
               J'ai créé ART AU FÉMININ par passion pour l'Histoire de l'Art,
               mais aussi pour continuer d'apprendre et partager ce que je
               découvrais. Un projet né d'une curiosité simple : combien de
@@ -40,7 +40,7 @@ export default function AboutPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visiter aldjia.dev (ouvre un nouvel onglet)"
-                className="border border-neutral-200 px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400 transition-colors hover:border-neutral-500 hover:text-neutral-700"
+                className="border border-neutral-200 px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-500 hover:text-neutral-900"
               >
                 aldjia.dev <span aria-hidden="true">→</span>
               </a>
@@ -65,14 +65,14 @@ export default function AboutPage() {
 
       {/* ── MON HISTOIRE ─────────────────────────────────────────── */}
       <section className="m-auto my-20 w-3/4 max-w-3xl">
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Mon Histoire
         </p>
         <div className="space-y-6">
           <p className="font-display text-2xl font-light italic leading-relaxed text-neutral-600">
             La réponse m'a poussée à aller plus loin.
           </p>
-          <p className="text-sm font-light leading-relaxed text-neutral-500">
+          <p className="text-sm leading-relaxed text-neutral-600">
             Avec ce podcast sur les{' '}
             <strong className="font-medium text-neutral-700">
               femmes artistes
@@ -81,7 +81,7 @@ export default function AboutPage() {
             historiennes de l'Art à nous parler de ces femmes qui ont marqué
             l'Histoire mais ont été, pour la plupart, oubliées.
           </p>
-          <p className="text-sm font-light leading-relaxed text-neutral-500">
+          <p className="text-sm leading-relaxed text-neutral-600">
             J'invite aussi des{' '}
             <strong className="font-medium text-neutral-700">
               femmes artistes d'aujourd'hui
@@ -89,7 +89,7 @@ export default function AboutPage() {
             à témoigner de leur parcours, de leur travail et de leur regard sur
             la place des femmes dans le monde de l'Art contemporain.
           </p>
-          <p className="text-sm font-light leading-relaxed text-neutral-500">
+          <p className="text-sm leading-relaxed text-neutral-600">
             ART AU FÉMININ, c'est un podcast, des articles, des chroniques de
             livres et des citations — tout ce qui permet de retracer et de
             célébrer l'
@@ -120,7 +120,7 @@ export default function AboutPage() {
               hommes.
             </p>
             <footer className="mt-6">
-              <cite className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 not-italic">
+              <cite className="text-sm font-semibold uppercase tracking-[0.25em] text-neutral-500 not-italic">
                 — Simone de Beauvoir, Le Deuxième Sexe
               </cite>
             </footer>
@@ -132,7 +132,7 @@ export default function AboutPage() {
       <section className="m-auto my-20 w-3/4">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
           <div>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
               Pourquoi ce Podcast ?
             </p>
             <h2 className="font-display text-3xl font-light leading-snug text-neutral-900 md:text-4xl">
@@ -150,7 +150,7 @@ export default function AboutPage() {
             ].map((reason) => (
               <li key={reason} className="flex items-start gap-3">
                 <span className="mt-2 size-1 shrink-0 bg-neutral-400" />
-                <span className="text-sm font-light leading-relaxed text-neutral-500">
+                <span className="text-sm leading-relaxed text-neutral-600">
                   {reason}
                 </span>
               </li>
@@ -161,7 +161,7 @@ export default function AboutPage() {
 
       {/* ── CE QUE VOUS TROUVEREZ ────────────────────────────────── */}
       <section className="m-auto mb-20 w-3/4">
-        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Sur ART AU FÉMININ
         </p>
         <div className="grid grid-cols-1 gap-px bg-neutral-200 border border-neutral-200 sm:grid-cols-2 lg:grid-cols-4">
@@ -192,12 +192,10 @@ export default function AboutPage() {
               to={href}
               className="group bg-white p-6 transition-colors hover:bg-neutral-50"
             >
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors group-hover:text-neutral-700">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors group-hover:text-neutral-700">
                 {label}
               </p>
-              <p className="text-sm font-light leading-relaxed text-neutral-500">
-                {desc}
-              </p>
+              <p className="text-sm leading-relaxed text-neutral-600">{desc}</p>
             </Link>
           ))}
         </div>
@@ -206,7 +204,7 @@ export default function AboutPage() {
       {/* ── RÉSEAUX SOCIAUX ──────────────────────────────────────── */}
       <section className="-mx-4 border-t border-neutral-200 bg-neutral-50 py-16">
         <div className="mx-auto max-w-3xl px-6 text-center lg:px-0">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             Suivre ART AU FÉMININ
           </p>
           <h2 className="mb-8 font-display text-3xl font-light text-neutral-900">
