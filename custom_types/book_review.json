@@ -15,6 +15,22 @@
         "placeholder": "titre du livre"
       }
     },
+    "description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong,em",
+        "label": "description",
+        "placeholder": "Court résumé du livre pour donner envie de le lire"
+      }
+    },
+    "image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "image"
+      }
+    },
     "content": {
       "type": "StructuredText",
       "config": {
