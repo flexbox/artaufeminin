@@ -87,7 +87,7 @@ const PodcastsListTemplate = ({ data, pageContext }: PodcastsListProps) => {
         <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl">
           Podcasts sur les Femmes Artistes
         </h1>
-        <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-neutral-500">
+        <p className="mt-4 max-w-xl text-sm leading-relaxed text-neutral-600">
           Plus de 100 épisodes pour découvrir les femmes qui ont façonné
           l'Histoire de l'Art — de l'Antiquité à l'art contemporain. Présenté
           par Aldjia Boughias.

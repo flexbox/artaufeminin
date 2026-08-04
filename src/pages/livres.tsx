@@ -37,7 +37,7 @@ const BooksPage = ({ data }: BooksPageProps) => {
         <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl">
           Livres sur les Femmes Artistes
         </h1>
-        <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-neutral-500">
+        <p className="mt-4 max-w-xl text-sm leading-relaxed text-neutral-600">
           Une sélection de chroniques pour explorer l'Histoire des femmes dans
           l'Art — biographies, essais, monographies.
         </p>
