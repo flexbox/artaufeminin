@@ -53,6 +53,9 @@ export const query = graphql`
           title {
             text
           }
+          description {
+            text
+          }
           content {
             text
           }

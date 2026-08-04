@@ -7,6 +7,9 @@ export interface BookProps {
     title: {
       text: string;
     };
+    description: {
+      text: string;
+    };
     content: {
       text: string;
     };
@@ -31,9 +34,10 @@ const SPINE_COLORS = [
 function BookItem({ book, index }: { book: BookProps; index: number }) {
   const slug = book.uid;
   const title = book.data.title.text;
-  const content = book.data.content?.text ?? '';
   const excerpt =
-    content.length > 160 ? content.substring(0, 160) + '…' : content;
+    book.data.description?.text ??
+    book.data.content?.text?.substring(0, 160) ??
+    '';
   const spineColor = SPINE_COLORS[index % SPINE_COLORS.length];
 
   return (
