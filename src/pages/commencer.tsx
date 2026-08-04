@@ -14,13 +14,13 @@ export default function CommencerPage({ data }): ReactElement {
       {/* ── HERO ─────────────────────────────────────────────────── */}
       <section className="-mx-4 border-b border-neutral-200">
         <div className="mx-auto max-w-3xl px-6 py-20 lg:py-28">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             Vous découvrez ART AU FÉMININ ?
           </p>
           <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl lg:text-6xl">
             Par où <span className="italic">commencer ?</span>
           </h1>
-          <p className="mt-6 max-w-xl text-sm font-light leading-relaxed text-neutral-500">
+          <p className="mt-6 max-w-xl text-sm leading-relaxed text-neutral-600">
             ART AU FÉMININ est un podcast et un média dédié aux femmes artistes
             — celles que l'Histoire de l'Art a trop souvent ignorées. Voici le
             meilleur point d'entrée pour découvrir le projet.
@@ -30,7 +30,7 @@ export default function CommencerPage({ data }): ReactElement {
 
       {/* ── LE PROJET EN 3 POINTS ────────────────────────────────── */}
       <section className="mx-auto my-16 w-11/12 max-w-3xl">
-        <h2 className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <h2 className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Le Projet
         </h2>
         <div className="grid grid-cols-1 gap-px border border-neutral-200 bg-neutral-200 sm:grid-cols-3">
@@ -52,15 +52,16 @@ export default function CommencerPage({ data }): ReactElement {
             },
           ].map(({ number, label, desc }) => (
             <div key={number} className="bg-white p-8">
-              <p className="mb-3 font-display text-3xl font-light text-neutral-200">
+              <p
+                className="mb-3 font-display text-3xl font-light text-neutral-200"
+                aria-hidden="true"
+              >
                 {number}
               </p>
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
                 {label}
               </p>
-              <p className="text-sm font-light leading-relaxed text-neutral-500">
-                {desc}
-              </p>
+              <p className="text-sm leading-relaxed text-neutral-600">{desc}</p>
             </div>
           ))}
         </div>
@@ -75,7 +76,7 @@ export default function CommencerPage({ data }): ReactElement {
           <Link
             to="/podcasts"
             aria-label="Voir tous les épisodes"
-            className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+            className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors hover:text-neutral-900"
           >
             Tous les épisodes <span aria-hidden="true">→</span>
           </Link>
@@ -97,7 +98,7 @@ export default function CommencerPage({ data }): ReactElement {
                   {String(index + 1).padStart(2, '0')}
                 </span>
                 <div className="min-w-0 flex-1">
-                  <p className="mb-1 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
+                  <p className="mb-1 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
                     Saison {episode.itunes.season} · Épisode{' '}
                     {episode.itunes.episode}
                   </p>
@@ -105,7 +106,7 @@ export default function CommencerPage({ data }): ReactElement {
                     {episode.title}
                   </p>
                   {summary && (
-                    <p className="mt-2 text-sm font-light leading-relaxed text-neutral-400">
+                    <p className="mt-2 text-sm leading-relaxed text-neutral-600">
                       {summary}
                     </p>
                   )}
@@ -124,7 +125,7 @@ export default function CommencerPage({ data }): ReactElement {
 
       {/* ── EXPLORER ─────────────────────────────────────────────── */}
       <section className="mx-auto mb-16 w-11/12 max-w-3xl">
-        <h2 className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <h2 className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Explorer le Contenu
         </h2>
         <div className="grid grid-cols-2 gap-px border border-neutral-200 bg-neutral-200 lg:grid-cols-4">
@@ -155,12 +156,10 @@ export default function CommencerPage({ data }): ReactElement {
               to={href}
               className="group bg-white p-6 transition-colors hover:bg-neutral-50"
             >
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors group-hover:text-neutral-700">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors group-hover:text-neutral-700">
                 {label}
               </p>
-              <p className="text-sm font-light leading-relaxed text-neutral-500">
-                {desc}
-              </p>
+              <p className="text-sm leading-relaxed text-neutral-600">{desc}</p>
             </Link>
           ))}
         </div>
@@ -169,13 +168,13 @@ export default function CommencerPage({ data }): ReactElement {
       {/* ── NEWSLETTER ───────────────────────────────────────────── */}
       <section className="-mx-4 border-y border-neutral-200 bg-neutral-900 py-16">
         <div className="mx-auto max-w-3xl px-6 text-center lg:px-0">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/40">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
             Newsletter Mensuelle
           </p>
           <h2 className="font-display text-3xl font-light leading-tight text-white md:text-4xl">
             Restez dans la boucle
           </h2>
-          <p className="mx-auto mt-4 max-w-sm text-sm font-light leading-relaxed text-white/50">
+          <p className="mx-auto mt-4 max-w-sm text-sm leading-relaxed text-white/70">
             Un email par mois : un portrait de femme artiste, les nouveaux
             épisodes et les actualités du projet. Gratuit, sans spam.
           </p>
@@ -192,13 +191,13 @@ export default function CommencerPage({ data }): ReactElement {
       <section className="mx-auto mb-20 mt-12 max-w-3xl px-6 lg:px-0">
         <div className="flex flex-col gap-6 border-t border-neutral-200 pt-10 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
               Le projet
             </p>
             <p className="mt-2 font-display text-xl font-light text-neutral-900">
               Créé par Aldjia Boughias
             </p>
-            <p className="mt-2 max-w-sm text-sm font-light leading-relaxed text-neutral-500">
+            <p className="mt-2 max-w-sm text-sm leading-relaxed text-neutral-600">
               Développeuse web orientée Art et Culture, exploratrice de
               l'Histoire de l'Art le reste du temps.
             </p>

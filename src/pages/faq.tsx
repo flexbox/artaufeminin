@@ -38,7 +38,7 @@ function QuestionItem({
           {question.data.question.text}
         </span>
         <span
-          className="mt-0.5 shrink-0 text-neutral-400 transition-transform duration-200 text-lg"
+          className="mt-0.5 shrink-0 text-neutral-600 transition-transform duration-200 text-lg"
           style={{ transform: open ? 'rotate(45deg)' : 'rotate(0deg)' }}
         >
           +
@@ -46,7 +46,7 @@ function QuestionItem({
       </button>
 
       {open && (
-        <div className="prose prose-neutral mb-6 max-w-none prose-p:font-light prose-p:leading-relaxed prose-p:text-neutral-600 prose-a:text-neutral-700 prose-a:no-underline hover:prose-a:underline">
+        <div className="prose prose-neutral mb-6 max-w-none prose-p:leading-relaxed prose-p:text-neutral-600 prose-a:text-neutral-700 prose-a:no-underline hover:prose-a:underline">
           {RichText.render(question.data.answer.richText)}
         </div>
       )}
@@ -60,13 +60,13 @@ export default function FaqPage({ data }: FaqPageProps): ReactElement {
   return (
     <Layout withInstagram={false}>
       <section className="m-auto mb-12 mt-8 w-3/4">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Aide
         </p>
         <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl">
           Questions Fréquentes
         </h1>
-        <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-neutral-500">
+        <p className="mt-4 max-w-xl text-sm leading-relaxed text-neutral-600">
           Vous avez une question sur le podcast ou sur ART AU FÉMININ ?
           Retrouvez les réponses ci-dessous.
         </p>
@@ -85,7 +85,7 @@ export default function FaqPage({ data }: FaqPageProps): ReactElement {
       <section className="m-auto mb-20 w-3/4">
         <div className="flex flex-col gap-4 border border-neutral-200 p-8 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+            <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
               Vous ne trouvez pas votre réponse ?
             </p>
             <p className="font-display text-xl font-light text-neutral-900">
