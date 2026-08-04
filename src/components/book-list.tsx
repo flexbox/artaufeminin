@@ -31,7 +31,7 @@ const SPINE_COLORS = [
 function BookItem({ book, index }: { book: BookProps; index: number }) {
   const slug = book.uid;
   const title = book.data.title.text;
-  const content = book.data.content.text;
+  const content = book.data.content?.text ?? '';
   const excerpt =
     content.length > 160 ? content.substring(0, 160) + '…' : content;
   const spineColor = SPINE_COLORS[index % SPINE_COLORS.length];
@@ -42,7 +42,9 @@ function BookItem({ book, index }: { book: BookProps; index: number }) {
       className="group flex overflow-hidden rounded-sm border border-clay-200 bg-cream-50 transition-shadow hover:shadow-md"
     >
       {/* Dos du livre */}
-      <div className={`w-3 shrink-0 ${spineColor} transition-all duration-300 group-hover:w-4`} />
+      <div
+        className={`w-3 shrink-0 ${spineColor} transition-all duration-300 group-hover:w-4`}
+      />
 
       {/* Contenu */}
       <div className="flex flex-1 flex-col p-6">
@@ -60,7 +62,9 @@ function BookItem({ book, index }: { book: BookProps; index: number }) {
   );
 }
 
-export default function BookList({ allBooks }: BookListItemProps): ReactElement {
+export default function BookList({
+  allBooks,
+}: BookListItemProps): ReactElement {
   return (
     <div className="m-auto mb-20 grid w-3/4 grid-cols-1 gap-6 sm:grid-cols-2">
       {allBooks.map((book, index) => (
