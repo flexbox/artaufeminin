@@ -34,14 +34,14 @@ export default function NewsletterPage(): ReactElement {
       {/* ── HERO ─────────────────────────────────────────────────── */}
       <section className="-mx-4 border-b border-neutral-200">
         <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:py-28">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             Newsletter Mensuelle · Gratuit
           </p>
           <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl lg:text-6xl">
             Une femme artiste <br />
             <span className="italic">chaque mois dans votre boîte mail</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-md text-sm font-light leading-relaxed text-neutral-500">
+          <p className="mx-auto mt-6 max-w-md text-sm leading-relaxed text-neutral-600">
             Chaque mois, un email soigné : un portrait de femme artiste oubliée,
             les nouveaux épisodes du podcast, des chroniques de livres et les
             actualités de la Galerie ART AU FÉMININ. Un seul email par mois, pas
@@ -56,7 +56,7 @@ export default function NewsletterPage(): ReactElement {
           <h2 className="mb-1 font-display text-2xl font-light text-neutral-900">
             S'abonner Gratuitement
           </h2>
-          <p className="mb-8 text-sm font-light leading-relaxed text-neutral-400">
+          <p className="mb-8 text-sm leading-relaxed text-neutral-500">
             1 email par mois. Désabonnement en un clic à tout moment.
           </p>
 
@@ -65,7 +65,7 @@ export default function NewsletterPage(): ReactElement {
               <p className="font-display text-xl font-light text-neutral-700">
                 Merci !
               </p>
-              <p className="mt-2 text-sm font-light leading-relaxed text-neutral-500">
+              <p className="mt-2 text-sm leading-relaxed text-neutral-600">
                 Votre inscription est confirmée. À très vite dans votre boîte
                 mail !
               </p>
@@ -108,7 +108,7 @@ export default function NewsletterPage(): ReactElement {
                 </p>
               )}
 
-              <p className="text-center text-xs font-light text-neutral-400">
+              <p className="text-center text-xs text-neutral-500">
                 Désabonnement possible à tout moment · Aucun spam
               </p>
             </form>
@@ -118,7 +118,7 @@ export default function NewsletterPage(): ReactElement {
 
       {/* ── CE QUE VOUS RECEVREZ ─────────────────────────────────── */}
       <section className="mx-auto mb-8 max-w-3xl px-6 lg:px-0">
-        <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Au Programme
         </p>
         <div className="grid grid-cols-1 gap-px bg-neutral-200 border border-neutral-200 sm:grid-cols-2 lg:grid-cols-4">
@@ -141,12 +141,10 @@ export default function NewsletterPage(): ReactElement {
             },
           ].map(({ label, desc }) => (
             <div key={label} className="bg-white p-6 text-center">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
                 {label}
               </p>
-              <p className="text-sm font-light leading-relaxed text-neutral-500">
-                {desc}
-              </p>
+              <p className="text-sm leading-relaxed text-neutral-600">{desc}</p>
             </div>
           ))}
         </div>
@@ -156,23 +154,23 @@ export default function NewsletterPage(): ReactElement {
       <section className="-mx-4 my-16 border-y border-neutral-200 bg-neutral-900 py-16">
         <div className="mx-auto max-w-3xl px-6 lg:flex lg:items-center lg:gap-16 lg:px-0">
           <div>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/40">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
               Bientôt · Première Exposition
             </p>
             <h2 className="font-display text-3xl font-light leading-tight text-white md:text-4xl">
               Galerie ART AU FÉMININ
             </h2>
-            <p className="mt-2 font-display text-xl font-light italic text-white/50">
+            <p className="mt-2 font-display text-xl font-light italic text-white/70">
               « Sororité »
             </p>
-            <p className="mt-4 text-sm font-light leading-relaxed text-white/40">
+            <p className="mt-4 text-sm leading-relaxed text-white/70">
               Une galerie d'Art immersive en 3D dédiée aux femmes artistes. La
               première exposition réunit une vingtaine d'artistes autour du
               thème de la Sororité. Abonnez-vous pour recevoir toutes les
               actualités en avant-première.
             </p>
             <div className="mt-6">
-              <span className="inline-block border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
+              <span className="inline-block border border-white/30 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
                 En préparation — restez informée
               </span>
             </div>
@@ -193,7 +191,7 @@ export default function NewsletterPage(): ReactElement {
             Le monde regorge de femmes artistes talentueuses. Il est temps de
             les connaître.
           </p>
-          <cite className="mt-5 block text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 not-italic">
+          <cite className="mt-5 block text-sm font-semibold uppercase tracking-[0.25em] text-neutral-500 not-italic">
             — Aldjia Boughias
           </cite>
         </div>
@@ -201,7 +199,7 @@ export default function NewsletterPage(): ReactElement {
 
       {/* ── NAVIGATION ───────────────────────────────────────────── */}
       <section className="mx-auto mb-20 mt-12 max-w-3xl px-6 text-center lg:px-0">
-        <p className="mb-6 text-sm font-light text-neutral-400">
+        <p className="mb-6 text-sm text-neutral-600">
           En attendant le prochain email, explorez le contenu du site :
         </p>
         <div className="flex flex-wrap justify-center gap-3">

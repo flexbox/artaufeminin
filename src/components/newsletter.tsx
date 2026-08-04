@@ -4,7 +4,9 @@ import React, { ReactElement, useState } from 'react';
 export default function Newsletter(): ReactElement {
   const [email, setEmail] = useState('');
   const [consent, setConsent] = useState(false);
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<
+    'idle' | 'loading' | 'success' | 'error'
+  >('idle');
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -28,7 +30,7 @@ export default function Newsletter(): ReactElement {
 
   return (
     <div>
-      <h3 className="text-xs font-bold uppercase tracking-widest text-white/50">
+      <h3 className="text-xs font-bold uppercase tracking-widest text-white/70">
         Newsletter
       </h3>
       <p className="mt-4 font-display text-xl font-light italic text-white/90 leading-snug">
@@ -59,7 +61,11 @@ export default function Newsletter(): ReactElement {
             <button
               type="submit"
               disabled={status === 'loading' || !consent}
-              aria-label={status === 'loading' ? 'Envoi en cours…' : "S'inscrire à la newsletter"}
+              aria-label={
+                status === 'loading'
+                  ? 'Envoi en cours…'
+                  : "S'inscrire à la newsletter"
+              }
               className="rounded-r-full border border-white/20 border-l-0 bg-clay-500 px-5 py-3 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-clay-700 disabled:opacity-40"
             >
               <span aria-hidden="true">{status === 'loading' ? '…' : '→'}</span>
@@ -76,15 +82,19 @@ export default function Newsletter(): ReactElement {
               aria-required="true"
               className="mt-0.5 size-3.5 shrink-0 accent-clay-500 cursor-pointer"
             />
-            <label htmlFor="newsletter-consent" className="text-xs font-light leading-relaxed text-white/40 cursor-pointer">
-              J'accepte de recevoir la newsletter d'ART AU FÉMININ et je reconnais avoir lu la{' '}
+            <label
+              htmlFor="newsletter-consent"
+              className="text-xs leading-relaxed text-white/70 cursor-pointer"
+            >
+              J'accepte de recevoir la newsletter d'ART AU FÉMININ et je
+              reconnais avoir lu la{' '}
               <Link
                 to="/politique-confidentialite"
                 className="text-white/60 underline underline-offset-2 hover:text-white/90"
               >
                 politique de confidentialité
-              </Link>.
-              Désinscription possible à tout moment.
+              </Link>
+              . Désinscription possible à tout moment.
             </label>
           </div>
 
