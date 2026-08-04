@@ -51,7 +51,7 @@ export function ContentCard({
           </h2>
         </Link>
 
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-neutral-600">
+        <p className="mt-2 flex-1 text-base leading-relaxed text-neutral-600">
           {description}
         </p>
 
