@@ -41,7 +41,7 @@ export function ContentCard({
       </Link>
 
       <div className="mt-3 flex flex-1 flex-col">
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           {meta}
         </p>
 
@@ -51,7 +51,7 @@ export function ContentCard({
           </h2>
         </Link>
 
-        <p className="mt-2 flex-1 text-sm font-light leading-relaxed text-neutral-400">
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-neutral-600">
           {description}
         </p>
 
