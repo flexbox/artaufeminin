@@ -14,12 +14,15 @@ interface BooksPageProps {
 }
 
 const BooksPage = ({ data }: BooksPageProps) => {
-  const seen = new Set<string>();
-  const allBooks = data.allPrismicBookReview.nodes.filter((book) => {
-    if (!book.uid || seen.has(book.uid)) return false;
-    seen.add(book.uid);
-    return true;
-  });
+  const byUid = new Map<string, BookProps>();
+  for (const book of data.allPrismicBookReview.nodes) {
+    if (!book.uid) continue;
+    const existing = byUid.get(book.uid);
+    if (!existing || (!existing.data.title?.text && book.data.title?.text)) {
+      byUid.set(book.uid, book);
+    }
+  }
+  const allBooks = Array.from(byUid.values());
 
   return (
     <Layout withInstagram={false}>
