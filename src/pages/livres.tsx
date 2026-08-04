@@ -18,7 +18,7 @@ const BooksPage = ({ data }: BooksPageProps) => {
   for (const book of data.allPrismicBookReview.nodes) {
     if (!book.uid) continue;
     const existing = byUid.get(book.uid);
-    if (!existing || (!existing.data.title?.text && book.data.title?.text)) {
+    if (!existing || book.data.title?.text) {
       byUid.set(book.uid, book);
     }
   }
