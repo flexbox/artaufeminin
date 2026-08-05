@@ -63,6 +63,12 @@ const OtherArticleLink = ({ uid, imgUrl, title }: NextPrevProps) => {
       <span className="font-display text-base font-light leading-snug text-neutral-900 transition-colors group-hover:text-neutral-500">
         {title}
       </span>
+      <span
+        className="shrink-0 text-neutral-300 transition-colors group-hover:text-neutral-600"
+        aria-hidden="true"
+      >
+        →
+      </span>
     </Link>
   );
 };
@@ -83,134 +89,136 @@ export default function Article(props: PropsArticle): ReactElement {
   return (
     <Layout>
       {/* ── HERO IMAGE ───────────────────────────────────────────── */}
-      {imageHero?.url && (
-        <div className="-mx-4 relative h-[55vh] min-h-[340px] overflow-hidden">
-          <img
-            src={imageHero.url}
-            alt={imageHero.alt || seoTitle}
-            className="h-full w-full object-cover object-center"
-          />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+      <article>
+        {imageHero?.url && (
+          <div className="-mx-4 relative h-[55vh] min-h-[340px] overflow-hidden">
+            <img
+              src={imageHero.url}
+              alt={imageHero.alt || seoTitle}
+              className="h-full w-full object-cover object-center"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
-          <div className="absolute bottom-0 left-0 right-0 px-6 pb-10 lg:px-0">
-            <div className="mx-auto max-w-3xl">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
-                Article
-              </p>
-              <h1 className="font-display text-3xl font-light leading-tight text-white md:text-4xl lg:text-5xl">
-                {seoTitle}
-              </h1>
+            <div className="absolute bottom-0 left-0 right-0 px-6 pb-10 lg:px-0">
+              <div className="mx-auto max-w-3xl">
+                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
+                  Article
+                </p>
+                <h1 className="font-display text-3xl font-light leading-tight text-white md:text-4xl lg:text-5xl">
+                  {seoTitle}
+                </h1>
+              </div>
             </div>
           </div>
-        </div>
-      )}
-
-      {/* ── CONTENU ──────────────────────────────────────────────── */}
-      <div className="mx-auto max-w-3xl px-6 lg:px-0">
-        {!imageHero?.url && (
-          <header className="py-16">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
-              Article
-            </p>
-            <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl lg:text-6xl">
-              {seoTitle}
-            </h1>
-          </header>
         )}
 
-        <div className="border-b border-neutral-200 py-8">
-          <p className="font-display text-xl font-light italic leading-relaxed text-neutral-500 md:text-2xl">
-            {seoDescription}
-          </p>
-        </div>
+        {/* ── CONTENU ──────────────────────────────────────────────── */}
+        <div className="mx-auto max-w-3xl px-6 lg:px-0">
+          {!imageHero?.url && (
+            <header className="py-16">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
+                Article
+              </p>
+              <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl lg:text-6xl">
+                {seoTitle}
+              </h1>
+            </header>
+          )}
 
-        <div className="prose prose-neutral my-10 max-w-none prose-p:font-light prose-p:leading-relaxed prose-p:text-neutral-600 prose-headings:font-display prose-headings:font-light prose-a:text-neutral-700 prose-a:no-underline hover:prose-a:underline prose-img:rounded-none">
-          <CustomRichText render={data.content.richText} />
-        </div>
-
-        {imageHero?.copyright && (
-          <p className="mb-6 text-xs font-light italic text-neutral-400">
-            © {imageHero.copyright}
-          </p>
-        )}
-
-        <hr className="separator" />
-
-        {/* Autrice */}
-        <section className="my-10 flex items-center gap-6 border border-neutral-200 p-6">
-          <div className="size-20 shrink-0 overflow-hidden rounded-full">
-            <StaticImage
-              src="../images/profile-picture.jpg"
-              alt="Aldjia Boughias — ART AU FÉMININ"
-              width={80}
-              height={80}
-              className="h-full w-full object-cover"
-            />
-          </div>
-          <div>
-            <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
-              À propos de l'Autrice
-            </p>
-            <p className="text-sm font-light leading-relaxed text-neutral-500">
-              Aldjia Boughias — développeuse web orientée Art et Culture,
-              exploratrice de l'Histoire de l'Art le reste du temps. J'ai créé
-              ART AU FÉMININ pour donner aux femmes artistes la place qu'elles
-              méritent dans notre mémoire collective.
+          <div className="border-b border-neutral-200 py-8">
+            <p className="font-display text-xl italic leading-relaxed text-neutral-600 md:text-2xl">
+              {seoDescription}
             </p>
           </div>
-        </section>
 
-        {/* Newsletter */}
-        <section className="my-10 border border-neutral-200 bg-neutral-50 p-6">
-          <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
-            Newsletter
-          </p>
-          <h2 className="mb-2 font-display text-xl font-light text-neutral-900">
-            Vous avez aimé cet article ?
-          </h2>
-          <p className="mb-5 text-sm font-light leading-relaxed text-neutral-500">
-            Recevez les prochains articles et épisodes directement dans votre
-            boîte mail. Gratuit, sans spam.
-          </p>
-          <Link
-            to="/newsletter"
-            className="inline-block border border-neutral-900 bg-neutral-900 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-neutral-700"
-          >
-            S'abonner Gratuitement <span aria-hidden="true">→</span>
-          </Link>
-        </section>
+          <div className="prose prose-neutral my-10 max-w-none prose-p:leading-relaxed prose-p:text-neutral-600 prose-headings:font-display prose-headings:font-light prose-a:text-neutral-700 prose-a:no-underline hover:prose-a:underline prose-img:rounded-none">
+            <CustomRichText render={data.content.richText} />
+          </div>
 
-        {/* Mécénat */}
-        <section className="my-10 border border-neutral-200 p-6">
-          <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
-            Mécénat
-          </p>
-          <h2 className="mb-3 font-display text-xl font-light text-neutral-900">
-            Soutenir ART AU FÉMININ
-          </h2>
-          <p className="mb-5 text-sm font-light leading-relaxed text-neutral-500">
-            Si ce contenu vous a plu, vous pouvez soutenir ART AU FÉMININ sur
-            Tipeee. Chaque contribution aide à produire de nouveaux épisodes et
-            articles.
-          </p>
-          <a
-            href="https://fr.tipeee.com/art-au-feminin"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Soutenir ART AU FÉMININ sur Tipeee (ouvre un nouvel onglet)"
-            className="inline-block border border-neutral-300 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
-          >
-            Soutenir sur Tipeee
-          </a>
-        </section>
+          {imageHero?.copyright && (
+            <p className="mb-6 text-xs italic text-neutral-500">
+              © {imageHero.copyright}
+            </p>
+          )}
 
-        <hr className="separator" />
-      </div>
+          <hr className="separator" />
+
+          {/* Autrice */}
+          <section className="my-10 flex items-center gap-6 border border-neutral-200 p-6">
+            <div className="size-20 shrink-0 overflow-hidden rounded-full">
+              <StaticImage
+                src="../images/profile-picture.jpg"
+                alt="Aldjia Boughias — ART AU FÉMININ"
+                width={80}
+                height={80}
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <div>
+              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
+                À propos de l'Autrice
+              </p>
+              <p className="text-sm leading-relaxed text-neutral-600">
+                Aldjia Boughias — développeuse web orientée Art et Culture,
+                exploratrice de l'Histoire de l'Art le reste du temps. J'ai créé
+                ART AU FÉMININ pour donner aux femmes artistes la place qu'elles
+                méritent dans notre mémoire collective.
+              </p>
+            </div>
+          </section>
+
+          {/* Newsletter */}
+          <section className="my-10 border border-neutral-200 bg-neutral-50 p-6">
+            <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
+              Newsletter
+            </p>
+            <h2 className="mb-2 font-display text-xl font-light text-neutral-900">
+              Vous avez aimé cet article ?
+            </h2>
+            <p className="mb-5 text-sm leading-relaxed text-neutral-600">
+              Recevez les prochains articles et épisodes directement dans votre
+              boîte mail. Gratuit, sans spam.
+            </p>
+            <Link
+              to="/newsletter"
+              className="inline-block border border-neutral-900 bg-neutral-900 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-neutral-700"
+            >
+              S'abonner Gratuitement <span aria-hidden="true">→</span>
+            </Link>
+          </section>
+
+          {/* Mécénat */}
+          <section className="my-10 border border-neutral-200 p-6">
+            <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
+              Mécénat
+            </p>
+            <h2 className="mb-3 font-display text-xl font-light text-neutral-900">
+              Soutenir ART AU FÉMININ
+            </h2>
+            <p className="mb-5 text-sm leading-relaxed text-neutral-600">
+              Si ce contenu vous a plu, vous pouvez soutenir ART AU FÉMININ sur
+              Tipeee. Chaque contribution aide à produire de nouveaux épisodes
+              et articles.
+            </p>
+            <a
+              href="https://fr.tipeee.com/art-au-feminin"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Soutenir ART AU FÉMININ sur Tipeee (ouvre un nouvel onglet)"
+              className="inline-block border border-neutral-300 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
+            >
+              Soutenir sur Tipeee
+            </a>
+          </section>
+
+          <hr className="separator" />
+        </div>
+      </article>
 
       {/* ── AUTRES ARTICLES ───────────────────────────────────────── */}
       {(previousUid || nextUid) && (
         <div className="mx-auto mb-20 max-w-3xl px-6 lg:px-0">
-          <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             Autres Articles
           </p>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
