@@ -165,6 +165,77 @@ export default function CommencerPage({ data }): ReactElement {
         </div>
       </section>
 
+      {/* ── ARTICLES INCONTOURNABLES ──────────────────────────────── */}
+      <section className="mx-auto mb-16 w-11/12 max-w-3xl">
+        <div className="mb-8 flex items-baseline justify-between border-b border-neutral-200 pb-4">
+          <h2 className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
+            Articles incontournables
+          </h2>
+          <Link
+            to="/articles"
+            aria-label="Voir tous les articles"
+            className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors hover:text-neutral-900"
+          >
+            Tous les articles <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+
+        <div className="space-y-4">
+          {[
+            {
+              uid: 'pourquoi-ny-a-t-il-pas-eu-de-grands-artistes-femmes-lindanochlin',
+              label: 'Essai fondateur',
+              title:
+                "Pourquoi n'y a-t-il pas eu de grands artistes femmes ? — Linda Nochlin",
+              desc: "L'essai de 1971 qui a révolutionné l'histoire de l'art féministe.",
+            },
+            {
+              uid: 'jane-avril-le-bal-des-folles',
+              label: 'Portrait',
+              title: 'Jane Avril au « Bal des folles »',
+              desc: "De la Salpêtrière au Moulin Rouge — le destin d'une femme extraordinaire.",
+            },
+            {
+              uid: 'la-naissance-du-cinema-alice-guy-la-pionniere-du-septiemeart',
+              label: 'Portrait',
+              title: 'Alice Guy, la pionnière oubliée du cinéma',
+              desc: "Elle a réalisé le premier film narratif de l'histoire — avant les frères Lumière.",
+            },
+          ].map(({ uid, label, title, desc }, index) => (
+            <Link
+              key={uid}
+              to={`/articles/${uid}/`}
+              aria-label={`Lire l'article : ${title}`}
+              className="group flex items-start gap-6 border border-neutral-200 p-6 transition-colors hover:border-neutral-400"
+            >
+              <span
+                className="shrink-0 font-display text-2xl font-light text-neutral-200 transition-colors group-hover:text-neutral-300"
+                aria-hidden="true"
+              >
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <div className="min-w-0 flex-1">
+                <p className="mb-1 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
+                  {label}
+                </p>
+                <p className="font-display text-lg font-light leading-snug text-neutral-900 transition-colors group-hover:text-neutral-600">
+                  {title}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+                  {desc}
+                </p>
+              </div>
+              <span
+                className="mt-1 shrink-0 text-neutral-300 transition-colors group-hover:text-neutral-600"
+                aria-hidden="true"
+              >
+                →
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {/* ── NEWSLETTER ───────────────────────────────────────────── */}
       <section className="-mx-4 border-y border-neutral-200 bg-neutral-900 py-16">
         <div className="mx-auto max-w-3xl px-6 text-center lg:px-0">

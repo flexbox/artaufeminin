@@ -17,6 +17,7 @@ echo "" >> "$REPORT_FILE"
 echo "_Généré automatiquement le $(date '+%A %d %B %Y à %H:%M')_" >> "$REPORT_FILE"
 echo "" >> "$REPORT_FILE"
 
+unset CLAUDECODE
 /opt/homebrew/bin/claude \
   --dangerously-skip-permissions \
   -p "Tu es en charge du suivi SEO hebdomadaire de artaufeminin.fr.
