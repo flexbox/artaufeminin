@@ -43,26 +43,29 @@ function LinkRow({ item }: { item: LinkItem }) {
       href={item.url}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={`${item.name}${item.description ? ' — ' + item.description : ''} (ouvre un nouvel onglet)`}
       className="group flex items-center gap-4 border border-neutral-200 bg-white px-5 py-4 transition-all hover:border-neutral-400"
     >
       {item.imageUrl && (
         <img
           src={item.imageUrl}
-          alt={item.name}
+          alt=""
+          aria-hidden="true"
           className="size-7 shrink-0 object-contain"
         />
       )}
       <div className="flex-1">
-        <span className="text-sm font-light text-neutral-700 transition-colors group-hover:text-neutral-900">
+        <span className="text-sm text-neutral-700 transition-colors group-hover:text-neutral-900">
           {item.name}
         </span>
         {item.description && (
-          <p className="mt-0.5 text-xs font-light text-neutral-400">
-            {item.description}
-          </p>
+          <p className="mt-0.5 text-xs text-neutral-500">{item.description}</p>
         )}
       </div>
-      <span className="text-neutral-300 transition-transform group-hover:translate-x-0.5 group-hover:text-neutral-600">
+      <span
+        aria-hidden="true"
+        className="text-neutral-300 transition-transform group-hover:translate-x-0.5 group-hover:text-neutral-600"
+      >
         →
       </span>
     </a>
@@ -71,7 +74,7 @@ function LinkRow({ item }: { item: LinkItem }) {
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
       {children}
     </p>
   );
@@ -95,10 +98,8 @@ export default function LinksPage(): ReactElement {
           <h1 className="font-display text-2xl font-light text-neutral-900">
             ART AU FÉMININ
           </h1>
-          <p className="mt-1 text-sm font-light text-neutral-400">
-            @artaufeminin
-          </p>
-          <p className="mx-auto mt-3 max-w-xs text-xs font-light leading-relaxed text-neutral-400">
+          <p className="mt-1 text-sm text-neutral-500">@artaufeminin</p>
+          <p className="mx-auto mt-3 max-w-xs text-xs leading-relaxed text-neutral-500">
             Un podcast sur les femmes artistes qui ont façonné l'Histoire de
             l'Art. Par Aldjia Boughias.
           </p>
@@ -107,23 +108,23 @@ export default function LinksPage(): ReactElement {
         {/* ── GALERIE ──────────────────────────────────────────────── */}
         <div className="mb-8 border border-neutral-900 bg-neutral-900">
           <div className="p-5">
-            <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-white/40">
+            <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
               Bientôt · Première Exposition
             </p>
             <p className="font-display text-lg font-light text-white">
               Galerie ART AU FÉMININ
             </p>
-            <p className="mt-0.5 font-display text-base font-light italic text-white/40">
+            <p className="mt-0.5 font-display text-base italic text-white/60">
               « Sororité » — ~20 artistes
             </p>
-            <p className="mt-3 text-xs font-light leading-relaxed text-white/40">
+            <p className="mt-3 text-xs leading-relaxed text-white/70">
               Une galerie d'Art immersive en 3D dédiée aux femmes artistes.
               Abonnez-vous à la newsletter pour suivre les coulisses et recevoir
               la date d'ouverture en avant-première.
             </p>
             <a
               href="/newsletter"
-              className="mt-4 inline-block border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/50 transition-colors hover:border-white/50 hover:text-white/80"
+              className="mt-4 inline-block border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/50 hover:text-white"
             >
               Être informée en avant-première
             </a>
@@ -144,7 +145,10 @@ export default function LinksPage(): ReactElement {
                 Découvrez le podcast et les meilleurs épisodes
               </p>
             </div>
-            <span className="text-white/40 transition-transform group-hover:translate-x-0.5 group-hover:text-white/80">
+            <span
+              aria-hidden="true"
+              className="text-white/60 transition-transform group-hover:translate-x-0.5 group-hover:text-white"
+            >
               →
             </span>
           </a>
@@ -242,23 +246,27 @@ export default function LinksPage(): ReactElement {
               <span className="text-sm font-light text-neutral-700">
                 Soutenir sur Tipeee
               </span>
-              <p className="mt-0.5 text-xs font-light text-neutral-400">
+              <p className="mt-0.5 text-xs text-neutral-500">
                 Chaque contribution aide à produire de nouveaux épisodes
               </p>
             </div>
-            <span className="text-neutral-300 transition-transform group-hover:translate-x-0.5 group-hover:text-neutral-600">
+            <span
+              aria-hidden="true"
+              className="text-neutral-300 transition-transform group-hover:translate-x-0.5 group-hover:text-neutral-600"
+            >
               →
             </span>
           </a>
         </div>
 
-        <p className="text-center text-xs font-light text-neutral-300">
+        <p className="text-center text-xs text-neutral-500">
           © {new Date().getFullYear()} ART AU FÉMININ · Par{' '}
           <a
             href="https://aldjia.dev"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-neutral-400 underline hover:text-neutral-700"
+            aria-label="Visiter aldjia.dev (ouvre un nouvel onglet)"
+            className="text-neutral-500 underline hover:text-neutral-700"
           >
             Aldjia Boughias
           </a>
