@@ -35,20 +35,20 @@ const IndexPage = ({ data }) => {
             src={heroImage}
             alt="ART AU FÉMININ"
             className="h-full w-full object-cover object-[center_30%]"
-            fetchpriority="high"
+            fetchPriority="high"
             loading="eager"
           />
           {/* Gradient + phrase d'accroche */}
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
+            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-white/70">
               Art au Féminin
             </p>
             <h2 className="max-w-3xl font-display text-4xl font-light leading-tight text-white lg:text-6xl xl:text-7xl">
               Elles ont créé,{' '}
               <span className="italic">l'Histoire les a oubliées.</span>
             </h2>
-            <p className="mt-6 max-w-lg text-base font-light leading-relaxed text-white/60">
+            <p className="mt-6 max-w-lg text-base leading-relaxed text-white/80">
               Un podcast pour redécouvrir les femmes artistes qui ont façonné
               l'Art — de l'Antiquité à aujourd'hui.
             </p>
@@ -73,21 +73,21 @@ const IndexPage = ({ data }) => {
         {latestEpisode && (
           <div className="border-b border-neutral-200 bg-white">
             <div className="mx-auto flex max-w-7xl items-center gap-6 px-6 py-5 lg:px-16">
-              <span className="shrink-0 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+              <span className="shrink-0 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
                 Dernier Épisode
               </span>
               <span className="hidden h-3 w-px shrink-0 bg-neutral-200 sm:block" />
               <span className="flex-1 truncate font-display text-sm font-light text-neutral-900 lg:text-base">
                 {latestEpisode.title}
               </span>
-              <span className="hidden shrink-0 text-xs font-light text-neutral-400 sm:block">
+              <span className="hidden shrink-0 text-xs text-neutral-500 sm:block">
                 Saison {latestEpisode.itunes.season} · Épisode{' '}
                 {latestEpisode.itunes.episode}
               </span>
               <Link
                 to={`/podcasts/${slugify(latestEpisode.title)}/`}
                 aria-label={`Écouter : ${latestEpisode.title}`}
-                className="shrink-0 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+                className="shrink-0 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors hover:text-neutral-900"
               >
                 Écouter <span aria-hidden="true">→</span>
               </Link>
@@ -109,7 +109,7 @@ const IndexPage = ({ data }) => {
               <p className="font-display text-3xl font-light text-neutral-900">
                 {number}
               </p>
-              <p className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
+              <p className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
                 {label}
               </p>
             </div>
@@ -133,7 +133,7 @@ const IndexPage = ({ data }) => {
           <Link
             to="/podcasts"
             aria-label="Voir tous les épisodes"
-            className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+            className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors hover:text-neutral-900"
           >
             Voir Tous <span aria-hidden="true">→</span>
           </Link>
@@ -157,7 +157,7 @@ const IndexPage = ({ data }) => {
               <Link
                 to={`/podcasts/${slugify(allEpisodes[0].title)}/`}
                 aria-label={`Écouter l'épisode : ${allEpisodes[0].title}`}
-                className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+                className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors hover:text-neutral-900"
               >
                 Écouter l'Épisode <span aria-hidden="true">→</span>
               </Link>
@@ -185,7 +185,7 @@ const IndexPage = ({ data }) => {
                   <Link
                     to={`/podcasts/${slugify(episode.title)}/`}
                     aria-label={`Écouter : ${episode.title}`}
-                    className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+                    className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors hover:text-neutral-900"
                   >
                     Écouter l'Épisode <span aria-hidden="true">→</span>
                   </Link>
@@ -214,7 +214,7 @@ const IndexPage = ({ data }) => {
           <Link
             to="/articles"
             aria-label="Voir tous les articles"
-            className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+            className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors hover:text-neutral-900"
           >
             Voir Tous <span aria-hidden="true">→</span>
           </Link>
@@ -243,7 +243,7 @@ const IndexPage = ({ data }) => {
                   <Link
                     to={`/articles/${art.uid}`}
                     aria-label={`Lire l'article : ${title}`}
-                    className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+                    className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors hover:text-neutral-900"
                   >
                     Lire l'Article <span aria-hidden="true">→</span>
                   </Link>
@@ -276,7 +276,7 @@ const IndexPage = ({ data }) => {
                     <Link
                       to={`/articles/${article.uid}`}
                       aria-label={`Lire : ${title}`}
-                      className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+                      className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors hover:text-neutral-900"
                     >
                       Lire le Portrait <span aria-hidden="true">→</span>
                     </Link>
@@ -292,16 +292,16 @@ const IndexPage = ({ data }) => {
       <section className="-mx-4 mt-24 border-t border-neutral-200 bg-neutral-950">
         <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 py-16 lg:flex-row lg:items-end lg:justify-between lg:px-16 lg:py-20">
           <div className="max-w-lg">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/40">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
               Bientôt Disponible · Première Exposition
             </p>
             <h2 className="font-display text-4xl font-light leading-tight text-white lg:text-5xl">
               Galerie ART AU FÉMININ
             </h2>
-            <p className="mt-2 font-display text-xl font-light italic text-white/40">
+            <p className="mt-2 font-display text-xl italic text-white/60">
               « Sororité »
             </p>
-            <p className="mt-5 text-sm font-light leading-relaxed text-white/50">
+            <p className="mt-5 text-sm leading-relaxed text-white/70">
               Une galerie d'Art immersive en 3D dédiée aux femmes artistes. La
               première exposition réunit une vingtaine d'artistes autour du
               thème de la Sororité — ce lien puissant entre femmes qui traverse
@@ -319,7 +319,7 @@ const IndexPage = ({ data }) => {
             <a
               href="/galerie"
               aria-label="Découvrir la Galerie ART AU FÉMININ"
-              className="border border-white/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/50 transition-colors hover:border-white/60 hover:text-white"
+              className="border border-white/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/60 hover:text-white"
             >
               En savoir plus
             </a>
@@ -331,7 +331,7 @@ const IndexPage = ({ data }) => {
       <section className="mx-auto my-20 w-11/12 max-w-7xl">
         <div className="flex flex-col gap-6 border-t border-neutral-200 pt-10 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
               Soutenez le Podcast
             </p>
             <p className="mt-2 font-display text-2xl font-light text-neutral-900">
