@@ -1,9 +1,11 @@
 import { Link } from 'gatsby';
+import { GatsbyImage, IGatsbyImageData, getImage } from 'gatsby-plugin-image';
 import React, { ReactNode } from 'react';
 
 interface FeaturedCardProps {
   href: string;
-  imageUrl: string;
+  image?: IGatsbyImageData;
+  imageUrl?: string;
   imageAlt: string;
   label: string;
   title: string;
@@ -14,6 +16,7 @@ interface FeaturedCardProps {
 
 export function FeaturedCard({
   href,
+  image,
   imageUrl,
   imageAlt,
   label,
@@ -22,22 +25,34 @@ export function FeaturedCard({
   cta,
   imageRight = false,
 }: FeaturedCardProps) {
-  const image = (
+  const gatsbyImage = image ? getImage(image) : null;
+
+  const imageEl = (
     <Link
       to={href}
       tabIndex={-1}
       aria-hidden="true"
       className="block overflow-hidden bg-neutral-100"
     >
-      <img
-        src={imageUrl}
-        alt={imageAlt}
-        width={800}
-        height={450}
-        loading="lazy"
-        className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-        style={{ aspectRatio: '16/9', minHeight: 320 }}
-      />
+      {gatsbyImage ? (
+        <GatsbyImage
+          image={gatsbyImage}
+          alt={imageAlt}
+          className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+          imgStyle={{ objectFit: 'cover', objectPosition: 'top' }}
+          style={{ aspectRatio: '16/9', minHeight: 320 }}
+        />
+      ) : (
+        <img
+          src={imageUrl}
+          alt={imageAlt}
+          width={800}
+          height={450}
+          loading="lazy"
+          className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+          style={{ aspectRatio: '16/9', minHeight: 320 }}
+        />
+      )}
     </Link>
   );
 
@@ -70,8 +85,8 @@ export function FeaturedCard({
         imageRight ? 'lg:grid-cols-[2fr_3fr]' : 'lg:grid-cols-[3fr_2fr]'
       }`}
     >
-      {imageRight ? text : image}
-      {imageRight ? image : text}
+      {imageRight ? text : imageEl}
+      {imageRight ? imageEl : text}
     </article>
   );
 }

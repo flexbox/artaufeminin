@@ -1,5 +1,5 @@
 import { Link } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage, StaticImage, getImage } from 'gatsby-plugin-image';
 import { RichTextBlock } from 'prismic-reactjs';
 import React, { ReactElement } from 'react';
 
@@ -13,13 +13,13 @@ interface PropsArticle {
       uid: string;
       data: {
         title: { text: string };
-        image: { url: string };
+        image: { url: string; gatsbyImageData: any };
       };
     };
     previous: {
       uid: string;
       data: {
-        image: { url: string };
+        image: { url: string; gatsbyImageData: any };
         title: { text: string };
       };
     };
@@ -44,21 +44,33 @@ interface PropsArticle {
 interface NextPrevProps {
   uid: string;
   imgUrl: string;
+  imgData?: any;
   title: string;
 }
 
-const OtherArticleLink = ({ uid, imgUrl, title }: NextPrevProps) => {
+const OtherArticleLink = ({ uid, imgUrl, imgData, title }: NextPrevProps) => {
+  const gatsbyImage = imgData ? getImage(imgData) : null;
+
   return (
     <Link
       to={`/articles/${uid}`}
       className="group flex items-center gap-4 border border-neutral-200 p-4 transition-colors hover:border-neutral-400"
     >
       <div className="size-20 shrink-0 overflow-hidden bg-neutral-100">
-        <img
-          src={imgUrl}
-          alt={title}
-          className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-        />
+        {gatsbyImage ? (
+          <GatsbyImage
+            image={gatsbyImage}
+            alt={title}
+            className="h-full w-full transition-transform duration-500 group-hover:scale-105"
+            imgStyle={{ objectFit: 'cover', objectPosition: 'center' }}
+          />
+        ) : (
+          <img
+            src={imgUrl}
+            alt={title}
+            className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+          />
+        )}
       </div>
       <span className="font-display text-base font-light leading-snug text-neutral-900 transition-colors group-hover:text-neutral-500">
         {title}
@@ -81,8 +93,11 @@ export default function Article(props: PropsArticle): ReactElement {
   const seoDescription = data.description.text;
   const nextUid = props.pageContext.next?.uid;
   const nextImgUrl = props.pageContext.next?.data.image.url;
+  const nextImgData = props.pageContext.next?.data.image.gatsbyImageData;
   const nextTitle = props.pageContext.next?.data.title.text;
   const previousImgUrl = props.pageContext.previous?.data.image.url;
+  const previousImgData =
+    props.pageContext.previous?.data.image.gatsbyImageData;
   const previousTitle = props.pageContext.previous?.data.title.text;
   const previousUid = props.pageContext.previous?.uid;
 
@@ -92,11 +107,25 @@ export default function Article(props: PropsArticle): ReactElement {
       <article>
         {imageHero?.url && (
           <div className="-mx-4 relative h-[55vh] min-h-[340px] overflow-hidden">
-            <img
-              src={imageHero.url}
-              alt={imageHero.alt || seoTitle}
-              className="h-full w-full object-cover object-center"
-            />
+            {imageHero.gatsbyImageData ? (
+              <GatsbyImage
+                image={getImage(imageHero.gatsbyImageData)!}
+                alt={imageHero.alt || seoTitle}
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  height: '100%',
+                  width: '100%',
+                }}
+                imgStyle={{ objectFit: 'cover', objectPosition: 'center' }}
+              />
+            ) : (
+              <img
+                src={imageHero.url}
+                alt={imageHero.alt || seoTitle}
+                className="h-full w-full object-cover object-center"
+              />
+            )}
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
             <div className="absolute bottom-0 left-0 right-0 px-6 pb-10 lg:px-0">
@@ -226,6 +255,7 @@ export default function Article(props: PropsArticle): ReactElement {
               <OtherArticleLink
                 uid={previousUid}
                 imgUrl={previousImgUrl}
+                imgData={previousImgData}
                 title={previousTitle}
               />
             )}
@@ -233,6 +263,7 @@ export default function Article(props: PropsArticle): ReactElement {
               <OtherArticleLink
                 uid={nextUid}
                 imgUrl={nextImgUrl}
+                imgData={nextImgData}
                 title={nextTitle}
               />
             )}

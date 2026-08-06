@@ -141,6 +141,7 @@ exports.createPages = async ({ graphql, actions }) => {
               }
               image {
                 url
+                gatsbyImageData
               }
             }
           }
@@ -149,6 +150,7 @@ exports.createPages = async ({ graphql, actions }) => {
             data {
               image {
                 url
+                gatsbyImageData
               }
               title {
                 text

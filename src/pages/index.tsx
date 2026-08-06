@@ -1,4 +1,5 @@
 import { Link, graphql } from 'gatsby';
+import { StaticImage } from 'gatsby-plugin-image';
 import { RichText } from 'prismic-reactjs';
 import React from 'react';
 
@@ -8,8 +9,6 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { stripHtml } from '../utils/html';
 import { slugify } from '../utils/slugify';
-
-import heroImage from '../images/instagram/votre-image.jpg';
 
 /* ─── Page ──────────────────────────────────────────────────────── */
 const IndexPage = ({ data }) => {
@@ -31,12 +30,15 @@ const IndexPage = ({ data }) => {
           className="relative w-full overflow-hidden bg-neutral-100"
           style={{ height: '85vh', minHeight: 520 }}
         >
-          <img
-            src={heroImage}
+          <StaticImage
+            src="../images/instagram/votre-image.jpg"
             alt="ART AU FÉMININ"
-            className="h-full w-full object-cover object-[center_30%]"
-            fetchPriority="high"
+            layout="fullWidth"
+            objectFit="cover"
+            objectPosition="center 30%"
             loading="eager"
+            fetchPriority="high"
+            style={{ position: 'absolute', inset: 0, height: '100%' }}
           />
           {/* Gradient + phrase d'accroche */}
           <div className="absolute inset-0 bg-black/40" />
@@ -231,6 +233,7 @@ const IndexPage = ({ data }) => {
             return (
               <FeaturedCard
                 href={`/articles/${art.uid}`}
+                image={art.data.image.gatsbyImageData}
                 imageUrl={art.data.image.url}
                 imageAlt={art.data.image.alt || title}
                 label="Article · À la Une"
@@ -267,6 +270,7 @@ const IndexPage = ({ data }) => {
                 <ContentCard
                   key={article.uid}
                   href={`/articles/${article.uid}`}
+                  image={article.data.image.gatsbyImageData}
                   imageUrl={article.data.image.url}
                   imageAlt={article.data.image.alt || title}
                   meta="Article"

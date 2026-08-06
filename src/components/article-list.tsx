@@ -1,4 +1,5 @@
 import { Link } from 'gatsby';
+import { GatsbyImage, IGatsbyImageData, getImage } from 'gatsby-plugin-image';
 import { RichText, RichTextBlock } from 'prismic-reactjs';
 import React from 'react';
 
@@ -17,6 +18,7 @@ interface ArticleProps {
     date: string;
     image: {
       url: string;
+      gatsbyImageData?: IGatsbyImageData;
     };
   };
   first_publication_date: string;
@@ -29,18 +31,24 @@ interface ArticleListItemProps {
 
 function getDate(article: ArticleProps): string {
   const articleDate = formatHumanDate(article.data.date);
-  const publishDate = formatHumanDate(splitDate(article.first_publication_date));
+  const publishDate = formatHumanDate(
+    splitDate(article.first_publication_date)
+  );
   return articleDate !== 'jeudi 1 janvier 1970' ? articleDate : publishDate;
 }
 
 function ArticleRow({ article }: { article: ArticleProps }) {
   const slug = article.uid;
-  const thumbnailUrl = article.data.image.url;
   const date = getDate(article);
   const title = RichText.asText(article.data.title.richText);
   const description = RichText.asText(article.data.description.richText);
   const descriptionTruncated =
-    description.length > 190 ? description.substring(0, 190) + '…' : description;
+    description.length > 190
+      ? description.substring(0, 190) + '…'
+      : description;
+  const gatsbyImage = article.data.image.gatsbyImageData
+    ? getImage(article.data.image.gatsbyImageData)
+    : null;
 
   return (
     <article className="group border-b border-clay-200 py-8 last:border-0">
@@ -50,11 +58,20 @@ function ArticleRow({ article }: { article: ArticleProps }) {
       >
         <div className="w-full shrink-0 overflow-hidden rounded-sm sm:w-40">
           <div className="aspect-square overflow-hidden bg-stone-100">
-            <img
-              src={thumbnailUrl}
-              alt={title}
-              className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-            />
+            {gatsbyImage ? (
+              <GatsbyImage
+                image={gatsbyImage}
+                alt={title}
+                className="h-full w-full transition-transform duration-500 group-hover:scale-105"
+                imgStyle={{ objectFit: 'cover', objectPosition: 'center' }}
+              />
+            ) : (
+              <img
+                src={article.data.image.url}
+                alt={title}
+                className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              />
+            )}
           </div>
         </div>
         <div className="flex flex-1 flex-col">
@@ -90,12 +107,15 @@ export function ArticleList({ allArticles, isRow }: ArticleListItemProps) {
         const title = RichText.asText(article.data.title.richText);
         const description = RichText.asText(article.data.description.richText);
         const descriptionTruncated =
-          description.length > 140 ? description.substring(0, 140) + '…' : description;
+          description.length > 140
+            ? description.substring(0, 140) + '…'
+            : description;
 
         return (
           <ContentCard
             key={article.uid}
             href={`/articles/${article.uid}`}
+            image={article.data.image.gatsbyImageData}
             imageUrl={article.data.image.url}
             imageAlt={title}
             meta={getDate(article)}

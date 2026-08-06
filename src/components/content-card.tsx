@@ -1,9 +1,11 @@
 import { Link } from 'gatsby';
+import { GatsbyImage, IGatsbyImageData, getImage } from 'gatsby-plugin-image';
 import React from 'react';
 
 interface ContentCardProps {
   href: string;
-  imageUrl: string;
+  image?: IGatsbyImageData;
+  imageUrl?: string;
   imageAlt: string;
   meta: string;
   title: string;
@@ -13,6 +15,7 @@ interface ContentCardProps {
 
 export function ContentCard({
   href,
+  image,
   imageUrl,
   imageAlt,
   meta,
@@ -20,6 +23,8 @@ export function ContentCard({
   description,
   action,
 }: ContentCardProps) {
+  const gatsbyImage = image ? getImage(image) : null;
+
   return (
     <article className="group flex flex-col">
       <Link
@@ -29,14 +34,23 @@ export function ContentCard({
         className="block overflow-hidden bg-neutral-100"
       >
         <div className="aspect-square overflow-hidden">
-          <img
-            src={imageUrl}
-            alt={imageAlt}
-            width={400}
-            height={400}
-            loading="lazy"
-            className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]"
-          />
+          {gatsbyImage ? (
+            <GatsbyImage
+              image={gatsbyImage}
+              alt={imageAlt}
+              className="h-full w-full transition-transform duration-700 group-hover:scale-[1.04]"
+              imgStyle={{ objectFit: 'cover', objectPosition: 'center' }}
+            />
+          ) : (
+            <img
+              src={imageUrl}
+              alt={imageAlt}
+              width={400}
+              height={400}
+              loading="lazy"
+              className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]"
+            />
+          )}
         </div>
       </Link>
 

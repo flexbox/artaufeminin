@@ -58,6 +58,7 @@ const ArticlesListTemplate = ({ data, pageContext }: ArticlesListProps) => {
               </div>
               <FeaturedCard
                 href={`/articles/${featured.uid}`}
+                image={featured.data.image.gatsbyImageData}
                 imageUrl={featured.data.image.url}
                 imageAlt={featured.data.image.alt || title}
                 label="Article · À la Une"
@@ -122,6 +123,7 @@ export const query = graphql`
           image {
             alt
             url
+            gatsbyImageData
           }
         }
       }
