@@ -34,7 +34,7 @@ const ArticlesListTemplate = ({ data, pageContext }: ArticlesListProps) => {
     <Layout withInstagram={false}>
       {/* ── EN-TÊTE ───────────────────────────────────────────────── */}
       <section className="mx-auto mb-10 mt-8 w-11/12 max-w-7xl border-b border-neutral-200 pb-8">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Tous les Articles
         </p>
         <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl">
@@ -70,7 +70,7 @@ const ArticlesListTemplate = ({ data, pageContext }: ArticlesListProps) => {
                   <Link
                     to={`/articles/${featured.uid}`}
                     aria-label={`Lire l'article : ${title}`}
-                    className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+                    className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors hover:text-neutral-900"
                   >
                     Lire l'Article <span aria-hidden="true">→</span>
                   </Link>

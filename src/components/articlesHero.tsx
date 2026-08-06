@@ -19,7 +19,7 @@ export function ArticlesHero({ allArticles }: ArticlesHeroProps) {
   if (!allArticles || allArticles.length < 3) {
     return (
       <div className="m-auto my-12 w-3/4 text-center">
-        <p className="text-sm font-light text-neutral-400">
+        <p className="text-sm text-neutral-600">
           Aucun article disponible pour le moment.
         </p>
       </div>
@@ -43,9 +43,9 @@ export function ArticlesHero({ allArticles }: ArticlesHeroProps) {
       <div className="mt-12 flex justify-end border-t border-neutral-200 pt-6">
         <a
           href="/articles"
-          className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400 transition-colors hover:text-neutral-900"
+          className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500 transition-colors hover:text-neutral-900"
         >
-          Lire tous les articles →
+          Lire tous les articles <span aria-hidden="true">→</span>
         </a>
       </div>
     </div>
