@@ -33,7 +33,7 @@ export default function Book(props: BookProps): ReactElement {
       {/* ── EN-TÊTE ──────────────────────────────────────────────── */}
       <div className="border-b border-neutral-200 pb-10 pt-16">
         <div className="mx-auto max-w-3xl px-6 lg:px-0">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             Chronique
           </p>
           <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl lg:text-6xl">
@@ -43,8 +43,8 @@ export default function Book(props: BookProps): ReactElement {
       </div>
 
       {/* ── CONTENU ──────────────────────────────────────────────── */}
-      <div className="mx-auto max-w-3xl px-6 lg:px-0">
-        <div className="prose prose-neutral my-10 max-w-none prose-p:font-light prose-p:leading-relaxed prose-p:text-neutral-600 prose-headings:font-display prose-headings:font-light prose-a:text-neutral-700 prose-a:no-underline hover:prose-a:underline prose-img:rounded-none">
+      <article className="mx-auto max-w-3xl px-6 lg:px-0">
+        <div className="prose prose-neutral my-10 max-w-none prose-p:leading-relaxed prose-p:text-neutral-600 prose-headings:font-display prose-headings:font-light prose-a:text-neutral-700 prose-a:no-underline hover:prose-a:underline prose-img:rounded-none">
           <CustomRichText render={richText} />
         </div>
 
@@ -62,10 +62,10 @@ export default function Book(props: BookProps): ReactElement {
             />
           </div>
           <div>
-            <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+            <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
               À propos de l'Autrice
             </p>
-            <p className="text-sm font-light leading-relaxed text-neutral-500">
+            <p className="text-sm leading-relaxed text-neutral-600">
               Aldjia Boughias — développeuse web orientée Art et Culture,
               exploratrice de l'Histoire de l'Art le reste du temps. J'ai créé
               ART AU FÉMININ pour donner aux femmes artistes la place qu'elles
@@ -76,13 +76,13 @@ export default function Book(props: BookProps): ReactElement {
 
         {/* Newsletter */}
         <section className="my-10 border border-neutral-200 bg-neutral-50 p-6">
-          <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             Newsletter
           </p>
           <h2 className="mb-2 font-display text-xl font-light text-neutral-900">
             Vous avez aimé cette chronique ?
           </h2>
-          <p className="mb-5 text-sm font-light leading-relaxed text-neutral-500">
+          <p className="mb-5 text-sm leading-relaxed text-neutral-600">
             Recevez chaque mois un portrait de femme artiste, les nouveaux
             épisodes et les chroniques de livres directement dans votre boîte
             mail. Gratuit, sans spam.
@@ -97,13 +97,13 @@ export default function Book(props: BookProps): ReactElement {
 
         {/* Mécénat */}
         <section className="my-10 border border-neutral-200 p-6">
-          <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             Mécénat
           </p>
           <h2 className="mb-3 font-display text-xl font-light text-neutral-900">
             Vous avez aimé cette Chronique ?
           </h2>
-          <p className="mb-5 text-sm font-light leading-relaxed text-neutral-500">
+          <p className="mb-5 text-sm leading-relaxed text-neutral-600">
             Si ce contenu vous a plu, vous pouvez soutenir ART AU FÉMININ sur
             Tipeee. Chaque contribution aide à produire de nouveaux épisodes et
             articles.
@@ -120,7 +120,7 @@ export default function Book(props: BookProps): ReactElement {
         </section>
 
         <div className="mb-20" />
-      </div>
+      </article>
     </Layout>
   );
 }
