@@ -18,7 +18,7 @@ export default function AboutPage() {
             <h1 className="font-display text-5xl font-light leading-tight text-neutral-900 md:text-6xl lg:text-7xl">
               Aldjia <span className="italic">Boughias</span>
             </h1>
-            <p className="mt-4 font-display text-xl font-light italic text-neutral-500 md:text-2xl">
+            <p className="mt-4 font-display text-xl italic text-neutral-500 md:text-2xl">
               Développeuse web orientée Art et Culture · Fondatrice d'ART AU
               FÉMININ
             </p>
