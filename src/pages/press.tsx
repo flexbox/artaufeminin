@@ -20,28 +20,28 @@ export default function PressPage({ data }: PressPageProps): ReactElement {
   return (
     <Layout withInstagram={false}>
       <section className="m-auto mb-12 mt-8 w-3/4 border-b border-neutral-200 pb-8">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Médias
         </p>
         <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl">
           Espace Presse
         </h1>
-        <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-neutral-500">
+        <p className="mt-4 max-w-xl text-sm leading-relaxed text-neutral-600">
           ART AU FÉMININ dans les médias. Pour toute demande presse ou
           partenariat, contactez-nous par email.
         </p>
         <a
           href="mailto:bonjour@artaufeminin.fr"
-          className="mt-4 inline-flex items-center gap-2 text-sm font-light text-neutral-500 transition-colors hover:text-neutral-900"
+          className="mt-4 inline-flex items-center gap-2 text-sm text-neutral-600 transition-colors hover:text-neutral-900"
         >
-          bonjour@artaufeminin.fr →
+          bonjour@artaufeminin.fr <span aria-hidden="true">→</span>
         </a>
       </section>
 
       <section className="m-auto mb-16 w-3/4">
-        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <h2 className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Ils en Parlent
-        </p>
+        </h2>
         <div className="flex flex-wrap items-center justify-start gap-8 border border-neutral-200 bg-neutral-50 p-8">
           <StaticImage
             src="../images/logo-panthere-premiere.png"
@@ -78,27 +78,27 @@ export default function PressPage({ data }: PressPageProps): ReactElement {
 
       {press.length > 0 && (
         <section className="m-auto mb-16 w-3/4">
-          <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          <h2 className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             Articles &amp; Mentions
-          </p>
+          </h2>
           <PressList allPress={press} />
         </section>
       )}
 
       <section className="m-auto mb-20 w-3/4">
-        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <h2 className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Kit Presse — Logos
-        </p>
+        </h2>
         <div className="border border-neutral-200 p-8">
-          <p className="mb-6 text-sm font-light leading-relaxed text-neutral-500">
+          <p className="mb-6 text-sm leading-relaxed text-neutral-600">
             Formats SVG et PNG disponibles ci-dessous pour toute utilisation
             presse.
           </p>
 
           <div className="mb-8">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+            <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
               SVG
-            </p>
+            </h3>
             <div className="flex flex-wrap items-center gap-8">
               <StaticImage
                 src="../images/logo/logo-black.svg"
@@ -116,9 +116,9 @@ export default function PressPage({ data }: PressPageProps): ReactElement {
           </div>
 
           <div>
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+            <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
               PNG
-            </p>
+            </h3>
             <div className="flex flex-wrap items-center gap-8">
               <StaticImage
                 src="../images/logo/logo-black.png"
