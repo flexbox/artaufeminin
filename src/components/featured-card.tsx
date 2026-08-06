@@ -47,7 +47,7 @@ export function FeaturedCard({
         imageRight ? 'lg:border-r' : 'lg:border-l'
       }`}
     >
-      <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+      <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
         {label}
       </p>
       <Link to={href}>
@@ -56,7 +56,7 @@ export function FeaturedCard({
         </h2>
       </Link>
       {description && (
-        <p className="mt-4 text-sm font-light leading-relaxed text-neutral-400 line-clamp-5">
+        <p className="mt-4 text-sm leading-relaxed text-neutral-600 line-clamp-5">
           {description}
         </p>
       )}

@@ -9,13 +9,13 @@ export default function StartPage({}: Props): ReactElement {
   return (
     <Layout withInstagram={false}>
       <section className="mx-auto mb-10 mt-8 w-3/4 max-w-3xl border-b border-neutral-200 pb-8">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Communauté
         </p>
         <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl">
           Présentez-vous
         </h1>
-        <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-neutral-500">
+        <p className="mt-4 max-w-xl text-sm leading-relaxed text-neutral-600">
           Remplissez ce formulaire pour vous présenter à la communauté ART AU
           FÉMININ.
         </p>

@@ -7,12 +7,17 @@ interface PaginationProps {
   basePath: string;
 }
 
-export function Pagination({ currentPage, numPages, basePath }: PaginationProps) {
+export function Pagination({
+  currentPage,
+  numPages,
+  basePath,
+}: PaginationProps) {
   if (numPages <= 1) return null;
 
   const isFirst = currentPage === 1;
   const isLast = currentPage === numPages;
-  const prevPage = currentPage === 2 ? `${basePath}/` : `${basePath}/${currentPage - 1}/`;
+  const prevPage =
+    currentPage === 2 ? `${basePath}/` : `${basePath}/${currentPage - 1}/`;
   const nextPage = `${basePath}/${currentPage + 1}/`;
 
   return (
@@ -25,7 +30,7 @@ export function Pagination({ currentPage, numPages, basePath }: PaginationProps)
           <Link
             to={prevPage}
             rel="prev"
-            className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+            className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors hover:text-neutral-900"
           >
             <span aria-hidden="true">←</span> Page précédente
           </Link>
@@ -33,7 +38,7 @@ export function Pagination({ currentPage, numPages, basePath }: PaginationProps)
           <span />
         )}
 
-        <span className="text-xs font-light text-neutral-400">
+        <span className="text-xs text-neutral-500">
           Page {currentPage} / {numPages}
         </span>
 
@@ -41,7 +46,7 @@ export function Pagination({ currentPage, numPages, basePath }: PaginationProps)
           <Link
             to={nextPage}
             rel="next"
-            className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400 transition-colors hover:text-neutral-900"
+            className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors hover:text-neutral-900"
           >
             Page suivante <span aria-hidden="true">→</span>
           </Link>

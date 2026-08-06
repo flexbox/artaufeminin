@@ -110,13 +110,13 @@ export default function QuizEte2026() {
     <Layout withInstagram={false}>
       {/* ── EN-TÊTE ───────────────────────────────────────────────── */}
       <section className="mx-auto mb-12 mt-8 w-11/12 max-w-3xl border-b border-neutral-200 pb-8">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Été 2026 · Lettre N°1
         </p>
         <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl">
           Quelle artiste te ressemble cet été ?
         </h1>
-        <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-neutral-500">
+        <p className="mt-4 max-w-xl text-sm leading-relaxed text-neutral-600">
           Dans la première lettre d&rsquo;ART AU FÉMININ, j&rsquo;ai parlé
           d&rsquo;Alma Thomas — peintre, enseignante, et femme qui a commencé à
           68 ans dans sa cuisine. Il y avait d&rsquo;autres femmes autour
@@ -127,14 +127,13 @@ export default function QuizEte2026() {
       {/* ── ALMA THOMAS ───────────────────────────────────────────── */}
       <section className="mx-auto mb-16 w-11/12 max-w-3xl">
         <div className="border border-neutral-200 p-8">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             L&rsquo;artiste de ce numéro
           </p>
           <h2 className="font-display text-2xl font-light text-neutral-900">
-            Alma Thomas{' '}
-            <span className="font-light text-neutral-300">· 1891–1978</span>
+            Alma Thomas <span className="text-neutral-500">· 1891–1978</span>
           </h2>
-          <p className="mt-4 text-sm font-light leading-relaxed text-neutral-500">
+          <p className="mt-4 text-sm leading-relaxed text-neutral-600">
             En 1960, Alma Thomas prend sa retraite après 35 ans à enseigner
             l&rsquo;art à des enfants de Washington. Elle s&rsquo;installe dans
             sa cuisine, regarde son jardin par la fenêtre, et elle commence. Des
@@ -147,14 +146,14 @@ export default function QuizEte2026() {
               beauté et le bonheur, plutôt que sur l&rsquo;inhumanité de
               l&rsquo;homme envers l&rsquo;homme. »
             </p>
-            <cite className="mt-3 block text-xs not-italic font-semibold uppercase tracking-[0.2em] text-neutral-400">
+            <cite className="mt-3 block text-xs not-italic font-semibold uppercase tracking-[0.2em] text-neutral-500">
               Alma Thomas
             </cite>
           </blockquote>
-          <p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
+          <p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
             Œuvre à chercher
           </p>
-          <p className="mt-1 font-display text-sm font-light italic text-neutral-600">
+          <p className="mt-1 font-display text-sm italic text-neutral-600">
             Iris, Tulips, Jonquils and Crocuses, 1969 — Smithsonian American Art
             Museum
           </p>
@@ -170,7 +169,7 @@ export default function QuizEte2026() {
               : 'Ton artiste de l\u2019\u00e9t\u00e9'}
           </h2>
           {step < 3 && (
-            <span className="text-xs font-light text-neutral-400">
+            <span className="text-xs text-neutral-500">
               3 questions · Résultat immédiat
             </span>
           )}
@@ -190,9 +189,9 @@ export default function QuizEte2026() {
                   <button
                     key={oi}
                     onClick={() => handleAnswer(oi)}
-                    className="w-full px-6 py-4 text-left text-sm font-light text-neutral-600 transition-colors hover:bg-neutral-50 hover:text-neutral-900"
+                    className="w-full px-6 py-4 text-left text-sm text-neutral-600 transition-colors hover:bg-neutral-50 hover:text-neutral-900"
                   >
-                    <span className="mr-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-300">
+                    <span className="mr-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
                       {['A', 'B', 'C', 'D'][oi]}.
                     </span>
                     {option}
@@ -223,29 +222,29 @@ export default function QuizEte2026() {
         {resultArtist && (
           <div className="border border-neutral-200">
             <div className="border-b border-neutral-200 bg-neutral-900 px-8 py-10 text-center">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/40">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
                 Ton artiste de l&rsquo;été
               </p>
               <h3 className="font-display text-4xl font-light text-white">
                 {resultArtist.name}
               </h3>
-              <p className="mt-1 text-xs font-light tracking-[0.1em] text-white/30">
+              <p className="mt-1 text-xs tracking-[0.1em] text-white/60">
                 {resultArtist.dates}
               </p>
-              <p className="mt-4 font-display text-lg font-light italic text-white/60">
+              <p className="mt-4 font-display text-lg italic text-white/60">
                 {resultArtist.tagline}
               </p>
             </div>
 
             <div className="px-8 py-8">
-              <p className="text-sm font-light leading-relaxed text-neutral-600">
+              <p className="text-sm leading-relaxed text-neutral-600">
                 {resultArtist.description}
               </p>
               <div className="mt-6 border-t border-neutral-100 pt-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
                   Œuvre à chercher
                 </p>
-                <p className="mt-1 font-display text-base font-light italic text-neutral-700">
+                <p className="mt-1 font-display text-base italic text-neutral-700">
                   {resultArtist.work}
                 </p>
               </div>
@@ -254,7 +253,7 @@ export default function QuizEte2026() {
             <div className="border-t border-neutral-200 px-8 py-5">
               <button
                 onClick={handleRestart}
-                className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400 transition-colors hover:text-neutral-900"
+                className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500 transition-colors hover:text-neutral-900"
               >
                 Recommencer <span aria-hidden="true">→</span>
               </button>
@@ -266,15 +265,15 @@ export default function QuizEte2026() {
       {/* ── CARNETS ───────────────────────────────────────────────── */}
       <section className="-mx-4 border-t border-neutral-200 bg-neutral-50">
         <div className="mx-auto max-w-3xl px-10 py-14">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             Depuis toujours, j&rsquo;ai des carnets
           </p>
-          <p className="font-display text-xl font-light leading-relaxed text-neutral-700">
+          <p className="font-display text-xl leading-relaxed text-neutral-700">
             Des noms d&rsquo;artistes notés après une expo, des questions sans
             réponse, des œuvres qui m&rsquo;avaient arrêtée et que je voulais ne
             pas oublier. Personne ne me le demandait. Je le faisais pour moi.
           </p>
-          <p className="mt-4 text-sm font-light leading-relaxed text-neutral-500">
+          <p className="mt-4 text-sm leading-relaxed text-neutral-600">
             Et puis, sur toutes ces pages, une question a commencé à
             revenir&nbsp;: <em>Où sont les femmes&nbsp;?</em>
           </p>
@@ -291,7 +290,7 @@ export default function QuizEte2026() {
 
       {/* ── POUR ALLER PLUS LOIN ──────────────────────────────────── */}
       <section className="mx-auto my-20 w-11/12 max-w-3xl">
-        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Pour aller plus loin
         </p>
         <div className="flex flex-wrap gap-3">

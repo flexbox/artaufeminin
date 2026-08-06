@@ -29,7 +29,10 @@ const PressItem = ({ pressItem }: { pressItem: PressProps }) => (
         {pressItem.data.description.text}
       </p>
     </div>
-    <span className="mt-1 shrink-0 text-clay-300 transition-transform group-hover:translate-x-0.5 group-hover:text-clay-500">
+    <span
+      aria-hidden="true"
+      className="mt-1 shrink-0 text-clay-300 transition-transform group-hover:translate-x-0.5 group-hover:text-clay-500"
+    >
       →
     </span>
   </a>
