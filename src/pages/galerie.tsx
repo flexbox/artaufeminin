@@ -46,14 +46,14 @@ export default function GaleriePage(): ReactElement {
         </Link>
         <Link
           to="/podcasts"
-          className="text-xs font-semibold uppercase tracking-[0.2em] text-white/30 transition-colors hover:text-white/70"
+          className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60 transition-colors hover:text-white"
         >
           Le Podcast
         </Link>
       </div>
 
       <main className="mx-auto max-w-xl px-6 py-12 lg:py-20">
-        <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.3em] text-white/30">
+        <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.3em] text-white/60">
           Galerie ART AU FÉMININ · Exposition « Sororité »
         </p>
 
@@ -62,23 +62,21 @@ export default function GaleriePage(): ReactElement {
           <span className="italic">avant tout le monde</span>
         </h1>
 
-        <p className="mx-auto mt-6 max-w-md text-center text-sm font-light leading-relaxed text-white/40">
+        <p className="mx-auto mt-6 max-w-md text-center text-sm leading-relaxed text-white/70">
           Je prépare une galerie d'Art immersive en 3D autour du thème de la{' '}
-          <strong className="text-white/60 font-normal">Sororité</strong> — une
+          <strong className="font-normal text-white/80">Sororité</strong> — une
           vingtaine de femmes artistes réunies dans un espace numérique unique.
         </p>
 
         <div className="mt-12 border border-white/10 bg-neutral-900 p-8">
-          <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-white/30">
+          <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
             Votre Cadeau Gratuit
           </p>
           <h2 className="font-display text-2xl font-light text-white lg:text-3xl">
             Le Catalogue Complet{' '}
-            <span className="italic font-light text-white/50">
-              de l'Exposition
-            </span>
+            <span className="italic text-white/70">de l'Exposition</span>
           </h2>
-          <p className="mt-3 text-sm font-light leading-relaxed text-white/40">
+          <p className="mt-3 text-sm leading-relaxed text-white/70">
             En laissant votre email, vous recevez en avant-première le catalogue
             de l'exposition — toutes les artistes, leur univers, leur œuvre, et
             ce qui les relie autour du thème de la Sororité.
@@ -93,9 +91,14 @@ export default function GaleriePage(): ReactElement {
             ].map((item) => (
               <li
                 key={item}
-                className="flex items-start gap-3 text-sm font-light text-white/40"
+                className="flex items-start gap-3 text-sm text-white/70"
               >
-                <span className="mt-0.5 shrink-0 text-white/20">—</span>
+                <span
+                  className="mt-0.5 shrink-0 text-white/40"
+                  aria-hidden="true"
+                >
+                  —
+                </span>
                 {item}
               </li>
             ))}
@@ -107,7 +110,7 @@ export default function GaleriePage(): ReactElement {
             <p className="font-display text-2xl font-light text-white">
               Merci !
             </p>
-            <p className="mt-3 text-sm font-light leading-relaxed text-white/40">
+            <p className="mt-3 text-sm leading-relaxed text-white/70">
               Votre inscription est confirmée. Vous recevrez le catalogue et la
               date d'ouverture en avant-première.
             </p>
@@ -115,7 +118,11 @@ export default function GaleriePage(): ReactElement {
         ) : (
           <form onSubmit={handleSubmit} className="mt-8">
             <div className="flex flex-col gap-3">
+              <label htmlFor="galerie-email" className="sr-only">
+                Adresse email
+              </label>
               <input
+                id="galerie-email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -130,19 +137,24 @@ export default function GaleriePage(): ReactElement {
                 disabled={status === 'loading'}
                 className="w-full border border-white/20 bg-white/10 px-6 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/70 transition-colors hover:bg-white/20 hover:text-white disabled:opacity-60"
               >
-                {status === 'loading'
-                  ? 'Inscription en cours…'
-                  : 'Oui, je veux découvrir les artistes en avant-première →'}
+                {status === 'loading' ? (
+                  'Inscription en cours…'
+                ) : (
+                  <>
+                    Oui, je veux découvrir les artistes en avant-première{' '}
+                    <span aria-hidden="true">→</span>
+                  </>
+                )}
               </button>
             </div>
 
             {status === 'error' && (
-              <p className="mt-3 text-center text-xs text-red-400">
+              <p role="alert" className="mt-3 text-center text-xs text-red-400">
                 Une erreur s'est produite. Veuillez réessayer.
               </p>
             )}
 
-            <p className="mt-4 text-center text-xs font-light text-white/20">
+            <p className="mt-4 text-center text-xs text-white/50">
               Pas de spam · Désabonnement à tout moment · Par Aldjia Boughias
             </p>
           </form>
@@ -152,9 +164,9 @@ export default function GaleriePage(): ReactElement {
       <footer className="pb-10 text-center">
         <Link
           to="/"
-          className="text-xs font-light text-white/20 transition-colors hover:text-white/50"
+          className="text-xs text-white/50 transition-colors hover:text-white/80"
         >
-          Revenir au site →
+          Revenir au site <span aria-hidden="true">→</span>
         </Link>
       </footer>
     </div>
