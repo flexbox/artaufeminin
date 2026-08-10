@@ -49,8 +49,8 @@ export const query = graphql`
 
 export const Head = ({ location }: { location: { pathname: string } }) => (
   <SEO
-    title="Citations de Femmes Artistes — Frida Kahlo, Artemisia, Camille Claudel — ART AU FÉMININ"
-    description="Plus de 50 citations de femmes artistes à travers les siècles : Frida Kahlo, Artemisia Gentileschi, Camille Claudel, Georgia O'Keeffe… Ce qu'elles ont dit de l'Art, de la création et de la liberté."
+    title="Citations de femmes artistes — Frida Kahlo, Camille Claudel, Artemisia"
+    description="Frida Kahlo, Artemisia Gentileschi, Camille Claudel, Georgia O'Keeffe… 50+ citations de femmes artistes sur l'Art, la création et la liberté."
     url={`https://www.artaufeminin.fr${location.pathname}`}
   />
 );
