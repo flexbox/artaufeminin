@@ -305,6 +305,6 @@ export const Head = ({ location }: { location: { pathname: string } }) => (
   <SEO
     title="Par où commencer ? — ART AU FÉMININ, le podcast sur les femmes artistes"
     description="Vous découvrez ART AU FÉMININ ? Voici le meilleur point d'entrée : le podcast, les articles, les chroniques de livres et la newsletter mensuelle sur les femmes artistes oubliées par l'Histoire de l'Art."
-    url={`https://www.artaufeminin.fr${location.pathname}`}
+    url={`https://artaufeminin.fr${location.pathname}`}
   />
 );

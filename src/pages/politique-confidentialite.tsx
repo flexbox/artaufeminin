@@ -267,7 +267,7 @@ export const Head = ({ location }: { location: { pathname: string } }) => (
   <SEO
     title="Politique de Confidentialité — ART AU FÉMININ"
     description="Politique de confidentialité du site ART AU FÉMININ : données collectées, utilisation de MailerLite pour la newsletter, vos droits RGPD et comment nous contacter."
-    url={`https://www.artaufeminin.fr${location.pathname}`}
+    url={`https://artaufeminin.fr${location.pathname}`}
     noindex={true}
   />
 );

@@ -285,7 +285,7 @@ export const Head = (
   const datePublished = props.pageContext.node.data.date;
   const dateModified =
     (props.pageContext.node as any).last_publication_date || datePublished;
-  const canonicalUrl = `https://www.artaufeminin.fr${props.location.pathname}`;
+  const canonicalUrl = `https://artaufeminin.fr${props.location.pathname}`;
 
   const jsonLd = [
     {
@@ -296,13 +296,13 @@ export const Head = (
           '@type': 'ListItem',
           position: 1,
           name: 'Accueil',
-          item: 'https://www.artaufeminin.fr',
+          item: 'https://artaufeminin.fr',
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Articles',
-          item: 'https://www.artaufeminin.fr/articles',
+          item: 'https://artaufeminin.fr/articles',
         },
         {
           '@type': 'ListItem',
@@ -334,12 +334,12 @@ export const Head = (
       author: {
         '@type': 'Person',
         name: 'Aldjia Boughias',
-        url: 'https://www.artaufeminin.fr/about',
+        url: 'https://artaufeminin.fr/about',
       },
       publisher: {
         '@type': 'Organization',
         name: 'ART AU FÉMININ',
-        url: 'https://www.artaufeminin.fr',
+        url: 'https://artaufeminin.fr',
         logo: {
           '@type': 'ImageObject',
           url: 'https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/images/logo-podcast-art-au-feminin.png',

@@ -430,7 +430,7 @@ export const Head = ({ location }: { location: { pathname: string } }) => {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
       name: 'ART AU FÉMININ',
-      url: 'https://www.artaufeminin.fr',
+      url: 'https://artaufeminin.fr',
       description:
         "Le podcast et le média dédié aux femmes artistes — portraits, histoire de l'art et ressources pour redécouvrir celles que l'Histoire a oubliées.",
       inLanguage: 'fr',
@@ -439,7 +439,7 @@ export const Head = ({ location }: { location: { pathname: string } }) => {
       '@context': 'https://schema.org',
       '@type': 'Organization',
       name: 'ART AU FÉMININ',
-      url: 'https://www.artaufeminin.fr',
+      url: 'https://artaufeminin.fr',
       description:
         "Média dédié aux femmes artistes : podcast, articles, livres et citations pour rendre visible l'histoire des femmes dans l'Art.",
       logo: 'https://raw.githubusercontent.com/flexbox/artaufeminin/master/src/images/logo-podcast-art-au-feminin.png',
@@ -467,12 +467,12 @@ export const Head = ({ location }: { location: { pathname: string } }) => {
         'histoire des femmes',
         'art au féminin',
       ],
-      url: 'https://www.artaufeminin.fr/podcasts',
+      url: 'https://artaufeminin.fr/podcasts',
       inLanguage: 'fr',
       author: {
         '@type': 'Person',
         name: 'Aldjia Boughias',
-        url: 'https://www.artaufeminin.fr/about',
+        url: 'https://artaufeminin.fr/about',
       },
     },
   ];
@@ -481,7 +481,7 @@ export const Head = ({ location }: { location: { pathname: string } }) => {
     <SEO
       title="ART AU FÉMININ — Le podcast sur les femmes artistes et l'Histoire de l'Art"
       description="Femmes artistes oubliées par l'Histoire de l'Art — redécouvrez leurs œuvres et leurs parcours avec ART AU FÉMININ : podcast, articles, portraits et chroniques présentés par Aldjia Boughias."
-      url={`https://www.artaufeminin.fr${location.pathname}`}
+      url={`https://artaufeminin.fr${location.pathname}`}
       jsonLd={jsonLd}
     />
   );

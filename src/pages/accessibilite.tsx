@@ -246,7 +246,7 @@ export const Head = ({ location }: { location: { pathname: string } }) => (
   <SEO
     title="Déclaration d'Accessibilité — ART AU FÉMININ"
     description="Déclaration d'accessibilité numérique du site ART AU FÉMININ : état de conformité RGAA 4.1, mesures prises, non-conformités connues et contact pour signaler un problème."
-    url={`https://www.artaufeminin.fr${location.pathname}`}
+    url={`https://artaufeminin.fr${location.pathname}`}
     noindex={true}
   />
 );

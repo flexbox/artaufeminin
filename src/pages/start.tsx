@@ -39,7 +39,7 @@ export const Head = ({ location }: { location: { pathname: string } }) => (
   <SEO
     title="Présentez-vous — ART AU FÉMININ"
     description="Remplissez ce formulaire pour vous présenter à la communauté ART AU FÉMININ."
-    url={`https://www.artaufeminin.fr${location.pathname}`}
+    url={`https://artaufeminin.fr${location.pathname}`}
     noindex={true}
   />
 );

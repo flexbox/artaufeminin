@@ -146,7 +146,7 @@ export const Head = ({
     <SEO
       title="Questions Fréquentes sur les Femmes Artistes — ART AU FÉMININ"
       description="Questions fréquentes sur le podcast ART AU FÉMININ : comment découvrir les femmes artistes oubliées par l'Histoire de l'Art, écouter les épisodes, soutenir le projet et rejoindre la communauté."
-      url={`https://www.artaufeminin.fr${location.pathname}`}
+      url={`https://artaufeminin.fr${location.pathname}`}
       jsonLd={jsonLd}
     />
   );

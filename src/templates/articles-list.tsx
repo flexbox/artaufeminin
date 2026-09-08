@@ -151,11 +151,11 @@ export const Head = ({
         '@context': 'https://schema.org',
         '@type': 'ItemList',
         name: 'Articles sur les Femmes Artistes',
-        url: 'https://www.artaufeminin.fr/articles/',
+        url: 'https://artaufeminin.fr/articles/',
         itemListElement: data.allPrismicBlogPost.nodes.map((node, i) => ({
           '@type': 'ListItem',
           position: i + 1,
-          url: `https://www.artaufeminin.fr/articles/${node.uid}`,
+          url: `https://artaufeminin.fr/articles/${node.uid}`,
           name: RichText.asText(node.data.title.richText),
         })),
       }
@@ -165,7 +165,7 @@ export const Head = ({
     <SEO
       title={title}
       description="Portraits de femmes artistes oubliées par l'Histoire de l'Art — biographies, analyses d'œuvres et récits de parcours de la Renaissance à l'Art contemporain. Écrits par Aldjia Boughias pour ART AU FÉMININ."
-      url={`https://www.artaufeminin.fr${location.pathname}`}
+      url={`https://artaufeminin.fr${location.pathname}`}
       jsonLd={jsonLd}
     />
   );

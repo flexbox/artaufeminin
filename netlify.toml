@@ -4,3 +4,9 @@
 
 [build.environment]
   NODE_VERSION = "24"
+
+[[redirects]]
+  from = "https://www.artaufeminin.fr/*"
+  to = "https://artaufeminin.fr/:splat"
+  status = 301
+  force = true

@@ -316,7 +316,7 @@ export const Head = ({ location }: { location: { pathname: string } }) => (
   <SEO
     title="Quelle artiste te ressemble cet été ? — Quiz Été 2026 — ART AU FÉMININ"
     description="Un quiz pour découvrir une femme artiste noire oubliée de l'histoire — inspiré de la lettre d'Aldjia sur Alma Thomas. 3 questions, une découverte."
-    url={`https://www.artaufeminin.fr${location.pathname}`}
+    url={`https://artaufeminin.fr${location.pathname}`}
     noindex={true}
   />
 );

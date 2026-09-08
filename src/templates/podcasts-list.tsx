@@ -199,23 +199,23 @@ export const Head = ({
           name: 'ART AU FÉMININ',
           description:
             "Plus de 100 épisodes sur les femmes artistes qui ont façonné l'Histoire de l'Art — avec des historiennes, conservatrices de musées et artistes contemporaines.",
-          url: 'https://www.artaufeminin.fr/podcasts/',
+          url: 'https://artaufeminin.fr/podcasts/',
           inLanguage: 'fr',
           author: {
             '@type': 'Person',
             name: 'Aldjia Boughias',
-            url: 'https://www.artaufeminin.fr/about',
+            url: 'https://artaufeminin.fr/about',
           },
         },
         {
           '@context': 'https://schema.org',
           '@type': 'ItemList',
           name: 'Épisodes du podcast ART AU FÉMININ',
-          url: 'https://www.artaufeminin.fr/podcasts/',
+          url: 'https://artaufeminin.fr/podcasts/',
           itemListElement: data.allAnchorEpisode.nodes.map((episode, i) => ({
             '@type': 'ListItem',
             position: i + 1,
-            url: `https://www.artaufeminin.fr/podcasts/${slugify(episode.title)}/`,
+            url: `https://artaufeminin.fr/podcasts/${slugify(episode.title)}/`,
             name: episode.title,
           })),
         },
@@ -226,7 +226,7 @@ export const Head = ({
     <SEO
       title={title}
       description="Plus de 100 épisodes sur les femmes artistes qui ont façonné l'Histoire de l'Art — avec des historiennes, conservatrices de musées et artistes contemporaines. Le podcast ART AU FÉMININ, présenté par Aldjia Boughias."
-      url={`https://www.artaufeminin.fr${location.pathname}`}
+      url={`https://artaufeminin.fr${location.pathname}`}
       image={isFirst && firstEpisodeImage ? firstEpisodeImage : undefined}
       imageAlt="ART AU FÉMININ — Le podcast sur les femmes artistes"
       jsonLd={jsonLd}

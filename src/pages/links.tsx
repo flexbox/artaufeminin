@@ -134,7 +134,7 @@ export default function LinksPage(): ReactElement {
         {/* ── COMMENCER ────────────────────────────────────────────── */}
         <div className="mb-8">
           <a
-            href="https://www.artaufeminin.fr/commencer"
+            href="https://artaufeminin.fr/commencer"
             className="group flex items-center justify-between border border-neutral-900 bg-neutral-900 px-5 py-4 transition-all hover:bg-neutral-800"
           >
             <div>
@@ -173,22 +173,22 @@ export default function LinksPage(): ReactElement {
             {[
               {
                 name: 'Tous les Épisodes',
-                url: 'https://www.artaufeminin.fr/podcasts',
+                url: 'https://artaufeminin.fr/podcasts',
                 description: 'Parcourez tous les épisodes du podcast',
               },
               {
                 name: 'Articles',
-                url: 'https://www.artaufeminin.fr/articles',
+                url: 'https://artaufeminin.fr/articles',
                 description: 'Des portraits de femmes artistes',
               },
               {
                 name: 'Livres & Chroniques',
-                url: 'https://www.artaufeminin.fr/livres',
+                url: 'https://artaufeminin.fr/livres',
                 description: "Sélections de lectures sur l'Art au féminin",
               },
               {
                 name: 'Citations',
-                url: 'https://www.artaufeminin.fr/citations',
+                url: 'https://artaufeminin.fr/citations',
                 description:
                   'Des paroles de femmes artistes qui traversent le temps',
               },
@@ -224,7 +224,7 @@ export default function LinksPage(): ReactElement {
               },
               {
                 name: 'Newsletter',
-                url: 'https://www.artaufeminin.fr/newsletter',
+                url: 'https://artaufeminin.fr/newsletter',
                 description: 'Recevez les épisodes directement par email',
               },
             ].map((item) => (
@@ -280,6 +280,6 @@ export const Head = ({ location }: { location: { pathname: string } }) => (
   <SEO
     title="ART AU FÉMININ — Tous les Liens"
     description="Retrouvez ART AU FÉMININ sur Apple Podcasts, Spotify, Deezer, Instagram, et découvrez la future Galerie immersive 3D dédiée aux femmes artistes."
-    url={`https://www.artaufeminin.fr${location.pathname}`}
+    url={`https://artaufeminin.fr${location.pathname}`}
   />
 );

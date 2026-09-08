@@ -206,7 +206,7 @@ export const Head = ({ location }: { location: { pathname: string } }) => (
   <SEO
     title="Mentions Légales — ART AU FÉMININ"
     description="Mentions légales du site ART AU FÉMININ : éditeur, hébergeur, propriété intellectuelle et informations réglementaires."
-    url={`https://www.artaufeminin.fr${location.pathname}`}
+    url={`https://artaufeminin.fr${location.pathname}`}
     noindex={true}
   />
 );

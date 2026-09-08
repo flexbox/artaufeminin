@@ -73,7 +73,7 @@ export const Head = ({ location }: { location: { pathname: string } }) => (
   <SEO
     title="Livres sur les Femmes Artistes — ART AU FÉMININ"
     description="Chroniques et sélections de livres sur les femmes artistes : biographies, essais, monographies — de l'Antiquité à l'Art contemporain. Recommandés par Aldjia Boughias pour ART AU FÉMININ."
-    url={`https://www.artaufeminin.fr${location.pathname}`}
+    url={`https://artaufeminin.fr${location.pathname}`}
   />
 );
 

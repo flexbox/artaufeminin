@@ -144,7 +144,7 @@ export const Head = ({ location }: { location: { pathname: string } }) => (
   <SEO
     title="Espace Presse — ART AU FÉMININ"
     description="ART AU FÉMININ dans les médias. Kit presse, logos et contact pour toute demande de partenariat ou couverture presse."
-    url={`https://www.artaufeminin.fr${location.pathname}`}
+    url={`https://artaufeminin.fr${location.pathname}`}
   />
 );
 

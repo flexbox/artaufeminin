@@ -250,7 +250,7 @@ export const Head = ({ location }: { location: { pathname: string } }) => {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Aldjia Boughias',
-    url: 'https://www.artaufeminin.fr/about',
+    url: 'https://artaufeminin.fr/about',
     jobTitle: 'Développeuse web orientée Art et Culture',
     description:
       "Fondatrice du podcast ART AU FÉMININ, développeuse web et exploratrice de l'Histoire de l'Art.",
@@ -261,7 +261,7 @@ export const Head = ({ location }: { location: { pathname: string } }) => {
     <SEO
       title="Aldjia Boughias — Fondatrice du podcast ART AU FÉMININ"
       description="Je suis Aldjia Boughias, développeuse web orientée art et culture et fondatrice du podcast ART AU FÉMININ. Un projet né de ma passion pour l'histoire de l'art et l'envie de rendre visibles les femmes artistes oubliées."
-      url={`https://www.artaufeminin.fr${location.pathname}`}
+      url={`https://artaufeminin.fr${location.pathname}`}
       jsonLd={jsonLd}
     />
   );

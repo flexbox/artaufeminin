@@ -131,7 +131,7 @@ export const Head = (props: BookProps & { location: { pathname: string } }) => {
     props.pageContext.node.data.description?.text ||
     props.pageContext.node.data.content?.text?.substring(0, 155) ||
     '';
-  const canonicalUrl = `https://www.artaufeminin.fr${props.location.pathname}`;
+  const canonicalUrl = `https://artaufeminin.fr${props.location.pathname}`;
 
   const jsonLd = [
     {
@@ -142,13 +142,13 @@ export const Head = (props: BookProps & { location: { pathname: string } }) => {
           '@type': 'ListItem',
           position: 1,
           name: 'Accueil',
-          item: 'https://www.artaufeminin.fr',
+          item: 'https://artaufeminin.fr',
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Chroniques',
-          item: 'https://www.artaufeminin.fr/livres',
+          item: 'https://artaufeminin.fr/livres',
         },
         {
           '@type': 'ListItem',
@@ -168,15 +168,15 @@ export const Head = (props: BookProps & { location: { pathname: string } }) => {
       author: {
         '@type': 'Person',
         name: 'Aldjia Boughias',
-        url: 'https://www.artaufeminin.fr/about',
+        url: 'https://artaufeminin.fr/about',
       },
       publisher: {
         '@type': 'Organization',
         name: 'ART AU FÉMININ',
-        url: 'https://www.artaufeminin.fr',
+        url: 'https://artaufeminin.fr',
         logo: {
           '@type': 'ImageObject',
-          url: 'https://www.artaufeminin.fr/og-default.png',
+          url: 'https://artaufeminin.fr/og-default.png',
         },
       },
     },

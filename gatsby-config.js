@@ -21,7 +21,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: `https://www.artaufeminin.fr`,
+        siteUrl: `https://artaufeminin.fr`,
       },
     },
     {
