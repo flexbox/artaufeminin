@@ -26,25 +26,127 @@ export default function EvenementsPage(): ReactElement {
         </div>
       </section>
 
-      {/* ── BIENTÔT ──────────────────────────────────────────────── */}
-      <section className="mx-auto max-w-3xl px-6 py-20 lg:px-0">
-        <div className="border border-neutral-200 p-10 text-center">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
-            Prochainement
-          </p>
-          <h2 className="font-display text-3xl font-light leading-snug text-neutral-900 md:text-4xl">
-            Les premiers événements arrivent
-          </h2>
-          <p className="mx-auto mt-5 max-w-sm text-sm leading-relaxed text-neutral-600">
-            Des soirées, des discussions et des rencontres autour des femmes
-            dans le monde de l'Art — en présentiel, dans un cadre intime.
-          </p>
-          <Link
-            to="/newsletter"
-            className="mt-8 inline-block border border-neutral-300 px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
-          >
-            M'avertir par newsletter <span aria-hidden="true">→</span>
-          </Link>
+      {/* ── ÉVÉNEMENT À VENIR ────────────────────────────────────── */}
+      <section className="mx-auto max-w-3xl px-6 py-16 lg:px-0">
+        <p className="mb-8 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
+          Prochain événement
+        </p>
+
+        <div className="border border-neutral-200">
+          {/* En-tête date */}
+          <div className="border-b border-neutral-200 bg-neutral-900 px-8 py-5 sm:flex sm:items-center sm:justify-between">
+            <div className="flex items-center gap-5">
+              <div className="text-center">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
+                  Nov.
+                </p>
+                <p className="font-display text-5xl font-light leading-none text-white">
+                  06
+                </p>
+              </div>
+              <div className="border-l border-white/20 pl-5">
+                <p className="text-sm font-semibold text-white">
+                  Vendredi 6 novembre 2026
+                </p>
+                <p className="mt-0.5 text-xs text-white/60">
+                  18 h 00 – 21 h 30
+                </p>
+              </div>
+            </div>
+            <span className="mt-4 inline-block border border-white/30 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/70 sm:mt-0">
+              25 places · 10 €
+            </span>
+          </div>
+
+          {/* Corps */}
+          <div className="px-8 py-8">
+            <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+              Les Rencontres Art au Féminin #1
+            </p>
+            <h2 className="font-display text-3xl font-light leading-snug text-neutral-900 md:text-4xl">
+              Adjugé&nbsp;!
+            </h2>
+
+            <p className="mt-5 text-sm leading-relaxed text-neutral-600">
+              Il y a ce moment suspendu, juste avant le coup de marteau. Une
+              salle qui retient son souffle, un objet qui change de mains, une
+              histoire qui continue ailleurs.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-neutral-600">
+              Pour sa toute première rencontre en public, Art au Féminin vous
+              ouvre les coulisses d'une maison de ventes, avec deux
+              commissaires-priseuses de{' '}
+              <span className="font-medium text-neutral-800">
+                Mirabili Enchères
+              </span>{' '}
+              :
+            </p>
+
+            <ul className="mt-4 space-y-2 border-l-2 border-neutral-200 pl-5">
+              <li className="text-sm leading-relaxed text-neutral-700">
+                <span className="font-medium">Sophie Tiercelin</span> —
+                spécialiste de l'histoire de la mode, du bijou et des textiles
+              </li>
+              <li className="text-sm leading-relaxed text-neutral-700">
+                <span className="font-medium">Héloïse de Baudus</span> —
+                spécialiste des arts décoratifs du XX<sup>e</sup> siècle, de la
+                photographie et des arts du feu
+              </li>
+            </ul>
+
+            <div className="mt-6 grid grid-cols-1 gap-px bg-neutral-100 border border-neutral-100 sm:grid-cols-3">
+              {[
+                {
+                  icon: '🎙',
+                  label: 'Enregistrement live',
+                  desc: "L'interview est captée devant vous pour un prochain épisode du podcast.",
+                },
+                {
+                  icon: '💬',
+                  label: 'Vos questions',
+                  desc: "Un temps d'échange libre avec Sophie et Héloïse. Les questions naïves sont les bienvenues.",
+                },
+                {
+                  icon: '🥂',
+                  label: 'Un verre',
+                  desc: "Rencontrer d'autres passionné·es d'art, échanger, repartir avec des idées.",
+                },
+              ].map(({ icon, label, desc }) => (
+                <div key={label} className="bg-white p-5">
+                  <p className="mb-2 text-base">{icon}</p>
+                  <p className="mb-1 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
+                    {label}
+                  </p>
+                  <p className="text-xs leading-relaxed text-neutral-500">
+                    {desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Lieu + CTA */}
+            <div className="mt-8 sm:flex sm:items-end sm:justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+                  Lieu
+                </p>
+                <p className="mt-1 text-sm font-medium text-neutral-800">
+                  Espace Out of the Blue
+                </p>
+                <p className="text-xs text-neutral-500">
+                  104 Rue de l'Hôpital Militaire, 59800 Lille
+                </p>
+              </div>
+              <a
+                href="https://luma.com/zqr5va17"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-block bg-neutral-900 px-8 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-neutral-700 sm:mt-0"
+              >
+                Obtenir un billet — 10 € <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -124,7 +226,7 @@ export default function EvenementsPage(): ReactElement {
       {/* ── EXPLORER ─────────────────────────────────────────────── */}
       <section className="mx-auto mb-20 mt-12 max-w-3xl px-6 text-center lg:px-0">
         <p className="mb-6 text-sm text-neutral-600">
-          En attendant les événements, explorez le contenu du site :
+          Explorez le contenu du site en attendant le 6 novembre :
         </p>
         <div className="flex flex-wrap justify-center gap-3">
           {[
@@ -152,6 +254,6 @@ export const Head = ({ location }: { location: { pathname: string } }) => (
     title="Événements — ART AU FÉMININ, rencontres autour des femmes artistes"
     description="ART AU FÉMININ organise des rencontres en présentiel pour échanger avec des directrices de musées, conservatrices, historiennes de l'Art et artistes. Les premiers événements arrivent bientôt."
     url={`https://artaufeminin.fr${location.pathname}`}
-    noindex={true}
+    noindex={false}
   />
 );
