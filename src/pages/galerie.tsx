@@ -87,7 +87,7 @@ export default function GaleriePage(): ReactElement {
             </span>
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-white/70">
-            Une vingtaine de femmes artistes réunies autour du thème de la{' '}
+            Quinze femmes artistes réunies autour du thème de la{' '}
             <strong className="font-normal text-white/80">Sororité</strong>, ce
             lien puissant entre femmes qui traverse l'Histoire de l'Art. La
             galerie ouvrira ses portes à l'exposition le 25 janvier 2027.
@@ -110,7 +110,7 @@ export default function GaleriePage(): ReactElement {
 
           <ul className="mt-6 space-y-3">
             {[
-              "Le portrait de chacune des ~20 artistes de l'exposition",
+              "Le portrait de chacune des 15 artistes de l'exposition",
               "Un rappel le jour de l'ouverture, le 25 janvier 2027",
               'Les coulisses de la préparation de « Sororité »',
             ].map((item) => (

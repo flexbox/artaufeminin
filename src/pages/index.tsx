@@ -308,10 +308,10 @@ const IndexPage = ({ data }) => {
             <p className="mt-5 text-sm leading-relaxed text-white/70">
               Une galerie d'Art immersive en 3D dédiée aux femmes artistes, à
               visiter dès maintenant depuis votre navigateur. Sa première
-              exposition, en préparation, réunira une vingtaine d'artistes
-              autour du thème de la Sororité — ce lien puissant entre femmes qui
-              traverse l'Histoire de l'Art. Ouverture le 25 janvier 2027,
-              jusqu'au 25 février.
+              exposition, en préparation, réunira 15 artistes autour du thème de
+              la Sororité — ce lien puissant entre femmes qui traverse
+              l'Histoire de l'Art. Ouverture le 25 janvier 2027, jusqu'au 25
+              février.
             </p>
           </div>
           <div className="flex shrink-0 flex-col gap-3 sm:flex-row">

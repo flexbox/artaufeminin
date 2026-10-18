@@ -165,9 +165,9 @@ export default function NewsletterPage(): ReactElement {
             </p>
             <p className="mt-4 text-sm leading-relaxed text-white/70">
               Une galerie d'Art immersive en 3D dédiée aux femmes artistes, à
-              visiter dès maintenant. Sa première exposition réunira une
-              vingtaine d'artistes autour du thème de la Sororité, du 25 janvier
-              au 25 février 2027. Abonnez-vous pour en suivre les coulisses.
+              visiter dès maintenant. Sa première exposition réunira 15 artistes
+              autour du thème de la Sororité, du 25 janvier au 25 février 2027.
+              Abonnez-vous pour en suivre les coulisses.
             </p>
             <div className="mt-6">
               <a

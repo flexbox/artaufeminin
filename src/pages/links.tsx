@@ -115,7 +115,7 @@ export default function LinksPage(): ReactElement {
               Galerie ART AU FÉMININ
             </p>
             <p className="mt-0.5 font-display text-base italic text-white/60">
-              « Sororité » — ~20 artistes
+              « Sororité » — 15 artistes
             </p>
             <p className="mt-3 text-xs leading-relaxed text-white/70">
               Une galerie d'Art immersive en 3D dédiée aux femmes artistes, à
