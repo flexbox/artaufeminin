@@ -297,7 +297,7 @@ const IndexPage = ({ data }) => {
         <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 py-16 lg:flex-row lg:items-end lg:justify-between lg:px-16 lg:py-20">
           <div className="max-w-lg">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
-              Bientôt Disponible · Première Exposition
+              Ouverte · Exposition « Sororité » du 25 janvier au 25 février 2027
             </p>
             <h2 className="font-display text-4xl font-light leading-tight text-white lg:text-5xl">
               Galerie ART AU FÉMININ
@@ -306,27 +306,29 @@ const IndexPage = ({ data }) => {
               « Sororité »
             </p>
             <p className="mt-5 text-sm leading-relaxed text-white/70">
-              Une galerie d'Art immersive en 3D dédiée aux femmes artistes. La
-              première exposition réunit une vingtaine d'artistes autour du
-              thème de la Sororité — ce lien puissant entre femmes qui traverse
-              l'Histoire de l'Art.
+              Une galerie d'Art immersive en 3D dédiée aux femmes artistes, à
+              visiter dès maintenant depuis votre navigateur. Sa première
+              exposition, en préparation, réunira une vingtaine d'artistes
+              autour du thème de la Sororité — ce lien puissant entre femmes qui
+              traverse l'Histoire de l'Art. Ouverture le 25 janvier 2027,
+              jusqu'au 25 février.
             </p>
           </div>
           <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
-            <Link
-              to="/newsletter"
-              aria-label="S'inscrire pour être informée de l'ouverture de la Galerie"
+            <a
+              href="https://galerie.artaufeminin.fr"
+              aria-label="Entrer dans la Galerie ART AU FÉMININ"
               className="border border-white/40 bg-white/10 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-white/20"
             >
-              M'avertir à l'ouverture <span aria-hidden="true">→</span>
-            </Link>
-            <a
-              href="/galerie"
-              aria-label="Découvrir la Galerie ART AU FÉMININ"
+              Entrer dans la galerie <span aria-hidden="true">→</span>
+            </a>
+            <Link
+              to="/galerie"
+              aria-label="Être informée de l'ouverture de l'exposition Sororité"
               className="border border-white/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/60 hover:text-white"
             >
-              En savoir plus
-            </a>
+              M'avertir de l'ouverture
+            </Link>
           </div>
         </div>
       </section>

@@ -137,7 +137,7 @@ export default function NewsletterPage(): ReactElement {
             },
             {
               label: 'La Galerie 3D',
-              desc: 'Les coulisses et actualités de la Galerie ART AU FÉMININ en avant-première.',
+              desc: "Les coulisses de l'exposition « Sororité » (25 janvier – 25 février 2027) en avant-première.",
             },
           ].map(({ label, desc }) => (
             <div key={label} className="bg-white p-6 text-center">
@@ -155,7 +155,7 @@ export default function NewsletterPage(): ReactElement {
         <div className="mx-auto max-w-3xl px-6 lg:flex lg:items-center lg:gap-16 lg:px-0">
           <div>
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
-              Bientôt · Première Exposition
+              Ouverte · Exposition « Sororité » en préparation
             </p>
             <h2 className="font-display text-3xl font-light leading-tight text-white md:text-4xl">
               Galerie ART AU FÉMININ
@@ -164,15 +164,18 @@ export default function NewsletterPage(): ReactElement {
               « Sororité »
             </p>
             <p className="mt-4 text-sm leading-relaxed text-white/70">
-              Une galerie d'Art immersive en 3D dédiée aux femmes artistes. La
-              première exposition réunit une vingtaine d'artistes autour du
-              thème de la Sororité. Abonnez-vous pour recevoir toutes les
-              actualités en avant-première.
+              Une galerie d'Art immersive en 3D dédiée aux femmes artistes, à
+              visiter dès maintenant. Sa première exposition réunira une
+              vingtaine d'artistes autour du thème de la Sororité, du 25 janvier
+              au 25 février 2027. Abonnez-vous pour en suivre les coulisses.
             </p>
             <div className="mt-6">
-              <span className="inline-block border border-white/30 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
-                En préparation — restez informée
-              </span>
+              <a
+                href="https://galerie.artaufeminin.fr"
+                className="inline-block border border-white/30 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/60 hover:text-white"
+              >
+                Entrer dans la galerie <span aria-hidden="true">→</span>
+              </a>
             </div>
           </div>
         </div>

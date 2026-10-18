@@ -48,7 +48,7 @@ export default function CommencerPage({ data }): ReactElement {
             {
               number: '03',
               label: 'Une Communauté',
-              desc: 'Une newsletter mensuelle, une galerie 3D en préparation et des événements en présentiel pour celles qui veulent aller encore plus loin.',
+              desc: 'Une newsletter mensuelle, une galerie d’Art en 3D et des événements en présentiel pour celles qui veulent aller encore plus loin.',
             },
           ].map(({ number, label, desc }) => (
             <div key={number} className="bg-white p-8">

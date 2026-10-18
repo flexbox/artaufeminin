@@ -54,21 +54,47 @@ export default function GaleriePage(): ReactElement {
 
       <main className="mx-auto max-w-xl px-6 py-12 lg:py-20">
         <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.3em] text-white/60">
-          Galerie ART AU FÉMININ · Exposition « Sororité »
+          Galerie ART AU FÉMININ · Ouverte
         </p>
 
         <h1 className="text-center font-display text-4xl font-light leading-tight text-white sm:text-5xl lg:text-6xl">
-          Découvrez les Artistes{' '}
-          <span className="italic">avant tout le monde</span>
+          Une galerie d'Art{' '}
+          <span className="italic">dédiée aux femmes artistes</span>
         </h1>
 
         <p className="mx-auto mt-6 max-w-md text-center text-sm leading-relaxed text-white/70">
-          Je prépare une galerie d'Art immersive en 3D autour du thème de la{' '}
-          <strong className="font-normal text-white/80">Sororité</strong> — une
-          vingtaine de femmes artistes réunies dans un espace numérique unique.
+          Une galerie immersive en 3D, à visiter dès maintenant depuis votre
+          navigateur, sur ordinateur comme sur téléphone.
         </p>
 
-        <div className="mt-12 border border-white/10 bg-neutral-900 p-8">
+        <div className="mt-8 text-center">
+          <a
+            href="https://galerie.artaufeminin.fr"
+            className="inline-block border border-white/40 bg-white/10 px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-white/20"
+          >
+            Entrer dans la galerie <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <div className="mt-16 border border-white/10 bg-neutral-900 p-8">
+          <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
+            Première exposition · En préparation
+          </p>
+          <h2 className="font-display text-2xl font-light text-white lg:text-3xl">
+            « Sororité »{' '}
+            <span className="italic text-white/70">
+              du 25 janvier au 25 février 2027
+            </span>
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-white/70">
+            Une vingtaine de femmes artistes réunies autour du thème de la{' '}
+            <strong className="font-normal text-white/80">Sororité</strong>, ce
+            lien puissant entre femmes qui traverse l'Histoire de l'Art. La
+            galerie ouvrira ses portes à l'exposition le 25 janvier 2027.
+          </p>
+        </div>
+
+        <div className="mt-6 border border-white/10 bg-neutral-900 p-8">
           <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
             Votre Cadeau Gratuit
           </p>
@@ -85,9 +111,8 @@ export default function GaleriePage(): ReactElement {
           <ul className="mt-6 space-y-3">
             {[
               "Le portrait de chacune des ~20 artistes de l'exposition",
-              "La date d'ouverture de la galerie en avant-première",
-              "Les coulisses de la création de l'exposition 3D",
-              'Un accès VIP dès le jour J — avant le grand public',
+              "Un rappel le jour de l'ouverture, le 25 janvier 2027",
+              'Les coulisses de la préparation de « Sororité »',
             ].map((item) => (
               <li
                 key={item}
@@ -111,8 +136,8 @@ export default function GaleriePage(): ReactElement {
               Merci !
             </p>
             <p className="mt-3 text-sm leading-relaxed text-white/70">
-              Votre inscription est confirmée. Vous recevrez le catalogue et la
-              date d'ouverture en avant-première.
+              Votre inscription est confirmée. Vous recevrez le catalogue et un
+              rappel à l'ouverture de « Sororité », le 25 janvier 2027.
             </p>
           </div>
         ) : (
@@ -141,7 +166,7 @@ export default function GaleriePage(): ReactElement {
                   'Inscription en cours…'
                 ) : (
                   <>
-                    Oui, je veux découvrir les artistes en avant-première{' '}
+                    Recevoir le catalogue de « Sororité »{' '}
                     <span aria-hidden="true">→</span>
                   </>
                 )}
@@ -175,8 +200,8 @@ export default function GaleriePage(): ReactElement {
 
 export const Head = ({ location }: { location: { pathname: string } }) => (
   <SEO
-    title="Galerie ART AU FÉMININ — Découvrez les Artistes en avant-première"
-    description="Une galerie d'Art immersive en 3D dédiée aux femmes artistes. Première exposition : Sororité, ~20 artistes. Recevez le catalogue complet en vous inscrivant."
+    title="Galerie ART AU FÉMININ — Galerie d'Art 3D dédiée aux femmes artistes"
+    description="Visitez la galerie d'Art immersive en 3D dédiée aux femmes artistes. Première exposition « Sororité » du 25 janvier au 25 février 2027."
     url={`https://artaufeminin.fr${location.pathname}`}
   />
 );

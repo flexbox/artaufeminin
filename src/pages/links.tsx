@@ -109,7 +109,7 @@ export default function LinksPage(): ReactElement {
         <div className="mb-8 border border-neutral-900 bg-neutral-900">
           <div className="p-5">
             <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
-              Bientôt · Première Exposition
+              Ouverte · « Sororité » du 25/01 au 25/02/2027
             </p>
             <p className="font-display text-lg font-light text-white">
               Galerie ART AU FÉMININ
@@ -118,15 +118,15 @@ export default function LinksPage(): ReactElement {
               « Sororité » — ~20 artistes
             </p>
             <p className="mt-3 text-xs leading-relaxed text-white/70">
-              Une galerie d'Art immersive en 3D dédiée aux femmes artistes.
-              Abonnez-vous à la newsletter pour suivre les coulisses et recevoir
-              la date d'ouverture en avant-première.
+              Une galerie d'Art immersive en 3D dédiée aux femmes artistes, à
+              visiter dès maintenant. Première exposition « Sororité » en
+              préparation : du 25 janvier au 25 février 2027.
             </p>
             <a
-              href="/newsletter"
+              href="https://galerie.artaufeminin.fr"
               className="mt-4 inline-block border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/50 hover:text-white"
             >
-              Être informée en avant-première
+              Entrer dans la galerie <span aria-hidden="true">→</span>
             </a>
           </div>
         </div>
@@ -279,7 +279,7 @@ export default function LinksPage(): ReactElement {
 export const Head = ({ location }: { location: { pathname: string } }) => (
   <SEO
     title="ART AU FÉMININ — Tous les Liens"
-    description="Retrouvez ART AU FÉMININ sur Apple Podcasts, Spotify, Deezer, Instagram, et découvrez la future Galerie immersive 3D dédiée aux femmes artistes."
+    description="Retrouvez ART AU FÉMININ sur Apple Podcasts, Spotify, Deezer, Instagram, et visitez la Galerie immersive 3D dédiée aux femmes artistes."
     url={`https://artaufeminin.fr${location.pathname}`}
   />
 );
