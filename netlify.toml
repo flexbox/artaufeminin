@@ -10,3 +10,15 @@
   to = "https://artaufeminin.fr/:splat"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/articles/articlesfemmes-photographes-histoire-oubliees/*"
+  to = "/articles/femmes-photographes-histoire-oubliees/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/articles/articlesfemmes-photographes-histoire-oubliees"
+  to = "/articles/femmes-photographes-histoire-oubliees/"
+  status = 301
+  force = true
