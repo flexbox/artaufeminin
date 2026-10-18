@@ -103,12 +103,13 @@ const IndexPage = ({ data }) => {
         <div className="mx-auto flex max-w-7xl divide-x divide-neutral-200">
           {[
             { number: '+100', label: 'Épisodes' },
-            { number: '5', label: 'Saisons' },
+            { number: '6', label: 'Saisons' },
             { number: '2019', label: 'Depuis' },
+            { number: '1', label: 'Galerie 3D' },
             { number: 'Gratuit', label: 'Pour toujours' },
           ].map(({ number, label }) => (
-            <div key={label} className="flex-1 py-8 text-center">
-              <p className="font-display text-3xl font-light text-neutral-900">
+            <div key={label} className="flex-1 px-1 py-8 text-center">
+              <p className="font-display text-2xl font-light text-neutral-900 sm:text-3xl">
                 {number}
               </p>
               <p className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
