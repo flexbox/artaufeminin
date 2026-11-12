@@ -29,12 +29,12 @@ export function ForwardButton({ player, amount = 10 }) {
   return (
     <button
       type="button"
-      className="group relative rounded-full focus:outline-none"
+      className="group relative focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2"
       onClick={() => player.seekBy(amount)}
-      aria-label={`Fast-forward ${amount} seconds`}
+      aria-label={`Avancer de ${amount} secondes`}
     >
       <div className="absolute -inset-4 -left-2 md:hidden" />
-      <ForwardIcon className="size-6 stroke-slate-500 group-hover:stroke-slate-700" />
+      <ForwardIcon className="size-6 stroke-neutral-500 group-hover:stroke-neutral-700" />
     </button>
   );
 }

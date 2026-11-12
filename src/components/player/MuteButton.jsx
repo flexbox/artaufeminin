@@ -34,14 +34,14 @@ export function MuteButton({ player }) {
   return (
     <button
       type="button"
-      className="group relative rounded-md hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 md:order-none"
+      className="group relative hover:bg-neutral-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2 md:order-none"
       onClick={() => player.toggleMute()}
-      aria-label={player.muted ? 'Unmute' : 'Mute'}
+      aria-label={player.muted ? 'Réactiver le son' : 'Couper le son'}
     >
       <div className="absolute -inset-4 md:hidden" />
       <MuteIcon
         muted={player.muted}
-        className="size-6 fill-slate-500 stroke-slate-500 group-hover:fill-slate-700 group-hover:stroke-slate-700"
+        className="size-6 fill-neutral-500 stroke-neutral-500 group-hover:fill-neutral-700 group-hover:stroke-neutral-700"
       />
     </button>
   );

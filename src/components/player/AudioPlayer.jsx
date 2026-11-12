@@ -17,9 +17,9 @@ function parseTime(seconds) {
 
 function formatHumanTime(seconds) {
   let [h, m, s] = parseTime(seconds);
-  return `${h} hour${h === 1 ? '' : 's'}, ${m} minute${
-    m === 1 ? '' : 's'
-  }, ${s} second${s === 1 ? '' : 's'}`;
+  return `${h} heure${h > 1 ? 's' : ''}, ${m} minute${
+    m > 1 ? 's' : ''
+  }, ${s} seconde${s > 1 ? 's' : ''}`;
 }
 
 export function AudioPlayer() {
@@ -38,7 +38,7 @@ export function AudioPlayer() {
   }
 
   return (
-    <div className="flex items-center gap-6 bg-white/90 p-4 shadow shadow-slate-200/80 ring-1 ring-slate-900/5 backdrop-blur-sm md:px-6">
+    <div className="flex items-center gap-6 border-t border-neutral-200 bg-white/95 p-4 backdrop-blur-sm md:px-6">
       <div className="hidden md:block">
         <PlayButton player={player} size="medium" />
       </div>
@@ -62,7 +62,7 @@ export function AudioPlayer() {
             <ForwardButton player={player} />
           </div>
           <Slider
-            label="Current time"
+            label="Position de lecture"
             maxValue={player.duration}
             step={1}
             value={[currentTime ?? player.currentTime]}

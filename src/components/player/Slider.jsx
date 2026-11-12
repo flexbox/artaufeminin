@@ -18,7 +18,7 @@ function parseTime(seconds) {
 
 function formatTime(seconds, totalSeconds = seconds) {
   let totalWithoutLeadingZeroes = totalSeconds.slice(
-    totalSeconds.findIndex((x) => x !== 0),
+    totalSeconds.findIndex((x) => x !== 0)
   );
   return seconds
     .slice(seconds.length - totalWithoutLeadingZeroes.length)
@@ -31,7 +31,7 @@ function Thumb(props) {
   let inputRef = useRef(null);
   let { thumbProps, inputProps } = useSliderThumb(
     { index, trackRef, inputRef },
-    state,
+    state
   );
 
   return (
@@ -52,10 +52,10 @@ function Thumb(props) {
           props.onChangeStart?.();
         }}
         className={clsx(
-          'h-4 rounded-full',
+          'h-4',
           isFocusVisible || state.isThumbDragging(index)
-            ? 'w-1.5 bg-slate-900'
-            : 'w-1 bg-slate-700',
+            ? 'w-1.5 bg-neutral-900'
+            : 'w-1 bg-neutral-700'
         )}
       >
         <VisuallyHidden>
@@ -72,7 +72,7 @@ export function Slider(props) {
   let { groupProps, trackProps, labelProps, outputProps } = useSlider(
     props,
     state,
-    trackRef,
+    trackRef
   );
   let { focusProps, isFocusVisible } = useFocusRing();
 
@@ -100,14 +100,14 @@ export function Slider(props) {
           props.onChangeStart?.();
         }}
         ref={trackRef}
-        className="relative w-full bg-slate-100 md:rounded-full"
+        className="relative w-full bg-neutral-100"
       >
         <div
           className={clsx(
-            'h-2 md:rounded-l-xl md:rounded-r-md',
+            'h-2',
             isFocusVisible || state.isThumbDragging(0)
-              ? 'bg-slate-900'
-              : 'bg-slate-700',
+              ? 'bg-neutral-900'
+              : 'bg-neutral-700'
           )}
           style={{
             width:
@@ -134,22 +134,22 @@ export function Slider(props) {
           {...outputProps}
           aria-live="off"
           className={clsx(
-            'hidden rounded-md px-1 py-0.5 font-mono text-sm leading-6 md:block',
+            'hidden px-1 py-0.5 text-sm tabular-nums leading-6 md:block',
             state.getThumbMaxValue(0) === 0 && 'opacity-0',
             isFocusVisible || state.isThumbDragging(0)
-              ? 'bg-slate-100 text-slate-900'
-              : 'text-slate-500',
+              ? 'bg-neutral-100 text-neutral-900'
+              : 'text-neutral-500'
           )}
         >
           {formatTime(currentTime, totalTime)}
         </output>
-        <span className="text-sm leading-6 text-slate-300" aria-hidden="true">
+        <span className="text-sm leading-6 text-neutral-300" aria-hidden="true">
           /
         </span>
         <span
           className={clsx(
-            'hidden rounded-md px-1 py-0.5 font-mono text-sm leading-6 text-slate-500 md:block',
-            state.getThumbMaxValue(0) === 0 && 'opacity-0',
+            'hidden px-1 py-0.5 text-sm tabular-nums leading-6 text-neutral-500 md:block',
+            state.getThumbMaxValue(0) === 0 && 'opacity-0'
           )}
         >
           {formatTime(totalTime)}

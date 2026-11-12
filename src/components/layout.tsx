@@ -36,7 +36,7 @@ function Layout({ children, withInstagram = false }: LayoutProps) {
         {children}
       </main>
       {withInstagram && <Instagram />}
-      <div className="lg:left-112 xl:left-120 fixed inset-x-0 bottom-0 z-10">
+      <div className="fixed inset-x-0 bottom-0 z-10">
         <AudioPlayer />
       </div>
       <Footer siteTitle={siteTitle} />

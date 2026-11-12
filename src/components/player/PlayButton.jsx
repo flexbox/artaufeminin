@@ -26,15 +26,14 @@ export function PlayButton({ player, size = 'large' }) {
     <button
       type="button"
       className={clsx(
-        'group relative flex shrink-0 items-center justify-center rounded-full bg-slate-700 hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-700 focus-visible:ring-offset-2',
+        'group relative flex shrink-0 items-center justify-center rounded-full bg-neutral-700 hover:bg-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-700 focus-visible:ring-offset-2',
         {
-          large: 'h-18 w-18 focus-visible:ring-offset-4',
           medium: 'h-14 w-14',
           small: 'h-10 w-10',
-        }[size],
+        }[size]
       )}
       onClick={player.toggle}
-      aria-label={player.playing ? 'Pause' : 'Play'}
+      aria-label={player.playing ? 'Pause' : 'Lecture'}
     >
       <div className="absolute -inset-3 md:hidden" />
       {player.playing ? (
@@ -45,7 +44,7 @@ export function PlayButton({ player, size = 'large' }) {
               large: 'h-7 w-7',
               medium: 'h-5 w-5',
               small: 'h-4 w-4',
-            }[size],
+            }[size]
           )}
         />
       ) : (
@@ -56,7 +55,7 @@ export function PlayButton({ player, size = 'large' }) {
               large: 'h-9 w-9',
               medium: 'h-7 w-7',
               small: 'h-5 w-5',
-            }[size],
+            }[size]
           )}
         />
       )}

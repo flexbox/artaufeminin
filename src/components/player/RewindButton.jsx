@@ -22,12 +22,12 @@ export function RewindButton({ player, amount = 10 }) {
   return (
     <button
       type="button"
-      className="group relative rounded-full focus:outline-none"
+      className="group relative focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2"
       onClick={() => player.seekBy(-amount)}
-      aria-label={`Rewind ${amount} seconds`}
+      aria-label={`Reculer de ${amount} secondes`}
     >
       <div className="absolute -inset-4 -right-2 md:hidden" />
-      <RewindIcon className="size-6 stroke-slate-500 group-hover:stroke-slate-700" />
+      <RewindIcon className="size-6 stroke-neutral-500 group-hover:stroke-neutral-700" />
     </button>
   );
 }
