@@ -1,4 +1,5 @@
 import { Link } from 'gatsby';
+import { StaticImage } from 'gatsby-plugin-image';
 import React, { ReactElement, useState } from 'react';
 
 import SEO from '../components/seo';
@@ -70,11 +71,28 @@ export default function GaleriePage(): ReactElement {
         <div className="mt-8 text-center">
           <a
             href="https://galerie.artaufeminin.fr"
-            className="inline-block border border-white/40 bg-white/10 px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-white/20"
+            className="inline-block whitespace-nowrap border border-white bg-white px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-900 transition-colors hover:bg-neutral-200"
           >
             Entrer dans la galerie <span aria-hidden="true">→</span>
           </a>
         </div>
+
+        {/* Façade au trait, plus large que la colonne de texte */}
+        <a
+          href="https://galerie.artaufeminin.fr"
+          tabIndex={-1}
+          aria-hidden="true"
+          className="ml-[calc(50%-min(50vw,28rem))] mt-12 block w-[min(100vw,56rem)] opacity-80 transition-opacity duration-500 hover:opacity-100"
+        >
+          <StaticImage
+            src="../images/galerie-facade-trait.png"
+            alt=""
+            placeholder="none"
+            width={900}
+            quality={90}
+            loading="eager"
+          />
+        </a>
 
         <div className="mt-16 border border-white/10 bg-neutral-900 p-8">
           <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
