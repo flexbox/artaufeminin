@@ -343,7 +343,7 @@ const IndexPage = ({ data }) => {
             <p className="mt-2 font-display text-2xl font-light text-neutral-900">
               Vous aimez ART AU FÉMININ ?
             </p>
-            <p className="mt-2 text-sm font-light text-neutral-600">
+            <p className="mt-2 text-sm text-neutral-600">
               Une note ou un abonnement sur votre plateforme d'écoute aide
               d'autres personnes à découvrir ces artistes.
             </p>

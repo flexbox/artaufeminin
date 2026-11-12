@@ -8,13 +8,13 @@ export default function MentionsLegalesPage() {
   return (
     <Layout withInstagram={false}>
       <section className="m-auto mb-12 mt-8 w-3/4 max-w-3xl">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Légal
         </p>
         <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl">
           Mentions Légales
         </h1>
-        <p className="mt-4 text-xs font-light text-neutral-400">
+        <p className="mt-4 text-xs text-neutral-500">
           Conformément à la loi n° 2004-575 du 21 juin 2004 pour la confiance
           dans l'économie numérique (LCEN).
         </p>
@@ -28,7 +28,7 @@ export default function MentionsLegalesPage() {
           >
             Éditeur du site
           </h2>
-          <div className="border border-neutral-200 p-6 text-sm font-light leading-relaxed text-neutral-600 space-y-2">
+          <div className="border border-neutral-200 p-6 text-sm leading-relaxed text-neutral-600 space-y-2">
             <p>
               <strong className="font-medium text-neutral-800">Nom :</strong>{' '}
               Aldjia Boughias
@@ -60,7 +60,7 @@ export default function MentionsLegalesPage() {
           >
             Hébergeur
           </h2>
-          <div className="border border-neutral-200 p-6 text-sm font-light leading-relaxed text-neutral-600 space-y-2">
+          <div className="border border-neutral-200 p-6 text-sm leading-relaxed text-neutral-600 space-y-2">
             <p>
               <strong className="font-medium text-neutral-800">
                 Société :
@@ -96,7 +96,7 @@ export default function MentionsLegalesPage() {
           >
             Propriété intellectuelle
           </h2>
-          <div className="border border-neutral-200 p-6 text-sm font-light leading-relaxed text-neutral-600 space-y-3">
+          <div className="border border-neutral-200 p-6 text-sm leading-relaxed text-neutral-600 space-y-3">
             <p>
               Les textes, podcasts, logos et graphismes créés pour ce site sont
               la propriété d'Aldjia Boughias, sauf mention contraire explicite.
@@ -139,7 +139,7 @@ export default function MentionsLegalesPage() {
           >
             Limitation de responsabilité
           </h2>
-          <div className="border border-neutral-200 p-6 text-sm font-light leading-relaxed text-neutral-600 space-y-3">
+          <div className="border border-neutral-200 p-6 text-sm leading-relaxed text-neutral-600 space-y-3">
             <p>
               L'éditeur s'efforce de fournir sur ce site des informations aussi
               précises que possible. Toutefois, il ne pourra être tenu
@@ -162,7 +162,7 @@ export default function MentionsLegalesPage() {
           >
             Cookies
           </h2>
-          <div className="border border-neutral-200 p-6 text-sm font-light leading-relaxed text-neutral-600 space-y-3">
+          <div className="border border-neutral-200 p-6 text-sm leading-relaxed text-neutral-600 space-y-3">
             <p>
               Ce site ne dépose pas de cookies de pistage ou de publicité. Le
               service de newsletter (MailerLite) peut utiliser des cookies
@@ -190,7 +190,7 @@ export default function MentionsLegalesPage() {
           >
             Droit applicable
           </h2>
-          <div className="border border-neutral-200 p-6 text-sm font-light leading-relaxed text-neutral-600">
+          <div className="border border-neutral-200 p-6 text-sm leading-relaxed text-neutral-600">
             <p>
               Les présentes mentions légales sont soumises au droit français. En
               cas de litige, les tribunaux français seront seuls compétents.

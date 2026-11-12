@@ -7,13 +7,13 @@ export default function AccessibilitePage() {
   return (
     <Layout withInstagram={false}>
       <section className="m-auto mb-12 mt-8 w-3/4 max-w-3xl">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Accessibilité
         </p>
         <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl">
           Déclaration d'Accessibilité
         </h1>
-        <p className="mt-4 text-xs font-light text-neutral-400">
+        <p className="mt-4 text-xs text-neutral-500">
           Conformément au Référentiel Général d'Amélioration de l'Accessibilité
           (RGAA 4.1). Dernière mise à jour : mai 2025.
         </p>
@@ -27,7 +27,7 @@ export default function AccessibilitePage() {
           >
             Notre engagement
           </h2>
-          <div className="border border-neutral-200 p-6 text-sm font-light leading-relaxed text-neutral-600 space-y-3">
+          <div className="border border-neutral-200 p-6 text-sm leading-relaxed text-neutral-600 space-y-3">
             <p>
               ART AU FÉMININ s'engage à rendre son site accessible conformément
               à l'article 47 de la loi n°2005-102 du 11 février 2005 et au RGAA
@@ -47,7 +47,7 @@ export default function AccessibilitePage() {
           >
             État de conformité
           </h2>
-          <div className="border border-neutral-200 p-6 text-sm font-light leading-relaxed text-neutral-600 space-y-3">
+          <div className="border border-neutral-200 p-6 text-sm leading-relaxed text-neutral-600 space-y-3">
             <p>
               Le site{' '}
               <strong className="font-medium text-neutral-800">
@@ -70,7 +70,7 @@ export default function AccessibilitePage() {
           >
             Mesures prises pour l'accessibilité
           </h2>
-          <div className="border border-neutral-200 p-6 text-sm font-light leading-relaxed text-neutral-600">
+          <div className="border border-neutral-200 p-6 text-sm leading-relaxed text-neutral-600">
             <ul className="space-y-2 pl-4">
               {[
                 'Langue de la page déclarée en français (lang="fr")',
@@ -100,7 +100,7 @@ export default function AccessibilitePage() {
           >
             Non-conformités connues
           </h2>
-          <div className="border border-neutral-200 p-6 text-sm font-light leading-relaxed text-neutral-600 space-y-3">
+          <div className="border border-neutral-200 p-6 text-sm leading-relaxed text-neutral-600 space-y-3">
             <p>
               Les éléments suivants ne sont pas encore pleinement conformes au
               RGAA 4.1 :
@@ -127,7 +127,7 @@ export default function AccessibilitePage() {
           >
             Technologies utilisées
           </h2>
-          <div className="border border-neutral-200 p-6 text-sm font-light leading-relaxed text-neutral-600">
+          <div className="border border-neutral-200 p-6 text-sm leading-relaxed text-neutral-600">
             <ul className="space-y-2 pl-4">
               {[
                 'HTML5',
@@ -151,7 +151,7 @@ export default function AccessibilitePage() {
           >
             Outils d'évaluation utilisés
           </h2>
-          <div className="border border-neutral-200 p-6 text-sm font-light leading-relaxed text-neutral-600">
+          <div className="border border-neutral-200 p-6 text-sm leading-relaxed text-neutral-600">
             <ul className="space-y-2 pl-4">
               {[
                 'Vérification manuelle au clavier (navigation sans souris)',
@@ -174,7 +174,7 @@ export default function AccessibilitePage() {
           >
             Contact — Signaler un problème d'accessibilité
           </h2>
-          <div className="border border-neutral-200 p-6 text-sm font-light leading-relaxed text-neutral-600 space-y-3">
+          <div className="border border-neutral-200 p-6 text-sm leading-relaxed text-neutral-600 space-y-3">
             <p>
               Si vous rencontrez un obstacle à l'accessibilité sur ce site,
               merci de nous le signaler. Nous ferons notre possible pour vous
@@ -192,7 +192,7 @@ export default function AccessibilitePage() {
                 bonjour@artaufeminin.fr
               </a>
             </p>
-            <p className="text-xs text-neutral-400">
+            <p className="text-xs text-neutral-500">
               Nous nous engageons à répondre à votre demande dans un délai de 2
               semaines ouvrées.
             </p>
@@ -206,7 +206,7 @@ export default function AccessibilitePage() {
           >
             Voie de recours
           </h2>
-          <div className="border border-neutral-200 p-6 text-sm font-light leading-relaxed text-neutral-600 space-y-3">
+          <div className="border border-neutral-200 p-6 text-sm leading-relaxed text-neutral-600 space-y-3">
             <p>
               Si vous n'obtenez pas de réponse satisfaisante, vous pouvez
               contacter le Défenseur des droits :

@@ -8,13 +8,13 @@ export default function PolitiqueConfidentialitePage() {
   return (
     <Layout withInstagram={false}>
       <section className="m-auto mb-12 mt-8 w-3/4 max-w-3xl">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Légal
         </p>
         <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl">
           Politique de Confidentialité
         </h1>
-        <p className="mt-4 text-xs font-light text-neutral-400">
+        <p className="mt-4 text-xs text-neutral-500">
           Dernière mise à jour : mai 2025. Conformément au Règlement Général sur
           la Protection des Données (RGPD — UE 2016/679).
         </p>
@@ -28,7 +28,7 @@ export default function PolitiqueConfidentialitePage() {
           >
             Responsable du traitement
           </h2>
-          <div className="border border-neutral-200 p-6 text-sm font-light leading-relaxed text-neutral-600 space-y-2">
+          <div className="border border-neutral-200 p-6 text-sm leading-relaxed text-neutral-600 space-y-2">
             <p>
               <strong className="font-medium text-neutral-800">Nom :</strong>{' '}
               Aldjia Boughias
@@ -54,7 +54,7 @@ export default function PolitiqueConfidentialitePage() {
           >
             Données collectées
           </h2>
-          <div className="border border-neutral-200 p-6 text-sm font-light leading-relaxed text-neutral-600 space-y-3">
+          <div className="border border-neutral-200 p-6 text-sm leading-relaxed text-neutral-600 space-y-3">
             <p>
               Ce site collecte uniquement l'adresse e-mail des personnes qui
               s'inscrivent à la newsletter ART AU FÉMININ. Aucune autre donnée
@@ -75,7 +75,7 @@ export default function PolitiqueConfidentialitePage() {
           >
             Finalité et base légale du traitement
           </h2>
-          <div className="border border-neutral-200 p-6 text-sm font-light leading-relaxed text-neutral-600 space-y-3">
+          <div className="border border-neutral-200 p-6 text-sm leading-relaxed text-neutral-600 space-y-3">
             <p>
               <strong className="font-medium text-neutral-800">
                 Finalité :
@@ -101,7 +101,7 @@ export default function PolitiqueConfidentialitePage() {
           >
             Sous-traitant — MailerLite
           </h2>
-          <div className="border border-neutral-200 p-6 text-sm font-light leading-relaxed text-neutral-600 space-y-3">
+          <div className="border border-neutral-200 p-6 text-sm leading-relaxed text-neutral-600 space-y-3">
             <p>
               La gestion des abonnements et l'envoi des e-mails sont assurés par{' '}
               <strong className="font-medium text-neutral-800">
@@ -125,7 +125,7 @@ export default function PolitiqueConfidentialitePage() {
           >
             Durée de conservation
           </h2>
-          <div className="border border-neutral-200 p-6 text-sm font-light leading-relaxed text-neutral-600">
+          <div className="border border-neutral-200 p-6 text-sm leading-relaxed text-neutral-600">
             <p>
               Votre adresse e-mail est conservée tant que vous êtes abonné(e) à
               la newsletter. En cas de désinscription, vos données sont
@@ -141,7 +141,7 @@ export default function PolitiqueConfidentialitePage() {
           >
             Vos droits
           </h2>
-          <div className="border border-neutral-200 p-6 text-sm font-light leading-relaxed text-neutral-600 space-y-3">
+          <div className="border border-neutral-200 p-6 text-sm leading-relaxed text-neutral-600 space-y-3">
             <p>Conformément au RGPD, vous disposez des droits suivants :</p>
             <ul className="space-y-2 pl-4">
               {[
@@ -212,7 +212,7 @@ export default function PolitiqueConfidentialitePage() {
           >
             Sécurité
           </h2>
-          <div className="border border-neutral-200 p-6 text-sm font-light leading-relaxed text-neutral-600">
+          <div className="border border-neutral-200 p-6 text-sm leading-relaxed text-neutral-600">
             <p>
               Ce site est servi exclusivement en HTTPS. Les données transmises
               via le formulaire d'inscription sont chiffrées en transit. La
@@ -229,7 +229,7 @@ export default function PolitiqueConfidentialitePage() {
           >
             Modifications de cette politique
           </h2>
-          <div className="border border-neutral-200 p-6 text-sm font-light leading-relaxed text-neutral-600">
+          <div className="border border-neutral-200 p-6 text-sm leading-relaxed text-neutral-600">
             <p>
               Cette politique de confidentialité peut être mise à jour à tout
               moment. La date de dernière mise à jour est indiquée en haut de
@@ -240,7 +240,7 @@ export default function PolitiqueConfidentialitePage() {
         </section>
 
         <div className="border-t border-neutral-200 pt-6">
-          <p className="text-xs font-light text-neutral-400">
+          <p className="text-xs text-neutral-500">
             Voir aussi nos{' '}
             <Link
               to="/mentions-legales"

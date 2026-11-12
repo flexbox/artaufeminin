@@ -8,7 +8,12 @@ export interface HeroCardProps {
   subtitle?: string;
 }
 
-export const HeroCard = ({ imageUrl, heroLink, heroTitle, subtitle }: HeroCardProps) => {
+export const HeroCard = ({
+  imageUrl,
+  heroLink,
+  heroTitle,
+  subtitle,
+}: HeroCardProps) => {
   return (
     <Link to={heroLink} className="group block">
       <div className="overflow-hidden bg-neutral-100">
@@ -20,7 +25,7 @@ export const HeroCard = ({ imageUrl, heroLink, heroTitle, subtitle }: HeroCardPr
       </div>
       <div className="mt-3 space-y-1.5">
         {subtitle && (
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             {subtitle}
           </p>
         )}

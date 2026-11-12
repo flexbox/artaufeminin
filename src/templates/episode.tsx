@@ -57,7 +57,7 @@ export default function Episode({ pageContext }) {
         <div className="flex items-center gap-5 border-b border-neutral-200 py-8">
           <PlayButton player={player} size="medium" />
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
               Écouter l'Épisode
             </p>
             {duration && (
@@ -71,7 +71,7 @@ export default function Episode({ pageContext }) {
         {/* Résumé en prose */}
         {summary && (
           <div
-            className="prose prose-neutral my-10 max-w-none font-light text-neutral-600 prose-p:font-light prose-p:leading-relaxed prose-p:text-neutral-600 prose-a:text-neutral-700 prose-a:no-underline hover:prose-a:underline"
+            className="prose prose-neutral my-10 max-w-none text-neutral-600 prose-p:leading-relaxed prose-p:text-neutral-600 prose-a:text-neutral-700 prose-a:no-underline hover:prose-a:underline"
             dangerouslySetInnerHTML={{ __html: summary }}
           />
         )}
@@ -90,10 +90,10 @@ export default function Episode({ pageContext }) {
             />
           </div>
           <div>
-            <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+            <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
               Présenté par
             </p>
-            <p className="text-sm font-light leading-relaxed text-neutral-500">
+            <p className="text-sm leading-relaxed text-neutral-500">
               Aldjia Boughias — développeuse web orientée Art et Culture,
               exploratrice de l'Histoire de l'Art le reste du temps. J'ai créé
               ART AU FÉMININ pour donner aux femmes artistes la place qu'elles
@@ -104,13 +104,13 @@ export default function Episode({ pageContext }) {
 
         {/* Newsletter */}
         <section className="my-10 border border-neutral-200 bg-neutral-50 p-6">
-          <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             Newsletter
           </p>
           <h2 className="mb-2 font-display text-xl font-light text-neutral-900">
             Vous avez aimé cet épisode ?
           </h2>
-          <p className="mb-5 text-sm font-light leading-relaxed text-neutral-500">
+          <p className="mb-5 text-sm leading-relaxed text-neutral-500">
             Recevez les prochains épisodes et articles directement dans votre
             boîte mail. Gratuit, sans spam.
           </p>
@@ -127,7 +127,7 @@ export default function Episode({ pageContext }) {
 
       {/* ── ÉCOUTER SUR LES PLATEFORMES ──────────────────────────── */}
       <div className="mx-auto mb-20 max-w-3xl px-6 lg:px-0">
-        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Écouter sur
         </p>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
@@ -146,7 +146,7 @@ export default function Episode({ pageContext }) {
                   alt={platform.name}
                   className="size-6 shrink-0"
                 />
-                <span className="text-sm font-light text-neutral-700 transition-colors group-hover:text-neutral-900">
+                <span className="text-sm text-neutral-700 transition-colors group-hover:text-neutral-900">
                   {platform.name}
                 </span>
               </a>

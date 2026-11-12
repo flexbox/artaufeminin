@@ -152,7 +152,7 @@ function UpcomingEventCard({ event }: { event: Event }): ReactElement {
 
       {/* Corps */}
       <div className="px-8 py-8">
-        <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           {event.series}
         </p>
         <h2
@@ -192,7 +192,7 @@ function UpcomingEventCard({ event }: { event: Event }): ReactElement {
         {/* Lieu + CTA */}
         <div className="mt-8 sm:flex sm:items-end sm:justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
               Lieu
             </p>
             <p className="mt-1 text-sm font-medium text-neutral-800">
@@ -222,7 +222,7 @@ function PastEventCard({ event }: { event: Event }): ReactElement {
   return (
     <div className="border border-neutral-200 p-6 sm:flex sm:items-start sm:gap-6">
       <div className="mb-4 shrink-0 text-center sm:mb-0 sm:w-14">
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           {month}
         </p>
         <p className="font-display text-3xl font-light leading-none text-neutral-300">
@@ -230,14 +230,14 @@ function PastEventCard({ event }: { event: Event }): ReactElement {
         </p>
       </div>
       <div className="flex-1">
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           {event.series}
         </p>
         <p
           className="mt-1 font-display text-xl font-light text-neutral-700"
           dangerouslySetInnerHTML={{ __html: event.title }}
         />
-        <p className="mt-1 text-xs text-neutral-400">
+        <p className="mt-1 text-xs text-neutral-500">
           {event.venue} · {event.address.split(',')[1]?.trim()}
         </p>
         <p className="mt-2 text-xs text-neutral-500 line-clamp-2">

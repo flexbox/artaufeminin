@@ -11,7 +11,7 @@ export function Hero({ allEpisodes }: HeroProps) {
   if (!allEpisodes || allEpisodes.length < 3) {
     return (
       <div className="m-auto my-12 w-3/4 text-center">
-        <p className="text-sm font-light text-neutral-400">
+        <p className="text-sm text-neutral-500">
           Aucun épisode disponible pour le moment.
         </p>
       </div>
@@ -36,7 +36,7 @@ export function Hero({ allEpisodes }: HeroProps) {
         <a
           href="/podcasts"
           aria-label="Écouter tous les épisodes"
-          className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400 transition-colors hover:text-neutral-900"
+          className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500 transition-colors hover:text-neutral-900"
         >
           Écouter tous les épisodes <span aria-hidden="true">→</span>
         </a>

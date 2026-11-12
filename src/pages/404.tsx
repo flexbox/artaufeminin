@@ -15,7 +15,7 @@ export default function NotFoundPage(): ReactElement {
         <h1 className="mt-2 font-display text-4xl font-light text-neutral-900 md:text-5xl">
           Cette page n'existe pas
         </h1>
-        <p className="mx-auto mt-4 max-w-md text-sm font-light leading-relaxed text-neutral-500">
+        <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-neutral-500">
           La page que vous cherchez a peut-être été déplacée ou supprimée. Voici
           quelques liens pour retrouver votre chemin.
         </p>
@@ -35,13 +35,13 @@ export default function NotFoundPage(): ReactElement {
           </Link>
           <Link
             to="/articles"
-            className="border border-neutral-200 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400 transition-colors hover:border-neutral-500 hover:text-neutral-700"
+            className="border border-neutral-200 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500 transition-colors hover:border-neutral-500 hover:text-neutral-700"
           >
             Les Articles
           </Link>
           <Link
             to="/newsletter"
-            className="border border-neutral-200 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400 transition-colors hover:border-neutral-500 hover:text-neutral-700"
+            className="border border-neutral-200 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500 transition-colors hover:border-neutral-500 hover:text-neutral-700"
           >
             Newsletter
           </Link>
@@ -49,7 +49,7 @@ export default function NotFoundPage(): ReactElement {
 
         <hr className="separator mx-auto mt-16 max-w-xs" />
 
-        <p className="mt-8 font-display text-lg font-light italic text-neutral-400">
+        <p className="mt-8 font-display text-lg font-light italic text-neutral-500">
           « L'Art, c'est aussi savoir se perdre pour mieux se retrouver. »
         </p>
       </div>

@@ -88,7 +88,7 @@ export default function NewsletterPage(): ReactElement {
                   required
                   aria-required="true"
                   placeholder="votre@email.fr"
-                  className="w-full border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-300 focus:border-neutral-500 focus:outline-none transition-colors"
+                  className="w-full border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-500 focus:border-neutral-500 focus:outline-none transition-colors"
                 />
               </div>
 

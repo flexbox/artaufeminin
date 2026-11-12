@@ -1,13 +1,17 @@
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       fontFamily: {
         merri: "'Merriweather', serif",
-        display: ["'Cormorant Garamond'", "serif"],
-        sans: ["'Inter'", "system-ui", "sans-serif"],
+        display: ["'Cormorant Garamond'", 'serif'],
+        sans: ["'Inter'", 'system-ui', 'sans-serif'],
       },
       colors: {
+        // Gris 500 assombri : contraste ≥ 4,5:1 (WCAG AA) sur le fond #f6f6f5
+        neutral: {
+          500: '#666666',
+        },
         // Palette monochrome White Cube
         cream: {
           50: '#ffffff',
@@ -34,5 +38,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],
-}
+  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],
+};

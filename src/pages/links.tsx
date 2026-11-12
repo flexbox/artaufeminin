@@ -138,10 +138,8 @@ export default function LinksPage(): ReactElement {
             className="group flex items-center justify-between border border-neutral-900 bg-neutral-900 px-5 py-4 transition-all hover:bg-neutral-800"
           >
             <div>
-              <span className="text-sm font-light text-white">
-                Par où commencer ?
-              </span>
-              <p className="mt-0.5 text-xs font-light text-white/50">
+              <span className="text-sm text-white">Par où commencer ?</span>
+              <p className="mt-0.5 text-xs text-white/50">
                 Découvrez le podcast et les meilleurs épisodes
               </p>
             </div>
