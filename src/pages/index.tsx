@@ -1,31 +1,17 @@
 import { Link, graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import { RichText } from 'prismic-reactjs';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import { ContentCard } from '../components/content-card';
 import { FeaturedCard } from '../components/featured-card';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import { EXPO, ExpoStatus, useExpoStatus } from '../utils/expo';
 import { stripHtml } from '../utils/html';
 import { slugify } from '../utils/slugify';
 
 /* ─── Galerie : exposition en cours ou à venir ─────────────────── */
-const EXPO = {
-  title: 'Sororité',
-  dates: '25 janvier – 25 février 2027',
-  start: new Date('2027-01-25T00:00:00+01:00'),
-  end: new Date('2027-02-25T23:59:59+01:00'),
-};
-
-type ExpoStatus = 'upcoming' | 'open' | 'closed';
-
-function getExpoStatus(now: Date): ExpoStatus {
-  if (now < EXPO.start) return 'upcoming';
-  if (now <= EXPO.end) return 'open';
-  return 'closed';
-}
-
 const EXPO_COPY: Record<ExpoStatus, { eyebrow: string; text: string }> = {
   upcoming: {
     eyebrow: 'Galerie 3D · Prochaine exposition',
@@ -40,16 +26,6 @@ const EXPO_COPY: Record<ExpoStatus, { eyebrow: string; text: string }> = {
     text: 'La galerie immersive reste ouverte à la visite, depuis votre navigateur.',
   },
 };
-
-// Le statut est recalculé dans le navigateur : le HTML statique peut dater
-// du dernier déploiement, la date du jour non.
-function useExpoStatus(): ExpoStatus {
-  const [status, setStatus] = useState<ExpoStatus>(() =>
-    getExpoStatus(new Date())
-  );
-  useEffect(() => setStatus(getExpoStatus(new Date())), []);
-  return status;
-}
 
 function GallerySection({
   status,
