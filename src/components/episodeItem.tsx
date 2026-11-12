@@ -5,7 +5,7 @@ import { slugify } from '../utils/slugify';
 
 import { useAudioPlayer } from './player/AudioProvider';
 import { PlayButton } from './player/PlayButton';
-import { stripHtml } from '../utils/html';
+import { removeTipeee, stripHtml } from '../utils/html';
 import Text from './text';
 
 interface EpisodeItemProps {
@@ -45,7 +45,9 @@ export default function EpisodeItem({
   );
   const player = useAudioPlayer(audioPlayerData);
 
-  let summary = episode.itunes.summary ? stripHtml(episode.itunes.summary) : '';
+  let summary = episode.itunes.summary
+    ? stripHtml(removeTipeee(episode.itunes.summary))
+    : '';
   if (isSummaryTruncate === true) {
     summary = `${summary.substring(0, 250)}…`;
   }

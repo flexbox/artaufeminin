@@ -346,20 +346,11 @@ const IndexPage = ({ data }) => {
           </div>
           <div className="flex flex-wrap gap-3">
             <a
-              href="https://fr.tipeee.com/art-au-feminin"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Soutenir ART AU FÉMININ sur Tipeee (ouvre un nouvel onglet)"
-              className="shrink-0 border border-neutral-900 bg-neutral-900 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-neutral-700"
-            >
-              Soutenir sur Tipeee
-            </a>
-            <a
               href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Laisser un avis sur Apple Podcasts (ouvre un nouvel onglet)"
-              className="shrink-0 border border-neutral-300 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
+              className="shrink-0 border border-neutral-900 bg-neutral-900 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-neutral-700"
             >
               Laisser 5 ★ sur Apple Podcasts
             </a>

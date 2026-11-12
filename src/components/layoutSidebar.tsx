@@ -2,7 +2,6 @@ import React from 'react';
 
 import Subscribe from './subscribe';
 import SubscribeInstagram from './subscribeInstagram';
-import SubscribeTipeee from './subscribeTipeee';
 
 interface LayoutSidebarProps {
   withPodcast?: boolean;
@@ -20,9 +19,6 @@ export default function LayoutSidebar({
           {withPodcast && <Subscribe />}
           <div className="hidden lg:flex">
             <SubscribeInstagram />
-          </div>
-          <div className="hidden lg:flex">
-            <SubscribeTipeee />
           </div>
         </div>
 

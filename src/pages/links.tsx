@@ -233,32 +233,6 @@ export default function LinksPage(): ReactElement {
           </div>
         </div>
 
-        {/* ── SOUTENIR ─────────────────────────────────────────────── */}
-        <div className="mb-10">
-          <SectionLabel>Soutenir le Podcast</SectionLabel>
-          <a
-            href="https://fr.tipeee.com/art-au-feminin"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center justify-between border border-neutral-300 bg-neutral-50 px-5 py-4 transition-all hover:border-neutral-900"
-          >
-            <div>
-              <span className="text-sm font-light text-neutral-700">
-                Soutenir sur Tipeee
-              </span>
-              <p className="mt-0.5 text-xs text-neutral-500">
-                Chaque contribution aide à produire de nouveaux épisodes
-              </p>
-            </div>
-            <span
-              aria-hidden="true"
-              className="text-neutral-300 transition-transform group-hover:translate-x-0.5 group-hover:text-neutral-600"
-            >
-              →
-            </span>
-          </a>
-        </div>
-
         <p className="text-center text-xs text-neutral-500">
           © {new Date().getFullYear()} ART AU FÉMININ · Par{' '}
           <a

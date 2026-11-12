@@ -19,3 +19,14 @@ export function stripHtml(input: string): string {
     .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
     .trim();
 }
+
+/**
+ * Removes the "Soutenir ART au féminin" Tipeee paragraphs that Anchor
+ * episode descriptions still contain.
+ */
+export function removeTipeee(input: string): string {
+  return input.replace(
+    /<p>(?:(?!<\/p>)[\s\S])*tipeee(?:(?!<\/p>)[\s\S])*<\/p>/gi,
+    ''
+  );
+}

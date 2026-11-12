@@ -35,6 +35,15 @@ function buildPaginatedPages(total) {
 }
 
 // Create blog pages dynamically
+// Les descriptions Anchor contiennent encore un lien « Soutenir ART au féminin »
+// vers Tipeee : on retire ces paragraphes (HTML) ou ces lignes (texte brut).
+const removeTipeee = (input) =>
+  input
+    ? input
+        .replace(/<p>(?:(?!<\/p>)[\s\S])*tipeee(?:(?!<\/p>)[\s\S])*<\/p>/gi, '')
+        .replace(/^.*tipeee.*$\n?/gim, '')
+    : input;
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
 
@@ -123,6 +132,11 @@ exports.createPages = async ({ graphql, actions }) => {
       component: episodeTemplate,
       context: {
         ...node,
+        itunes: {
+          ...node.itunes,
+          summary: removeTipeee(node.itunes.summary),
+        },
+        contentSnippet: removeTipeee(node.contentSnippet),
         slug,
       },
     });
