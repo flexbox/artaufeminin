@@ -46,7 +46,7 @@ function QuestionItem({
       </button>
 
       {open && (
-        <div className="prose prose-neutral mb-6 max-w-none prose-p:leading-relaxed prose-p:text-neutral-600 prose-a:text-neutral-700 prose-a:no-underline hover:prose-a:underline">
+        <div className="prose prose-neutral mb-6 max-w-none prose-p:leading-relaxed prose-p:text-neutral-600 prose-headings:font-display prose-headings:font-light prose-a:text-neutral-900 prose-a:decoration-neutral-300 prose-a:underline-offset-4 hover:prose-a:decoration-neutral-900">
           {RichText.render(question.data.answer.richText)}
         </div>
       )}

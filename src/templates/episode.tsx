@@ -71,7 +71,7 @@ export default function Episode({ pageContext }) {
         {/* Résumé en prose */}
         {summary && (
           <div
-            className="prose prose-neutral my-10 max-w-none text-neutral-600 prose-p:leading-relaxed prose-p:text-neutral-600 prose-a:text-neutral-700 prose-a:no-underline hover:prose-a:underline"
+            className="prose prose-neutral my-10 max-w-none text-neutral-600 prose-p:leading-relaxed prose-p:text-neutral-600 prose-headings:font-display prose-headings:font-light prose-a:text-neutral-900 prose-a:decoration-neutral-300 prose-a:underline-offset-4 hover:prose-a:decoration-neutral-900"
             dangerouslySetInnerHTML={{ __html: summary }}
           />
         )}

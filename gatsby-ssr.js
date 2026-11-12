@@ -28,9 +28,8 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
       crossOrigin="anonymous"
     />,
     <link
-      key="gf-cormorant"
-      rel="preload"
-      as="style"
+      key="gf-fonts"
+      rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap"
     />,
   ]);

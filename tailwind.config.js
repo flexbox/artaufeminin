@@ -8,7 +8,7 @@ module.exports = {
         sans: ["'Inter'", 'system-ui', 'sans-serif'],
       },
       colors: {
-        // Gris 500 assombri : contraste ≥ 4,5:1 (WCAG AA) sur le fond #f6f6f5
+        // Gris 500 assombri : contraste ≥ 4,5:1 (WCAG AA) sur fond blanc et sur neutral-50
         neutral: {
           500: '#666666',
         },

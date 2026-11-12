@@ -44,7 +44,7 @@ export default function Book(props: BookProps): ReactElement {
 
       {/* ── CONTENU ──────────────────────────────────────────────── */}
       <article className="mx-auto max-w-3xl px-6 lg:px-0">
-        <div className="prose prose-neutral my-10 max-w-none prose-p:leading-relaxed prose-p:text-neutral-600 prose-headings:font-display prose-headings:font-light prose-a:text-neutral-700 prose-a:no-underline hover:prose-a:underline prose-img:rounded-none">
+        <div className="prose prose-neutral my-10 max-w-none prose-p:leading-relaxed prose-p:text-neutral-600 prose-headings:font-display prose-headings:font-light prose-a:text-neutral-900 prose-a:decoration-neutral-300 prose-a:underline-offset-4 hover:prose-a:decoration-neutral-900 prose-img:rounded-none">
           <CustomRichText render={richText} />
         </div>
 

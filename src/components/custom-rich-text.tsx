@@ -30,13 +30,14 @@ function customHtmlSerializer(type, element, content, children, key) {
     const { url, alt, copyright } = element;
 
     return (
-      <figure className="my-32 overflow-hidden bg-white">
-        <div className="px-4 py-5 sm:p-6">
-          <img className="mx-auto" src={url} alt={alt} />
-          <figcaption className="mt-8">
-            {alt} {copyright && `© ${copyright}`}
+      <figure key={key} className="not-prose my-12">
+        <img className="mx-auto" src={url} alt={alt ?? ''} loading="lazy" />
+        {(alt || copyright) && (
+          <figcaption className="mt-3 text-center text-xs leading-relaxed text-neutral-500">
+            {alt}
+            {copyright && ` © ${copyright}`}
           </figcaption>
-        </div>
+        )}
       </figure>
     );
   }
