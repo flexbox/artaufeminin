@@ -172,16 +172,15 @@ const IndexPage = ({ data }) => {
             <div className="mx-auto w-page max-w-6xl lg:w-page-lg">
               <div className="max-w-xl">
                 <p className="mb-5 text-xs font-semibold uppercase tracking-[0.25em] text-white/70">
-                  Le podcast
-                  {latestEpisode?.itunes?.season &&
-                    ` · Saison ${latestEpisode.itunes.season}`}
+                  Média culturel
                 </p>
                 <h1
                   id="hero-heading"
                   className="font-display text-4xl font-light leading-tight text-white md:text-5xl lg:text-6xl xl:text-7xl"
                 >
                   <span className="sr-only">
-                    ART AU FÉMININ, le podcast sur les femmes artistes :{' '}
+                    ART AU FÉMININ, le média culturel sur les femmes artistes
+                    :{' '}
                   </span>
                   Elles ont créé,{' '}
                   <span className="block italic">
@@ -189,8 +188,9 @@ const IndexPage = ({ data }) => {
                   </span>
                 </h1>
                 <p className="mt-6 max-w-md text-base leading-relaxed text-white/80">
-                  Un podcast pour redécouvrir les femmes artistes qui ont
-                  façonné l'Art, de l'Antiquité à aujourd'hui.
+                  Podcast, articles, chroniques de livres et galerie 3D pour
+                  redécouvrir les femmes artistes qui ont façonné l'Art, de
+                  l'Antiquité à aujourd'hui.
                 </p>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   <Link
@@ -200,10 +200,10 @@ const IndexPage = ({ data }) => {
                     Écouter le Podcast <span aria-hidden="true">→</span>
                   </Link>
                   <Link
-                    to="/newsletter"
+                    to="/articles"
                     className="whitespace-nowrap border border-white/60 px-7 py-3 text-center text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:border-white"
                   >
-                    S'abonner à la Newsletter
+                    Lire les Articles <span aria-hidden="true">→</span>
                   </Link>
                 </div>
 
@@ -625,7 +625,7 @@ export const Head = ({ location }: { location: { pathname: string } }) => {
 
   return (
     <SEO
-      title="ART AU FÉMININ — Le podcast sur les femmes artistes et l'Histoire de l'Art"
+      title="ART AU FÉMININ — Média culturel et podcast sur les femmes artistes"
       description="Femmes artistes oubliées par l'Histoire de l'Art — redécouvrez leurs œuvres et leurs parcours avec ART AU FÉMININ : podcast, articles, portraits et chroniques présentés par Aldjia Boughias."
       url={`https://artaufeminin.fr${location.pathname}`}
       jsonLd={jsonLd}
