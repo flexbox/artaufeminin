@@ -98,8 +98,8 @@ export default function Footer({ siteTitle }: FooterProps) {
                 </span>
               </Link>
               <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/60">
-                Un podcast par Aldjia Boughias — célébrer les femmes artistes
-                qui ont façonné l'histoire de l'art.
+                Un média culturel par Aldjia Boughias — célébrer les femmes
+                artistes qui ont façonné l'histoire de l'art.
               </p>
             </div>
 
