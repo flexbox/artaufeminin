@@ -6,6 +6,8 @@ import Layout from '../components/layout';
 import PressList from '../components/pressList';
 import SEO from '../components/seo';
 
+const DIRECTORY_HOSTS = ['podcasts.google.com', 'podtail.com'];
+
 interface PressPageProps {
   data: {
     allPrismicPress: {
@@ -15,7 +17,12 @@ interface PressPageProps {
 }
 
 export default function PressPage({ data }: PressPageProps): ReactElement {
-  const press = data.allPrismicPress.nodes;
+  // Annuaires d'écoute (Google Podcasts, fermé en 2024, et Podtail) : ce ne
+  // sont pas des retombées presse. À archiver aussi dans Prismic.
+  const press = data.allPrismicPress.nodes.filter(
+    (item: { data: { url: { url: string } } }) =>
+      !DIRECTORY_HOSTS.some((host) => item.data.url.url?.includes(host))
+  );
 
   return (
     <Layout>
@@ -40,38 +47,37 @@ export default function PressPage({ data }: PressPageProps): ReactElement {
 
       <section className="mx-auto mb-16 w-page max-w-5xl">
         <h2 className="font-sans mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
-          Ils en Parlent
+          Ils en parlent
         </h2>
-        <div className="flex flex-wrap items-center justify-start gap-8 border border-neutral-200 bg-neutral-50 p-8">
+        {/* Logos recadrés sur fond blanc : niveaux de gris, couleur au survol */}
+        <div className="flex flex-wrap items-center gap-x-12 gap-y-8 border border-neutral-200 bg-white px-8 py-10">
+          <StaticImage
+            src="../images/logo-francetv.png"
+            alt="franceinfo"
+            placeholder="none"
+            height={26}
+            className="opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0"
+          />
           <StaticImage
             src="../images/logo-panthere-premiere.png"
             alt="Panthère Première"
-            placeholder="blurred"
-            height={40}
-          />
-          <StaticImage
-            src="../images/logo-podtail.png"
-            alt="Podtail"
-            placeholder="blurred"
-            height={40}
+            placeholder="none"
+            height={36}
+            className="opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0"
           />
           <StaticImage
             src="../images/logo-cultea.png"
             alt="Cultea"
-            placeholder="blurred"
-            height={40}
-          />
-          <StaticImage
-            src="../images/logo-francetv.png"
-            alt="France Info"
-            placeholder="blurred"
-            height={40}
+            placeholder="none"
+            height={52}
+            className="opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0"
           />
           <StaticImage
             src="../images/logo-amylee.png"
             alt="Amylee"
-            placeholder="blurred"
-            height={40}
+            placeholder="none"
+            height={26}
+            className="opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0"
           />
         </div>
       </section>
