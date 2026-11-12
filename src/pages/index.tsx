@@ -517,44 +517,47 @@ const IndexPage = ({ data }) => {
       )}
 
       {/* ── SOUTENIR LE PODCAST ────────────────────────────────────── */}
+      {/* Bandeau clair pleine largeur : bien séparé des articles */}
       <section
-        className="mx-auto my-24 w-page max-w-4xl text-center"
+        className="mt-24 border-t border-neutral-200 bg-neutral-50 py-20"
         aria-labelledby="section-soutien"
       >
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
-          Soutenir ART AU FÉMININ
-        </p>
-        <h2
-          id="section-soutien"
-          className="mt-3 font-display text-3xl font-light leading-snug text-neutral-900 md:text-4xl"
-        >
-          Vous aimez le podcast ?
-        </h2>
-        <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-neutral-600">
-          Une note ou un abonnement sur votre plateforme d'écoute aide d'autres
-          personnes à découvrir ces artistes.
-        </p>
-        <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
-          {SUPPORT_PLATFORMS.map((platform) => (
-            <li key={platform.name}>
-              <a
-                href={platform.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex h-full flex-col items-center border border-neutral-200 bg-white px-6 py-8 transition-colors hover:border-neutral-900"
-              >
-                <platform.Icon className="mb-4 size-7 text-neutral-400 transition-colors group-hover:text-neutral-900" />
-                <span className="font-display text-2xl font-light text-neutral-900">
-                  {platform.name}
-                </span>
-                <span className="mt-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors group-hover:text-neutral-900">
-                  {platform.action} <span aria-hidden="true">→</span>
-                </span>
-                <span className="sr-only">(ouvre un nouvel onglet)</span>
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="mx-auto w-page max-w-4xl text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
+            Soutenir ART AU FÉMININ
+          </p>
+          <h2
+            id="section-soutien"
+            className="mt-3 font-display text-3xl font-light leading-snug text-neutral-900 md:text-4xl"
+          >
+            Vous aimez le podcast ?
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-neutral-600">
+            Une note ou un abonnement sur votre plateforme d'écoute aide
+            d'autres personnes à découvrir ces artistes.
+          </p>
+          <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {SUPPORT_PLATFORMS.map((platform) => (
+              <li key={platform.name}>
+                <a
+                  href={platform.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex h-full flex-col items-center border border-neutral-200 bg-white px-6 py-8 transition-colors hover:border-neutral-900"
+                >
+                  <platform.Icon className="mb-4 size-7 text-neutral-400 transition-colors group-hover:text-neutral-900" />
+                  <span className="font-display text-2xl font-light text-neutral-900">
+                    {platform.name}
+                  </span>
+                  <span className="mt-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors group-hover:text-neutral-900">
+                    {platform.action} <span aria-hidden="true">→</span>
+                  </span>
+                  <span className="sr-only">(ouvre un nouvel onglet)</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
     </Layout>
   );
