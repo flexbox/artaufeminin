@@ -1,7 +1,7 @@
 import { Link, graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import { RichText } from 'prismic-reactjs';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { ContentCard } from '../components/content-card';
 import { FeaturedCard } from '../components/featured-card';
@@ -9,6 +9,133 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { stripHtml } from '../utils/html';
 import { slugify } from '../utils/slugify';
+
+/* ─── Galerie : exposition en cours ou à venir ─────────────────── */
+const EXPO = {
+  title: 'Sororité',
+  dates: '25 janvier – 25 février 2027',
+  start: new Date('2027-01-25T00:00:00+01:00'),
+  end: new Date('2027-02-25T23:59:59+01:00'),
+};
+
+type ExpoStatus = 'upcoming' | 'open' | 'closed';
+
+function getExpoStatus(now: Date): ExpoStatus {
+  if (now < EXPO.start) return 'upcoming';
+  if (now <= EXPO.end) return 'open';
+  return 'closed';
+}
+
+const EXPO_COPY: Record<ExpoStatus, { eyebrow: string; text: string }> = {
+  upcoming: {
+    eyebrow: 'Galerie 3D · Prochaine exposition',
+    text: "En attendant l'ouverture, la galerie immersive est déjà ouverte à la visite, depuis votre navigateur.",
+  },
+  open: {
+    eyebrow: 'Galerie 3D · Exposition en cours',
+    text: 'À visiter dès maintenant dans la galerie immersive, depuis votre navigateur.',
+  },
+  closed: {
+    eyebrow: 'Galerie 3D · Exposition passée',
+    text: 'La galerie immersive reste ouverte à la visite, depuis votre navigateur.',
+  },
+};
+
+function GallerySection() {
+  // Le statut est recalculé dans le navigateur : le HTML statique peut dater
+  // du dernier déploiement, la date du jour non.
+  const [status, setStatus] = useState<ExpoStatus>(() =>
+    getExpoStatus(new Date())
+  );
+  useEffect(() => setStatus(getExpoStatus(new Date())), []);
+  const copy = EXPO_COPY[status];
+
+  return (
+    <section className="mt-24 bg-neutral-950" aria-labelledby="section-galerie">
+      <div className="mx-auto grid w-page max-w-6xl grid-cols-1 gap-12 py-16 lg:w-page-lg lg:grid-cols-[2fr_3fr] lg:gap-16 lg:py-24">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
+            {copy.eyebrow}
+          </p>
+          <h2
+            id="section-galerie"
+            className="mt-4 font-display text-6xl font-light italic leading-none text-white lg:text-7xl"
+          >
+            {EXPO.title}
+          </h2>
+          <p className="mt-5 font-display text-xl font-light text-white/70 lg:text-2xl">
+            {EXPO.dates}
+          </p>
+        </div>
+
+        <div className="lg:border-l lg:border-white/10 lg:pl-16">
+          <p className="text-base leading-relaxed text-white/70">
+            Quinze artistes réunies autour de la sororité, ce lien entre femmes
+            qui traverse l'histoire de l'art. {copy.text}
+          </p>
+          <dl className="mt-8 grid grid-cols-3 border-y border-white/10 py-5">
+            {[
+              ['15', 'Artistes'],
+              ['3D', 'Immersive'],
+              ['31', 'Jours'],
+            ].map(([value, label]) => (
+              <div key={label}>
+                <dt className="sr-only">{label}</dt>
+                <dd className="font-display text-3xl font-light text-white">
+                  {value}
+                </dd>
+                <dd
+                  aria-hidden="true"
+                  className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/50"
+                >
+                  {label}
+                </dd>
+              </div>
+            ))}
+          </dl>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <a
+              href="https://galerie.artaufeminin.fr"
+              className="whitespace-nowrap border border-white bg-white px-6 py-3 text-center text-xs font-semibold uppercase tracking-[0.2em] text-neutral-900 transition-colors hover:bg-neutral-200"
+            >
+              {status === 'open'
+                ? "Voir l'exposition"
+                : 'Entrer dans la galerie'}{' '}
+              <span aria-hidden="true">→</span>
+            </a>
+            {status === 'upcoming' && (
+              <Link
+                to="/galerie"
+                className="whitespace-nowrap border border-white/40 px-6 py-3 text-center text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:border-white"
+              >
+                M'avertir de l'ouverture
+              </Link>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── Soutien : plateformes d'écoute ───────────────────────────── */
+const SUPPORT_PLATFORMS = [
+  {
+    name: 'Apple Podcasts',
+    action: 'Laisser une note',
+    href: 'https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152',
+  },
+  {
+    name: 'Spotify',
+    action: 'Laisser une note',
+    href: 'https://open.spotify.com/show/18f84r0ic2PUenYvBRr2Ps',
+  },
+  {
+    name: 'Deezer',
+    action: "S'abonner",
+    href: 'https://www.deezer.com/fr/show/2157592',
+  },
+];
 
 /* ─── Page ──────────────────────────────────────────────────────── */
 const IndexPage = ({ data }) => {
@@ -293,92 +420,46 @@ const IndexPage = ({ data }) => {
       </section>
 
       {/* ── GALERIE ───────────────────────────────────────────────── */}
-      <section className="mt-24 border-t border-neutral-200 bg-neutral-950">
-        <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 py-16 lg:flex-row lg:items-end lg:justify-between lg:px-16 lg:py-20">
-          <div className="max-w-lg">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
-              Ouverte · Exposition « Sororité » du 25 janvier au 25 février 2027
-            </p>
-            <h2 className="font-display text-4xl font-light leading-tight text-white lg:text-5xl">
-              Galerie ART AU FÉMININ
-            </h2>
-            <p className="mt-2 font-display text-xl italic text-white/60">
-              « Sororité »
-            </p>
-            <p className="mt-5 text-sm leading-relaxed text-white/70">
-              Une galerie d'Art immersive en 3D dédiée aux femmes artistes, à
-              visiter dès maintenant depuis votre navigateur. Sa première
-              exposition, en préparation, réunira 15 artistes autour du thème de
-              la Sororité — ce lien puissant entre femmes qui traverse
-              l'Histoire de l'Art. Ouverture le 25 janvier 2027, jusqu'au 25
-              février.
-            </p>
-          </div>
-          <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
-            <a
-              href="https://galerie.artaufeminin.fr"
-              aria-label="Entrer dans la Galerie ART AU FÉMININ"
-              className="border border-white/40 bg-white/10 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-white/20"
-            >
-              Entrer dans la galerie <span aria-hidden="true">→</span>
-            </a>
-            <Link
-              to="/galerie"
-              aria-label="Être informée de l'ouverture de l'exposition Sororité"
-              className="border border-white/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/60 hover:text-white"
-            >
-              M'avertir de l'ouverture
-            </Link>
-          </div>
-        </div>
-      </section>
+      <GallerySection />
 
       {/* ── SOUTENIR LE PODCAST ────────────────────────────────────── */}
-      <section className="mx-auto my-20 w-page max-w-6xl lg:w-page-lg">
-        <div className="flex flex-col gap-6 border-t border-neutral-200 pt-10 lg:flex-row lg:items-center lg:justify-between">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
-              Soutenez le Podcast
-            </p>
-            <p className="mt-2 font-display text-2xl font-light text-neutral-900">
-              Vous aimez ART AU FÉMININ ?
-            </p>
-            <p className="mt-2 text-sm text-neutral-600">
-              Une note ou un abonnement sur votre plateforme d'écoute aide
-              d'autres personnes à découvrir ces artistes.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            {[
-              {
-                label: 'Noter 5 ★ sur Apple Podcasts',
-                name: 'Apple Podcasts',
-                href: 'https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152',
-              },
-              {
-                label: 'Noter 5 ★ sur Spotify',
-                name: 'Spotify',
-                href: 'https://open.spotify.com/show/18f84r0ic2PUenYvBRr2Ps',
-              },
-              {
-                label: "S'abonner sur Deezer",
-                name: 'Deezer',
-                href: 'https://www.deezer.com/fr/show/2157592',
-              },
-            ].map((platform) => (
+      <section
+        className="mx-auto my-24 w-page max-w-4xl text-center"
+        aria-labelledby="section-soutien"
+      >
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
+          Soutenez le Podcast
+        </p>
+        <h2
+          id="section-soutien"
+          className="mt-3 font-display text-3xl font-light leading-snug text-neutral-900 md:text-4xl"
+        >
+          Vous aimez ART AU FÉMININ ?
+        </h2>
+        <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-neutral-600">
+          Une note ou un abonnement sur votre plateforme d'écoute aide d'autres
+          personnes à découvrir ces artistes.
+        </p>
+        <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          {SUPPORT_PLATFORMS.map((platform) => (
+            <li key={platform.name}>
               <a
-                key={platform.name}
                 href={platform.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`${platform.label} (ouvre un nouvel onglet)`}
-                className="shrink-0 border border-neutral-900 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-900 transition-colors hover:bg-neutral-900 hover:text-white"
+                className="group flex h-full flex-col items-center border border-neutral-200 bg-white px-6 py-8 transition-colors hover:border-neutral-900"
               >
-                {platform.label}
+                <span className="font-display text-2xl font-light text-neutral-900">
+                  {platform.name}
+                </span>
+                <span className="mt-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors group-hover:text-neutral-900">
+                  {platform.action} <span aria-hidden="true">→</span>
+                </span>
+                <span className="sr-only">(ouvre un nouvel onglet)</span>
               </a>
-            ))}
-          </div>
-        </div>
+            </li>
+          ))}
+        </ul>
       </section>
     </Layout>
   );
