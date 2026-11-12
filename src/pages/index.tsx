@@ -333,9 +333,9 @@ const IndexPage = ({ data }) => {
         </div>
       </section>
 
-      {/* ── APPLE PODCASTS ────────────────────────────────────────── */}
+      {/* ── SOUTENIR LE PODCAST ────────────────────────────────────── */}
       <section className="mx-auto my-20 w-11/12 max-w-7xl">
-        <div className="flex flex-col gap-6 border-t border-neutral-200 pt-10 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-6 border-t border-neutral-200 pt-10 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
               Soutenez le Podcast
@@ -343,17 +343,40 @@ const IndexPage = ({ data }) => {
             <p className="mt-2 font-display text-2xl font-light text-neutral-900">
               Vous aimez ART AU FÉMININ ?
             </p>
+            <p className="mt-2 text-sm font-light text-neutral-600">
+              Une note ou un abonnement sur votre plateforme d'écoute aide
+              d'autres personnes à découvrir ces artistes.
+            </p>
           </div>
           <div className="flex flex-wrap gap-3">
-            <a
-              href="https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Laisser un avis sur Apple Podcasts (ouvre un nouvel onglet)"
-              className="shrink-0 border border-neutral-900 bg-neutral-900 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-neutral-700"
-            >
-              Laisser 5 ★ sur Apple Podcasts
-            </a>
+            {[
+              {
+                label: 'Noter 5 ★ sur Apple Podcasts',
+                name: 'Apple Podcasts',
+                href: 'https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152',
+              },
+              {
+                label: 'Noter 5 ★ sur Spotify',
+                name: 'Spotify',
+                href: 'https://open.spotify.com/show/18f84r0ic2PUenYvBRr2Ps',
+              },
+              {
+                label: "S'abonner sur Deezer",
+                name: 'Deezer',
+                href: 'https://www.deezer.com/fr/show/2157592',
+              },
+            ].map((platform) => (
+              <a
+                key={platform.name}
+                href={platform.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${platform.label} (ouvre un nouvel onglet)`}
+                className="shrink-0 border border-neutral-900 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-900 transition-colors hover:bg-neutral-900 hover:text-white"
+              >
+                {platform.label}
+              </a>
+            ))}
           </div>
         </div>
       </section>
