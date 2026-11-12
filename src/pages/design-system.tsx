@@ -364,7 +364,7 @@ export default function DesignSystemPage(): ReactElement {
         <Section
           id="mise-en-page"
           title="Mise en page"
-          intro="<main> n'a pas de padding : chaque section de premier niveau choisit son conteneur. w-page = 100 % − 3 rem (24 px de chaque côté) ; w-page-lg = 100 % − 8 rem à partir de lg."
+          intro="<main> n'a pas de padding : chaque section de premier niveau choisit son conteneur. w-page = 100 % − 3 rem (24 px de chaque côté) ; w-page-lg = 100 % − 8 rem à partir de lg."
         >
           <div className="space-y-4">
             {[
