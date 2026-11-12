@@ -20,7 +20,7 @@ export default function CommencerPage({ data }): ReactElement {
           <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl lg:text-6xl">
             Par où <span className="italic">commencer ?</span>
           </h1>
-          <p className="mt-6 max-w-xl text-sm leading-relaxed text-neutral-600">
+          <p className="mt-6 max-w-xl text-base leading-relaxed md:text-lg text-neutral-600">
             ART AU FÉMININ est un podcast et un média dédié aux femmes artistes
             — celles que l'Histoire de l'Art a trop souvent ignorées. Voici le
             meilleur point d'entrée pour découvrir le projet.
@@ -98,7 +98,7 @@ export default function CommencerPage({ data }): ReactElement {
                   {String(index + 1).padStart(2, '0')}
                 </span>
                 <div className="min-w-0 flex-1">
-                  <p className="mb-1 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
+                  <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
                     Saison {episode.itunes.season} · Épisode{' '}
                     {episode.itunes.episode}
                   </p>
@@ -215,7 +215,7 @@ export default function CommencerPage({ data }): ReactElement {
                 {String(index + 1).padStart(2, '0')}
               </span>
               <div className="min-w-0 flex-1">
-                <p className="mb-1 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
+                <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
                   {label}
                 </p>
                 <p className="font-display text-lg font-light leading-snug text-neutral-900 transition-colors group-hover:text-neutral-600">

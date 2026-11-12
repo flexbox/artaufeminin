@@ -36,7 +36,7 @@ export default function Book(props: BookProps): ReactElement {
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             Chronique
           </p>
-          <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl lg:text-6xl">
+          <h1 className="font-display text-3xl font-light leading-tight text-neutral-900 md:text-4xl lg:text-5xl">
             {seoTitle}
           </h1>
         </div>

@@ -15,14 +15,14 @@ export default function AboutPage() {
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
               À Propos
             </p>
-            <h1 className="font-display text-5xl font-light leading-tight text-neutral-900 md:text-6xl lg:text-7xl">
+            <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl lg:text-6xl">
               Aldjia <span className="italic">Boughias</span>
             </h1>
             <p className="mt-4 font-display text-xl italic text-neutral-500 md:text-2xl">
               Développeuse web orientée Art et Culture · Fondatrice d'ART AU
               FÉMININ
             </p>
-            <p className="mt-6 max-w-lg text-sm leading-relaxed text-neutral-600">
+            <p className="mt-6 max-w-lg text-base leading-relaxed md:text-lg text-neutral-600">
               J'ai créé ART AU FÉMININ par passion pour l'Histoire de l'Art,
               mais aussi pour continuer d'apprendre et partager ce que je
               découvrais. Un projet né d'une curiosité simple : combien de
@@ -72,7 +72,7 @@ export default function AboutPage() {
           <p className="font-display text-2xl font-light italic leading-relaxed text-neutral-600">
             La réponse m'a poussée à aller plus loin.
           </p>
-          <p className="text-sm leading-relaxed text-neutral-600">
+          <p className="text-base leading-relaxed text-neutral-600">
             Avec ce podcast sur les{' '}
             <strong className="font-medium text-neutral-700">
               femmes artistes
@@ -81,7 +81,7 @@ export default function AboutPage() {
             historiennes de l'Art à nous parler de ces femmes qui ont marqué
             l'Histoire mais ont été, pour la plupart, oubliées.
           </p>
-          <p className="text-sm leading-relaxed text-neutral-600">
+          <p className="text-base leading-relaxed text-neutral-600">
             J'invite aussi des{' '}
             <strong className="font-medium text-neutral-700">
               femmes artistes d'aujourd'hui
@@ -89,7 +89,7 @@ export default function AboutPage() {
             à témoigner de leur parcours, de leur travail et de leur regard sur
             la place des femmes dans le monde de l'Art contemporain.
           </p>
-          <p className="text-sm leading-relaxed text-neutral-600">
+          <p className="text-base leading-relaxed text-neutral-600">
             ART AU FÉMININ, c'est un podcast, des articles, des chroniques de
             livres et des citations — tout ce qui permet de retracer et de
             célébrer l'
@@ -207,7 +207,7 @@ export default function AboutPage() {
           <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             Suivre ART AU FÉMININ
           </p>
-          <h2 className="mb-8 font-display text-3xl font-light text-neutral-900">
+          <h2 className="mb-8 font-display text-3xl font-light text-neutral-900 md:text-4xl">
             Rejoignez la Communauté
           </h2>
           <div className="flex flex-wrap justify-center gap-3">

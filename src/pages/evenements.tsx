@@ -129,7 +129,7 @@ function UpcomingEventCard({ event }: { event: Event }): ReactElement {
       <div className="border-b border-neutral-200 bg-neutral-900 px-8 py-5 sm:flex sm:items-center sm:justify-between">
         <div className="flex items-center gap-5">
           <div className="text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/50">
               {month}
             </p>
             <p className="font-display text-5xl font-light leading-none text-white">
@@ -145,7 +145,7 @@ function UpcomingEventCard({ event }: { event: Event }): ReactElement {
             </p>
           </div>
         </div>
-        <span className="mt-4 inline-block border border-white/30 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/70 sm:mt-0">
+        <span className="mt-4 inline-block border border-white/30 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-white/70 sm:mt-0">
           {event.places} places · {event.price} €
         </span>
       </div>
@@ -181,7 +181,7 @@ function UpcomingEventCard({ event }: { event: Event }): ReactElement {
           {event.highlights.map(({ icon, label, desc }) => (
             <div key={label} className="bg-white p-5">
               <p className="mb-2 text-base">{icon}</p>
-              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
+              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
                 {label}
               </p>
               <p className="text-xs leading-relaxed text-neutral-500">{desc}</p>
@@ -222,7 +222,7 @@ function PastEventCard({ event }: { event: Event }): ReactElement {
   return (
     <div className="border border-neutral-200 p-6 sm:flex sm:items-start sm:gap-6">
       <div className="mb-4 shrink-0 text-center sm:mb-0 sm:w-14">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
           {month}
         </p>
         <p className="font-display text-3xl font-light leading-none text-neutral-300">

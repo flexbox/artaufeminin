@@ -75,7 +75,7 @@ function ArticleRow({ article }: { article: ArticleProps }) {
           </div>
         </div>
         <div className="flex flex-1 flex-col">
-          <p className="text-xs font-semibold uppercase tracking-widest text-clay-500">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-clay-500">
             {date}
           </p>
           <h2 className="mt-1 font-display text-xl font-semibold leading-snug text-stone-900 transition-colors group-hover:text-clay-500">

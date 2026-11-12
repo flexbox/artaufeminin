@@ -153,7 +153,7 @@ export function Header(): ReactElement {
             >
               {ctaNav.name}
             </Link>
-            <p className="mt-6 text-xs uppercase tracking-widest text-neutral-500">
+            <p className="mt-6 text-xs uppercase tracking-[0.25em] text-neutral-500">
               Par Aldjia Boughias
             </p>
           </div>

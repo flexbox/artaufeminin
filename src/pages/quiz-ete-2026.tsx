@@ -150,7 +150,7 @@ export default function QuizEte2026() {
               Alma Thomas
             </cite>
           </blockquote>
-          <p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
+          <p className="mt-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             Œuvre à chercher
           </p>
           <p className="mt-1 font-display text-sm italic text-neutral-600">
@@ -191,7 +191,7 @@ export default function QuizEte2026() {
                     onClick={() => handleAnswer(oi)}
                     className="w-full px-6 py-4 text-left text-sm text-neutral-600 transition-colors hover:bg-neutral-50 hover:text-neutral-900"
                   >
-                    <span className="mr-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
+                    <span className="mr-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
                       {['A', 'B', 'C', 'D'][oi]}.
                     </span>
                     {option}
@@ -241,7 +241,7 @@ export default function QuizEte2026() {
                 {resultArtist.description}
               </p>
               <div className="mt-6 border-t border-neutral-100 pt-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
                   Œuvre à chercher
                 </p>
                 <p className="mt-1 font-display text-base italic text-neutral-700">

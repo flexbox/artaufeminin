@@ -78,7 +78,7 @@ export default function EpisodeItem({
       </Link>
       <div className="flex items-center">
         <PlayButton player={player} size="small" />
-        <Text className="ml-4 text-sm font-semibold uppercase tracking-widest text-clay-500">
+        <Text className="ml-4 text-xs font-semibold uppercase tracking-[0.2em] text-clay-500">
           Écouter
         </Text>
       </div>

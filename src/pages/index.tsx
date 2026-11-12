@@ -43,7 +43,7 @@ const IndexPage = ({ data }) => {
           {/* Gradient + phrase d'accroche */}
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-white/70">
+            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.25em] text-white/70">
               Art au Féminin
             </p>
             <h2 className="max-w-3xl font-display text-4xl font-light leading-tight text-white lg:text-6xl xl:text-7xl">
@@ -111,7 +111,7 @@ const IndexPage = ({ data }) => {
               <p className="font-display text-3xl font-light text-neutral-900">
                 {number}
               </p>
-              <p className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
+              <p className="mt-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
                 {label}
               </p>
             </div>

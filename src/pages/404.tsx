@@ -12,7 +12,7 @@ export default function NotFoundPage(): ReactElement {
           404
         </p>
 
-        <h1 className="mt-2 font-display text-3xl font-light text-neutral-900 md:text-4xl">
+        <h1 className="mt-2 font-display text-4xl font-light text-neutral-900 md:text-5xl">
           Cette page n'existe pas
         </h1>
         <p className="mx-auto mt-4 max-w-md text-sm font-light leading-relaxed text-neutral-500">

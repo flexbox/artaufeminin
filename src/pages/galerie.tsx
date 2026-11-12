@@ -53,16 +53,16 @@ export default function GaleriePage(): ReactElement {
       </div>
 
       <main className="mx-auto max-w-xl px-6 py-12 lg:py-20">
-        <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.3em] text-white/60">
+        <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
           Galerie ART AU FÉMININ · Ouverte
         </p>
 
-        <h1 className="text-center font-display text-4xl font-light leading-tight text-white sm:text-5xl lg:text-6xl">
+        <h1 className="text-center font-display text-4xl font-light leading-tight text-white md:text-5xl lg:text-6xl">
           Une galerie d'Art{' '}
           <span className="italic">dédiée aux femmes artistes</span>
         </h1>
 
-        <p className="mx-auto mt-6 max-w-md text-center text-sm leading-relaxed text-white/70">
+        <p className="mx-auto mt-6 max-w-md text-center text-base leading-relaxed md:text-lg text-white/70">
           Une galerie immersive en 3D, à visiter dès maintenant depuis votre
           navigateur, sur ordinateur comme sur téléphone.
         </p>

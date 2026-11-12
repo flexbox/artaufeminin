@@ -46,7 +46,7 @@ export const TextVariants = cva(['primary'], {
         'leading-relaxed',
         'text-stone-500',
       ],
-      default: ['text-md', 'text-stone-500'],
+      default: ['text-base', 'text-stone-500'],
     },
   },
   defaultVariants: {
@@ -55,7 +55,8 @@ export const TextVariants = cva(['primary'], {
 });
 
 export interface TextProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof TextVariants> {
   children: React.ReactNode;
   as?: React.ElementType;

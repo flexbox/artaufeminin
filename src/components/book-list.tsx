@@ -58,7 +58,7 @@ function BookItem({ book, index }: { book: BookProps; index: number }) {
         <p className="mt-3 flex-1 text-sm leading-relaxed text-stone-500">
           {excerpt}
         </p>
-        <span className="mt-5 text-xs font-semibold uppercase tracking-widest text-clay-500 transition-colors group-hover:text-clay-700">
+        <span className="mt-5 text-xs font-semibold uppercase tracking-[0.25em] text-clay-500 transition-colors group-hover:text-clay-700">
           Lire la chronique <span aria-hidden="true">→</span>
         </span>
       </div>

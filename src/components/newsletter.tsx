@@ -30,7 +30,7 @@ export default function Newsletter(): ReactElement {
 
   return (
     <div>
-      <h3 className="text-xs font-bold uppercase tracking-widest text-white/70">
+      <h3 className="text-xs font-bold uppercase tracking-[0.25em] text-white/70">
         Newsletter
       </h3>
       <p className="mt-4 font-display text-xl font-light italic text-white/90 leading-snug">

@@ -41,7 +41,7 @@ export default function NewsletterPage(): ReactElement {
             Une femme artiste <br />
             <span className="italic">chaque mois dans votre boîte mail</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-md text-sm leading-relaxed text-neutral-600">
+          <p className="mx-auto mt-6 max-w-md text-base leading-relaxed md:text-lg text-neutral-600">
             Chaque mois, un email soigné : un portrait de femme artiste oubliée,
             les nouveaux épisodes du podcast, des chroniques de livres et les
             actualités de la Galerie ART AU FÉMININ. Un seul email par mois, pas
