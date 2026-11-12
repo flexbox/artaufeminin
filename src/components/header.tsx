@@ -26,25 +26,25 @@ export function Header(): ReactElement {
   return (
     <header className="sticky top-0 z-50 bg-white">
       {/* ── DESKTOP ────────────────────────────────────────────── */}
-      <div className="hidden lg:flex items-center justify-between px-12 h-14">
+      <div className="hidden h-14 items-center justify-between gap-8 px-8 xl:flex 2xl:px-12">
         <Link
           to="/"
           aria-label="ART AU FÉMININ — Accueil"
-          className="font-display text-xl font-light tracking-[0.05em] text-neutral-900 transition-colors hover:text-neutral-500"
+          className="whitespace-nowrap font-display text-xl font-light tracking-[0.05em] text-neutral-900 transition-colors hover:text-neutral-500"
         >
           ART AU FÉMININ
         </Link>
 
         <nav
           aria-label="Navigation principale"
-          className="flex items-center gap-9"
+          className="flex items-center gap-6 2xl:gap-9"
         >
           {navigation.map((item) =>
             item.isExternal ? (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-xs font-normal uppercase tracking-[0.2em] text-neutral-500 transition-colors hover:text-neutral-900"
+                className="whitespace-nowrap text-xs font-normal uppercase tracking-[0.2em] text-neutral-500 transition-colors hover:text-neutral-900"
               >
                 {item.name}
               </a>
@@ -52,7 +52,7 @@ export function Header(): ReactElement {
               <Link
                 key={item.name}
                 to={item.href}
-                className="text-xs font-normal uppercase tracking-[0.2em] text-neutral-500 transition-colors hover:text-neutral-900"
+                className="whitespace-nowrap text-xs font-normal uppercase tracking-[0.2em] text-neutral-500 transition-colors hover:text-neutral-900"
                 activeClassName="text-neutral-900"
                 partiallyActive={true}
               >
@@ -62,7 +62,7 @@ export function Header(): ReactElement {
           )}
           <Link
             to={ctaNav.href}
-            className="border border-neutral-900 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-900 transition-colors hover:bg-neutral-900 hover:text-white"
+            className="whitespace-nowrap border border-neutral-900 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-900 transition-colors hover:bg-neutral-900 hover:text-white"
             activeClassName="bg-neutral-900 text-white"
           >
             {ctaNav.name}
@@ -71,7 +71,7 @@ export function Header(): ReactElement {
       </div>
 
       {/* ── MOBILE : logo + hamburger ───────────────────────────── */}
-      <div className="flex items-center justify-between px-5 h-14 lg:hidden">
+      <div className="flex h-14 items-center justify-between px-5 xl:hidden">
         <Link
           to="/"
           aria-label="ART AU FÉMININ — Accueil"
@@ -95,7 +95,7 @@ export function Header(): ReactElement {
       {/* ── DRAWER MOBILE ──────────────────────────────────────── */}
       <Dialog
         as="div"
-        className="lg:hidden"
+        className="xl:hidden"
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
       >

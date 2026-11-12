@@ -56,7 +56,7 @@ export default function Newsletter(): ReactElement {
               required
               aria-required="true"
               placeholder="votre@email.fr"
-              className="min-w-0 flex-1 rounded-l-full border border-white/30 bg-white/20 px-5 py-3 text-sm text-white placeholder:text-white/60 focus:bg-white/30 focus:outline-none transition-colors"
+              className="min-w-0 flex-1 border border-white/30 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/60 transition-colors focus:border-white focus:bg-white/20 focus:outline-none focus:ring-0"
             />
             <button
               type="submit"
@@ -66,7 +66,7 @@ export default function Newsletter(): ReactElement {
                   ? 'Envoi en cours…'
                   : "S'inscrire à la newsletter"
               }
-              className="rounded-r-full border border-white/20 border-l-0 bg-clay-500 px-5 py-3 text-xs font-semibold uppercase tracking-widest text-white transition-colors hover:bg-clay-700 disabled:opacity-40"
+              className="border border-white bg-white px-5 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-900 transition-colors hover:bg-neutral-200 disabled:cursor-not-allowed disabled:opacity-40"
             >
               <span aria-hidden="true">{status === 'loading' ? '…' : '→'}</span>
             </button>
@@ -80,7 +80,7 @@ export default function Newsletter(): ReactElement {
               onChange={(e) => setConsent(e.target.checked)}
               required
               aria-required="true"
-              className="mt-0.5 size-3.5 shrink-0 accent-clay-500 cursor-pointer"
+              className="mt-0.5 size-3.5 shrink-0 accent-white cursor-pointer"
             />
             <label
               htmlFor="newsletter-consent"
