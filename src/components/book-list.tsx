@@ -21,14 +21,12 @@ interface BookListItemProps {
 }
 
 const SPINE_COLORS = [
-  'bg-clay-300',
-  'bg-sage-300',
-  'bg-gold-300',
-  'bg-clay-200',
-  'bg-sage-500',
-  'bg-gold-500',
-  'bg-clay-500',
-  'bg-sage-300',
+  'bg-neutral-300',
+  'bg-neutral-900',
+  'bg-neutral-500',
+  'bg-neutral-200',
+  'bg-neutral-700',
+  'bg-neutral-400',
 ];
 
 function BookItem({ book, index }: { book: BookProps; index: number }) {
@@ -43,7 +41,7 @@ function BookItem({ book, index }: { book: BookProps; index: number }) {
   return (
     <Link
       to={`/livres/${slug}`}
-      className="group flex overflow-hidden rounded-sm border border-clay-200 bg-cream-50 transition-shadow hover:shadow-md"
+      className="group flex overflow-hidden border border-neutral-200 bg-white transition-colors hover:border-neutral-900"
     >
       {/* Dos du livre */}
       <div
@@ -58,7 +56,7 @@ function BookItem({ book, index }: { book: BookProps; index: number }) {
         <p className="mt-3 flex-1 text-sm leading-relaxed text-neutral-600">
           {excerpt}
         </p>
-        <span className="mt-5 text-xs font-semibold uppercase tracking-[0.25em] text-clay-500 transition-colors group-hover:text-clay-700">
+        <span className="mt-5 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors group-hover:text-neutral-900">
           Lire la chronique <span aria-hidden="true">→</span>
         </span>
       </div>

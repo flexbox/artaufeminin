@@ -51,25 +51,25 @@ function ArticleRow({ article }: { article: ArticleProps }) {
     : null;
 
   return (
-    <article className="group border-b border-clay-200 py-8 last:border-0">
+    <article className="group border-b border-neutral-200 py-8 last:border-0">
       <Link
         to={`/articles/${slug}`}
         className="flex flex-col gap-5 sm:flex-row sm:items-start"
       >
-        <div className="w-full shrink-0 overflow-hidden rounded-sm sm:w-40">
-          <div className="aspect-square overflow-hidden bg-stone-100">
+        <div className="w-full shrink-0 overflow-hidden sm:w-40">
+          <div className="aspect-square overflow-hidden bg-neutral-100">
             {gatsbyImage ? (
               <GatsbyImage
                 image={gatsbyImage}
                 alt={title}
-                className="h-full w-full transition-transform duration-500 group-hover:scale-105"
+                className="h-full w-full transition-transform duration-700 group-hover:scale-[1.04]"
                 imgStyle={{ objectFit: 'cover', objectPosition: 'center' }}
               />
             ) : (
               <img
                 src={article.data.image.url}
                 alt={title}
-                className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]"
               />
             )}
           </div>
@@ -125,9 +125,9 @@ export function ArticleList({ allArticles, isRow }: ArticleListItemProps) {
               <Link
                 to={`/articles/${article.uid}`}
                 aria-label={`Lire l'article : ${title}`}
-                className="text-xs font-semibold uppercase tracking-widest text-clay-500 transition-colors hover:text-clay-700"
+                className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors hover:text-neutral-900"
               >
-                Lire l'article <span aria-hidden="true">→</span>
+                Lire l'Article <span aria-hidden="true">→</span>
               </Link>
             }
           />

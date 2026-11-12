@@ -19,19 +19,19 @@ const PressItem = ({ pressItem }: { pressItem: PressProps }) => (
     href={pressItem.data.url.url}
     target="_blank"
     rel="noopener noreferrer"
-    className="group flex items-start gap-4 rounded-sm border border-clay-200 bg-cream-50 p-5 transition-all hover:border-clay-400 hover:shadow-sm"
+    className="group flex items-start gap-4 border border-neutral-200 bg-white p-5 transition-colors hover:border-neutral-900"
   >
     <div className="flex-1">
-      <p className="font-display text-lg font-semibold text-stone-900 transition-colors group-hover:text-clay-500">
+      <p className="font-display text-xl font-light text-neutral-900 transition-colors group-hover:text-neutral-500">
         {pressItem.data.sitename.text}
       </p>
-      <p className="mt-1 text-sm leading-relaxed text-stone-500">
+      <p className="mt-1 text-sm leading-relaxed text-neutral-600">
         {pressItem.data.description.text}
       </p>
     </div>
     <span
       aria-hidden="true"
-      className="mt-1 shrink-0 text-clay-300 transition-transform group-hover:translate-x-0.5 group-hover:text-clay-500"
+      className="mt-1 shrink-0 text-neutral-300 transition group-hover:translate-x-0.5 group-hover:text-neutral-900"
     >
       →
     </span>
