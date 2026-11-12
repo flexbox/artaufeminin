@@ -148,55 +148,80 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      {/* ── HERO — image plein cadre + strip "Now Open" ─────────── */}
+      {/* ── HERO — Artemisia Gentileschi, La Pittura ───────────────── */}
+      {/* Mobile : tableau au-dessus, texte en dessous (le visage n'est jamais
+          recouvert). Desktop : texte posé sur la toile vide, à gauche. */}
       <section aria-labelledby="hero-heading">
-        <h1 id="hero-heading" className="sr-only">
-          ART AU FÉMININ — Le podcast sur les femmes artistes et l'Histoire de
-          l'Art
-        </h1>
+        <div className="relative bg-neutral-950 lg:h-[85vh] lg:min-h-[560px]">
+          <div className="relative aspect-[4/5] overflow-hidden sm:aspect-[16/10] lg:absolute lg:inset-0 lg:aspect-auto">
+            <StaticImage
+              src="../images/hero-artemisia-gentileschi-la-pittura.jpg"
+              alt="Artemisia Gentileschi, Autoportrait en allégorie de la Peinture (vers 1638–1639) : la peintre, pinceau levé, au travail devant sa toile."
+              layout="fullWidth"
+              objectFit="cover"
+              objectPosition="70% 35%"
+              loading="eager"
+              fetchPriority="high"
+              style={{ position: 'absolute', inset: 0, height: '100%' }}
+            />
+            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-neutral-950 to-transparent lg:hidden" />
+            <div className="absolute inset-0 hidden bg-gradient-to-r from-black/80 via-black/40 to-transparent lg:block" />
+          </div>
 
-        {/* Image pleine hauteur */}
-        <div
-          className="relative w-full overflow-hidden bg-neutral-100"
-          style={{ height: '85vh', minHeight: 520 }}
-        >
-          <StaticImage
-            src="../images/instagram/votre-image.jpg"
-            alt="ART AU FÉMININ"
-            layout="fullWidth"
-            objectFit="cover"
-            objectPosition="center 30%"
-            loading="eager"
-            fetchPriority="high"
-            style={{ position: 'absolute', inset: 0, height: '100%' }}
-          />
-          {/* Gradient + phrase d'accroche */}
-          <div className="absolute inset-0 bg-black/40" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.25em] text-white/70">
-              Art au Féminin
-            </p>
-            <h2 className="max-w-3xl font-display text-4xl font-light leading-tight text-white lg:text-6xl xl:text-7xl">
-              Elles ont créé,{' '}
-              <span className="italic">l'Histoire les a oubliées.</span>
-            </h2>
-            <p className="mt-6 max-w-lg text-base leading-relaxed text-white/80">
-              Un podcast pour redécouvrir les femmes artistes qui ont façonné
-              l'Art — de l'Antiquité à aujourd'hui.
-            </p>
-            <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-              <Link
-                to="/podcasts"
-                className="border border-white/80 bg-white/10 px-7 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-sm transition-colors hover:bg-white/20"
-              >
-                Écouter le Podcast <span aria-hidden="true">→</span>
-              </Link>
-              <Link
-                to="/newsletter"
-                className="border border-white/30 px-7 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/60 hover:text-white"
-              >
-                S'abonner à la Newsletter
-              </Link>
+          <div className="relative pb-14 lg:absolute lg:inset-0 lg:flex lg:items-center lg:pb-0">
+            <div className="mx-auto w-page max-w-6xl lg:w-page-lg">
+              <div className="max-w-xl">
+                <p className="mb-5 text-xs font-semibold uppercase tracking-[0.25em] text-white/70">
+                  Le podcast
+                  {latestEpisode?.itunes?.season &&
+                    ` · Saison ${latestEpisode.itunes.season}`}
+                </p>
+                <h1
+                  id="hero-heading"
+                  className="font-display text-4xl font-light leading-tight text-white md:text-5xl lg:text-6xl xl:text-7xl"
+                >
+                  <span className="sr-only">
+                    ART AU FÉMININ, le podcast sur les femmes artistes :{' '}
+                  </span>
+                  Elles ont créé,{' '}
+                  <span className="block italic">
+                    l'Histoire les a oubliées.
+                  </span>
+                </h1>
+                <p className="mt-6 max-w-md text-base leading-relaxed text-white/80">
+                  Un podcast pour redécouvrir les femmes artistes qui ont
+                  façonné l'Art, de l'Antiquité à aujourd'hui.
+                </p>
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <Link
+                    to="/podcasts"
+                    className="whitespace-nowrap border border-white bg-white px-7 py-3 text-center text-xs font-semibold uppercase tracking-[0.2em] text-neutral-900 transition-colors hover:bg-neutral-200"
+                  >
+                    Écouter le Podcast <span aria-hidden="true">→</span>
+                  </Link>
+                  <Link
+                    to="/newsletter"
+                    className="whitespace-nowrap border border-white/60 px-7 py-3 text-center text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:border-white"
+                  >
+                    S'abonner à la Newsletter
+                  </Link>
+                </div>
+
+                {/* Légende de l'œuvre */}
+                <p className="mt-10 text-xs leading-relaxed text-white/60">
+                  <Link
+                    to="/articles/artemisia-gentileschi-peintre-baroque/"
+                    className="underline decoration-white/30 underline-offset-4 transition-colors hover:text-white hover:decoration-white"
+                  >
+                    Artemisia Gentileschi
+                  </Link>
+                  ,{' '}
+                  <span className="italic">
+                    Autoportrait en allégorie de la Peinture
+                  </span>
+                  , v. 1638–1639. Royal Collection.
+                </p>
+              </div>
             </div>
           </div>
         </div>
