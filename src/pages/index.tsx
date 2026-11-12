@@ -6,10 +6,16 @@ import React, { useMemo } from 'react';
 import { ContentCard } from '../components/content-card';
 import { FeaturedCard } from '../components/featured-card';
 import Layout from '../components/layout';
+import {
+  ApplePodcastsIcon,
+  DeezerIcon,
+  SpotifyIcon,
+} from '../components/platform-icons';
 import { useAudioPlayer } from '../components/player/AudioProvider';
 import { PlayButton } from '../components/player/PlayButton';
 import SEO from '../components/seo';
 import { EXPO, ExpoStatus, useExpoStatus } from '../utils/expo';
+import { formatShortDate, truncateWords } from '../utils/date';
 import { stripHtml } from '../utils/html';
 import { slugify } from '../utils/slugify';
 
@@ -126,20 +132,29 @@ function GallerySection({
 const SUPPORT_PLATFORMS = [
   {
     name: 'Apple Podcasts',
+    Icon: ApplePodcastsIcon,
     action: 'Laisser une note',
     href: 'https://podcasts.apple.com/fr/podcast/art-au-feminin/id1493131152',
   },
   {
     name: 'Spotify',
+    Icon: SpotifyIcon,
     action: 'Laisser une note',
     href: 'https://open.spotify.com/show/18f84r0ic2PUenYvBRr2Ps',
   },
   {
     name: 'Deezer',
+    Icon: DeezerIcon,
     action: "S'abonner",
     href: 'https://www.deezer.com/fr/show/2157592',
   },
 ];
+
+/* ─── Articles : date affichée sur les cartes ─────────────────── */
+function articleDate(article: any): string {
+  const date = article.data.date || article.first_publication_date;
+  return date ? formatShortDate(date) : 'Article';
+}
 
 /* ─── Dernier épisode : lecture en un clic dans le lecteur du site ── */
 function formatMinutes(duration?: string): string | null {
@@ -352,8 +367,7 @@ const IndexPage = ({ data }) => {
             title={featuredEpisode.title}
             description={
               featuredEpisode.itunes.summary
-                ? stripHtml(featuredEpisode.itunes.summary).substring(0, 240) +
-                  '…'
+                ? truncateWords(stripHtml(featuredEpisode.itunes.summary), 240)
                 : undefined
             }
             cta={
@@ -381,7 +395,7 @@ const IndexPage = ({ data }) => {
                 title={episode.title}
                 description={
                   episode.itunes.summary
-                    ? stripHtml(episode.itunes.summary).substring(0, 120) + '…'
+                    ? truncateWords(stripHtml(episode.itunes.summary), 140)
                     : ''
                 }
                 action={
@@ -441,10 +455,10 @@ const IndexPage = ({ data }) => {
                 image={art.data.image.gatsbyImageData}
                 imageUrl={art.data.image.url}
                 imageAlt={art.data.image.alt || title}
-                label="Article · À la Une"
+                label={`À la une · ${articleDate(art)}`}
                 title={title}
                 description={
-                  description ? description.substring(0, 240) + '…' : undefined
+                  description ? truncateWords(description, 240) : undefined
                 }
                 imageRight
                 cta={
@@ -466,10 +480,10 @@ const IndexPage = ({ data }) => {
             {allArticles.slice(1).map((article: any) => {
               const title = RichText.asText(article.data.title.richText);
               const description = article.data.description?.richText
-                ? RichText.asText(article.data.description.richText).substring(
-                    0,
-                    120
-                  ) + '…'
+                ? truncateWords(
+                    RichText.asText(article.data.description.richText),
+                    140
+                  )
                 : '';
               return (
                 <ContentCard
@@ -478,16 +492,16 @@ const IndexPage = ({ data }) => {
                   image={article.data.image.gatsbyImageData}
                   imageUrl={article.data.image.url}
                   imageAlt={article.data.image.alt || title}
-                  meta="Article"
+                  meta={articleDate(article)}
                   title={title}
                   description={description}
                   action={
                     <Link
                       to={`/articles/${article.uid}`}
-                      aria-label={`Lire : ${title}`}
+                      aria-label={`Lire l'article : ${title}`}
                       className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors hover:text-neutral-900"
                     >
-                      Lire le Portrait <span aria-hidden="true">→</span>
+                      Lire l'Article <span aria-hidden="true">→</span>
                     </Link>
                   }
                 />
@@ -508,13 +522,13 @@ const IndexPage = ({ data }) => {
         aria-labelledby="section-soutien"
       >
         <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
-          Soutenez le Podcast
+          Soutenir ART AU FÉMININ
         </p>
         <h2
           id="section-soutien"
           className="mt-3 font-display text-3xl font-light leading-snug text-neutral-900 md:text-4xl"
         >
-          Vous aimez ART AU FÉMININ ?
+          Vous aimez le podcast ?
         </h2>
         <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-neutral-600">
           Une note ou un abonnement sur votre plateforme d'écoute aide d'autres
@@ -529,6 +543,7 @@ const IndexPage = ({ data }) => {
                 rel="noopener noreferrer"
                 className="group flex h-full flex-col items-center border border-neutral-200 bg-white px-6 py-8 transition-colors hover:border-neutral-900"
               >
+                <platform.Icon className="mb-4 size-7 text-neutral-400 transition-colors group-hover:text-neutral-900" />
                 <span className="font-display text-2xl font-light text-neutral-900">
                   {platform.name}
                 </span>
@@ -566,6 +581,7 @@ export const indexPageQuery = graphql`
 
   fragment PrismicBlogPostFragment on PrismicBlogPost {
     uid
+    first_publication_date
     data {
       date
       title {

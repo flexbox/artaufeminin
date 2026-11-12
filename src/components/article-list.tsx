@@ -3,7 +3,7 @@ import { GatsbyImage, IGatsbyImageData, getImage } from 'gatsby-plugin-image';
 import { RichText, RichTextBlock } from 'prismic-reactjs';
 import React from 'react';
 
-import { formatHumanDate, splitDate } from '../utils/date';
+import { formatShortDate, splitDate, truncateWords } from '../utils/date';
 import { ContentCard } from './content-card';
 
 interface ArticleProps {
@@ -30,11 +30,10 @@ interface ArticleListItemProps {
 }
 
 function getDate(article: ArticleProps): string {
-  const articleDate = formatHumanDate(article.data.date);
-  const publishDate = formatHumanDate(
-    splitDate(article.first_publication_date)
-  );
-  return articleDate !== 'jeudi 1 janvier 1970' ? articleDate : publishDate;
+  // Date éditoriale si renseignée, sinon date de première publication
+  if (article.data.date) return formatShortDate(article.data.date);
+  const publishDate = splitDate(article.first_publication_date);
+  return publishDate ? formatShortDate(publishDate) : '';
 }
 
 function ArticleRow({ article }: { article: ArticleProps }) {
@@ -42,10 +41,7 @@ function ArticleRow({ article }: { article: ArticleProps }) {
   const date = getDate(article);
   const title = RichText.asText(article.data.title.richText);
   const description = RichText.asText(article.data.description.richText);
-  const descriptionTruncated =
-    description.length > 190
-      ? description.substring(0, 190) + '…'
-      : description;
+  const descriptionTruncated = truncateWords(description, 190);
   const gatsbyImage = article.data.image.gatsbyImageData
     ? getImage(article.data.image.gatsbyImageData)
     : null;
@@ -106,10 +102,7 @@ export function ArticleList({ allArticles, isRow }: ArticleListItemProps) {
       {allArticles.map((article) => {
         const title = RichText.asText(article.data.title.richText);
         const description = RichText.asText(article.data.description.richText);
-        const descriptionTruncated =
-          description.length > 140
-            ? description.substring(0, 140) + '…'
-            : description;
+        const descriptionTruncated = truncateWords(description, 140);
 
         return (
           <ContentCard
