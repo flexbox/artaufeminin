@@ -41,19 +41,32 @@ const EXPO_COPY: Record<ExpoStatus, { eyebrow: string; text: string }> = {
   },
 };
 
-function GallerySection() {
-  // Le statut est recalculé dans le navigateur : le HTML statique peut dater
-  // du dernier déploiement, la date du jour non.
+// Le statut est recalculé dans le navigateur : le HTML statique peut dater
+// du dernier déploiement, la date du jour non.
+function useExpoStatus(): ExpoStatus {
   const [status, setStatus] = useState<ExpoStatus>(() =>
     getExpoStatus(new Date())
   );
   useEffect(() => setStatus(getExpoStatus(new Date())), []);
+  return status;
+}
+
+function GallerySection({
+  status,
+  className,
+}: {
+  status: ExpoStatus;
+  className: string;
+}) {
   const copy = EXPO_COPY[status];
 
   return (
-    <section className="mt-24 bg-neutral-950" aria-labelledby="section-galerie">
-      <div className="mx-auto grid w-page max-w-6xl grid-cols-1 gap-12 py-16 lg:w-page-lg lg:grid-cols-[5fr_4fr] lg:items-center lg:gap-16 lg:py-24">
-        <div>
+    <section
+      className={`bg-neutral-950 ${className}`}
+      aria-labelledby="section-galerie"
+    >
+      <div className="mx-auto grid w-page max-w-6xl grid-cols-1 gap-12 pt-16 lg:w-page-lg lg:grid-cols-[5fr_4fr] lg:gap-16 lg:pt-24">
+        <div className="lg:pb-24">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
             {copy.eyebrow}
           </p>
@@ -111,11 +124,12 @@ function GallerySection() {
           </div>
         </div>
 
+        {/* Façade posée sur le bas du bandeau, comme une entrée */}
         <a
           href="https://galerie.artaufeminin.fr"
           tabIndex={-1}
           aria-hidden="true"
-          className="block opacity-80 transition-opacity duration-500 hover:opacity-100"
+          className="-mx-6 block self-end opacity-80 transition-opacity duration-500 hover:opacity-100 lg:-mr-16 lg:ml-0"
         >
           <StaticImage
             src="../images/galerie-facade-trait.png"
@@ -154,6 +168,7 @@ const IndexPage = ({ data }) => {
   const allEpisodes = data.allAnchorEpisode.nodes;
   const allArticles = data.allPrismicBlogPost.nodes;
   const latestEpisode = allEpisodes[0];
+  const expoStatus = useExpoStatus();
 
   return (
     <Layout>
@@ -337,8 +352,12 @@ const IndexPage = ({ data }) => {
         )}
       </section>
 
-      {/* ── SÉPARATEUR ───────────────────────────────────────────── */}
-      <div className="mx-auto my-20 w-page max-w-6xl lg:w-page-lg border-t border-neutral-200" />
+      {/* ── GALERIE (exposition à venir ou en cours) ──────────────── */}
+      {expoStatus !== 'closed' ? (
+        <GallerySection status={expoStatus} className="my-20" />
+      ) : (
+        <div className="mx-auto my-20 w-page max-w-6xl border-t border-neutral-200 lg:w-page-lg" />
+      )}
 
       {/* ── ARTICLES ─────────────────────────────────────────────── */}
       <section
@@ -431,8 +450,10 @@ const IndexPage = ({ data }) => {
         )}
       </section>
 
-      {/* ── GALERIE ───────────────────────────────────────────────── */}
-      <GallerySection />
+      {/* ── GALERIE (exposition passée : redescend en bas de page) ── */}
+      {expoStatus === 'closed' && (
+        <GallerySection status={expoStatus} className="mt-24" />
+      )}
 
       {/* ── SOUTENIR LE PODCAST ────────────────────────────────────── */}
       <section
