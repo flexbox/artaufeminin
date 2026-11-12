@@ -3,7 +3,13 @@ import { StaticImage } from 'gatsby-plugin-image';
 import { RichText } from 'prismic-reactjs';
 import React, { useMemo } from 'react';
 
+import { getArticleDate } from '../components/article-list';
 import { ContentCard } from '../components/content-card';
+import {
+  EpisodeCard,
+  EpisodeListenAction,
+  episodeMeta,
+} from '../components/episode-card';
 import { FeaturedCard } from '../components/featured-card';
 import Layout from '../components/layout';
 import {
@@ -15,7 +21,8 @@ import { useAudioPlayer } from '../components/player/AudioProvider';
 import { PlayButton } from '../components/player/PlayButton';
 import SEO from '../components/seo';
 import { EXPO, ExpoStatus, useExpoStatus } from '../utils/expo';
-import { formatShortDate, truncateWords } from '../utils/date';
+import { truncateWords } from '../utils/date';
+import { formatMinutes } from '../utils/duration';
 import { stripHtml } from '../utils/html';
 import { slugify } from '../utils/slugify';
 
@@ -150,25 +157,7 @@ const SUPPORT_PLATFORMS = [
   },
 ];
 
-/* ─── Articles : date affichée sur les cartes ─────────────────── */
-function articleDate(article: any): string {
-  const date = article.data.date || article.first_publication_date;
-  return date ? formatShortDate(date) : 'Article';
-}
-
 /* ─── Dernier épisode : lecture en un clic dans le lecteur du site ── */
-function formatMinutes(duration?: string): string | null {
-  if (!duration) return null;
-  const seconds = duration.includes(':')
-    ? duration
-        .split(':')
-        .map(Number)
-        .reduce((total, part) => total * 60 + part, 0)
-    : Number(duration);
-  if (!seconds) return null;
-  return `${Math.max(1, Math.round(seconds / 60))} min`;
-}
-
 function LatestEpisodeBar({ episode }: { episode: any }) {
   const href = `/podcasts/${slugify(episode.title)}/`;
   const audioPlayerData = useMemo(
@@ -185,7 +174,7 @@ function LatestEpisodeBar({ episode }: { episode: any }) {
   return (
     <div className="border-b border-neutral-200 bg-white">
       <div className="mx-auto flex w-page max-w-6xl items-center gap-5 py-5 lg:w-page-lg">
-        <PlayButton player={player} size="small" />
+        <PlayButton player={player} size="small" label={episode.title} />
         <div className="min-w-0 flex-1">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             Dernier épisode
@@ -363,22 +352,14 @@ const IndexPage = ({ data }) => {
             href={`/podcasts/${slugify(featuredEpisode.title)}/`}
             imageUrl={featuredEpisode.itunes.image}
             imageAlt={featuredEpisode.title}
-            label={`Saison ${featuredEpisode.itunes.season} · Épisode ${featuredEpisode.itunes.episode}`}
+            label={episodeMeta(featuredEpisode)}
             title={featuredEpisode.title}
             description={
               featuredEpisode.itunes.summary
                 ? truncateWords(stripHtml(featuredEpisode.itunes.summary), 240)
                 : undefined
             }
-            cta={
-              <Link
-                to={`/podcasts/${slugify(featuredEpisode.title)}/`}
-                aria-label={`Écouter l'épisode : ${featuredEpisode.title}`}
-                className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors hover:text-neutral-900"
-              >
-                Écouter l'Épisode <span aria-hidden="true">→</span>
-              </Link>
-            }
+            cta={<EpisodeListenAction episode={featuredEpisode} />}
           />
         )}
 
@@ -386,28 +367,7 @@ const IndexPage = ({ data }) => {
         {gridEpisodes.length > 0 && (
           <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-10 border-t border-neutral-200 pt-10 sm:grid-cols-2 lg:grid-cols-3">
             {gridEpisodes.map((episode: any) => (
-              <ContentCard
-                key={episode.guid}
-                href={`/podcasts/${slugify(episode.title)}/`}
-                imageUrl={episode.itunes.image}
-                imageAlt={episode.title}
-                meta={`Saison ${episode.itunes.season} · Épisode ${episode.itunes.episode}`}
-                title={episode.title}
-                description={
-                  episode.itunes.summary
-                    ? truncateWords(stripHtml(episode.itunes.summary), 140)
-                    : ''
-                }
-                action={
-                  <Link
-                    to={`/podcasts/${slugify(episode.title)}/`}
-                    aria-label={`Écouter : ${episode.title}`}
-                    className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors hover:text-neutral-900"
-                  >
-                    Écouter l'Épisode <span aria-hidden="true">→</span>
-                  </Link>
-                }
-              />
+              <EpisodeCard key={episode.guid} episode={episode} />
             ))}
           </div>
         )}
@@ -455,7 +415,7 @@ const IndexPage = ({ data }) => {
                 image={art.data.image.gatsbyImageData}
                 imageUrl={art.data.image.url}
                 imageAlt={art.data.image.alt || title}
-                label={`À la une · ${articleDate(art)}`}
+                label={`À la une · ${getArticleDate(art)}`}
                 title={title}
                 description={
                   description ? truncateWords(description, 240) : undefined
@@ -492,7 +452,7 @@ const IndexPage = ({ data }) => {
                   image={article.data.image.gatsbyImageData}
                   imageUrl={article.data.image.url}
                   imageAlt={article.data.image.alt || title}
-                  meta={articleDate(article)}
+                  meta={getArticleDate(article)}
                   title={title}
                   description={description}
                   action={

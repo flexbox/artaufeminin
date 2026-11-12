@@ -1,59 +1,19 @@
-import { graphql, Link } from 'gatsby';
-import React, { useMemo } from 'react';
+import { graphql } from 'gatsby';
+import React from 'react';
 
 import { slugify } from '../utils/slugify';
 
-import { ContentCard } from '../components/content-card';
+import {
+  EpisodeCard,
+  EpisodeListenAction,
+  episodeMeta,
+} from '../components/episode-card';
 import { FeaturedCard } from '../components/featured-card';
 import Layout from '../components/layout';
 import { Pagination } from '../components/pagination';
-import { useAudioPlayer } from '../components/player/AudioProvider';
-import { PlayButton } from '../components/player/PlayButton';
 import SEO from '../components/seo';
+import { truncateWords } from '../utils/date';
 import { stripHtml } from '../utils/html';
-
-function EpisodeCard({ episode }: { episode: any }) {
-  const audioPlayerData = useMemo(
-    () => ({
-      title: episode.title,
-      audio: { src: episode.enclosure.url, type: 'audio/mpeg' },
-      link: `/podcasts/${slugify(episode.title)}/`,
-    }),
-    [episode]
-  );
-  const player = useAudioPlayer(audioPlayerData);
-
-  const plainSummary = episode.itunes.summary
-    ? stripHtml(episode.itunes.summary).substring(0, 140) + '…'
-    : '';
-
-  const meta = [
-    `Saison ${episode.itunes.season}`,
-    `Épisode ${episode.itunes.episode}`,
-    episode.itunes.duration,
-  ]
-    .filter(Boolean)
-    .join(' · ');
-
-  return (
-    <ContentCard
-      href={`/podcasts/${slugify(episode.title)}/`}
-      imageUrl={episode.itunes.image}
-      imageAlt={episode.title}
-      meta={meta}
-      title={episode.title}
-      description={plainSummary}
-      action={
-        <div className="flex items-center gap-3">
-          <PlayButton player={player} size="small" />
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
-            Écouter
-          </span>
-        </div>
-      }
-    />
-  );
-}
 
 interface PodcastsListProps {
   data: {
@@ -85,7 +45,7 @@ const PodcastsListTemplate = ({ data, pageContext }: PodcastsListProps) => {
           Tous les Épisodes
         </p>
         <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl">
-          Podcasts sur les Femmes Artistes
+          Podcasts sur les femmes artistes
         </h1>
         <p className="mt-4 max-w-xl text-base leading-relaxed text-neutral-600 md:text-lg">
           Plus de 100 épisodes pour découvrir les femmes qui ont façonné
@@ -106,22 +66,14 @@ const PodcastsListTemplate = ({ data, pageContext }: PodcastsListProps) => {
             href={`/podcasts/${slugify(featured.title)}/`}
             imageUrl={featured.itunes.image}
             imageAlt={featured.title}
-            label={`Saison ${featured.itunes.season} · Épisode ${featured.itunes.episode}`}
+            label={episodeMeta(featured)}
             title={featured.title}
             description={
               featured.itunes.summary
-                ? stripHtml(featured.itunes.summary).substring(0, 300) + '…'
+                ? truncateWords(stripHtml(featured.itunes.summary), 300)
                 : undefined
             }
-            cta={
-              <Link
-                to={`/podcasts/${slugify(featured.title)}/`}
-                aria-label={`Écouter l'épisode : ${featured.title}`}
-                className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors hover:text-neutral-900"
-              >
-                Écouter l'Épisode <span aria-hidden="true">→</span>
-              </Link>
-            }
+            cta={<EpisodeListenAction episode={featured} />}
           />
         </section>
       )}

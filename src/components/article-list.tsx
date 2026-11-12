@@ -6,7 +6,7 @@ import React from 'react';
 import { formatShortDate, splitDate, truncateWords } from '../utils/date';
 import { ContentCard } from './content-card';
 
-interface ArticleProps {
+export interface ArticleProps {
   uid: string;
   data: {
     title: {
@@ -29,7 +29,7 @@ interface ArticleListItemProps {
   isRow?: boolean;
 }
 
-function getDate(article: ArticleProps): string {
+export function getArticleDate(article: ArticleProps): string {
   // Date éditoriale si renseignée, sinon date de première publication
   if (article.data.date) return formatShortDate(article.data.date);
   const publishDate = splitDate(article.first_publication_date);
@@ -38,7 +38,7 @@ function getDate(article: ArticleProps): string {
 
 function ArticleRow({ article }: { article: ArticleProps }) {
   const slug = article.uid;
-  const date = getDate(article);
+  const date = getArticleDate(article);
   const title = RichText.asText(article.data.title.richText);
   const description = RichText.asText(article.data.description.richText);
   const descriptionTruncated = truncateWords(description, 190);
@@ -111,7 +111,7 @@ export function ArticleList({ allArticles, isRow }: ArticleListItemProps) {
             image={article.data.image.gatsbyImageData}
             imageUrl={article.data.image.url}
             imageAlt={title}
-            meta={getDate(article)}
+            meta={getArticleDate(article)}
             title={title}
             description={descriptionTruncated}
             action={

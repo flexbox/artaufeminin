@@ -21,7 +21,7 @@ function PlayIcon(props) {
   );
 }
 
-export function PlayButton({ player, size = 'large' }) {
+export function PlayButton({ player, size = 'large', label }) {
   return (
     <button
       type="button"
@@ -33,7 +33,7 @@ export function PlayButton({ player, size = 'large' }) {
         }[size]
       )}
       onClick={player.toggle}
-      aria-label={player.playing ? 'Pause' : 'Lecture'}
+      aria-label={`${player.playing ? 'Pause' : 'Lecture'}${label ? ` : ${label}` : ''}`}
     >
       <div className="absolute -inset-3 md:hidden" />
       {player.playing ? (

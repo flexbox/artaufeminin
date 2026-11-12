@@ -20,7 +20,7 @@ const QuotationPage = ({
           Inspiration
         </p>
         <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl">
-          Citations de Femmes Artistes
+          Citations de femmes artistes
         </h1>
         <p className="mt-4 max-w-xl text-sm leading-relaxed text-neutral-600">
           Des paroles qui traversent le temps — ce que les femmes artistes ont

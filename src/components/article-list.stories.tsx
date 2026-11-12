@@ -1,21 +1,25 @@
 import React from 'react';
 
-import { ArticleList } from './article-list';
+import { ArticleList, ArticleProps } from './article-list';
 
 export default {
   title: 'ArticleList',
   component: ArticleList,
 };
 
+// Données d'exemple : le format RichText de Prismic est simplifié ici
 const allArticles = [
   {
     uid: 'example-article-1',
+    first_publication_date: '2021-01-01T00:00:00+0000',
     data: {
       title: {
-        richText: [{ text: 'Example Article 1' }],
+        richText: [{ type: 'paragraph', text: 'Example Article 1', spans: [] }],
       },
       description: {
-        richText: [{ text: 'This is an example article.' }],
+        richText: [
+          { type: 'paragraph', text: 'This is an example article.', spans: [] },
+        ],
       },
       date: '2021-01-01',
       image: {
@@ -25,12 +29,19 @@ const allArticles = [
   },
   {
     uid: 'example-article-2',
+    first_publication_date: '2021-01-01T00:00:00+0000',
     data: {
       title: {
-        richText: [{ text: 'Example Article 2' }],
+        richText: [{ type: 'paragraph', text: 'Example Article 2', spans: [] }],
       },
       description: {
-        richText: [{ text: 'This is another example article.' }],
+        richText: [
+          {
+            type: 'paragraph',
+            text: 'This is another example article.',
+            spans: [],
+          },
+        ],
       },
       date: '2021-01-02',
       image: {
@@ -40,4 +51,6 @@ const allArticles = [
   },
 ];
 
-export const Default = () => <ArticleList allArticles={allArticles} />;
+export const Default = () => (
+  <ArticleList allArticles={allArticles as unknown as ArticleProps[]} />
+);

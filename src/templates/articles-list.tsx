@@ -2,11 +2,12 @@ import { graphql, Link } from 'gatsby';
 import { RichText } from 'prismic-reactjs';
 import React from 'react';
 
-import { ArticleList } from '../components/article-list';
+import { ArticleList, getArticleDate } from '../components/article-list';
 import { FeaturedCard } from '../components/featured-card';
 import Layout from '../components/layout';
 import { Pagination } from '../components/pagination';
 import SEO from '../components/seo';
+import { truncateWords } from '../utils/date';
 
 interface ArticlesListProps {
   data: {
@@ -38,8 +39,13 @@ const ArticlesListTemplate = ({ data, pageContext }: ArticlesListProps) => {
           Tous les Articles
         </p>
         <h1 className="font-display text-4xl font-light leading-tight text-neutral-900 md:text-5xl">
-          Articles sur les Femmes Artistes
+          Articles sur les femmes artistes
         </h1>
+        <p className="mt-4 max-w-xl text-base leading-relaxed text-neutral-600 md:text-lg">
+          Portraits, œuvres, expositions et histoire de l'art : des articles
+          pour redécouvrir les femmes artistes, de la Renaissance à aujourd'hui.
+          Écrits par Aldjia Boughias.
+        </p>
       </section>
 
       {/* ── DERNIER ARTICLE — featured uniquement page 1 ──────────── */}
@@ -61,10 +67,10 @@ const ArticlesListTemplate = ({ data, pageContext }: ArticlesListProps) => {
                 image={featured.data.image.gatsbyImageData}
                 imageUrl={featured.data.image.url}
                 imageAlt={featured.data.image.alt || title}
-                label="Article · À la Une"
+                label={`À la une · ${getArticleDate(featured)}`}
                 title={title}
                 description={
-                  description ? description.substring(0, 300) + '…' : undefined
+                  description ? truncateWords(description, 300) : undefined
                 }
                 imageRight
                 cta={
@@ -143,14 +149,14 @@ export const Head = ({
   const { currentPage } = pageContext;
   const isFirst = currentPage === 1;
   const title = isFirst
-    ? 'Articles sur les Femmes Artistes — ART AU FÉMININ'
-    : `Articles sur les Femmes Artistes — Page ${currentPage} — ART AU FÉMININ`;
+    ? 'Articles sur les femmes artistes — ART AU FÉMININ'
+    : `Articles sur les femmes artistes — Page ${currentPage} — ART AU FÉMININ`;
 
   const jsonLd = isFirst
     ? {
         '@context': 'https://schema.org',
         '@type': 'ItemList',
-        name: 'Articles sur les Femmes Artistes',
+        name: 'Articles sur les femmes artistes',
         url: 'https://artaufeminin.fr/articles/',
         itemListElement: data.allPrismicBlogPost.nodes.map((node, i) => ({
           '@type': 'ListItem',

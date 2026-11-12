@@ -6,13 +6,13 @@ import Layout from '../components/layout';
 import { useAudioPlayer } from '../components/player/AudioProvider';
 import { PlayButton } from '../components/player/PlayButton';
 import SEO from '../components/seo';
-import { dutationToString } from '../utils/dutationToString';
+import { formatMinutes } from '../utils/duration';
 import { stripHtml } from '../utils/html';
 import { allPodcastPlatforms } from '../pages/links';
 
 export default function Episode({ pageContext }) {
   const title = pageContext.title;
-  const duration = dutationToString(pageContext.itunes.duration);
+  const duration = formatMinutes(pageContext.itunes.duration);
   const season = pageContext.itunes.season;
   const episode = pageContext.itunes.episode;
   const image = pageContext.itunes.image;
