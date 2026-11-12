@@ -226,43 +226,58 @@ const IndexPage = ({ data }) => {
           </div>
         </div>
 
-        {/* Strip "Now Open" — titre de l'épisode sur une seule ligne */}
+        {/* Dernier épisode : toute la bande est cliquable */}
         {latestEpisode && (
-          <div className="border-b border-neutral-200 bg-white">
-            <div className="mx-auto flex max-w-7xl items-center gap-6 px-6 py-5 lg:px-16">
+          <Link
+            to={`/podcasts/${slugify(latestEpisode.title)}/`}
+            className="group block border-b border-neutral-200 bg-white transition-colors hover:bg-neutral-50"
+          >
+            <div className="mx-auto flex w-page max-w-6xl flex-col gap-1 py-5 sm:flex-row sm:items-center sm:gap-6 lg:w-page-lg">
               <span className="shrink-0 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
                 Dernier Épisode
+                <span className="sm:hidden">
+                  {' '}
+                  · S{latestEpisode.itunes.season} É
+                  {latestEpisode.itunes.episode}
+                </span>
               </span>
-              <span className="hidden h-3 w-px shrink-0 bg-neutral-200 sm:block" />
-              <span className="flex-1 truncate font-display text-sm font-light text-neutral-900 lg:text-base">
+              <span
+                className="hidden h-3 w-px shrink-0 bg-neutral-200 sm:block"
+                aria-hidden="true"
+              />
+              <span className="line-clamp-2 font-display text-base font-light leading-snug text-neutral-900 sm:flex-1 sm:truncate lg:text-lg">
                 {latestEpisode.title}
+                <span aria-hidden="true" className="sm:hidden">
+                  {' '}
+                  →
+                </span>
               </span>
               <span className="hidden shrink-0 text-xs text-neutral-500 sm:block">
                 Saison {latestEpisode.itunes.season} · Épisode{' '}
                 {latestEpisode.itunes.episode}
               </span>
-              <Link
-                to={`/podcasts/${slugify(latestEpisode.title)}/`}
-                aria-label={`Écouter : ${latestEpisode.title}`}
-                className="shrink-0 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors hover:text-neutral-900"
-              >
+              <span className="hidden shrink-0 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors group-hover:text-neutral-900 sm:block">
                 Écouter <span aria-hidden="true">→</span>
-              </Link>
+              </span>
             </div>
-          </div>
+          </Link>
         )}
       </section>
 
       {/* ── CHIFFRES CLÉS ────────────────────────────────────────── */}
+      {/* 2 × 2 sur mobile, une ligne de 4 ensuite */}
       <section className="border-b border-neutral-200">
-        <div className="mx-auto flex max-w-7xl divide-x divide-neutral-200">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-neutral-200 sm:grid-cols-4">
           {[
             { number: '+100', label: 'Épisodes' },
-            { number: '6', label: 'Saisons' },
+            {
+              number: String(latestEpisode?.itunes?.season ?? 6),
+              label: 'Saisons',
+            },
             { number: '2019', label: 'Depuis' },
             { number: '1', label: 'Galerie 3D' },
           ].map(({ number, label }) => (
-            <div key={label} className="flex-1 py-8 text-center">
+            <div key={label} className="bg-white py-8 text-center">
               <p className="font-display text-3xl font-light text-neutral-900">
                 {number}
               </p>
