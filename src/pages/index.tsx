@@ -52,7 +52,7 @@ function GallerySection() {
 
   return (
     <section className="mt-24 bg-neutral-950" aria-labelledby="section-galerie">
-      <div className="mx-auto grid w-page max-w-6xl grid-cols-1 gap-12 py-16 lg:w-page-lg lg:grid-cols-[2fr_3fr] lg:gap-16 lg:py-24">
+      <div className="mx-auto grid w-page max-w-6xl grid-cols-1 gap-12 py-16 lg:w-page-lg lg:grid-cols-[5fr_4fr] lg:items-center lg:gap-16 lg:py-24">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
             {copy.eyebrow}
@@ -66,10 +66,7 @@ function GallerySection() {
           <p className="mt-5 font-display text-xl font-light text-white/70 lg:text-2xl">
             {EXPO.dates}
           </p>
-        </div>
-
-        <div className="lg:border-l lg:border-white/10 lg:pl-16">
-          <p className="text-base leading-relaxed text-white/70">
+          <p className="mt-8 text-base leading-relaxed text-white/70">
             Quinze artistes réunies autour de la sororité, ce lien entre femmes
             qui traverse l'histoire de l'art. {copy.text}
           </p>
@@ -96,7 +93,7 @@ function GallerySection() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <a
               href="https://galerie.artaufeminin.fr"
-              className="whitespace-nowrap border border-white bg-white px-6 py-3 text-center text-xs font-semibold uppercase tracking-[0.2em] text-neutral-900 transition-colors hover:bg-neutral-200"
+              className="whitespace-nowrap border border-white bg-white px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.2em] text-neutral-900 transition-colors hover:bg-neutral-200"
             >
               {status === 'open'
                 ? "Voir l'exposition"
@@ -106,13 +103,28 @@ function GallerySection() {
             {status === 'upcoming' && (
               <Link
                 to="/galerie"
-                className="whitespace-nowrap border border-white/40 px-6 py-3 text-center text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:border-white"
+                className="whitespace-nowrap border border-white/40 px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:border-white"
               >
                 M'avertir de l'ouverture
               </Link>
             )}
           </div>
         </div>
+
+        <a
+          href="https://galerie.artaufeminin.fr"
+          tabIndex={-1}
+          aria-hidden="true"
+          className="block opacity-80 transition-opacity duration-500 hover:opacity-100"
+        >
+          <StaticImage
+            src="../images/galerie-facade-trait.png"
+            alt=""
+            placeholder="none"
+            width={800}
+            quality={90}
+          />
+        </a>
       </div>
     </section>
   );
