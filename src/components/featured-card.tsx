@@ -71,7 +71,7 @@ export function FeaturedCard({
         </h2>
       </Link>
       {description && (
-        <p className="mt-4 text-sm leading-relaxed text-neutral-600 line-clamp-5">
+        <p className="mt-4 text-base leading-relaxed text-neutral-600 line-clamp-5">
           {description}
         </p>
       )}

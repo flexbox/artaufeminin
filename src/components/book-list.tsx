@@ -52,10 +52,10 @@ function BookItem({ book, index }: { book: BookProps; index: number }) {
 
       {/* Contenu */}
       <div className="flex flex-1 flex-col p-6">
-        <h2 className="font-display text-xl font-semibold leading-snug text-stone-900 transition-colors group-hover:text-clay-500">
+        <h2 className="font-display text-2xl font-light leading-snug text-neutral-900 transition-colors group-hover:text-neutral-500">
           {title}
         </h2>
-        <p className="mt-3 flex-1 text-sm leading-relaxed text-stone-500">
+        <p className="mt-3 flex-1 text-sm leading-relaxed text-neutral-600">
           {excerpt}
         </p>
         <span className="mt-5 text-xs font-semibold uppercase tracking-[0.25em] text-clay-500 transition-colors group-hover:text-clay-700">

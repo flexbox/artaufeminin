@@ -60,12 +60,12 @@ export function ContentCard({
         </p>
 
         <Link to={href}>
-          <h2 className="mt-2 font-display text-xl leading-snug text-neutral-900 transition-colors group-hover:text-neutral-500">
+          <h2 className="mt-2 font-display text-2xl font-light leading-snug text-neutral-900 transition-colors group-hover:text-neutral-500">
             {title}
           </h2>
         </Link>
 
-        <p className="mt-2 flex-1 text-base leading-relaxed text-neutral-600">
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-neutral-600">
           {description}
         </p>
 
