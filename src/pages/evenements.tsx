@@ -258,7 +258,7 @@ export default function EvenementsPage(): ReactElement {
   return (
     <Layout withInstagram={false}>
       {/* ── HERO ─────────────────────────────────────────────────── */}
-      <section className="-mx-4 border-b border-neutral-200">
+      <section className="border-b border-neutral-200">
         <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:py-28">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             Événements
@@ -342,7 +342,7 @@ export default function EvenementsPage(): ReactElement {
       </section>
 
       {/* ── CTA NEWSLETTER ───────────────────────────────────────── */}
-      <section className="-mx-4 my-16 border-y border-neutral-200 bg-neutral-900 py-16">
+      <section className="my-16 border-y border-neutral-200 bg-neutral-900 py-16">
         <div className="mx-auto max-w-2xl px-6 text-center lg:px-0">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
             Rester Informée

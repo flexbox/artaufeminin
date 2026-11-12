@@ -9,7 +9,7 @@ export default function AboutPage() {
   return (
     <Layout withInstagram={false}>
       {/* ── HERO ─────────────────────────────────────────────────── */}
-      <section className="-mx-4 border-b border-neutral-200">
+      <section className="border-b border-neutral-200">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:flex lg:items-center lg:gap-20 lg:px-16 lg:py-28">
           <div className="flex-1">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
@@ -64,7 +64,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── MON HISTOIRE ─────────────────────────────────────────── */}
-      <section className="m-auto my-20 w-3/4 max-w-3xl">
+      <section className="mx-auto my-20 w-page max-w-3xl">
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Mon Histoire
         </p>
@@ -129,7 +129,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── POURQUOI ─────────────────────────────────────────────── */}
-      <section className="m-auto my-20 w-3/4">
+      <section className="mx-auto my-20 w-page max-w-5xl">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
           <div>
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
@@ -160,7 +160,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── CE QUE VOUS TROUVEREZ ────────────────────────────────── */}
-      <section className="m-auto mb-20 w-3/4">
+      <section className="mx-auto mb-20 w-page max-w-5xl">
         <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Sur ART AU FÉMININ
         </p>
@@ -202,7 +202,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── RÉSEAUX SOCIAUX ──────────────────────────────────────── */}
-      <section className="-mx-4 border-t border-neutral-200 bg-neutral-50 py-16">
+      <section className="border-t border-neutral-200 bg-neutral-50 py-16">
         <div className="mx-auto max-w-3xl px-6 text-center lg:px-0">
           <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             Suivre ART AU FÉMININ

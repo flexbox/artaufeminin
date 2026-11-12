@@ -7,7 +7,7 @@ import SEO from '../components/seo';
 export default function PolitiqueConfidentialitePage() {
   return (
     <Layout withInstagram={false}>
-      <section className="m-auto mb-12 mt-8 w-3/4 max-w-3xl">
+      <section className="mx-auto mb-12 mt-8 w-page max-w-3xl">
         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Légal
         </p>
@@ -20,7 +20,7 @@ export default function PolitiqueConfidentialitePage() {
         </p>
       </section>
 
-      <div className="m-auto mb-20 w-3/4 max-w-3xl space-y-10">
+      <div className="mx-auto mb-20 w-page max-w-3xl space-y-10">
         <section aria-labelledby="responsable-heading">
           <h2
             id="responsable-heading"

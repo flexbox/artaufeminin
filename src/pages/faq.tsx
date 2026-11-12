@@ -59,7 +59,7 @@ export default function FaqPage({ data }: FaqPageProps): ReactElement {
 
   return (
     <Layout withInstagram={false}>
-      <section className="m-auto mb-12 mt-8 w-3/4">
+      <section className="mx-auto mb-12 mt-8 w-page max-w-5xl">
         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Aide
         </p>
@@ -72,7 +72,7 @@ export default function FaqPage({ data }: FaqPageProps): ReactElement {
         </p>
       </section>
 
-      <div className="m-auto mb-16 w-3/4 border border-neutral-200 px-8">
+      <div className="mx-auto mb-16 w-page max-w-5xl border border-neutral-200 px-8">
         {questions.map((question, index) => (
           <QuestionItem
             key={index}
@@ -82,7 +82,7 @@ export default function FaqPage({ data }: FaqPageProps): ReactElement {
         ))}
       </div>
 
-      <section className="m-auto mb-20 w-3/4">
+      <section className="mx-auto mb-20 w-page max-w-5xl">
         <div className="flex flex-col gap-4 border border-neutral-200 p-8 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">

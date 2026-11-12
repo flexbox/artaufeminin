@@ -109,7 +109,7 @@ export default function QuizEte2026() {
   return (
     <Layout withInstagram={false}>
       {/* ── EN-TÊTE ───────────────────────────────────────────────── */}
-      <section className="mx-auto mb-12 mt-8 w-11/12 max-w-3xl border-b border-neutral-200 pb-8">
+      <section className="mx-auto mb-12 mt-8 w-page max-w-3xl border-b border-neutral-200 pb-8">
         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Été 2026 · Lettre N°1
         </p>
@@ -125,7 +125,7 @@ export default function QuizEte2026() {
       </section>
 
       {/* ── ALMA THOMAS ───────────────────────────────────────────── */}
-      <section className="mx-auto mb-16 w-11/12 max-w-3xl">
+      <section className="mx-auto mb-16 w-page max-w-3xl">
         <div className="border border-neutral-200 p-8">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             L&rsquo;artiste de ce numéro
@@ -161,7 +161,7 @@ export default function QuizEte2026() {
       </section>
 
       {/* ── QUIZ ──────────────────────────────────────────────────── */}
-      <section className="mx-auto mb-20 w-11/12 max-w-3xl">
+      <section className="mx-auto mb-20 w-page max-w-3xl">
         <div className="mb-6 flex items-center justify-between border-b border-neutral-200 pb-4">
           <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
             {step < 3
@@ -263,7 +263,7 @@ export default function QuizEte2026() {
       </section>
 
       {/* ── CARNETS ───────────────────────────────────────────────── */}
-      <section className="-mx-4 border-t border-neutral-200 bg-neutral-50">
+      <section className="border-t border-neutral-200 bg-neutral-50">
         <div className="mx-auto max-w-3xl px-10 py-14">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             Depuis toujours, j&rsquo;ai des carnets
@@ -289,7 +289,7 @@ export default function QuizEte2026() {
       </section>
 
       {/* ── POUR ALLER PLUS LOIN ──────────────────────────────────── */}
-      <section className="mx-auto my-20 w-11/12 max-w-3xl">
+      <section className="mx-auto my-20 w-page max-w-3xl">
         <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Pour aller plus loin
         </p>

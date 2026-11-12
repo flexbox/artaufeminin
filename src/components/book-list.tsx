@@ -68,7 +68,7 @@ export default function BookList({
   allBooks,
 }: BookListItemProps): ReactElement {
   return (
-    <div className="m-auto mb-20 grid w-3/4 grid-cols-1 gap-6 sm:grid-cols-2">
+    <div className="mx-auto mb-20 grid w-page max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2">
       {allBooks.map((book, index) => (
         <BookItem book={book} key={book.uid} index={index} />
       ))}

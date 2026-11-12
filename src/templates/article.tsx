@@ -106,7 +106,7 @@ export default function Article(props: PropsArticle): ReactElement {
       {/* ── HERO IMAGE ───────────────────────────────────────────── */}
       <article>
         {imageHero?.url && (
-          <div className="-mx-4 relative h-[55vh] min-h-[340px] overflow-hidden">
+          <div className="relative h-[55vh] min-h-[340px] overflow-hidden">
             {imageHero.gatsbyImageData ? (
               <GatsbyImage
                 image={getImage(imageHero.gatsbyImageData)!}

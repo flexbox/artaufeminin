@@ -32,7 +32,7 @@ function Layout({ children, withInstagram = false }: LayoutProps) {
         Passer au contenu principal
       </a>
       <Header />
-      <main id="main-content" role="main" className="px-4">
+      <main id="main-content" role="main">
         {children}
       </main>
       {withInstagram && <Instagram />}

@@ -31,7 +31,7 @@ export default function Episode({ pageContext }) {
   return (
     <Layout>
       {/* ── HERO IMAGE ───────────────────────────────────────────── */}
-      <div className="-mx-4 relative h-[55vh] min-h-[340px] overflow-hidden">
+      <div className="relative h-[55vh] min-h-[340px] overflow-hidden">
         <img
           src={image}
           alt={title}

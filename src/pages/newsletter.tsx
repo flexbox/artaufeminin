@@ -32,7 +32,7 @@ export default function NewsletterPage(): ReactElement {
   return (
     <Layout withInstagram={false}>
       {/* ── HERO ─────────────────────────────────────────────────── */}
-      <section className="-mx-4 border-b border-neutral-200">
+      <section className="border-b border-neutral-200">
         <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:py-28">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             Newsletter Mensuelle · Gratuit
@@ -151,7 +151,7 @@ export default function NewsletterPage(): ReactElement {
       </section>
 
       {/* ── GALERIE ──────────────────────────────────────────────── */}
-      <section className="-mx-4 my-16 border-y border-neutral-200 bg-neutral-900 py-16">
+      <section className="my-16 border-y border-neutral-200 bg-neutral-900 py-16">
         <div className="mx-auto max-w-3xl px-6 lg:flex lg:items-center lg:gap-16 lg:px-0">
           <div>
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/60">

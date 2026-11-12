@@ -2,6 +2,11 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      width: {
+        // Conteneurs de page : marge latérale de 1,5 rem (mobile) ou 4 rem (lg)
+        page: 'calc(100% - 3rem)',
+        'page-lg': 'calc(100% - 8rem)',
+      },
       fontFamily: {
         merri: "'Merriweather', serif",
         display: ["'Cormorant Garamond'", 'serif'],

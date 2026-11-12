@@ -12,7 +12,7 @@ export default function CommencerPage({ data }): ReactElement {
   return (
     <Layout withInstagram={false}>
       {/* ── HERO ─────────────────────────────────────────────────── */}
-      <section className="-mx-4 border-b border-neutral-200">
+      <section className="border-b border-neutral-200">
         <div className="mx-auto max-w-3xl px-6 py-20 lg:py-28">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             Vous découvrez ART AU FÉMININ ?
@@ -29,7 +29,7 @@ export default function CommencerPage({ data }): ReactElement {
       </section>
 
       {/* ── LE PROJET EN 3 POINTS ────────────────────────────────── */}
-      <section className="mx-auto my-16 w-11/12 max-w-3xl">
+      <section className="mx-auto my-16 w-page max-w-3xl">
         <h2 className="font-sans mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Le Projet
         </h2>
@@ -68,7 +68,7 @@ export default function CommencerPage({ data }): ReactElement {
       </section>
 
       {/* ── ÉPISODES POUR COMMENCER ───────────────────────────────── */}
-      <section className="mx-auto mb-16 w-11/12 max-w-3xl">
+      <section className="mx-auto mb-16 w-page max-w-3xl">
         <div className="mb-8 flex items-baseline justify-between border-b border-neutral-200 pb-4">
           <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
             Épisodes pour commencer
@@ -124,7 +124,7 @@ export default function CommencerPage({ data }): ReactElement {
       </section>
 
       {/* ── EXPLORER ─────────────────────────────────────────────── */}
-      <section className="mx-auto mb-16 w-11/12 max-w-3xl">
+      <section className="mx-auto mb-16 w-page max-w-3xl">
         <h2 className="font-sans mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Explorer le Contenu
         </h2>
@@ -166,7 +166,7 @@ export default function CommencerPage({ data }): ReactElement {
       </section>
 
       {/* ── ARTICLES INCONTOURNABLES ──────────────────────────────── */}
-      <section className="mx-auto mb-16 w-11/12 max-w-3xl">
+      <section className="mx-auto mb-16 w-page max-w-3xl">
         <div className="mb-8 flex items-baseline justify-between border-b border-neutral-200 pb-4">
           <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
             Articles incontournables
@@ -237,7 +237,7 @@ export default function CommencerPage({ data }): ReactElement {
       </section>
 
       {/* ── NEWSLETTER ───────────────────────────────────────────── */}
-      <section className="-mx-4 border-y border-neutral-200 bg-neutral-900 py-16">
+      <section className="border-y border-neutral-200 bg-neutral-900 py-16">
         <div className="mx-auto max-w-3xl px-6 text-center lg:px-0">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
             Newsletter Mensuelle

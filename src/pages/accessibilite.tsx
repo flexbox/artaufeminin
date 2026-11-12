@@ -6,7 +6,7 @@ import SEO from '../components/seo';
 export default function AccessibilitePage() {
   return (
     <Layout withInstagram={false}>
-      <section className="m-auto mb-12 mt-8 w-3/4 max-w-3xl">
+      <section className="mx-auto mb-12 mt-8 w-page max-w-3xl">
         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Accessibilité
         </p>
@@ -19,7 +19,7 @@ export default function AccessibilitePage() {
         </p>
       </section>
 
-      <div className="m-auto mb-20 w-3/4 max-w-3xl space-y-10">
+      <div className="mx-auto mb-20 w-page max-w-3xl space-y-10">
         <section aria-labelledby="engagement-heading">
           <h2
             id="engagement-heading"

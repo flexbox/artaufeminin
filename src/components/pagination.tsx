@@ -23,7 +23,7 @@ export function Pagination({
   return (
     <nav
       aria-label="Pagination"
-      className="mx-auto mb-20 w-11/12 max-w-7xl border-t border-neutral-200 pt-10"
+      className="mx-auto mb-20 w-page max-w-6xl lg:w-page-lg border-t border-neutral-200 pt-10"
     >
       <div className="flex items-center justify-between">
         {!isFirst ? (

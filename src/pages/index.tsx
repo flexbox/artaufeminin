@@ -19,7 +19,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout withInstagram={false}>
       {/* ── HERO — image plein cadre + strip "Now Open" ─────────── */}
-      <section className="-mx-4" aria-labelledby="hero-heading">
+      <section aria-labelledby="hero-heading">
         <h1 id="hero-heading" className="sr-only">
           ART AU FÉMININ — Le podcast sur les femmes artistes et l'Histoire de
           l'Art
@@ -121,7 +121,7 @@ const IndexPage = ({ data }) => {
 
       {/* ── ÉPISODES ─────────────────────────────────────────────── */}
       <section
-        className="mx-auto mt-16 w-11/12 max-w-7xl"
+        className="mx-auto mt-16 w-page max-w-6xl lg:w-page-lg"
         aria-labelledby="section-episodes"
       >
         {/* En-tête de section */}
@@ -199,11 +199,11 @@ const IndexPage = ({ data }) => {
       </section>
 
       {/* ── SÉPARATEUR ───────────────────────────────────────────── */}
-      <div className="mx-auto my-20 w-11/12 max-w-7xl border-t border-neutral-200" />
+      <div className="mx-auto my-20 w-page max-w-6xl lg:w-page-lg border-t border-neutral-200" />
 
       {/* ── ARTICLES ─────────────────────────────────────────────── */}
       <section
-        className="mx-auto w-11/12 max-w-7xl"
+        className="mx-auto w-page max-w-6xl lg:w-page-lg"
         aria-labelledby="section-articles"
       >
         <div className="mb-10 flex items-baseline justify-between border-b border-neutral-200 pb-4">
@@ -293,7 +293,7 @@ const IndexPage = ({ data }) => {
       </section>
 
       {/* ── GALERIE ───────────────────────────────────────────────── */}
-      <section className="-mx-4 mt-24 border-t border-neutral-200 bg-neutral-950">
+      <section className="mt-24 border-t border-neutral-200 bg-neutral-950">
         <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 py-16 lg:flex-row lg:items-end lg:justify-between lg:px-16 lg:py-20">
           <div className="max-w-lg">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
@@ -334,7 +334,7 @@ const IndexPage = ({ data }) => {
       </section>
 
       {/* ── SOUTENIR LE PODCAST ────────────────────────────────────── */}
-      <section className="mx-auto my-20 w-11/12 max-w-7xl">
+      <section className="mx-auto my-20 w-page max-w-6xl lg:w-page-lg">
         <div className="flex flex-col gap-6 border-t border-neutral-200 pt-10 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">

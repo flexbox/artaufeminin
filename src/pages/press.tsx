@@ -19,7 +19,7 @@ export default function PressPage({ data }: PressPageProps): ReactElement {
 
   return (
     <Layout withInstagram={false}>
-      <section className="m-auto mb-12 mt-8 w-3/4 border-b border-neutral-200 pb-8">
+      <section className="mx-auto mb-12 mt-8 w-page max-w-5xl border-b border-neutral-200 pb-8">
         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Médias
         </p>
@@ -38,7 +38,7 @@ export default function PressPage({ data }: PressPageProps): ReactElement {
         </a>
       </section>
 
-      <section className="m-auto mb-16 w-3/4">
+      <section className="mx-auto mb-16 w-page max-w-5xl">
         <h2 className="font-sans mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Ils en Parlent
         </h2>
@@ -77,7 +77,7 @@ export default function PressPage({ data }: PressPageProps): ReactElement {
       </section>
 
       {press.length > 0 && (
-        <section className="m-auto mb-16 w-3/4">
+        <section className="mx-auto mb-16 w-page max-w-5xl">
           <h2 className="font-sans mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             Articles &amp; Mentions
           </h2>
@@ -85,7 +85,7 @@ export default function PressPage({ data }: PressPageProps): ReactElement {
         </section>
       )}
 
-      <section className="m-auto mb-20 w-3/4">
+      <section className="mx-auto mb-20 w-page max-w-5xl">
         <h2 className="font-sans mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Kit Presse — Logos
         </h2>

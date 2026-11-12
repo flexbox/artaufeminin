@@ -93,7 +93,7 @@ function ArticleRow({ article }: { article: ArticleProps }) {
 export function ArticleList({ allArticles, isRow }: ArticleListItemProps) {
   if (isRow) {
     return (
-      <div className="m-auto w-3/4">
+      <div className="mx-auto w-page max-w-5xl">
         {allArticles.map((article) => (
           <ArticleRow article={article} key={article.uid} />
         ))}

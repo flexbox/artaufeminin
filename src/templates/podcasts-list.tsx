@@ -80,7 +80,7 @@ const PodcastsListTemplate = ({ data, pageContext }: PodcastsListProps) => {
   return (
     <Layout>
       {/* ── EN-TÊTE ───────────────────────────────────────────────── */}
-      <section className="mx-auto mb-10 mt-8 w-11/12 max-w-7xl border-b border-neutral-200 pb-8">
+      <section className="mx-auto mb-10 mt-8 w-page max-w-6xl lg:w-page-lg border-b border-neutral-200 pb-8">
         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Tous les Épisodes
         </p>
@@ -96,7 +96,7 @@ const PodcastsListTemplate = ({ data, pageContext }: PodcastsListProps) => {
 
       {/* ── DERNIER ÉPISODE — featured uniquement page 1 ─────────── */}
       {featured && (
-        <section className="mx-auto mb-16 w-11/12 max-w-7xl">
+        <section className="mx-auto mb-16 w-page max-w-6xl lg:w-page-lg">
           <div className="mb-8 flex items-baseline border-b border-neutral-200 pb-4">
             <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
               Dernier Épisode
@@ -128,7 +128,7 @@ const PodcastsListTemplate = ({ data, pageContext }: PodcastsListProps) => {
 
       {/* ── GRILLE D'ÉPISODES ─────────────────────────────────────── */}
       {rest.length > 0 && (
-        <section className="mx-auto mb-10 w-11/12 max-w-7xl">
+        <section className="mx-auto mb-10 w-page max-w-6xl lg:w-page-lg">
           <div className="mb-8 flex items-baseline border-b border-neutral-200 pb-4">
             <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
               {isFirst ? 'Tous les Épisodes' : `Page ${currentPage}`}
