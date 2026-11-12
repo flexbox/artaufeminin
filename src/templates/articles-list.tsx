@@ -31,7 +31,7 @@ const ArticlesListTemplate = ({ data, pageContext }: ArticlesListProps) => {
   const rest = isFirst ? articles.slice(1) : articles;
 
   return (
-    <Layout withInstagram={false}>
+    <Layout>
       {/* ── EN-TÊTE ───────────────────────────────────────────────── */}
       <section className="mx-auto mb-10 mt-8 w-page max-w-6xl lg:w-page-lg border-b border-neutral-200 pb-8">
         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">

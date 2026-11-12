@@ -8,7 +8,6 @@ module.exports = {
         'page-lg': 'calc(100% - 8rem)',
       },
       fontFamily: {
-        merri: "'Merriweather', serif",
         display: ["'Cormorant Garamond'", 'serif'],
         sans: ["'Inter'", 'system-ui', 'sans-serif'],
       },

@@ -17,7 +17,7 @@ const IndexPage = ({ data }) => {
   const latestEpisode = allEpisodes[0];
 
   return (
-    <Layout withInstagram={false}>
+    <Layout>
       {/* ── HERO — image plein cadre + strip "Now Open" ─────────── */}
       <section aria-labelledby="hero-heading">
         <h1 id="hero-heading" className="sr-only">

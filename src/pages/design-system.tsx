@@ -51,7 +51,7 @@ function Token({
 
 export default function DesignSystemPage(): ReactElement {
   return (
-    <Layout withInstagram={false}>
+    <Layout>
       {/* En-tête */}
       <div className="mb-16 border-b border-clay-200 pb-12">
         <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-clay-500">

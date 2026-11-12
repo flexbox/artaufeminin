@@ -3,15 +3,13 @@ import React, { ReactNode } from 'react';
 
 import Footer from './footer';
 import { Header } from './header';
-import Instagram from './instagram';
 import { AudioPlayer } from './player/AudioPlayer';
 
 interface LayoutProps {
   children: ReactNode;
-  withInstagram?: boolean;
 }
 
-function Layout({ children, withInstagram = false }: LayoutProps) {
+function Layout({ children }: LayoutProps) {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -35,7 +33,6 @@ function Layout({ children, withInstagram = false }: LayoutProps) {
       <main id="main-content" role="main">
         {children}
       </main>
-      {withInstagram && <Instagram />}
       <div className="fixed inset-x-0 bottom-0 z-10">
         <AudioPlayer />
       </div>

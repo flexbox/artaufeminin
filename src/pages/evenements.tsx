@@ -256,7 +256,7 @@ export default function EvenementsPage(): ReactElement {
   const past = EVENTS.filter((e) => e.dateEnd < now);
 
   return (
-    <Layout withInstagram={false}>
+    <Layout>
       {/* ── HERO ─────────────────────────────────────────────────── */}
       <section className="border-b border-neutral-200">
         <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:py-28">

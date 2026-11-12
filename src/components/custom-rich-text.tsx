@@ -6,14 +6,16 @@ import {
 } from 'prismic-reactjs';
 import React, { ReactElement } from 'react';
 
-import Text from './text';
-
 function customHtmlSerializer(type, element, content, children, key) {
   if (type === Elements.heading2) {
     return (
-      <Text as="h2" variant="h2" key={key} id={kebabCase(children)}>
+      <h2
+        key={key}
+        id={kebabCase(children)}
+        className="font-display text-2xl font-light leading-snug text-neutral-900 md:text-3xl"
+      >
         {children}
-      </Text>
+      </h2>
     );
   }
   if (type === Elements.paragraph && element.label === 'blockquote') {

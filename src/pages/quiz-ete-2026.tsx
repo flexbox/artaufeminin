@@ -107,7 +107,7 @@ export default function QuizEte2026() {
   const currentQuestion = step < 3 ? questions[step] : null;
 
   return (
-    <Layout withInstagram={false}>
+    <Layout>
       {/* ── EN-TÊTE ───────────────────────────────────────────────── */}
       <section className="mx-auto mb-12 mt-8 w-page max-w-3xl border-b border-neutral-200 pb-8">
         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">

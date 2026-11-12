@@ -58,7 +58,7 @@ export default function FaqPage({ data }: FaqPageProps): ReactElement {
   const questions = data.allPrismicFaq.nodes;
 
   return (
-    <Layout withInstagram={false}>
+    <Layout>
       <section className="mx-auto mb-12 mt-8 w-page max-w-5xl">
         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Aide

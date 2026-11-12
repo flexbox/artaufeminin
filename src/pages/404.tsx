@@ -6,7 +6,7 @@ import SEO from '../components/seo';
 
 export default function NotFoundPage(): ReactElement {
   return (
-    <Layout withInstagram={false}>
+    <Layout>
       <div className="mx-auto max-w-2xl px-6 py-24 text-center lg:px-0">
         <p className="font-display text-[8rem] font-light leading-none text-neutral-100 md:text-[12rem]">
           404

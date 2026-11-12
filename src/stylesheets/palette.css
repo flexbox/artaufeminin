@@ -1,25 +1,5 @@
 :root {
-  --color-primary: #3d3d3d;
   --color-base: #0a0a0a;
   --color-border: #e0e0de;
   --color-bg: #ffffff;
-  --color-white: #ffffff;
-
-  --cream-50: #ffffff;
-  --cream-100: #f6f6f5;
-  --cream-200: #ededec;
-  --cream-300: #e0e0de;
-
-  --clay-100: #f0f0ef;
-  --clay-200: #d4d4d3;
-  --clay-300: #a8a8a7;
-  --clay-500: #3d3d3d;
-  --clay-700: #0a0a0a;
-
-  --sage-300: #c8c8c7;
-  --sage-500: #6b6b6a;
-  --sage-700: #3d3d3c;
-
-  --gold-300: #d4d4d3;
-  --gold-500: #a8a8a7;
 }

@@ -5,7 +5,7 @@ import SEO from '../components/seo';
 
 export default function AccessibilitePage() {
   return (
-    <Layout withInstagram={false}>
+    <Layout>
       <section className="mx-auto mb-12 mt-8 w-page max-w-3xl">
         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Accessibilité

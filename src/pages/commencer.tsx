@@ -10,7 +10,7 @@ export default function CommencerPage({ data }): ReactElement {
   const episodes = data.allAnchorEpisode.nodes;
 
   return (
-    <Layout withInstagram={false}>
+    <Layout>
       {/* ── HERO ─────────────────────────────────────────────────── */}
       <section className="border-b border-neutral-200">
         <div className="mx-auto max-w-3xl px-6 py-20 lg:py-28">

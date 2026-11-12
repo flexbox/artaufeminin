@@ -7,7 +7,7 @@ import SEO from '../components/seo';
 
 export default function AboutPage() {
   return (
-    <Layout withInstagram={false}>
+    <Layout>
       {/* ── HERO ─────────────────────────────────────────────────── */}
       <section className="border-b border-neutral-200">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:flex lg:items-center lg:gap-20 lg:px-16 lg:py-28">

@@ -29,7 +29,7 @@ const BooksPage = ({ data }: BooksPageProps) => {
   const allBooks = Array.from(byUid.values());
 
   return (
-    <Layout withInstagram={false}>
+    <Layout>
       <section className="mx-auto mb-10 mt-8 w-page max-w-5xl border-b border-neutral-200 pb-8">
         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Bibliothèque
