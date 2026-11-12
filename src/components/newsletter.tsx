@@ -30,7 +30,7 @@ export default function Newsletter(): ReactElement {
 
   return (
     <div>
-      <h3 className="text-xs font-bold uppercase tracking-[0.25em] text-white/70">
+      <h3 className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-white/70">
         Newsletter
       </h3>
       <p className="mt-4 font-display text-xl font-light italic text-white/90 leading-snug">
@@ -66,7 +66,7 @@ export default function Newsletter(): ReactElement {
                   ? 'Envoi en cours…'
                   : "S'inscrire à la newsletter"
               }
-              className="rounded-r-full border border-white/20 border-l-0 bg-clay-500 px-5 py-3 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-clay-700 disabled:opacity-40"
+              className="rounded-r-full border border-white/20 border-l-0 bg-clay-500 px-5 py-3 text-xs font-semibold uppercase tracking-widest text-white transition-colors hover:bg-clay-700 disabled:opacity-40"
             >
               <span aria-hidden="true">{status === 'loading' ? '…' : '→'}</span>
             </button>

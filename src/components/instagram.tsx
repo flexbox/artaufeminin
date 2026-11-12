@@ -19,7 +19,7 @@ export default function Instagram() {
         {/* En-tête */}
         <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="mb-2 text-xs font-bold uppercase tracking-[0.25em] text-clay-500">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-clay-500">
               Instagram
             </p>
             <h2 className="font-display text-3xl font-semibold tracking-tight text-stone-900 md:text-4xl">

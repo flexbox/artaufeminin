@@ -24,7 +24,7 @@ export default function PolitiqueConfidentialitePage() {
         <section aria-labelledby="responsable-heading">
           <h2
             id="responsable-heading"
-            className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+            className="font-sans mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
           >
             Responsable du traitement
           </h2>
@@ -50,7 +50,7 @@ export default function PolitiqueConfidentialitePage() {
         <section aria-labelledby="donnees-heading">
           <h2
             id="donnees-heading"
-            className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+            className="font-sans mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
           >
             Données collectées
           </h2>
@@ -71,7 +71,7 @@ export default function PolitiqueConfidentialitePage() {
         <section aria-labelledby="finalite-heading">
           <h2
             id="finalite-heading"
-            className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+            className="font-sans mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
           >
             Finalité et base légale du traitement
           </h2>
@@ -97,7 +97,7 @@ export default function PolitiqueConfidentialitePage() {
         <section aria-labelledby="sous-traitant-heading">
           <h2
             id="sous-traitant-heading"
-            className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+            className="font-sans mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
           >
             Sous-traitant — MailerLite
           </h2>
@@ -121,7 +121,7 @@ export default function PolitiqueConfidentialitePage() {
         <section aria-labelledby="conservation-heading">
           <h2
             id="conservation-heading"
-            className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+            className="font-sans mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
           >
             Durée de conservation
           </h2>
@@ -137,7 +137,7 @@ export default function PolitiqueConfidentialitePage() {
         <section aria-labelledby="droits-heading">
           <h2
             id="droits-heading"
-            className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+            className="font-sans mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
           >
             Vos droits
           </h2>
@@ -208,7 +208,7 @@ export default function PolitiqueConfidentialitePage() {
         <section aria-labelledby="securite-heading">
           <h2
             id="securite-heading"
-            className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+            className="font-sans mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
           >
             Sécurité
           </h2>
@@ -225,7 +225,7 @@ export default function PolitiqueConfidentialitePage() {
         <section aria-labelledby="modifications-heading">
           <h2
             id="modifications-heading"
-            className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+            className="font-sans mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
           >
             Modifications de cette politique
           </h2>

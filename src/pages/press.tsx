@@ -39,7 +39,7 @@ export default function PressPage({ data }: PressPageProps): ReactElement {
       </section>
 
       <section className="m-auto mb-16 w-3/4">
-        <h2 className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
+        <h2 className="font-sans mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Ils en Parlent
         </h2>
         <div className="flex flex-wrap items-center justify-start gap-8 border border-neutral-200 bg-neutral-50 p-8">
@@ -78,7 +78,7 @@ export default function PressPage({ data }: PressPageProps): ReactElement {
 
       {press.length > 0 && (
         <section className="m-auto mb-16 w-3/4">
-          <h2 className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
+          <h2 className="font-sans mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
             Articles &amp; Mentions
           </h2>
           <PressList allPress={press} />
@@ -86,7 +86,7 @@ export default function PressPage({ data }: PressPageProps): ReactElement {
       )}
 
       <section className="m-auto mb-20 w-3/4">
-        <h2 className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
+        <h2 className="font-sans mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Kit Presse — Logos
         </h2>
         <div className="border border-neutral-200 p-8">
@@ -96,7 +96,7 @@ export default function PressPage({ data }: PressPageProps): ReactElement {
           </p>
 
           <div className="mb-8">
-            <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
+            <h3 className="font-sans mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
               SVG
             </h3>
             <div className="flex flex-wrap items-center gap-8">
@@ -116,7 +116,7 @@ export default function PressPage({ data }: PressPageProps): ReactElement {
           </div>
 
           <div>
-            <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
+            <h3 className="font-sans mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
               PNG
             </h3>
             <div className="flex flex-wrap items-center gap-8">

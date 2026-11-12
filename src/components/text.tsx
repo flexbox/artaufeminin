@@ -12,10 +12,11 @@ export const TextVariants = cva(['primary'], {
         'md:text-6xl',
       ],
       h2: [
+        'font-display',
         'text-2xl',
-        'font-semibold',
+        'font-light',
         'leading-snug',
-        'text-stone-800',
+        'text-neutral-900',
         'md:text-3xl',
       ],
       h2about: [

@@ -23,7 +23,7 @@ export default function AccessibilitePage() {
         <section aria-labelledby="engagement-heading">
           <h2
             id="engagement-heading"
-            className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+            className="font-sans mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
           >
             Notre engagement
           </h2>
@@ -43,7 +43,7 @@ export default function AccessibilitePage() {
         <section aria-labelledby="conformite-heading">
           <h2
             id="conformite-heading"
-            className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+            className="font-sans mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
           >
             État de conformité
           </h2>
@@ -66,7 +66,7 @@ export default function AccessibilitePage() {
         <section aria-labelledby="mesures-heading">
           <h2
             id="mesures-heading"
-            className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+            className="font-sans mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
           >
             Mesures prises pour l'accessibilité
           </h2>
@@ -96,7 +96,7 @@ export default function AccessibilitePage() {
         <section aria-labelledby="non-conformites-heading">
           <h2
             id="non-conformites-heading"
-            className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+            className="font-sans mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
           >
             Non-conformités connues
           </h2>
@@ -123,7 +123,7 @@ export default function AccessibilitePage() {
         <section aria-labelledby="technologies-heading">
           <h2
             id="technologies-heading"
-            className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+            className="font-sans mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
           >
             Technologies utilisées
           </h2>
@@ -147,7 +147,7 @@ export default function AccessibilitePage() {
         <section aria-labelledby="outils-heading">
           <h2
             id="outils-heading"
-            className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+            className="font-sans mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
           >
             Outils d'évaluation utilisés
           </h2>
@@ -170,7 +170,7 @@ export default function AccessibilitePage() {
         <section aria-labelledby="contact-heading">
           <h2
             id="contact-heading"
-            className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+            className="font-sans mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
           >
             Contact — Signaler un problème d'accessibilité
           </h2>
@@ -202,7 +202,7 @@ export default function AccessibilitePage() {
         <section aria-labelledby="voie-recours-heading">
           <h2
             id="voie-recours-heading"
-            className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+            className="font-sans mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
           >
             Voie de recours
           </h2>

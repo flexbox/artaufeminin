@@ -125,7 +125,7 @@ export default function Footer({ siteTitle }: FooterProps) {
           <div>
             <h3
               id="footer-nav-contenu"
-              className="text-xs font-semibold uppercase tracking-[0.25em] text-white/50"
+              className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-white/50"
             >
               Contenu
             </h3>
@@ -148,7 +148,7 @@ export default function Footer({ siteTitle }: FooterProps) {
           <div className="mt-10 lg:mt-0">
             <h3
               id="footer-nav-podcast"
-              className="text-xs font-semibold uppercase tracking-[0.25em] text-white/50"
+              className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-white/50"
             >
               Le podcast
             </h3>
@@ -182,7 +182,7 @@ export default function Footer({ siteTitle }: FooterProps) {
           <div className="mt-10 lg:mt-0">
             <h3
               id="footer-nav-apropos"
-              className="text-xs font-semibold uppercase tracking-[0.25em] text-white/50"
+              className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-white/50"
             >
               À propos
             </h3>

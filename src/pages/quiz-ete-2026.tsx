@@ -163,7 +163,7 @@ export default function QuizEte2026() {
       {/* ── QUIZ ──────────────────────────────────────────────────── */}
       <section className="mx-auto mb-20 w-11/12 max-w-3xl">
         <div className="mb-6 flex items-center justify-between border-b border-neutral-200 pb-4">
-          <h2 className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
+          <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
             {step < 3
               ? `Question ${step + 1} sur 3`
               : 'Ton artiste de l\u2019\u00e9t\u00e9'}

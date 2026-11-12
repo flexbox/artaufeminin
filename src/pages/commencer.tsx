@@ -30,7 +30,7 @@ export default function CommencerPage({ data }): ReactElement {
 
       {/* ── LE PROJET EN 3 POINTS ────────────────────────────────── */}
       <section className="mx-auto my-16 w-11/12 max-w-3xl">
-        <h2 className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
+        <h2 className="font-sans mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Le Projet
         </h2>
         <div className="grid grid-cols-1 gap-px border border-neutral-200 bg-neutral-200 sm:grid-cols-3">
@@ -70,7 +70,7 @@ export default function CommencerPage({ data }): ReactElement {
       {/* ── ÉPISODES POUR COMMENCER ───────────────────────────────── */}
       <section className="mx-auto mb-16 w-11/12 max-w-3xl">
         <div className="mb-8 flex items-baseline justify-between border-b border-neutral-200 pb-4">
-          <h2 className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
+          <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
             Épisodes pour commencer
           </h2>
           <Link
@@ -125,7 +125,7 @@ export default function CommencerPage({ data }): ReactElement {
 
       {/* ── EXPLORER ─────────────────────────────────────────────── */}
       <section className="mx-auto mb-16 w-11/12 max-w-3xl">
-        <h2 className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
+        <h2 className="font-sans mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Explorer le Contenu
         </h2>
         <div className="grid grid-cols-2 gap-px border border-neutral-200 bg-neutral-200 lg:grid-cols-4">
@@ -168,7 +168,7 @@ export default function CommencerPage({ data }): ReactElement {
       {/* ── ARTICLES INCONTOURNABLES ──────────────────────────────── */}
       <section className="mx-auto mb-16 w-11/12 max-w-3xl">
         <div className="mb-8 flex items-baseline justify-between border-b border-neutral-200 pb-4">
-          <h2 className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
+          <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
             Articles incontournables
           </h2>
           <Link

@@ -128,7 +128,7 @@ const IndexPage = ({ data }) => {
         <div className="mb-10 flex items-baseline justify-between border-b border-neutral-200 pb-4">
           <h2
             id="section-episodes"
-            className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+            className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
           >
             Épisodes
           </h2>
@@ -209,7 +209,7 @@ const IndexPage = ({ data }) => {
         <div className="mb-10 flex items-baseline justify-between border-b border-neutral-200 pb-4">
           <h2
             id="section-articles"
-            className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+            className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
           >
             Articles
           </h2>

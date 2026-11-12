@@ -98,7 +98,7 @@ const PodcastsListTemplate = ({ data, pageContext }: PodcastsListProps) => {
       {featured && (
         <section className="mx-auto mb-16 w-11/12 max-w-7xl">
           <div className="mb-8 flex items-baseline border-b border-neutral-200 pb-4">
-            <h2 className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
+            <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
               Dernier Épisode
             </h2>
           </div>
@@ -130,7 +130,7 @@ const PodcastsListTemplate = ({ data, pageContext }: PodcastsListProps) => {
       {rest.length > 0 && (
         <section className="mx-auto mb-10 w-11/12 max-w-7xl">
           <div className="mb-8 flex items-baseline border-b border-neutral-200 pb-4">
-            <h2 className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
+            <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900">
               {isFirst ? 'Tous les Épisodes' : `Page ${currentPage}`}
             </h2>
           </div>

@@ -24,7 +24,7 @@ export default function MentionsLegalesPage() {
         <section aria-labelledby="editeur-heading">
           <h2
             id="editeur-heading"
-            className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+            className="font-sans mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
           >
             Éditeur du site
           </h2>
@@ -56,7 +56,7 @@ export default function MentionsLegalesPage() {
         <section aria-labelledby="hebergeur-heading">
           <h2
             id="hebergeur-heading"
-            className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+            className="font-sans mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
           >
             Hébergeur
           </h2>
@@ -92,7 +92,7 @@ export default function MentionsLegalesPage() {
         <section aria-labelledby="propriete-heading">
           <h2
             id="propriete-heading"
-            className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+            className="font-sans mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
           >
             Propriété intellectuelle
           </h2>
@@ -135,7 +135,7 @@ export default function MentionsLegalesPage() {
         <section aria-labelledby="responsabilite-heading">
           <h2
             id="responsabilite-heading"
-            className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+            className="font-sans mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
           >
             Limitation de responsabilité
           </h2>
@@ -158,7 +158,7 @@ export default function MentionsLegalesPage() {
         <section aria-labelledby="cookies-heading">
           <h2
             id="cookies-heading"
-            className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+            className="font-sans mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
           >
             Cookies
           </h2>
@@ -186,7 +186,7 @@ export default function MentionsLegalesPage() {
         <section aria-labelledby="droit-applicable-heading">
           <h2
             id="droit-applicable-heading"
-            className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+            className="font-sans mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
           >
             Droit applicable
           </h2>
