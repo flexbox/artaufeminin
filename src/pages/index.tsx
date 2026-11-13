@@ -1,7 +1,7 @@
 import { Link, graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import { RichText } from 'prismic-reactjs';
-import React, { useMemo } from 'react';
+import React from 'react';
 
 import { getArticleDate } from '../components/article-list';
 import { ContentCard } from '../components/content-card';
@@ -17,12 +17,9 @@ import {
   DeezerIcon,
   SpotifyIcon,
 } from '../components/platform-icons';
-import { useAudioPlayer } from '../components/player/AudioProvider';
-import { PlayButton } from '../components/player/PlayButton';
 import SEO from '../components/seo';
 import { EXPO, ExpoStatus, useExpoStatus } from '../utils/expo';
 import { truncateWords } from '../utils/date';
-import { formatMinutes } from '../utils/duration';
 import { stripHtml } from '../utils/html';
 import { slugify } from '../utils/slugify';
 
@@ -157,62 +154,12 @@ const SUPPORT_PLATFORMS = [
   },
 ];
 
-/* ─── Dernier épisode : lecture en un clic dans le lecteur du site ── */
-function LatestEpisodeBar({ episode }: { episode: any }) {
-  const href = `/podcasts/${slugify(episode.title)}/`;
-  const audioPlayerData = useMemo(
-    () => ({
-      title: episode.title,
-      audio: { src: episode.enclosure.url, type: 'audio/mpeg' },
-      link: href,
-    }),
-    [episode, href]
-  );
-  const player = useAudioPlayer(audioPlayerData);
-  const minutes = formatMinutes(episode.itunes.duration);
-
-  return (
-    <div className="border-b border-neutral-200 bg-white">
-      <div className="mx-auto flex w-page max-w-6xl items-center gap-5 py-5 lg:w-page-lg">
-        <PlayButton player={player} size="small" label={episode.title} />
-        <div className="min-w-0 flex-1">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
-            Dernier épisode
-            <span className="font-normal normal-case tracking-normal">
-              {' '}
-              <span className="sm:hidden">
-                · S{episode.itunes.season} · É{episode.itunes.episode}
-              </span>
-              <span className="hidden sm:inline">
-                · Saison {episode.itunes.season} · Épisode 
-                {episode.itunes.episode}
-              </span>
-              {minutes && ` · ${minutes.replace(' ', ' ')}`}
-            </span>
-          </p>
-          <Link
-            to={href}
-            className="mt-1 line-clamp-2 font-display text-base font-light leading-snug text-neutral-900 transition-colors hover:text-neutral-500 sm:truncate lg:text-lg"
-          >
-            {episode.title}
-          </Link>
-        </div>
-        <Link
-          to={href}
-          className="hidden shrink-0 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500 transition-colors hover:text-neutral-900 md:block"
-        >
-          Voir l'épisode <span aria-hidden="true">→</span>
-        </Link>
-      </div>
-    </div>
-  );
-}
-
 /* ─── Page ──────────────────────────────────────────────────────── */
 const IndexPage = ({ data }) => {
   const allEpisodes = data.allAnchorEpisode.nodes;
   const allArticles = data.allPrismicBlogPost.nodes;
-  const [latestEpisode, featuredEpisode, ...gridEpisodes] = allEpisodes;
+  const [latestEpisode, ...gridEpisodes] = allEpisodes;
+  const featuredEpisode = latestEpisode;
   const expoStatus = useExpoStatus();
 
   return (
@@ -294,8 +241,6 @@ const IndexPage = ({ data }) => {
             </div>
           </div>
         </div>
-
-        {latestEpisode && <LatestEpisodeBar episode={latestEpisode} />}
       </section>
 
       {/* ── CHIFFRES CLÉS ────────────────────────────────────────── */}
@@ -345,8 +290,7 @@ const IndexPage = ({ data }) => {
           </Link>
         </div>
 
-        {/* Grande carte : avant-dernier épisode (le dernier est dans la bande
-            de lecture sous le hero) */}
+        {/* Grande carte : dernier épisode, écoutable directement */}
         {featuredEpisode && (
           <FeaturedCard
             href={`/podcasts/${slugify(featuredEpisode.title)}/`}
@@ -530,7 +474,7 @@ export const indexPageQuery = graphql`
         description
       }
     }
-    allAnchorEpisode(sort: { isoDate: DESC }, limit: 5) {
+    allAnchorEpisode(sort: { isoDate: DESC }, limit: 4) {
       nodes {
         ...AnchorEpisodeFragment
       }
