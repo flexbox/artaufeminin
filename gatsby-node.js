@@ -48,7 +48,9 @@ const removeTipeee = (input) =>
 // Un fichier par épisode : content/transcripts/<slug>.md
 //   ---
 //   statut: publié        (ou « brouillon » : visible seulement avec
-//   ---                     TRANSCRIPTS_DRAFTS=1, pour relire en local)
+//                           TRANSCRIPTS_DRAFTS=1, pour relire en local)
+//   type: script          (facultatif : texte écrit pour l'enregistrement,
+//   ---                     sinon « transcription »)
 //   ## 04:50 — Titre de chapitre
 //   **Nom de la personne** : texte…
 // Syntaxe acceptée : intertitres « ## », paragraphes séparés par une ligne
@@ -72,6 +74,8 @@ function readTranscript(slug) {
   const raw = fs.readFileSync(file, 'utf-8');
   const frontMatter = raw.match(/^---\n([\s\S]*?)\n---\n/);
   const status = frontMatter?.[1].match(/statut:\s*(\S+)/)?.[1] ?? 'brouillon';
+  // « script » : texte écrit pour l'enregistrement ; sinon transcription
+  const kind = frontMatter?.[1].match(/type:\s*(\S+)/)?.[1] ?? 'transcription';
   if (status !== 'publié' && process.env.TRANSCRIPTS_DRAFTS !== '1')
     return null;
 
@@ -99,6 +103,7 @@ function readTranscript(slug) {
     .join('\n\n');
 
   return {
+    kind,
     html,
     text,
     readingMinutes: Math.max(1, Math.round(text.split(/\s+/).length / 230)),

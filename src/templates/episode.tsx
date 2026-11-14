@@ -90,11 +90,15 @@ export default function Episode({ pageContext }) {
                     id="transcription"
                     className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
                   >
-                    Transcription
+                    {transcript.kind === 'script'
+                      ? "Texte de l'épisode"
+                      : 'Transcription'}
                   </h2>
                   <span className="mt-2 block text-sm text-neutral-500">
-                    Texte intégral de l'épisode, relu et édité pour la lecture ·{' '}
-                    {transcript.readingMinutes} min de lecture
+                    {transcript.kind === 'script'
+                      ? "Le texte de l'épisode, tel qu'écrit pour l'enregistrement"
+                      : "Texte intégral de l'épisode, relu et édité pour la lecture"}{' '}
+                    · {transcript.readingMinutes} min de lecture
                   </span>
                 </span>
                 <span className="shrink-0 border border-neutral-300 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors group-hover:border-neutral-900 group-hover:text-neutral-900">
