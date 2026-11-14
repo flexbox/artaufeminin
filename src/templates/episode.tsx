@@ -17,6 +17,7 @@ export default function Episode({ pageContext }) {
   const episode = pageContext.itunes.episode;
   const image = pageContext.itunes.image;
   const summary = pageContext.itunes.summary;
+  const transcript = pageContext.transcript;
   const plainSummary = summary ? stripHtml(summary) : '';
   const audioPlayerData = useMemo(
     () => ({
@@ -74,6 +75,39 @@ export default function Episode({ pageContext }) {
             className="prose prose-neutral my-10 max-w-none text-neutral-600 prose-p:leading-relaxed prose-p:text-neutral-600 prose-headings:font-display prose-headings:font-light prose-a:text-neutral-900 prose-a:decoration-neutral-300 prose-a:underline-offset-4 hover:prose-a:decoration-neutral-900"
             dangerouslySetInnerHTML={{ __html: summary }}
           />
+        )}
+
+        {/* Transcription : dans le HTML (lisible par Google), repliée */}
+        {transcript && (
+          <section
+            aria-labelledby="transcription"
+            className="mt-10 border-t border-neutral-200 pt-8"
+          >
+            <details className="group">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 [&::-webkit-details-marker]:hidden">
+                <span>
+                  <h2
+                    id="transcription"
+                    className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900"
+                  >
+                    Transcription
+                  </h2>
+                  <span className="mt-2 block text-sm text-neutral-500">
+                    Texte intégral de l'épisode, relu et édité pour la lecture ·{' '}
+                    {transcript.readingMinutes} min de lecture
+                  </span>
+                </span>
+                <span className="shrink-0 border border-neutral-300 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 transition-colors group-hover:border-neutral-900 group-hover:text-neutral-900">
+                  <span className="group-open:hidden">Lire</span>
+                  <span className="hidden group-open:inline">Replier</span>
+                </span>
+              </summary>
+              <div
+                className="prose prose-neutral mt-8 max-w-none prose-p:leading-relaxed prose-p:text-neutral-600 prose-headings:font-display prose-headings:font-light prose-h3:mt-12 prose-strong:font-semibold prose-strong:text-neutral-900 [&_.transcript-time]:mr-2 [&_.transcript-time]:font-sans [&_.transcript-time]:text-xs [&_.transcript-time]:font-semibold [&_.transcript-time]:tracking-[0.2em] [&_.transcript-time]:text-neutral-500"
+                dangerouslySetInnerHTML={{ __html: transcript.html }}
+              />
+            </details>
+          </section>
         )}
 
         <hr className="separator" />
@@ -220,6 +254,9 @@ export const Head = ({
         '@type': 'AudioObject',
         contentUrl: pageContext.enclosure?.url,
         encodingFormat: 'audio/mpeg',
+        ...(pageContext.transcript && {
+          transcript: pageContext.transcript.text,
+        }),
       },
       inLanguage: 'fr',
       partOfSeries: {

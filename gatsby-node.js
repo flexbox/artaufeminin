@@ -44,6 +44,67 @@ const removeTipeee = (input) =>
         .replace(/^.*tipeee.*$\n?/gim, '')
     : input;
 
+// ── Transcriptions d'épisodes ────────────────────────────────────────────────
+// Un fichier par épisode : content/transcripts/<slug>.md
+//   ---
+//   statut: publié        (ou « brouillon » : visible seulement avec
+//   ---                     TRANSCRIPTS_DRAFTS=1, pour relire en local)
+//   ## 04:50 — Titre de chapitre
+//   **Nom de la personne** : texte…
+// Syntaxe acceptée : intertitres « ## », paragraphes séparés par une ligne
+// vide, **gras** et *italique*.
+const fs = require('fs');
+
+const TRANSCRIPTS_DIR = path.join(__dirname, 'content', 'transcripts');
+
+const escapeHtml = (text) =>
+  text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+const inlineMarkdown = (text) =>
+  escapeHtml(text)
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>');
+
+function readTranscript(slug) {
+  const file = path.join(TRANSCRIPTS_DIR, `${slug}.md`);
+  if (!fs.existsSync(file)) return null;
+
+  const raw = fs.readFileSync(file, 'utf-8');
+  const frontMatter = raw.match(/^---\n([\s\S]*?)\n---\n/);
+  const status = frontMatter?.[1].match(/statut:\s*(\S+)/)?.[1] ?? 'brouillon';
+  if (status !== 'publié' && process.env.TRANSCRIPTS_DRAFTS !== '1')
+    return null;
+
+  const body = frontMatter ? raw.slice(frontMatter[0].length) : raw;
+  const blocks = body
+    .split(/\n\s*\n/)
+    .map((b) => b.trim())
+    .filter(Boolean);
+
+  const html = blocks
+    .map((block) => {
+      const heading = block.match(/^##\s+(.+)$/);
+      if (heading) {
+        const [, time, title] = heading[1].match(
+          /^(\d{1,2}:\d{2}(?::\d{2})?)\s*[—-]\s*(.+)$/
+        ) || [null, null, heading[1]];
+        return `<h3>${time ? `<span class="transcript-time">${time}</span> ` : ''}${inlineMarkdown(title)}</h3>`;
+      }
+      return `<p>${inlineMarkdown(block.replace(/\n/g, ' '))}</p>`;
+    })
+    .join('\n');
+
+  const text = blocks
+    .map((b) => b.replace(/^##\s+/, '').replace(/\*\*|\*/g, ''))
+    .join('\n\n');
+
+  return {
+    html,
+    text,
+    readingMinutes: Math.max(1, Math.round(text.split(/\s+/).length / 230)),
+  };
+}
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
 
@@ -138,6 +199,7 @@ exports.createPages = async ({ graphql, actions }) => {
         },
         contentSnippet: removeTipeee(node.contentSnippet),
         slug,
+        transcript: readTranscript(slug),
       },
     });
   });
