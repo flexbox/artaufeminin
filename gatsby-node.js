@@ -37,6 +37,51 @@ function buildPaginatedPages(total) {
 // Create blog pages dynamically
 // Les descriptions Anchor contiennent encore un lien « Soutenir ART au féminin »
 // vers Tipeee : on retire ces paragraphes (HTML) ou ces lignes (texte brut).
+// Spotify for Creators supprime parfois les retours à la ligne des
+// descriptions (« …à Lille.Au programme :• Le métier… »). On remet des
+// coupures là où le texte est visiblement collé, sans toucher aux balises.
+const PARAGRAPH = '</p><p>';
+const LINE = '<br>';
+const SECTION_STARTS = [
+  'Au programme',
+  'Chapitres',
+  'Merci',
+  'Si cet épisode',
+  'Sources',
+  'Références',
+];
+const restoreLineBreaks = (html) =>
+  html
+    ? html
+        .split(/(<[^>]+>)/)
+        .map((part) =>
+          part.startsWith('<')
+            ? part
+            : part
+                // « ?Pour », « Lille.Au » : fin de phrase collée à la suivante
+                // (espace avant « ? » / « ! » en français)
+                .replace(
+                  /(?<=[a-zà-ÿ0-9)»] ?)([.?!…])(?=[A-ZÀ-Ý«])/g,
+                  `$1${PARAGRAPH}`
+                )
+                // début de section collé au mot précédent
+                .replace(
+                  new RegExp(
+                    `(?<=[a-zà-ÿ])(?=(${SECTION_STARTS.join('|')})(?![a-zà-ÿ]))`,
+                    'g'
+                  ),
+                  PARAGRAPH
+                )
+                // puces « • » collées
+                .replace(/(?<=\S)\s*•\s*/g, `${LINE}• `)
+                // liens « 🔗 » : un par ligne
+                .replace(/(?<=\S)\s*🔗\s*/gu, `${LINE}🔗 `)
+                // horaires de chapitre collés : « FÉMININ04:50 »
+                .replace(/(?<=[A-Za-zÀ-ÿ.])(?=\d{1,2}:\d{2}\b)/g, LINE)
+        )
+        .join('')
+    : html;
+
 const removeTipeee = (input) =>
   input
     ? input
@@ -200,7 +245,7 @@ exports.createPages = async ({ graphql, actions }) => {
         ...node,
         itunes: {
           ...node.itunes,
-          summary: removeTipeee(node.itunes.summary),
+          summary: restoreLineBreaks(removeTipeee(node.itunes.summary)),
         },
         contentSnippet: removeTipeee(node.contentSnippet),
         slug,
